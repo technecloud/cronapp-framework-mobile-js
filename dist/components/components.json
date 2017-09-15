@@ -1,0 +1,931 @@
+{
+  "name": "cronos-components-mobile-phonegap",
+  "version": "1.0.0",
+  "components": [
+    {
+      "name": "crn-datasource",
+      "text": "Datasource",
+      "class": "adjust-icon mdi mdi-table-large",
+      "template": "<datasource name=\"\" entity=\"\" keys=\"\" rows-per-page=\"100\" on-before-create=\"\" on-after-create=\"\" on-before-update=\"\" on-after-update=\"\" on-before-delete=\"\" on-after-delete=\"\" on-after-fill=\"\"><i class=\"cpn cpn-datasource\" ></i></datasource>",
+      "properties": {
+        "entity": {
+          "removable": false,
+          "type": "datasourceList"
+        },
+        "keys": {
+          "removable": false,
+          "type": "datasourceKeys"
+        },
+        "filter": {
+          "removable": true,
+          "global": true
+        },
+        "on-before-create": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-before-update": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-before-delete": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-after-create": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-after-update": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-after-delete": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-after-fill": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "on-error": {
+          "removable": true,
+          "type": "event",
+          "global": true
+        },
+        "dependent-by": {
+          "removable": false,
+          "global": true
+        },
+        "dependent-lazy-post": {
+          "removable": false,
+          "global": true
+        },
+        "dependent-lazy-post-field": {
+          "removable": false,
+          "global": true
+        }
+      }
+    },
+    {
+      "name": "crn-anchor",
+      "text": "Link",
+      "class": "adjust-icon mdi mdi-link",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/anchor.template.html",
+      "properties": {
+        "onclick": {
+          "type": "event"
+        },
+        "target": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "_blank",
+              "value": "Nova janela"
+            },
+            {
+              "key": "_self",
+              "value": "Mesma janela"
+            },
+            {
+              "key": "_parent",
+              "value": "Janela pai"
+            },
+            {
+              "key": "_top",
+              "value": "Top"
+            }
+          ]
+        },
+        "href": {
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "text/html"
+        },
+        "xattr-fullsize": {
+          "displayName": "Width"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-fullsize",
+          "type": "options",
+          "target": "style",
+          "values": [
+            {
+              "key": "display:block;",
+              "value": "Block"
+            },
+            {
+              "key": "display:inline;",
+              "value": "Inline"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crn-tabs",
+      "text": "Tabs",
+      "class": "cpn cpn-tabs",
+      "pallete": false,
+      "properties": {
+        "orientation": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "top",
+              "value": "No topo"
+            },
+            {
+              "key": "bottom",
+              "value": "Na base"
+            }
+          ]
+        }
+      },
+      "handleRules": {
+        "canOrder": true,
+        "canActivate": true,
+        "canIncrement": true,
+        "rules": [
+          {
+            "activeClass": "active",
+            "sourceHTML": "<a href='#' class='tab-item component-holder' target='_self' data-component='crn-anchor'>Link</a>",
+            "targetSelector": "div.tabs"
+          }
+        ]
+      },
+      "templateURL": "src/main/mobileapp/www/components/templates/tabs.template.html"
+    },
+    {
+      "name": "crn-navbar",
+      "text": "MenuItem",
+      "class": "cpn cpn-navbar",
+      "template": "",
+      "pallete": false,
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<div menu-close class=\"item-icon-left item item-complex\"><a href=\"#\" class=\"component-holder item-content ng-binding\" data-component=\"crn-anchor\"><i class=\"icon ion-home\"></i> Action item</a></div> ",
+            "targetSelector": ".nav.navbar-nav"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-list-item-avatar",
+      "text": "List Item Avatar",
+      "class": "adjust-icon mdi mdi-view-list",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/item.avatar.template.html"
+    },
+    
+    {
+      "name": "crn-list-item-icon",
+      "text": "List Item Icon",
+      "class": "adjust-icon mdi mdi-view-list",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/item.icon.template.html"
+    },
+    {
+      "name": "crn-list-item-thumbnail",
+      "text": "List Item Thumbnail",
+      "class": "adjust-icon mdi mdi-view-list",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/item.thumbnail.template.html"
+    },
+    {
+      "name": "crn-list-item-divider",
+      "text": "List Item Divider",
+      "class": "adjust-icon mdi mdi-view-list",
+      "wrapper": false,
+      "template": "<ion-item  class=\"item item-divider \">Item Divider</ion-item>"
+    },
+    {
+      "name": "crn-toggle",
+      "text": "Toggle",
+      "class": "adjust-icon mdi mdi-toggle-switch-off",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/toggle.template.html"
+    },
+    {
+      "name": "crn-report-button",
+      "text": "Button Report",
+      "class": "adjust-icon mdi mdi-code-equal",
+      "templateURL": "src/main/mobileapp/www/components/templates/button-report.template.html",
+      "properties": {
+        "ng-click": {
+          "type": "report-event"
+        },
+        "onmouseover": {
+          "removable": true,
+          "type": "event"
+        }
+      }
+    },
+    {
+      "name": "crn-list",
+      "text": "List",
+      "class": "adjust-icon mdi mdi-view-headline",
+      "templateURL": "src/main/mobileapp/www/components/templates/list.template.html",
+      "properties": {
+        "onclick": {
+          "type": "event"
+        }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<ion-item  class=\"item\">Item 1</ion-item>",
+            "targetSelector": ".list"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-list-item",
+      "text": "List Item Normal",
+      "wrapper": false,
+      "class": "adjust-icon mdi mdi-view-sequential",
+      "template": "<ion-item  class=\"item dark\" xattr-theme=\"dark\">Item 1</ion-item>",
+      "properties": {
+        "xattr-theme": {
+          "displayName": "Theme"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crn-select",
+      "text": "Select",
+      "class": "adjust-icon mdi mdi-equal-box",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/combobox.template.html"
+    },
+    {
+      "name": "crn-select-options",
+      "text": "Select",
+      "pallete": false,
+      "class": "adjust-icon mdi mdi-equal-box",
+      "wrapper": true,
+      "template": "<div> select class=\"selectTeste\"> <option>Blue</option> <option selected>Green</option> <option>Red</option> </select> </div>",
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": " <option class=\"\"> Option</option>",
+            "targetSelector": ".selectTeste"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-textarea",
+      "text": "Textarea",
+      "class": "adjust-icon mdi mdi-panorama-horizontal",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/textarea.template.html"
+    },
+    {
+      "name": "crn-search",
+      "text": "Search",
+      "class": "adjust-icon mdi mdi-magnify",
+      "templateURL": "src/main/mobileapp/www/components/templates/search.template.html"
+    },
+    {
+      "name": "crn-range",
+      "text": "Range",
+      "class": "adjust-icon mdi mdi-toggle-switch",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/range.template.html"
+    },
+    {
+      "name": "crn-input",
+      "text": "Input",
+      "class": "adjust-icon mdi mdi-label-outline",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/textinput.template.html"
+    },
+    {
+      "name": "crn-radio",
+      "text": "Radio",
+      "class": "adjust-icon mdi mdi-radiobox-marked",
+      "wrapper": true,
+      "templateURL": "src/main/mobileapp/www/components/templates/radiogroup.template.html",
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<label class=\"item item-radio\"><input type=\"radio\" name=\"group\" value=\"go\" checked=\"checked\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label>",
+            "targetSelector": ".list, .radio-group"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-checkbox",
+      "text": "Checkbox",
+      "class": "adjust-icon mdi mdi-checkbox-marked-outline",
+      "wrapper": true,
+      "templateURL": "src/main/mobileapp/www/components/templates/checkbox.template.html",
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<li class=\"item item-checkbox\"><label class=\"checkbox\"><input type=\"checkbox\" checked=\"\"></label> Choose Other</li>",
+            "targetSelector": ".list, .checkbox-group"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-spacer",
+      "text": "Spacer",
+      "class": " adjust-icon mdi mdi-unfold-more",
+      "wrapper": false,
+      "template": "<div style= \"height: 100px;\">&nbsp;</div>"
+    },
+    {
+      "name": "crn-video",
+      "text": "Video",
+      "class": "adjust-icon mdi mdi-youtube-play",
+      "templateURL": "src/main/mobileapp/www/components/templates/video.template.html"
+    },
+    {
+      "name": "crn-map",
+      "text": "Map",
+      "class": " adjust-icon mdi mdi-google-maps",
+      "templateURL": "src/main/mobileapp/www/components/templates/maps.template.html"
+    },
+    {
+      "name": "crn-slider",
+      "text": "Slider",
+      "class": "adjust-icon mdi mdi-view-carousel",
+      "templateURL": "src/main/mobileapp/www/components/templates/slider.template.html",
+      "wrapper": false,
+      "properties": {
+        "xattr-collapse": {
+          "displayName": "Collapse"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-collapse",
+          "type": "btngroup",
+          "value": "true",
+          "values": [
+            {
+              "key": "true",
+              "value": "true"
+            },
+            {
+              "key": "false",
+              "value": "false"
+            }
+          ]
+        }
+      ],
+      "classForPreview": {
+        "targetSelector": ".crn-slider",
+        "condition": [
+          {
+            "name": "xattr-collapse",
+            "value": "true",
+            "class": "hide-ion-slider"
+          },
+          {
+            "name": "xattr-collapse",
+            "value": "false",
+            "class": ""
+          }
+        ]
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": " <ion-slide><div class=\"box text-center\" data-replace=\"true\"> SLIDER </div></ion-slide>",
+            "targetSelector": ".hideTest"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-image",
+      "text": "Image",
+      "class": " adjust-icon mdi mdi-image",
+      "wrapper": false,
+      "template": "<img src=\"img/nophoto.png\" class=\"\" style=\"display:block; width: 100px; height:100px;\" xattr-position=\"\">",
+      "properties": {
+        "src": {
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        "onclick": {
+          "removable": true,
+          "type": "event"
+        },
+        "xattr-position": {
+          "displayName": "Position"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-position",
+          "type": "btngroup",
+          "target": "style",
+          "values": [
+            {
+              "key": "magin-right:auto;",
+              "value": "Standard",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "margin-left:auto; margin-right:auto;",
+              "value": "Middle",
+              "icon": "mdi mdi-ray-vertex"
+            },
+            {
+              "key": "margin-left:auto;",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crn-card",
+      "text": "Card",
+      "class": "adjust-icon mdi mdi-crop-square",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/card.template.html"
+    },
+    {
+      "name": "crn-container",
+      "text": "Container",
+      "class": "adjust-icon mdi mdi-select",
+      "wrapper": false,
+      "template": "<div data-replace=\"true\">&nbsp;</div>"
+    },
+    {
+      "name": "crn-heading",
+      "text": "Heading",
+      "class": "adjust-icon mdi mdi-format-header-pound",
+      "wrapper": false,
+      "template": "<h1>Heading</h1>"
+    },
+    {
+      "name": "crn-icon",
+      "displayName":"icon",
+      "text": "Icon",
+      "class":"adjust-icon mdi mdi-star",
+      "template": "<i class=\"ion ion-star\"/>",
+      "wrapper":false,
+      "properties": {
+        "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "onmouseover": {
+          "removable": true,
+          "type": "event"
+        }
+      }
+    },
+    {
+      "name": "crn-paragraph",
+      "text": "Paragraph",
+      "class": "adjust-icon mdi  mdi-format-paragraph",
+      "wrapper": false,
+      "template": "<p>Some friendly <strong>markdown</strong></p>"
+    },
+    {
+      "name": "crn-item-swipe",
+      "text": "List Item Swipe",
+      "class": "adjust-icon mdi mdi-minus",
+      "pallete": false,
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/item.swipe.template.html",
+      "properties": {
+        "onclick": {
+          "type": "event"
+        }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "",
+            "targetSelector": ".item"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-list-swipe",
+      "text": "List Swipe",
+      "class": "adjust-icon mdi mdi-ray-end-arrow",
+      "templateURL": "src/main/mobileapp/www/components/templates/list.swipe.template.html",
+      "properties": {
+        "onclick": {
+          "type": "event"
+        }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<ion-item class=\"item\"> <div class=\"row\"> <div class=\"col\" > Item </div> </div> <div class=\"component-holder\" data-component=\"crn-item-options\"> <div class=\"crn-item-options\" data-item=\"true\"> <ion-option-button class=\"button-assertive button\"> <i class=\"icon ion-trash-a\">delete</i></ion-option-button><ion-option-button class=\"button-positive button\"> <i class=\"icon ion-edit\">edit</i> </ion-option-button> </div> </div> </ion-item>",
+            "targetSelector": ".listCanSwipe"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-button",
+      "text": "Button",
+      "class": "adjust-icon mdi mdi-stop",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/button.template.html",
+      "properties": {
+        "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "onmouseover": {
+          "removable": true,
+          "type": "event"
+        },
+        "xattr-fullsize": {
+          "displayName": "Width"
+        },
+        "xattr-theme": {
+          "displayName": "Theme"
+        },
+        "xattr-type": {
+          "displayName": "Style Type"
+        },
+        "xattr-size": {
+          "displayName": "Size"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-size",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Standard"
+            },
+            {
+              "key": "button-large",
+              "value": "Large"
+            },
+            {
+              "key": "button-small",
+              "value": "Small"
+            }
+          ]
+        },
+        {
+          "name": "xattr-type",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "button-clear",
+              "value": "Clear"
+            },
+            {
+              "key": "button-outline",
+              "value": "Outline"
+            }
+          ]
+        },
+        {
+          "name": "xattr-fullsize",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "button-block",
+              "value": "Block"
+            },
+            {
+              "key": "",
+              "value": "Inline"
+            },
+            {
+              "key": "button-full",
+              "value": "Full Width"
+            }
+          ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "button-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "button-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "button-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "button-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "button-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "button-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "button-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "button-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "button-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crn-button-bar",
+      "text": "Button Bar",
+      "class": "adjust-icon mdi mdi-view-module",
+      "templateURL": "src/main/mobileapp/www/components/templates/button-bar.template.html",
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<button class=\"component-holder button button-positive button-block\" data-component=\"crn-button\"type=\"submit\" ng-click=\"\" xattr-size=\"\" xattr-type=\"\" xattr-theme=\"button-positive\" xattr-fullsize=\"button-block\"><i class=\"icon ion-home icon-left\"></i><span> Button</span></button>",
+            "targetSelector": ".button-bar"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-item-options",
+      "text": "Item Options",
+      "class": "adjust-icon mdi mdi-microsoft",
+      "templateURL": "src/main/mobileapp/www/components/templates/item.options.template.html",
+      "pallete": false,
+      "classForPreview": {
+        "targetSelector": ".crn-item-options",
+        "condition": [
+          {
+            "name": "data-item",
+            "value": "true",
+            "class": "item-options"
+          }
+        ]
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>",
+            "targetSelector": ".crn-item-options"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-option-button",
+      "text": "Option Button",
+      "pallete": false,
+      "class": "adjust-icon mdi mdi-stop",
+      "template": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>"
+    },
+    {
+      "name": "crn-ion-nav-buttons",
+      "text": "Nav Button",
+      "class": "adjust-icon mdi mdi-tab",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/nav.bar.template.html",
+      "classForPreview": {
+        "targetSelector": ".crn-ion-nav-buttons",
+        "condition": [
+          {
+            "name": "side",
+            "value": "right",
+            "class": "crn-nav-button-right"
+          },
+          {
+            "name": "side",
+            "value": "left",
+            "class": "crn-nav-button-left"
+          }
+        ]
+      },
+      "attributesForPreview": [
+        {
+          "name": "side",
+          "type": "btngroup",
+          "values": [
+            {
+              "key": "left",
+              "value": "left",
+              "icon": "glyphicon glyphicon-align-left"
+            },
+            {
+              "key": "right",
+              "value": "right",
+              "icon": "glyphicon glyphicon-align-right"
+            }
+          ]
+        }
+      ],
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<button class=\"button button-stable\"><i class=\"icon ion-plus-round\"></i></button>",
+            "targetSelector": ".crn-ion-nav-buttons"
+          }
+        ]
+      }
+    },
+    {
+      "name": "crn-ion-view",
+      "text": "Ionic View",
+      "class": "adjust-icon mdi mdi-airplay",
+      "wrapper": false,
+      "template": "<ion-view view-title=\"Title\" > <ion-content data-replace=\"true\"></ion-content></ion-view>"
+    },
+    {
+      "name": "crn-from-crud",
+      "text": "Form Crud",
+      "class": "adjust-icon mdi mdi-file-document",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/components/templates/form.template.html"
+    },
+    {
+      "name": "crn-toggle-button",
+      "text": "Toggle Button",
+      "class": "adjust-icon mdi mdi-toggle-switch-off",
+      "pallete": false,
+      "wrapper": false,
+      "template": "<label class=\"toggle toggle-balanced\" xattr-theme=\"toggle-balanced\"><input type=\"checkbox\" checked><div class=\"track\"><div class=\"handle\"></div> </div> </label>",
+      "properties": {
+        "xattr-theme": {
+          "displayName": "Theme"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "toggle-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "toggle-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "toggle-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "toggle-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "toggle-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "toggle-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "toggle-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "toggle-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "toggle-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
