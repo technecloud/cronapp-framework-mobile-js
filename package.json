@@ -8,17 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tarsomatos/cronapp-framework-js.git"
+    "url": "git+https://github.com/technecloud/cronapp-framework-mobile-js.git"
   },
   "author": "Arthemus Cicotti Moreira",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tarsomatos/cronapp-framework-js/issues"
+    "url": "https://github.com/technecloud/cronapp-framework-mobile-js/issues"
   },
-  "homepage": "https://github.com/tarsomatos/cronapp-framework-js#readme",
+  "homepage": "https://github.com/technecloud/cronapp-framework-mobile-js#readme",
   "keywords": [
     "cronapp",
-    "cronapp-framework",
+	"cronapp-framework",
+    "cronapp-framework-mobile",
     "javascript"
   ],
   "devDependencies": {
