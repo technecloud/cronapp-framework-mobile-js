@@ -79,7 +79,7 @@
       "text": "Link",
       "class": "adjust-icon mdi mdi-link",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/anchor.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/anchor.template.html",
       "properties": {
         "onclick": {
           "type": "event"
@@ -166,7 +166,7 @@
           }
         ]
       },
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/tabs.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/tabs.template.html"
     },
     {
       "name": "crn-navbar",
@@ -189,7 +189,7 @@
       "text": "List Item Avatar",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/item.avatar.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/item.avatar.template.html"
     },
     
     {
@@ -197,14 +197,14 @@
       "text": "List Item Icon",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/item.icon.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/item.icon.template.html"
     },
     {
       "name": "crn-list-item-thumbnail",
       "text": "List Item Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/item.thumbnail.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/item.thumbnail.template.html"
     },
     {
       "name": "crn-list-item-divider",
@@ -218,13 +218,13 @@
       "text": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/toggle.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/toggle.template.html"
     },
     {
       "name": "crn-report-button",
       "text": "Button Report",
       "class": "adjust-icon mdi mdi-code-equal",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/button-report.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/button-report.template.html",
       "properties": {
         "ng-click": {
           "type": "report-event"
@@ -239,7 +239,7 @@
       "name": "crn-list",
       "text": "List",
       "class": "adjust-icon mdi mdi-view-headline",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/list.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/list.template.html",
       "properties": {
         "onclick": {
           "type": "event"
@@ -326,7 +326,7 @@
       "text": "Select",
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/combobox.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/combobox.template.html"
     },
     {
       "name": "crn-select-options",
@@ -350,34 +350,34 @@
       "text": "Textarea",
       "class": "adjust-icon mdi mdi-panorama-horizontal",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/textarea.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/textarea.template.html"
     },
     {
       "name": "crn-search",
       "text": "Search",
       "class": "adjust-icon mdi mdi-magnify",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/search.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/search.template.html"
     },
     {
       "name": "crn-range",
       "text": "Range",
       "class": "adjust-icon mdi mdi-toggle-switch",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/range.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/range.template.html"
     },
     {
       "name": "crn-input",
       "text": "Input",
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/textinput.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/textinput.template.html"
     },
     {
       "name": "crn-radio",
       "text": "Radio",
       "class": "adjust-icon mdi mdi-radiobox-marked",
       "wrapper": true,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/radiogroup.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/radiogroup.template.html",
       "handleRules": {
         "canIncrement": true,
         "rules": [
@@ -393,7 +393,7 @@
       "text": "Checkbox",
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
       "wrapper": true,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/checkbox.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/checkbox.template.html",
       "handleRules": {
         "canIncrement": true,
         "rules": [
@@ -415,19 +415,19 @@
       "name": "crn-video",
       "text": "Video",
       "class": "adjust-icon mdi mdi-youtube-play",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/video.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/video.template.html"
     },
     {
       "name": "crn-map",
       "text": "Map",
       "class": " adjust-icon mdi mdi-google-maps",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/maps.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/maps.template.html"
     },
     {
       "name": "crn-slider",
       "text": "Slider",
       "class": "adjust-icon mdi mdi-view-carousel",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/slider.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/slider.template.html",
       "wrapper": false,
       "properties": {
         "xattr-collapse": {
@@ -526,7 +526,7 @@
       "text": "Card",
       "class": "adjust-icon mdi mdi-crop-square",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/card.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/card.template.html"
     },
     {
       "name": "crn-container",
@@ -573,7 +573,7 @@
       "class": "adjust-icon mdi mdi-minus",
       "pallete": false,
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/item.swipe.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/item.swipe.template.html",
       "properties": {
         "onclick": {
           "type": "event"
@@ -593,7 +593,7 @@
       "name": "crn-list-swipe",
       "text": "List Swipe",
       "class": "adjust-icon mdi mdi-ray-end-arrow",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/list.swipe.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/list.swipe.template.html",
       "properties": {
         "onclick": {
           "type": "event"
@@ -614,7 +614,7 @@
       "text": "Button",
       "class": "adjust-icon mdi mdi-stop",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/button.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/button.template.html",
       "properties": {
         "ng-click": {
           "removable": true,
@@ -753,7 +753,7 @@
       "name": "crn-button-bar",
       "text": "Button Bar",
       "class": "adjust-icon mdi mdi-view-module",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/button-bar.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/button-bar.template.html",
       "handleRules": {
         "canIncrement": true,
         "rules": [
@@ -768,7 +768,7 @@
       "name": "crn-item-options",
       "text": "Item Options",
       "class": "adjust-icon mdi mdi-microsoft",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/item.options.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/item.options.template.html",
       "pallete": false,
       "classForPreview": {
         "targetSelector": ".crn-item-options",
@@ -802,7 +802,7 @@
       "text": "Nav Button",
       "class": "adjust-icon mdi mdi-tab",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/nav.bar.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/nav.bar.template.html",
       "classForPreview": {
         "targetSelector": ".crn-ion-nav-buttons",
         "condition": [
@@ -858,7 +858,7 @@
       "text": "Form Crud",
       "class": "adjust-icon mdi mdi-file-document",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-js/components/templates/form.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/form.template.html"
     },
     {
       "name": "crn-toggle-button",
