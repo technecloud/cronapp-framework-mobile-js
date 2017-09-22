@@ -14,7 +14,7 @@ gulp.task('minify-js', function() {
 });
 
 gulp.task('minify-css', function() {
-  return gulp.src(['css/app.css', 'css/cronos-bootstrap.css', 'css/cronos-template.css', 'css/cronos.css'])
+  return gulp.src('css/**')
     .pipe(uglifycss())
     .pipe(gulp.dest('dist/css/'));
 });

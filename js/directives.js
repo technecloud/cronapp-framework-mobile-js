@@ -15,6 +15,8 @@
   
     var parsePermission = function(perm) {
 
+
+
     var result = {
       visible: {
         public: true
@@ -22,6 +24,33 @@
       enabled: {
         public: true
       }
+    }
+
+    if (perm) {
+      var perms = perm.toLowerCase().trim().split(",");
+      for (var i=0;i<perms.length;i++) {
+        var p = perms[i].trim();
+        if (p) {
+          var pair = p.split(":");
+          if (pair.length == 2) {
+            var key = pair[0].trim();
+            var value = pair[1].trim();
+            if (value) {
+              var values = value.split(";");
+              var json = {};
+              for (var j=0;j<values.length;j++) {
+                var v = values[j].trim();
+                if (v) {
+                  json[v] = true;
+                }
+              }
+              result[key] = json;
+            }
+          }
+        }
+      }
+    }
+    return result;
     }
 
   /**
