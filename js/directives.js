@@ -12,6 +12,17 @@
     }
     return 'DD/MM/YYYY';
   }
+  
+    var parsePermission = function(perm) {
+
+    var result = {
+      visible: {
+        public: true
+      },
+      enabled: {
+        public: true
+      }
+    }
 
   /**
    * Em todo elemento que possuir o atibuto as-date será
@@ -152,6 +163,41 @@
             }
             return (fieldValid || !value);
           };
+        }
+      }
+    })
+	
+	.directive('cronappSecurity', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+          var roles = [];
+          if (scope.session && scope.session.roles) {
+            roles = scope.session.roles.toLowerCase().split(",");
+          }
+
+          var perms = parsePermission(attrs.cronappSecurity);
+          var show = false;
+          var enabled = false;
+          for (var i=0;i<roles.length;i++) {
+            var role = roles[i].trim();
+            if (role) {
+              if (perms.visible[role]) {
+                show = true;
+              }
+              if (perms.enabled[role]) {
+                enabled = true;
+              }
+            }
+          }
+
+          if (!show) {
+            $(element).hide();
+          }
+
+          if (!enabled) {
+            $(element).find('*').addBack().attr('disabled', true);
+          }
         }
       }
     })
