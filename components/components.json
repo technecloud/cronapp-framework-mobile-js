@@ -216,8 +216,16 @@
 			"name": "crn-toggle",
 			"text": "Toggle",
 			"class": "adjust-icon mdi mdi-toggle-switch-off",
-			"wrapper": false,
-			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html"
+			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
+			"handleRules": {
+				"canIncrement": true,
+				"rules": [
+					{
+						"sourceHTML": " <li class=\"item item-toggle\"> Choose Other <label data-component=\"crn-toggle-button\" class=\"toggle toggle-balanced\"> <input type=\"checkbox\"> <div class=\"track\"><div class=\"handle\"></div></div></label></li> ",
+						"targetSelector": ".toggle-group"
+					}
+				]
+			}
 		},
 		{
 			"name": "crn-report-button",
@@ -348,9 +356,52 @@
 		{
 			"name": "crn-textarea",
 			"text": "Textarea",
-			"class": "adjust-icon mdi mdi-panorama-horizontal",
-			"wrapper": false,
-			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/textarea.template.html"
+			"class": "adjust-icon mdi mdi-textbox",
+			"template": "<div class=\"\"><textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea></div>",
+			"properties": {
+				"ng-model": {
+					"onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1) { result = 'vars.'+result;  }  return result; }",
+					"onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+				}
+			},
+			"rows": {
+				"displayName": "rows"
+			},
+			"rezise": {
+				"displayName": "resize"
+			},
+			"groupedChildren": [
+				{
+					"text_pt_BR": "Campo",
+					"text_en_US": "Field",
+					"selector": "textarea"
+				}
+			],
+			"attributesForPreview": [
+				{
+					"name": "resize",
+					"type": "options",
+					"target": "style",
+					"values": [
+						{
+							"key": "resize:none;",
+							"value": "None"
+						},
+						{
+							"key": "resize:horizontal;",
+							"value": "Horizontal"
+						},
+						{
+							"key": "resize:vertical;",
+							"value": "Vertical"
+						},
+						{
+							"key": "resize:both;",
+							"value": "Both "
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "crn-search",
@@ -407,7 +458,7 @@
 		{
 			"name": "crn-spacer",
 			"text": "Spacer",
-			"class": " adjust-icon mdi mdi-unfold-more",
+			"class": " adjust-icon mdi mdi-file-presentation-box",
 			"wrapper": false,
 			"template": "<div style= \"height: 100px;\">&nbsp;</div>"
 		},
