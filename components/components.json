@@ -222,6 +222,7 @@
 		{
 			"name": "crn-report-button",
 			"text": "Button Report",
+			"wrapper": false,
 			"class": "adjust-icon mdi mdi-code-equal",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button-report.template.html",
 			"properties": {
