@@ -817,7 +817,10 @@
 			"text": "Button Bar",
 			"class": "adjust-icon mdi mdi-view-module",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button-bar.template.html",
+<<<<<<< HEAD
 			"forcedGroup" : true,
+=======
+>>>>>>> branch 'master' of https://github.com/technecloud/cronapp-framework-mobile-js
 			"handleRules": {
 				"canIncrement": true,
 				"rules": [

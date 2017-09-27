@@ -5,16 +5,18 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   uglifycss = require('gulp-uglifycss'),
   imagemin = require('gulp-imagemin'),
-  htmlmin = require('gulp-htmlmin')
+  htmlmin = require('gulp-htmlmin'),
+  ngAnnotate = require('gulp-ng-annotate')
 
 gulp.task('minify-js', function() {
   return gulp.src('js/**')
+	.pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(gulp.dest('dist/js/'));
 });
 
 gulp.task('minify-css', function() {
-  return gulp.src(['css/app.css', 'css/cronos-bootstrap.css', 'css/cronos-template.css', 'css/cronos.css'])
+  return gulp.src('css/**')
     .pipe(uglifycss())
     .pipe(gulp.dest('dist/css/'));
 });
