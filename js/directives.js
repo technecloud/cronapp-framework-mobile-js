@@ -12,6 +12,46 @@
     }
     return 'DD/MM/YYYY';
   }
+  
+    var parsePermission = function(perm) {
+
+
+
+    var result = {
+      visible: {
+        public: true
+      },
+      enabled: {
+        public: true
+      }
+    }
+
+    if (perm) {
+      var perms = perm.toLowerCase().trim().split(",");
+      for (var i=0;i<perms.length;i++) {
+        var p = perms[i].trim();
+        if (p) {
+          var pair = p.split(":");
+          if (pair.length == 2) {
+            var key = pair[0].trim();
+            var value = pair[1].trim();
+            if (value) {
+              var values = value.split(";");
+              var json = {};
+              for (var j=0;j<values.length;j++) {
+                var v = values[j].trim();
+                if (v) {
+                  json[v] = true;
+                }
+              }
+              result[key] = json;
+            }
+          }
+        }
+      }
+    }
+    return result;
+    }
 
   /**
    * Em todo elemento que possuir o atibuto as-date será
@@ -152,6 +192,41 @@
             }
             return (fieldValid || !value);
           };
+        }
+      }
+    })
+	
+	.directive('cronappSecurity', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+          var roles = [];
+          if (scope.session && scope.session.roles) {
+            roles = scope.session.roles.toLowerCase().split(",");
+          }
+
+          var perms = parsePermission(attrs.cronappSecurity);
+          var show = false;
+          var enabled = false;
+          for (var i=0;i<roles.length;i++) {
+            var role = roles[i].trim();
+            if (role) {
+              if (perms.visible[role]) {
+                show = true;
+              }
+              if (perms.enabled[role]) {
+                enabled = true;
+              }
+            }
+          }
+
+          if (!show) {
+            $(element).hide();
+          }
+
+          if (!enabled) {
+            $(element).find('*').addBack().attr('disabled', true);
+          }
         }
       }
     })
