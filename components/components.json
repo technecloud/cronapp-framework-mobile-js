@@ -421,7 +421,21 @@
 			"text": "Input",
 			"class": "adjust-icon mdi mdi-label-outline",
 			"wrapper": false,
-			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/textinput.template.html"
+			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/textinput.template.html",
+			"childrenProperties": [
+				{
+					"name": "placeholder",
+					"selector": "input[placeholder]",
+					"displayName_pt_BR": "Sugestão",
+					"displayName_en_US": "Placeholder"
+				},
+				{
+					"name": "ng-model",
+					"selector": "input[ng-model]",
+					"displayName_pt_BR": "Campo",
+					"displayName_en_US": "Field"
+				}
+			]
 		},
 		{
 			"name": "crn-radio",
