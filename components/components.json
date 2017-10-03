@@ -795,7 +795,36 @@
 			"text": "Paragraph",
 			"class": "adjust-icon mdi  mdi-format-paragraph",
 			"wrapper": false,
-			"template": "<p>Some friendly <strong>markdown</strong></p>"
+			"template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly <strong>markdown</strong></p>",
+			"properties": {
+				"xattr-position": {
+					"displayName": "Position"
+				}
+			},
+			"attributesForPreview": [
+				{
+					"name": "xattr-position",
+					"type": "btngroup",
+					"target": "class",
+					"values": [
+						{
+							"key": "text-left",
+							"value": "Standard",
+							"icon": "mdi mdi-ray-start"
+						},
+						{
+							"key": "text-center",
+							"value": "Middle",
+							"icon": "mdi mdi-ray-vertex"
+						},
+						{
+							"key": "text-right",
+							"value": "Right",
+							"icon": "mdi mdi-ray-end"
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "crn-item-swipe",
