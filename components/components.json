@@ -741,7 +741,36 @@
 			"text": "Heading",
 			"class": "adjust-icon mdi mdi-format-header-pound",
 			"wrapper": false,
-			"template": "<h1>Heading</h1>"
+			"template": "<h1>Heading</h1>",
+			"properties": {
+				"xattr-position": {
+					"displayName": "Position"
+				}
+			},
+			"attributesForPreview": [
+				{
+					"name": "xattr-position",
+					"type": "btngroup",
+					"target": "class",
+					"values": [
+						{
+							"key": "text-left",
+							"value": "Standard",
+							"icon": "mdi mdi-ray-start"
+						},
+						{
+							"key": "text-center",
+							"value": "Middle",
+							"icon": "mdi mdi-ray-vertex"
+						},
+						{
+							"key": "text-right",
+							"value": "Right",
+							"icon": "mdi mdi-ray-end"
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "crn-icon",
