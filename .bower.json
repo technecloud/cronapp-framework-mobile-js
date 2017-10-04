@@ -1,9 +1,9 @@
 {
   "name": "cronapp-framework-mobile-js",
-  "version": "0.0.11-develop",
+  "version": "0.0.14-develop",
   "homepage": "https://github.com/technecloud/cronapp-framework-mobile-js",
   "authors": [
-    "Arthemus Cicotti Moreira <arthemus.moreira@gmail.com>"
+    "Techne Engenharia e Sistemas <contato@cronapp.io>"
   ],
   "description": "Javascript library for CronApp's projects",
   "main": "cronapp.framework.js",
