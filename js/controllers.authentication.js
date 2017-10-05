@@ -95,9 +95,8 @@
       '$translate', 
       'Notification', 
       '$ionicHistory',
-      '$cordovaVibration',
       '$ionicModal',
-      function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $cordovaVibration, $ionicModal) {
+      function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal) {
         
 		app.registerEventsCronapi($scope, $translate);
 		$rootScope.http = $http;
@@ -129,14 +128,6 @@
         $scope.selecionado = {
           valor : 1
         }
-
-        $scope.vibrate = function() {
-          try {
-             $cordovaVibration.vibrate(1000);   
-          } catch (err) {
-            console.log('cordovaVibration.vibrate');
-          }
-        };
         
         // When access home page we have to check
         // if the user is authenticated and the userData
