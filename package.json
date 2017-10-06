@@ -2,7 +2,7 @@
   "name": "cronapp-framework-mobile-js",
   "version": "0.0.17-develop",
   "description": "Javascript library for CronApp's projects",
-  "main": "cronapp.framework.js",
+  "main": "cronapp.framework.mobile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/technecloud/cronapp-framework-mobile-js.git"
   },
-  "author": "Techne Engenharia e Sistemas",
+  "author": "Tarso Matos Araujo",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/technecloud/cronapp-framework-mobile-js/issues"

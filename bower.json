@@ -3,10 +3,10 @@
   "version": "0.0.17-develop",
   "homepage": "https://github.com/technecloud/cronapp-framework-mobile-js",
   "authors": [
-    "Arthemus Cicotti Moreira <arthemus.moreira@gmail.com>"
+    "Tarso Matos Araujo <tarso.matos@gmail.com>"
   ],
   "description": "Javascript library for CronApp's projects",
-  "main": "cronapp.framework.js",
+  "main": "cronapp.framework.mobile.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "angular": "1.5.9",
-    "angular-bootstrap": "0.13.0",
     "angular-cookies": "1.5.8",
     "angular-dynamic-locale": "0.1.32",
     "angular-i18n": "1.4.5",
@@ -30,7 +29,6 @@
     "angular-ui-notification": "0.0.14",
     "angular-ui-router": "0.2.15",
     "jquery": "2.1.4",
-    "bootstrap": "3.3.4",
     "font-awesome": "4.4.0",
     "cronapi-js": "latest"
   }
