@@ -384,6 +384,14 @@
 			"text": "List",
 			"class": "adjust-icon mdi mdi-view-headline",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
+			"childrenProperties": [
+				{
+					"name": "crn-datasource",
+					"selector": "div[crn-datasource]",
+					"displayName_pt_BR": "Datasource",
+					"displayName_en_US": "Datasource"
+				}
+			],
 			"properties": {
 				"onclick": {
 					"type": "event"
