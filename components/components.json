@@ -1206,6 +1206,35 @@
 					]
 				}
 			]
+		},
+		{		
+			"name": "crn-input-button",
+			"text": "Input Button",
+			"class": "adjust-icon mdi mdi-label-outline",
+			"wrapper": false,
+			"forcedGroup": true,
+			"template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\"></label><button class=\"button component-holder button-small button-balanced button-clear\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button-${RANDOM}\" xattr-size=\"button-small\" xattr-type=\"button-clear\" xattr-theme=\"button-balanced\"> <span>Search</span></button></div>",
+			"childrenProperties": [
+				{
+					"name": "placeholder",
+					"selector": "input[placeholder]",
+					"displayName_pt_BR": "Placeholder",
+					"displayName_en_US": "Placeholder"
+				},
+				{
+					"name": "ng-model",
+					"selector": "input[ng-model]",
+					"displayName_pt_BR": "Field",
+					"displayName_en_US": "Field"
+				}
+			],
+			"groupedChildren": [
+				{
+					"text_pt_BR": "Button",
+					"text_en_US": "Button",
+					"selector": "button"
+				}
+			]
 		}
 	]
 }
