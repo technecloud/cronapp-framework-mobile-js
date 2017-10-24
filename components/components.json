@@ -1213,7 +1213,7 @@
 			"class": "adjust-icon mdi mdi-label-outline",
 			"wrapper": false,
 			"forcedGroup": true,
-			"template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\"></label><button class=\"button component-holder button-small button-balanced button-clear\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button-${RANDOM}\" xattr-size=\"button-small\" xattr-type=\"button-clear\" xattr-theme=\"button-balanced\"> <span>Search</span></button></div>",
+			"template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\" ng-model=\"vars.inputButton${RANDOM}\"></label><button class=\"button component-holder button-small button-balanced button-clear\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button-${RANDOM}\" xattr-size=\"button-small\" xattr-type=\"button-clear\" xattr-theme=\"button-balanced\"> <span>Search</span></button></div>",
 			"childrenProperties": [
 				{
 					"name": "placeholder",
