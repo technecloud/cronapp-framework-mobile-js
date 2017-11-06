@@ -4,7 +4,8 @@
 	"components": [
 		{
 			"name": "crn-datasource",
-			"text": "Datasource",
+		  "text_pt_BR": "Fonte de dados",
+      "text_en_US": "Datasource",
 			"class": "adjust-icon mdi mdi-table-large",
 			"template": "<datasource name=\"\" entity=\"\" keys=\"\" rows-per-page=\"100\" on-before-create=\"\" on-after-create=\"\" on-before-update=\"\" on-after-update=\"\" on-before-delete=\"\" on-after-delete=\"\" on-after-fill=\"\"><i class=\"cpn cpn-datasource\" ></i></datasource>",
 			"properties": {
@@ -76,7 +77,8 @@
 		},
 		{
 			"name": "crn-anchor",
-			"text": "Link",
+      "text_pt_BR": "Link",
+      "text_en_US": "Link",
 			"class": "adjust-icon mdi mdi-link",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/anchor.template.html",
@@ -135,7 +137,8 @@
 		},
 		{
 			"name": "crn-tabs",
-			"text": "Tabs",
+      "text_pt_BR": "Abas",
+      "text_en_US": "Tabs",
 			"class": "cpn cpn-tabs",
 			"pallete": false,
 			"properties": {
@@ -170,7 +173,8 @@
 		},
 		{
 			"name": "crn-navbar",
-			"text": "MenuItem",
+      "text_pt_BR": "Barra de navegação",
+      "text_en_US": "Navbar",
 			"class": "cpn cpn-navbar",
 			"template": "",
 			"pallete": false,
@@ -186,35 +190,40 @@
 		},
 		{
 			"name": "crn-list-item-avatar",
-			"text": "List Item Avatar",
+      "text_pt_BR": "Item da lista com avatar",
+      "text_en_US": "List Item Avatar",
 			"class": "adjust-icon mdi mdi-view-list",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html"
 		},
 		{
 			"name": "crn-list-item-icon",
-			"text": "List Item Icon",
+      "text_pt_BR": "Item da lista com ícone",
+      "text_en_US": "List Item Icon",
 			"class": "adjust-icon mdi mdi-view-list",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html"
 		},
 		{
 			"name": "crn-list-item-thumbnail",
-			"text": "List Item Thumbnail",
+      "text_pt_BR": "Item da lista com miniatura",
+      "text_en_US": "List Item Thumbnail",
 			"class": "adjust-icon mdi mdi-view-list",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html"
 		},
 		{
 			"name": "crn-list-item-divider",
-			"text": "List Item Divider",
+      "text_pt_BR": "Item da lista com divisão",
+      "text_en_US": "List Item Divider",
 			"class": "adjust-icon mdi mdi-view-list",
 			"wrapper": false,
 			"template": "<ion-item  class=\"item item-divider \">Item Divider</ion-item>"
 		},
 		{
 			"name": "crn-toggle",
-			"text": "Toggle",
+      "text_pt_BR": "Alternancia",
+      "text_en_US": "Toggle",
 			"class": "adjust-icon mdi mdi-toggle-switch-off",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
 			"handleRules": {
@@ -229,7 +238,8 @@
 		},
 		{
 			"name": "crn-list",
-			"text": "List",
+      "text_pt_BR": "Lista",
+      "text_en_US": "List",
 			"class": "adjust-icon mdi mdi-view-headline",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
 			"childrenProperties": [
@@ -257,7 +267,8 @@
 		},
 		{
 			"name": "crn-list-item",
-			"text": "List Item Normal",
+      "text_pt_BR": "Item da lista normal",
+      "text_en_US": "List Item Normal",
 			"wrapper": false,
 			"class": "adjust-icon mdi mdi-view-sequential",
 			"template": "<ion-item  class=\"item dark\" xattr-theme=\"dark\">Item 1</ion-item>",
@@ -323,7 +334,8 @@
 		},
 		{
 			"name": "crn-select",
-			"text": "Select",
+      "text_pt_BR": "Caixa de seleção",
+      "text_en_US": "Combobox",
 			"class": "adjust-icon mdi mdi-equal-box",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html"
@@ -347,7 +359,8 @@
 		},
 		{
 			"name": "crn-textarea",
-			"text": "Textarea",
+      "text_pt_BR": "Área de texto",
+      "text_en_US": "Textarea",
 			"class": "adjust-icon mdi mdi-textbox",
 			"template": "<div class=\"\"><textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea></div>",
 			"properties": {
@@ -397,20 +410,23 @@
 		},
 		{
 			"name": "crn-search",
-			"text": "Search",
+      "text_pt_BR": "Procurar",
+      "text_en_US": "Search",
 			"class": "adjust-icon mdi mdi-magnify",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html"
 		},
 		{
 			"name": "crn-range",
-			"text": "Range",
+      "text_pt_BR": "Alcance",
+      "text_en_US": "Range",			
 			"class": "adjust-icon mdi mdi-toggle-switch",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/range.template.html"
 		},
 		{
 			"name": "crn-input",
-			"text": "Input",
+      "text_pt_BR": "Entrada de texto",
+      "text_en_US": "Input",
 			"class": "adjust-icon mdi mdi-label-outline",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/textinput.template.html",
@@ -431,7 +447,8 @@
 		},
 		{
 			"name": "crn-radio",
-			"text": "Radio",
+      "text_pt_BR": "Lista de opção",
+      "text_en_US": "Radio Group",
 			"class": "adjust-icon mdi mdi-radiobox-marked",
 			"wrapper": true,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/radiogroup.template.html",
@@ -447,7 +464,8 @@
 		},
 		{
 			"name": "crn-checkbox",
-			"text": "Checkbox",
+      "text_pt_BR": "Caixa de checagem",
+      "text_en_US": "Checkbox",
 			"class": "adjust-icon mdi mdi-checkbox-marked-outline",
 			"wrapper": true,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
@@ -463,7 +481,8 @@
 		},
 		{
 			"name": "crn-spacer",
-			"text": "Spacer",
+      "text_pt_BR": "Espaço",
+      "text_en_US": "Spacer",
 			"class": " adjust-icon mdi mdi-file-presentation-box",
 			"wrapper": false,
 			"template": "<div style= \"height: 100px;\">&nbsp;</div>"
@@ -476,13 +495,15 @@
 		},
 		{
 			"name": "crn-map",
-			"text": "Map",
+      "text_pt_BR": "Mapa",
+      "text_en_US": "Map",
 			"class": " adjust-icon mdi mdi-google-maps",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/maps.template.html"
 		},
 		{
 			"name": "crn-slider",
-			"text": "Slider",
+      "text_pt_BR": "Carrossel",
+      "text_en_US": "Carousel",
 			"class": "adjust-icon mdi mdi-view-carousel",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/slider.template.html",
 			"wrapper": false,
@@ -535,7 +556,8 @@
 		},
 		{
 			"name": "crn-image",
-			"text": "Image",
+      "text_pt_BR": "Imagem",
+      "text_en_US": "Image",
 			"class": " adjust-icon mdi mdi-image",
 			"wrapper": false,
 			"template": "<img src=\"img/nophoto.png\" class=\"\" style=\"display:block; width: 100px; height:100px;\" xattr-position=\"\">",
@@ -580,21 +602,24 @@
 		},
 		{
 			"name": "crn-card",
-			"text": "Card",
+      "text_pt_BR": "Cartão",
+      "text_en_US": "Card",
 			"class": "adjust-icon mdi mdi-crop-square",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/card.template.html"
 		},
 		{
 			"name": "crn-container",
-			"text": "Container",
+      "text_pt_BR": "Recipiente",
+      "text_en_US": "Container",
 			"class": "adjust-icon mdi mdi-select",
 			"wrapper": false,
 			"template": "<div data-replace=\"true\">&nbsp;</div>"
 		},
 		{
 			"name": "crn-heading",
-			"text": "Heading",
+      "text_pt_BR": "Cabeçalho",
+      "text_en_US": "Heading",
 			"class": "adjust-icon mdi mdi-format-header-pound",
 			"wrapper": false,
 			"template": "<h1>Heading</h1>",
@@ -631,7 +656,8 @@
 		{
 			"name": "crn-icon",
 			"displayName": "icon",
-			"text": "Icon",
+      "text_pt_BR": "Ícone",
+      "text_en_US": "Icon",
 			"class": "adjust-icon mdi mdi-star",
 			"template": "<i class=\"ion ion-star\"/>",
 			"wrapper": false,
@@ -648,7 +674,8 @@
 		},
 		{
 			"name": "crn-paragraph",
-			"text": "Paragraph",
+      "text_pt_BR": "Parágrafo",
+      "text_en_US": "Paragraph",
 			"class": "adjust-icon mdi  mdi-format-paragraph",
 			"wrapper": false,
 			"template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly <strong>markdown</strong></p>",
@@ -684,7 +711,8 @@
 		},
 		{
 			"name": "crn-item-swipe",
-			"text": "List Item Swipe",
+      "text_pt_BR": "Item da Lista Swipe",
+      "text_en_US": "List Item Swipe",	
 			"class": "adjust-icon mdi mdi-minus",
 			"pallete": false,
 			"wrapper": false,
@@ -706,7 +734,8 @@
 		},
 		{
 			"name": "crn-list-swipe",
-			"text": "List Swipe",
+      "text_pt_BR": "Lista com swipe",
+      "text_en_US": "List Swipe",  
 			"class": "adjust-icon mdi mdi-ray-end-arrow",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
 			"properties": {
@@ -726,7 +755,8 @@
 		},
 		{
 			"name": "crn-button",
-			"text": "Button",
+      "text_pt_BR": "Botão",
+      "text_en_US": "Button",
 			"class": "adjust-icon mdi mdi-stop",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
@@ -878,7 +908,8 @@
 		},
 		{
 			"name": "crn-button-bar",
-			"text": "Button Bar",
+      "text_pt_BR": "Barra de botões",
+      "text_en_US": "Button Bar",  
 			"class": "adjust-icon mdi mdi-view-module",
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button-bar.template.html",
 			"forcedGroup" : true,
@@ -927,7 +958,8 @@
 		},
 		{
 			"name": "crn-ion-nav-buttons",
-			"text": "Nav Button",
+      "text_pt_BR": "Botão da barra de navegação",
+      "text_en_US": "Nav Button",  
 			"class": "adjust-icon mdi mdi-tab",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/nav.bar.template.html",
@@ -976,14 +1008,16 @@
 		},
 		{
 			"name": "crn-ion-view",
-			"text": "Ionic View",
+      "text_pt_BR": "Visualização",
+      "text_en_US": "View",  			
 			"class": "adjust-icon mdi mdi-airplay",
 			"wrapper": false,
 			"template": "<ion-view view-title=\"Title\" > <ion-content data-replace=\"true\"></ion-content></ion-view>"
 		},
 		{
 			"name": "crn-from-crud",
-			"text": "Form Crud",
+      "text_pt_BR": "Formulário crud",
+      "text_en_US": "Form Crud", 
 			"class": "adjust-icon mdi mdi-file-document",
 			"wrapper": false,
 			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/form.template.html"
@@ -1057,7 +1091,8 @@
 		},
 		{		
 			"name": "crn-input-button",
-			"text": "Input Button",
+      "text_pt_BR": "Caixa de texto com botão",
+      "text_en_US": "Input Button", 
 			"class": "adjust-icon mdi mdi-label-outline",
 			"wrapper": false,
 			"forcedGroup": true,
