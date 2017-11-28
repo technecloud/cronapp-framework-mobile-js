@@ -1118,6 +1118,15 @@
 					"selector": "button"
 				}
 			]
-		}
+		},
+		  	{
+			"name": "crn-evaluation",
+      "text_pt_BR": "Avaliação",
+      "text_en_US": "Evaluation",			
+			"class": "adjust-icon mdi mdi-star-outline",
+			"wrapper": false,
+			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html"
+		
+  	}
 	]
 }
