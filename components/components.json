@@ -1012,7 +1012,7 @@
       "text_en_US": "View",  			
 			"class": "adjust-icon mdi mdi-airplay",
 			"wrapper": false,
-			"template": "<ion-view view-title=\"Title\" > <ion-content data-replace=\"true\"></ion-content></ion-view>"
+			"template": "<ion-view view-title=\"Title\" > <ion-content data-component=\"crn-ion-view\" data-replace=\"true\"></ion-content></ion-view>"
 		},
 		{
 			"name": "crn-from-crud",
