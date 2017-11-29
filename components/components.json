@@ -271,7 +271,7 @@
       "text_en_US": "List Item Normal",
 			"wrapper": false,
 			"class": "adjust-icon mdi mdi-view-sequential",
-			"template": "<ion-item  class=\"item dark\" xattr-theme=\"dark\">Item 1</ion-item>",
+			"template": "<ion-item  class=\"item dark\" xattr-theme=\"dark\" data-replace=\"true\">Item 1</ion-item>",
 			"properties": {
 				"xattr-theme": {
 					"displayName": "Theme"
@@ -672,13 +672,50 @@
 				}
 			}
 		},
-		{
+				{
 			"name": "crn-paragraph",
       "text_pt_BR": "Parágrafo",
       "text_en_US": "Paragraph",
 			"class": "adjust-icon mdi  mdi-format-paragraph",
 			"wrapper": false,
-			"template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly <strong>markdown</strong></p>",
+			"template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly Paragraph</p>",
+			"properties": {
+				"xattr-position": {
+					"displayName": "Position"
+				}
+			},
+			"attributesForPreview": [
+				{
+					"name": "xattr-position",
+					"type": "btngroup",
+					"target": "class",
+					"values": [
+						{
+							"key": "text-left",
+							"value": "Standard",
+							"icon": "mdi mdi-ray-start"
+						},
+						{
+							"key": "text-center",
+							"value": "Middle",
+							"icon": "mdi mdi-ray-vertex"
+						},
+						{
+							"key": "text-right",
+							"value": "Right",
+							"icon": "mdi mdi-ray-end"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "crn-label",
+      "text_pt_BR": "Rótulo",
+      "text_en_US": "Label",
+			"class": "adjust-icon mdi  mdi-format-header-2",
+			"wrapper": false,
+			"template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",
 			"properties": {
 				"xattr-position": {
 					"displayName": "Position"
@@ -1125,7 +1162,13 @@
       "text_en_US": "Evaluation",			
 			"class": "adjust-icon mdi mdi-star-outline",
 			"wrapper": false,
-			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html"
+			"templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
+			"properties":{
+			   "ng-model": {
+				"onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+				"onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+				}
+			}
 		
   	}
 	]
