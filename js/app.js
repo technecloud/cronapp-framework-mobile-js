@@ -168,7 +168,7 @@ var app = (function() {
     }])
 
     // General controller
-    .controller('PageController', ["$scope", "$stateParams", "$location", "$http", "$rootScope", function($scope, $stateParams, $location, $http, $rootScope) {
+    .controller('PageController', ["$scope", "$stateParams", "Notification", "$location", "$http", "$rootScope", function($scope, $stateParams, Notification, $location, $http, $rootScope) {
 
 	    app.registerEventsCronapi($scope, $translate);
       $rootScope.http = $http;
