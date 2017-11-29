@@ -170,7 +170,9 @@ var app = (function() {
     // General controller
     .controller('PageController', ["$scope", "$stateParams", "$location", "$http", "$rootScope", function($scope, $stateParams, $location, $http, $rootScope) {
 
-	  app.registerEventsCronapi($scope, $translate);
+	    app.registerEventsCronapi($scope, $translate);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
 	
       for (var x in app.userEvents)
         $scope[x] = app.userEvents[x].bind($scope);

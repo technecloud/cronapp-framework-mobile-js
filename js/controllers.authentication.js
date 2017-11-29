@@ -14,9 +14,11 @@
     '$stateParams',
     function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams) {
         
-		app.registerEventsCronapi($scope, $translate);
-		
-		for(var x in app.userEvents)
+		  app.registerEventsCronapi($scope, $translate);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
+
+		  for(var x in app.userEvents)
           $scope[x]= app.userEvents[x].bind($scope);
         $scope.user = {};
         $scope.message = {};
@@ -98,8 +100,9 @@
       '$ionicModal',
       function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal) {
         
-		app.registerEventsCronapi($scope, $translate);
-		$rootScope.http = $http;
+		    app.registerEventsCronapi($scope, $translate);
+        $rootScope.http = $http;
+        $scope.Notification = Notification;
 
         for(var x in app.userEvents)
           $scope[x]= app.userEvents[x].bind($scope);

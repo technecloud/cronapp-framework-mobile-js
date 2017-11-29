@@ -192,6 +192,8 @@ var app = (function() {
     .controller('PageController', ["$scope", "$stateParams", "$location", "$http", "$rootScope", "$translate", function($scope, $stateParams, $location, $http, $rootScope, $translate) {
 
       app.registerEventsCronapi($scope, $translate);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
 
       // save state params into scope
       $scope.params = $stateParams;
