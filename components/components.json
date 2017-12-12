@@ -182,7 +182,7 @@
 				"canIncrement": true,
 				"rules": [
 					{
-						"sourceHTML": "<div menu-close class=\"item-icon-left item item-complex\"><a href=\"#\" class=\"component-holder item-content ng-binding\" data-component=\"crn-anchor\"><i class=\"icon ion-home\"></i> Action item</a></div> ",
+						"sourceHTML": "<div menu-close class=\"item-icon-left item item-complex\"><a href=\"#\" class=\"component-holder item-content ng-binding\" data-component=\"crn-anchor\"><i class=\"icon ion-home\"></i><label>Action item</label></a></div> ",
 						"targetSelector": ".nav.navbar-nav"
 					}
 				]
