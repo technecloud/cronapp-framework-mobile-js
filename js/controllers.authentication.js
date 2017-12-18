@@ -20,7 +20,8 @@
 
 		  for(var x in app.userEvents)
           $scope[x]= app.userEvents[x].bind($scope);
-        $scope.user = {};
+		  
+        $scope.user = { username : "" , password : "" };
         $scope.message = {};
 
         $scope.login = function() {
