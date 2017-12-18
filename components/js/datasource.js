@@ -574,7 +574,6 @@ angular.module('datasourcejs', [])
       this.startInserting = function() {
         this.inserting = true;
 		this.retrieveDefaultValues();
-        this.active = {};
         if (this.onStartInserting) {
           this.onStartInserting();
         }
