@@ -548,13 +548,32 @@ angular.module('datasourcejs', [])
           });
         }
       };
+	  
+	this.retrieveDefaultValues = function() {
+		if (this.entity.indexOf('query') >= 0) {
+			// Get an ajax promise
+			var url = this.entity;
+			url += (this.entity.endsWith('/')) ? '__new__' : '/__new__';
+			this.$promise = $http({
+				method: "GET",
+				url: url,
+				headers: this.headers
+			}).success(function(data, status, headers, config) {
+				this.active = data;
+			}.bind(this)).error(function(data, status, headers, config) {
+				this.active = {};
+			}.bind(this));
+		} else {
+			this.active = {};
+		}
+	};
 
       /**
        * Put the datasource into the inserting state
        */
       this.startInserting = function() {
         this.inserting = true;
-        this.active = {};
+		this.retrieveDefaultValues();
         if (this.onStartInserting) {
           this.onStartInserting();
         }
