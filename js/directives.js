@@ -280,5 +280,213 @@
         }
       }
     }])
+    
+    .directive('cronappFilter', function() {
+        var setFilterInButton = function($element, bindedFilter, operator) {
+        var fieldset = $element.closest('fieldset');
+        if (!fieldset)
+          return;
+        var button = fieldset.find('button[cronapp-filter]');
+        if (!button)
+          return;
+
+        var filters = button.data('filters');
+        if (!filters)
+          filters = [];
+
+        var index = -1;
+        var ngModel = $element.attr('ng-model');
+        $(filters).each(function(idx) {
+          if (this.ngModel == ngModel)
+            index = idx;
+        });
+
+        if (index > -1)
+          filters.splice(index, 1);
+        
+        if (bindedFilter.length > 0) {
+          var bindedFilterJson = {
+            "ngModel" : ngModel,
+            "bindedFilter" : bindedFilter
+          };
+          filters.push(bindedFilterJson);
+        }
+        button.data('filters', filters);
+      }
+      
+      var makeAutoPostSearch = function($element, bindedFilter, datasource) {
+        var fieldset = $element.closest('fieldset');
+        if (fieldset && fieldset.length > 0) {
+          var button = fieldset.find('button[cronapp-filter]');
+          if (button && button.length > 0) {
+            var filters = button.data('filters');
+            if (filters && filters.length > 0) {
+              bindedFilter = '';
+              $(filters).each(function() {
+                  bindedFilter += this.bindedFilter+";";
+              });
+            }
+          }
+        }
+        datasource.search(bindedFilter);
+      }
+      
+      var inputBehavior =function(scope, element, attrs, ngModelCtrl, $element, typeElement, operator, autopost) {
+        var filterTemplate = '';
+        var filtersSplited = attrs.cronappFilter.split(';');
+        $(filtersSplited).each(function() {
+          if (this.length > 0) {
+            //Se for do tipo text passa parametro como like
+            if (typeElement == 'text')
+              filterTemplate += this + '@' + operator + '%{value}%;';
+            //Senão passa parametro como valor exato
+            else
+              filterTemplate += this + operator + '{value};';
+          }
+        });
+        if (filterTemplate.length > 0)
+          filterTemplate = filterTemplate.substr(0, filterTemplate.length-1);
+        else
+          filterTemplate = '%{value}%';
+
+        if (ngModelCtrl) {
+          scope.$watch(attrs.ngModel, function(newVal, oldVal) {
+            if (angular.equals(newVal, oldVal)) { return; }
+            var eType = $element.data('type') || $element.attr('type');
+            var value = ngModelCtrl.$modelValue;
+            var datasource = eval(attrs.crnDatasource);
+
+            if (value instanceof Date) {
+              value = value.toISOString();
+              if (eType == "date") {
+                value = value + "@@date";
+              }
+              else if (eType == "time" || eType == "time-local") {
+                value = value + "@@time";
+              }
+              else {
+                value = value + "@@datetime";
+              }
+            }
+
+            else if (typeof value == "number") {
+              value = value + "@@number";
+            }
+
+            else if (typeof value == "boolean") {
+              value = value + "@@boolean";
+            }
+
+            var bindedFilter = filterTemplate.split('{value}').join(value);
+            if (ngModelCtrl.$viewValue.length == 0)
+              bindedFilter = '';
+            
+            setFilterInButton($element, bindedFilter, operator);
+            if (autopost)
+              makeAutoPostSearch($element, bindedFilter, datasource);
+
+          });
+        }
+        else {
+          if (typeElement == 'text') {
+            $element.on("keyup", function() {
+              var datasource = eval(attrs.crnDatasource);
+              var value = undefined;
+              if (ngModelCtrl && ngModelCtrl != undefined)
+                value = ngModelCtrl.$viewValue;
+              else
+                value = this.value;
+              var bindedFilter = filterTemplate.split('{value}').join(value);
+              if (this.value.length == 0)
+                bindedFilter = '';
+
+              setFilterInButton($element, bindedFilter, operator);
+              if (autopost)
+                makeAutoPostSearch($element, bindedFilter, datasource);
+            });
+          }
+          else {
+            $element.on("change", function() {
+              var datasource = eval(attrs.crnDatasource);
+              var value = undefined;
+              var typeElement = $(this).attr('type');
+              if (attrs.asDate != undefined)
+                typeElement = 'date';
+
+              if (ngModelCtrl && ngModelCtrl != undefined) {
+                value = ngModelCtrl.$viewValue;
+              }
+              else {
+                if (typeElement == 'checkbox')
+                  value = $(this).is(':checked');
+                else if (typeElement == 'date') {
+                  value = this.value;
+                  if (this.value.length > 0) {
+                    var momentDate = moment(this.value, patternFormat(this));
+                    value = momentDate.toDate().toISOString();
+                  }
+                }
+                else
+                  value = this.value;
+              }
+              var bindedFilter = filterTemplate.split('{value}').join(value);
+              if (value.toString().length == 0)
+                bindedFilter = '';
+
+              setFilterInButton($element, bindedFilter, operator);
+              if (autopost)
+                makeAutoPostSearch($element, bindedFilter, datasource);
+            });
+          }
+        }
+      }
+      
+      var buttonBehavior = function(scope, element, attrs, ngModelCtrl, $element, typeElement, operator, autopost) {
+        $element.on('click', function() {
+          var $this = $(this);
+          var datasourceName = '';
+          if (attrs.crnDatasource)
+            datasourceName = attrs.crnDatasource;
+          else
+            datasourceName = $element.parent().attr('crn-datasource')
+
+          var filters = $this.data('filters');
+          if (datasourceName && datasourceName.length > 0 && filters) {
+            var bindedFilter = '';
+            $(filters).each(function() {
+                bindedFilter += this.bindedFilter+";";
+            });
+            
+            var datasourceToFilter = eval(datasourceName);
+            datasourceToFilter.search(bindedFilter);
+          }
+        });
+      }
+    
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      
+      link: function(scope, element, attrs, ngModelCtrl) {
+        var $element = $(element);
+        var typeElement = $element.data('type') || $element.attr('type');
+        if (attrs.asDate != undefined)
+          typeElement = 'date';
+
+        var operator = '=';
+        if (attrs.cronappFilterOperator && attrs.cronappFilterOperator.length > 0)
+          operator = attrs.cronappFilterOperator;
+
+        var autopost = true;
+        if (attrs.cronappFilterAutopost && attrs.cronappFilterAutopost == "false")
+          autopost = false;
+
+        if ($element[0].tagName == "INPUT")
+          inputBehavior(scope, element, attrs, ngModelCtrl, $element, typeElement, operator, autopost);
+        else
+          buttonBehavior(scope, element, attrs, ngModelCtrl, $element, typeElement, operator, autopost);
+      }
+    }
+  })  
 	
 }(app));
