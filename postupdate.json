@@ -2,7 +2,7 @@
   "includes": [
     {
       "file": "index.html",
-      "script": "plugins/cronapp-framework-mobile-js/css/app.css",
+      "script": "plugins/cronapp-framework-mobile-js/dist/css/app.css",
       "type": "style"
     }
   ]
