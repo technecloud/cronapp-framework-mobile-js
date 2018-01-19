@@ -33,6 +33,7 @@
     "bootstrap": "3.3.4",
     "font-awesome": "4.4.0",
     "cronapi-js": "latest",
+    "chart.js": "2.x"
   },
   "_release": "0.0.1",
   "_resolution": {
