@@ -30,6 +30,7 @@
     "angular-ui-router": "0.2.15",
     "jquery": "2.1.4",
     "font-awesome": "4.4.0",
-    "cronapi-js": "latest"
+    "cronapi-js": "latest",
+    "chart.js": "2.x"
   }
 }
