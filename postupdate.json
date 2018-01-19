@@ -4,6 +4,11 @@
       "file": "index.html",
       "script": "plugins/cronapp-framework-mobile-js/dist/css/app.css",
       "type": "style"
+    },
+	{
+      "file": "index.html",
+      "script": "plugins/chart.js/dist/Chart.min.js",
+      "type": "script"
     }
   ]
 }
