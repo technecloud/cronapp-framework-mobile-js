@@ -446,21 +446,47 @@
       ]
     },
     {
-      "name": "crn-radio",
+      "name": "crn-radiogroup",
       "text_pt_BR": "Lista de opção",
       "text_en_US": "Radio Group",
+	  "forcedGroup":true,
       "class": "adjust-icon mdi mdi-radiobox-marked",
-      "wrapper": true,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/radiogroup.template.html",
+      "wrapper":false,
+      "templateURL": "src/main/webapp/plugins/cronapp-framework-js/dist/components/templates/radiogroup.template.html",
+      "properties": {
+        "ng-model": {
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        }
+      },
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<label class=\"item item-radio\"><input type=\"radio\" name=\"group\" value=\"go\" checked=\"checked\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label>",
-            "targetSelector": ".list, .radio-group"
+            "sourceHTML": "<div data-component=\"crn-radioOption\">\n<label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"> <input type=\"radio\" name=\"group\" value=\"python\">\n<div class=\"radio-content\">\n<div class=\"item-content\">Choose Other</div> <i class=\"radio-icon ion-checkmark\"></i>\n </div> </label> ",
+            "targetSelector": ":self"
           }
         ]
       }
+    },
+    {
+      "name": "crn-radioOption",
+      "pallete":false,
+      "childrenProperties": [
+        {
+          "name": "value",
+          "selector": "label[value]",
+          "displayName_pt_BR": "Valor do campo",
+          "displayName_en_US": "Field value"
+        },
+        {
+          "name": "crn-view-value",
+          "selector": "span",
+          "displayName_pt_BR": "Valor de exibição",
+          "displayName_en_US": "Text value"
+        }
+      ]
+
     },
     {
       "name": "crn-checkbox",
