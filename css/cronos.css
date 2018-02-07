@@ -48,8 +48,7 @@
 
 .remove-image-button {
   position: absolute;
-  margin-top: -23px;
-  right: 19px;
+  right: 0px;
 }
 
 .dynamic-image-container {
@@ -90,4 +89,28 @@
 }
 .full-width {
   width: 100% !important;
+}
+
+.button-cancel-capture {
+  margin-left: 55px !important;
+}
+
+.progress{
+  width: 96%;
+  margin: 10px 2%;
+  padding: 3px;
+  text-align: center;
+  background-color: #f4f4f4;
+  border: 1px solid #dcdcdc;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  min-width: 15%;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: #33cd5f;
 }
