@@ -149,7 +149,102 @@
         }
       }
     })
+    .directive('dynamicImage', function($compile) {
+        var template = '';
+        return {
+          restrict: 'A',
+          scope: true,
+          require: 'ngModel',
+          link: function(scope, element, attr) {
+            debugger;
+            var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
+            var content = element.html();
+            var templateDyn    =
+                '<div ngf-drop="" ngf-drag-over-class="dragover">\
+                   <img style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
+                   <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
+                     $userHtml$\
+                   </div>\
+                   <div class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
+                     <span class="icon ion-android-close"></span>\
+                   </div>\
+                   <div class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
+                     <span class="icon ion-ios-videocam"></span>\
+                   </div>\
+                 </div>';
+            var maxFileSize = "";
+            if (attr.maxFileSize)
+              maxFileSize = attr.maxFileSize;
 
+            templateDyn = $(templateDyn
+                .split('$ngModel$').join(attr.ngModel)
+                .split('$required$').join(required)
+                .split('$userHtml$').join(content)
+                .split('$maxFileSize$').join(maxFileSize)
+            );
+
+            $(element).html(templateDyn);
+            $compile(templateDyn)(element.scope());
+          }
+        }
+    })
+    .directive('dynamicFile', function($compile) {
+        var template = '';
+        return {
+          restrict: 'A',
+          scope: true,
+          require: 'ngModel',
+          link: function(scope, element, attr) {
+            var s = scope;
+            var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
+
+            var splitedNgModel = attr.ngModel.split('.');
+            var datasource = splitedNgModel[0];
+            var field = splitedNgModel[splitedNgModel.length-1];
+            var number = Math.floor((Math.random() * 1000) + 20);
+            var content = element.html();
+
+            var maxFileSize = "";
+            if (attr.maxFileSize)
+              maxFileSize = attr.maxFileSize;
+
+            var templateDyn    = '\
+                                <div ng-show="!$ngModel$" ngf-drop="" ngf-drag-over-class="dragover">\
+                                  <div class="btn" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\')" ngf-max-size="$maxFileSize$">\
+                                    $userHtml$\
+                                  </div>\
+                                  <div class="progress" data-type="bootstrapProgress" id="uploadprogress$number$" style="display:none">\
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">\
+                                      <span class="sr-only"></span>\
+                                    </div>\
+                                  </div>\
+                                </div> \
+                                <div ng-show="$ngModel$" class="upload-image-component-attribute"> \
+                                  <div class="button button-assertive" style="float:right;" ng-if="$ngModel$" ng-click="$ngModel$=null"> \
+                                    <span class="icon ion-android-close"></span> \
+                                  </div> \
+                                  <div> \
+                                    <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$)"></div> \
+                                    <a href="javascript:void(0)" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">download</a> \
+                                  </div> \
+                                </div> \
+                                ';
+            templateDyn = $(templateDyn
+                .split('$ngModel$').join(attr.ngModel)
+                .split('$datasource$').join(datasource)
+                .split('$field$').join(field)
+                .split('$number$').join(number)
+                .split('$required$').join(required)
+                .split('$userHtml$').join(content)
+                .split('$maxFileSize$').join(maxFileSize)
+
+            );
+
+            $(element).html(templateDyn);
+            $compile(templateDyn)(element.scope());
+          }
+        }
+    })
     .directive('pwCheck', [function() {
       'use strict';
       return {

@@ -1194,6 +1194,56 @@
         }
       }
     
+    },
+    {
+      "name": "crn-dynamic-image",
+      "text_pt_BR": "Imagem dinâmica",
+      "text_en_US": "Dynamic Image",
+      "class": "adjust-icon mdi mdi-image",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicimage.template.html",
+      "properties": {
+        "ng-model": {
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        }
+      },
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Rótulo",
+          "text_en_US": "Label",
+          "selector": "label"
+        },
+        {
+          "text_pt_BR": "Campo",
+          "text_en_US": "Field",
+          "selector": "dynamic-image|div[dynamic-image]"
+        }
+      ]
+    },
+    {
+      "name": "crn-dynamic-file",
+      "text_pt_BR": "Envio de Arquivo Dinâmico",
+      "text_en_US": "Dynamic File Upload",
+      "class": "adjust-icon mdi mdi-cloud-upload",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicfile.template.html",
+      "properties": {
+        "ng-model": {
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        }
+      },
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Rótulo",
+          "text_en_US": "Label",
+          "selector": "label"
+        },
+        {
+          "text_pt_BR": "Campo",
+          "text_en_US": "Field",
+          "selector": "dynamic-file|div[dynamic-file]"
+        }
+      ]
     }
   ]
 }

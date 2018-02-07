@@ -781,11 +781,7 @@ angular.module('datasourcejs', [])
           }
         };
 
-        /**
-         * Get the object keys values from the datasource keylist
-         * PRIVATE FUNCTION
-         */
-        var getKeyValues = function(rowData) {
+        this.getKeyValues = function(rowData) {
           var keys = this.keys;
 
           var keyValues = {};
