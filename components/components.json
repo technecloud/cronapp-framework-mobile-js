@@ -1157,7 +1157,7 @@
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
       "forcedGroup": true,
-      "template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\" ng-model=\"vars.inputButton${RANDOM}\"></label><button class=\"button component-holder button-small button-balanced button-clear\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button-${RANDOM}\" xattr-size=\"button-small\" xattr-type=\"button-clear\" xattr-theme=\"button-balanced\"> <span>Search</span></button></div>",
+      "template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\" ng-model=\"vars.inputButton${RANDOM}\" mask></label><button class=\"button component-holder button-small button-balanced button-clear\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button-${RANDOM}\" xattr-size=\"button-small\" xattr-type=\"button-clear\" xattr-theme=\"button-balanced\"> <span>Search</span></button></div>",
       "childrenProperties": [
         {
           "name": "placeholder",
@@ -1197,7 +1197,7 @@
     },
     {
       "name": "crn-dynamic-image",
-      "text_pt_BR": "Imagem din‚mica",
+      "text_pt_BR": "Imagem din√¢mica",
       "text_en_US": "Dynamic Image",
       "class": "adjust-icon mdi mdi-image",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicimage.template.html",
@@ -1222,7 +1222,7 @@
     },
     {
       "name": "crn-dynamic-file",
-      "text_pt_BR": "Envio de Arquivo Din‚mico",
+      "text_pt_BR": "Envio de Arquivo Din√¢mico",
       "text_en_US": "Dynamic File Upload",
       "class": "adjust-icon mdi mdi-cloud-upload",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicfile.template.html",
