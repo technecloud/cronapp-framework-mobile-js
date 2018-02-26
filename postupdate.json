@@ -14,6 +14,11 @@
       "file": "index.html",
       "script": "plugins/cronapp-framework-mobile-js/dist/components/js/qrcode.js",
       "type": "script"
+    },
+	{
+      "file": "index.html",
+      "script": "plugins/ng-file-upload/ng-file-upload.min.js",
+      "type": "script"
     }
   ]
 }
