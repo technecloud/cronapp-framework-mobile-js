@@ -1265,6 +1265,40 @@
           "selector": "dynamic-file|div[dynamic-file]"
         }
       ]
-    }
+    },
+	{
+	
+		"name": "crn-QRCode",
+		"text_pt_BR": "Código QR",
+		"text_en_US": "QR Code",
+		"class": "adjust-icon mdi mdi-qrcode",
+		"wrapper": false,
+		"template": "<div qr=\"true\" ng-model=\"vars.QR${RANDOM}\" ><div> </div> </div>",
+		"properties": {
+			"ng-model": {
+				"onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+				"onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+			},
+			"qr": {
+				"removable": false,
+				"displayName": "QR Code"
+			}
+		},
+		"classForPreview": {
+			"targetSelector": "div:parent",
+			"condition": [
+				{
+					"name": "qr",
+					"value": "true",
+					"class": "qrCodeCronapp"
+				},
+				{
+					"name": "qr",
+					"value": "false",
+					"class": "qrCodeCronapp"
+				}
+			]
+		}
+	}
   ]
 }
