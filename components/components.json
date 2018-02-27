@@ -1267,7 +1267,6 @@
       ]
     },
 	{
-	
 		"name": "crn-QRCode",
 		"text_pt_BR": "Código QR",
 		"text_en_US": "QR Code",
@@ -1296,6 +1295,24 @@
 					"name": "qr",
 					"value": "false",
 					"class": "qrCodeCronapp"
+				}
+			]
+		}
+	},
+	{
+		"name": "crn-chart",
+		"text_pt_BR": "Gráfico",
+		"text_en_US": "Chart",
+		"class": "adjust-icon mdi mdi-chart-bar",
+		"wrapper": false,
+		"template": "<div> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
+		"classForPreview": {
+			"targetSelector": "canvas",
+			"condition": [
+				{
+					"name": "data-component",
+					"value": "crn-chart",
+					"class": "chart chart-line"
 				}
 			]
 		}
