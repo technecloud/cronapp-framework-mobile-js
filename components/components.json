@@ -194,7 +194,36 @@
       "text_en_US": "List Item Avatar",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
+	  "properties": {
+				"target": {
+					"removable": false,
+					"type": "list",
+					"options": [
+						{
+							"key": "_blank",
+							"value": "Nova janela"
+						},
+						{
+							"key": "_self",
+							"value": "Mesma janela"
+						},
+						{
+							"key": "_parent",
+							"value": "Janela pai"
+						},
+						{
+							"key": "_top",
+							"value": "Top"
+						}
+					]
+				},
+				"href": {
+					"removable": false,
+					"type": "projectResource",
+					"resourceType": "text/html"
+				}
+			}
     },
     {
       "name": "crn-list-item-icon",
@@ -202,7 +231,36 @@
       "text_en_US": "List Item Icon",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
+	  "properties": {
+				"target": {
+					"removable": false,
+					"type": "list",
+					"options": [
+						{
+							"key": "_blank",
+							"value": "Nova janela"
+						},
+						{
+							"key": "_self",
+							"value": "Mesma janela"
+						},
+						{
+							"key": "_parent",
+							"value": "Janela pai"
+						},
+						{
+							"key": "_top",
+							"value": "Top"
+						}
+					]
+				},
+				"href": {
+					"removable": false,
+					"type": "projectResource",
+					"resourceType": "text/html"
+				}
+			}
     },
     {
       "name": "crn-list-item-thumbnail",
