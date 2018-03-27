@@ -473,8 +473,8 @@ angular.module('datasourcejs', [])
          * Valid if required field is valid
          */
         this.missingRequiredField = function() {
-          return $('[required][ng-model*="' + this.name + '."]').hasClass('ng-invalid-required') || $('[required][ng-model*="' + this.name + '."]').hasClass('ng-invalid') ||
-              $('[required][ng-model*="' + this.name + '."]').hasClass('ng-empty');
+          return $('[required][ng-model*="' + this.name + '."]').hasClass('ng-invalid-required') || $('[ng-model*="' + this.name + '."]').hasClass('ng-invalid') ||
+              $('[required][ng-model*="' + this.name + '."]').hasClass('ng-empty') || $('[valid][ng-model*="' + this.name + '."]').hasClass('ng-empty');
         }
 
         /**

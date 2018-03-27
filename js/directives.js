@@ -342,7 +342,7 @@
             var value = modelValue || viewValue;
             var fieldValid = validator[attrs.valid].isValid(value);
             if (!fieldValid) {
-              element[0].setCustomValidity(element[0].dataset['errorMessage']);
+              element.scope().$applyAsync(function(){ element[0].setCustomValidity(element[0].dataset['errorMessage']); }) ;
             } else {
               element[0].setCustomValidity("");
             }
