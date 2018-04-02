@@ -430,9 +430,6 @@
       "rows": {
         "displayName": "rows"
       },
-      "rezise": {
-        "displayName": "resize"
-      },
       "groupedChildren": [
         {
           "text_pt_BR": "Campo",
