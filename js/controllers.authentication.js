@@ -12,9 +12,10 @@
     '$ionicLoading', 
     '$timeout',
     '$stateParams',
-    function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams) {
+	'$ionicModal'
+    function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams,$ionicModal) {
         
-		  app.registerEventsCronapi($scope, $translate);
+	  app.registerEventsCronapi($scope, $translate,$ionicModal);
       $rootScope.http = $http;
       $scope.Notification = Notification;
 
@@ -101,7 +102,7 @@
       '$ionicModal',
       function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal) {
         
-		    app.registerEventsCronapi($scope, $translate);
+		    app.registerEventsCronapi($scope, $translate,$ionicModal);
         $rootScope.http = $http;
         $scope.Notification = Notification;
 
