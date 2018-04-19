@@ -23,7 +23,8 @@ app.controller('chatController', [
 		'$translate',
 		'$rootScope',
 		'$http',
-	function chatController($scope, $state,$ionicPopup, $ionicScrollDelegate, $timeout, $interval, $ionicModal,$translate,$rootScope,$http) {
+		'Notification',
+	function chatController($scope, $state,$ionicPopup, $ionicScrollDelegate, $timeout, $interval, $ionicModal,$translate,$rootScope,$http, Notification) {
       
     app.registerEventsCronapi($scope, $translate);
     $rootScope.http = $http;
