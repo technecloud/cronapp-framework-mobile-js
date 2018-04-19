@@ -11,7 +11,8 @@ var app = (function() {
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'ui-notification',
-    'ngFileUpload'
+    'ngFileUpload',
+	'angularMoment'
   ])
       .constant('LOCALES', {
         'locales': {

@@ -19,6 +19,11 @@
       "file": "index.html",
       "script": "plugins/ng-file-upload/ng-file-upload.min.js",
       "type": "script"
-    }
+    },
+	{
+      "file": "index.html",
+      "script": "plugins/angular-moment/angular-moment.js",
+      "type": "script"
+    },
   ]
 }
