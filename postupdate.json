@@ -24,6 +24,6 @@
       "file": "index.html",
       "script": "plugins/angular-moment/angular-moment.js",
       "type": "script"
-    },
+    }
   ]
 }
