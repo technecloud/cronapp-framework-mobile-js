@@ -46,6 +46,8 @@ angular.module('datasourcejs', [])
         this.links = null;
         this.loadedFinish = null;
         this.lastFilterParsed = null;
+		this.caseInsensitive = null;
+        this.terms = null;
 
         // Private members
         var cursor = 0;
@@ -1039,6 +1041,8 @@ angular.module('datasourcejs', [])
             this.searchTimeout = null;
           }
 
+		  this.caseInsensitive = caseInsensitive;
+		  this.terms = terms;
           this.searchTimeout = setTimeout(function() {
             this.doSearch(terms, caseInsensitive);
           }.bind(this), 500);
