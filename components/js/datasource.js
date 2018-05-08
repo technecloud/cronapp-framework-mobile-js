@@ -46,7 +46,7 @@ angular.module('datasourcejs', [])
         this.links = null;
         this.loadedFinish = null;
         this.lastFilterParsed = null;
-		this.caseInsensitive = null;
+		    this.caseInsensitive = null;
         this.terms = null;
 
         // Private members
@@ -658,6 +658,7 @@ angular.module('datasourcejs', [])
           if (this.entity.indexOf('cronapi') >= 0) {
             // Get an ajax promise
             var url = this.entity;
+            url = (window.hostApp || "") + url;
             url += (this.entity.endsWith('/')) ? '__new__' : '/__new__';
             this.$promise = $http({
               method: "GET",
@@ -814,7 +815,7 @@ angular.module('datasourcejs', [])
             }
           }
           return true;
-        }
+        }.bind(this);
 
         /**
          * Check if the object has more itens to iterate
