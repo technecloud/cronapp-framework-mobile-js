@@ -95,6 +95,41 @@ var app = (function() {
               controller: 'LoginController',
               templateUrl: 'views/login.view.html'
             })
+			
+			.state('publicRoot', {
+              url: "/public/{name:.*}",
+              controller: 'PageController',
+              templateUrl: function(urlattr) {
+                return 'views/public/' + urlattr.name + '.view.html';
+              }
+            })
+            
+            .state('public', {
+              url: "/app/public",
+              controller: 'PublicController',
+              templateUrl: 'views/public/menu.view.html'
+            })
+            
+            .state('public.home', {
+              url: "/home",
+              views: {
+                'menuContent': {
+                  controller: 'PublicController',
+                  templateUrl: 'views/public/home.view.html'
+                }
+              }
+            })
+            .state('public.pages', {
+              url: "/{name:.*}",
+              views: {
+                'menuContent': {
+                  controller: 'PageController',
+                  templateUrl: function(urlattr) {
+                    return 'views/public/' + urlattr.name + '.view.html';
+                  }
+                }
+              }
+            })
 
             .state('app', {
               url: "/app",

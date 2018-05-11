@@ -143,6 +143,10 @@
           // If there isn't a user registered on the sessionStorage
           // we must send back to login page
           // TODO - REVISAR login oauth2
+			if(typeof (Storage) !== "undefined") {
+				// save the user data on localStorage
+				sessionStorage.removeItem("_u");
+			}else 
            $state.go("login");
         }
 
@@ -211,11 +215,25 @@
         
         // exist session
         if(!$rootScope.session) {
-          $state.go("login");
+		if($scope.ignoreAuth){
+            if(typeof (Storage) !== "undefined") {
+            // save the user data on localStorage
+            sessionStorage.removeItem("_u");
+            }
+          }else{
+            $state.go("login");
+          }
         } else {
            if ($rootScope.session.token) refreshToken();
         }
       } ]);
+	  
+	app.controller('PublicController', function($controller, $scope) {
+		$scope.ignoreAuth = true;
+		angular.extend(this, $controller('HomeController', {
+		  $scope: $scope
+		}));
+	});
 	  
 	app.controller('chatController', [
 	   '$scope',
