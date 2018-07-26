@@ -1,5 +1,7 @@
 (function($app) {
-
+  
+  var isoDate = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
+  
   /**
    * Função que retorna o formato que será utilizado no componente
    * capturando o valor do atributo format do elemento, para mais formatos
@@ -72,7 +74,7 @@
     
     .filter('mask',function($translate) {
         return function(value, maskValue) {
-          debugger;
+          
           maskValue = parseMaskType(maskValue, $translate);
           if (!maskValue)
             return value;
@@ -710,7 +712,53 @@ function maskDirective($compile, $translate, attrName) {
         return;
       }
 
-      if (!attrs.mask && (type == 'number' || type == 'money' || type == 'integer')) {
+      if (type == 'date' || type == 'datetime' || type == 'datetime-local' || type == 'month' || type == 'time' || type == 'time-local' || type == 'week') {
+        var useUTC = type == 'date' || type == 'datetime' || type == 'time';
+        var IONIC_FORMAT = '';
+        
+        switch (type) {
+          case 'date' : IONIC_FORMAT = 'YYYY-MM-DD'; break;
+          case 'datetime' : IONIC_FORMAT = 'YYYY-MM-DDTHH:mm'; break;
+          case 'time' : IONIC_FORMAT = 'HH:mm'; break;
+        }
+
+        if (ngModelCtrl) {
+          ngModelCtrl.$formatters.push(function (value) {
+            if (value) {
+              var momentDate = null;
+
+              if (useUTC) {
+                momentDate = moment.utc(value);
+              } else {
+                momentDate = moment(value);
+              }
+              
+              $(this).val(momentDate.format(IONIC_FORMAT));
+              
+              return momentDate.format(IONIC_FORMAT);
+            }
+
+            return null;
+          }.bind($element));
+
+          ngModelCtrl.$parsers.push(function (value) {
+            if (value) {
+              var momentDate = null;
+              
+              if (useUTC) {
+                momentDate = moment.utc(value, IONIC_FORMAT);
+              } else {
+                momentDate = moment(value, IONIC_FORMAT);
+              }
+              
+              return momentDate.toDate();
+            }
+
+            return null;
+          });
+        }
+
+      } else if (!attrs.mask && (type == 'number' || type == 'money' || type == 'integer')) {
         removeMask = true;
         textMask = false;
 
