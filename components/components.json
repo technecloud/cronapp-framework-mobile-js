@@ -410,13 +410,41 @@
         }
       ]
     },
-    {
+	{
       "name": "crn-select",
       "text_pt_BR": "Caixa de seleção",
       "text_en_US": "Combobox",
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
+      "childrenProperties": [
+        {
+          "name": "ng-model",
+          "selector": "select",
+          "type": "text"
+        }
+      ],
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Rótulo",
+          "text_en_US": "Label",
+          "selector": "div"
+        }
+      ],
+      "properties": {
+        "onclick": {
+          "type": "event"
+        }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<option value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
+            "targetSelector": "select"
+          }
+        ]
+      }
     },
     {
       "name": "crn-select-options",
