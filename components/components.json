@@ -622,7 +622,8 @@
       "text_pt_BR": "Área de texto",
       "text_en_US": "Textarea",
       "class": "adjust-icon mdi mdi-textbox",
-      "template": "<div class=\"\"><textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea></div>",
+      "wrapper":false,
+      "template": "<textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
       "properties": {
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1) { result = 'vars.'+result;  }  return result; }",
@@ -632,13 +633,6 @@
       "rows": {
         "displayName": "rows"
       },
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Campo",
-          "text_en_US": "Field",
-          "selector": "textarea"
-        }
-      ],
       "attributesForPreview": [
         {
           "name": "resize",
@@ -1443,11 +1437,14 @@
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
       "wrapper": false,
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.designtime.html",
+      "designTimeSelector": ":self",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
       "properties": {
         "ng-model": {
-          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }"
         }
       }
     },
