@@ -511,6 +511,50 @@
         }
       ]
     },
+	{
+      "name": "crn-multiselect",
+      "text_pt_BR": "Seleção Multipla",
+      "text_en_US": "Multiselect",
+      "class": "adjust-icon mdi mdi-equal-box",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
+      "childrenProperties": [
+        {
+          "name": "crn-datasource",
+          "selector": "select",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type":"pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
+        {
+          "name": "ng-model",
+          "selector": "select",
+          "displayName_pt_BR": "Campo",
+          "displayName_en_US": "Field",
+          "type": "allDatasourceFields",
+          "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
+        {
+          "editExpression": false,
+          "name": "ng-options",
+          "selector": "select",
+          "displayName_pt_BR": "Texto Exibição",
+          "displayName_en_US": "Text Display",
+          "type": "datasourceFieldList",
+          "onSave": "javascript:function() {var selected = arguments[0]; return 'opt as opt.' + selected + ' for opt in datasource.data track by opt.' + selected}",
+          "onDisplay": "javascript:function() { var selected = arguments[0]; var expr = \/(opt\\.)\\w+\/g; var result = selected.match(expr); result = result[0].replace(\/opt\\.\/g, ''); return result;}"
+        }
+      ],
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Rótulo",
+          "text_en_US": "Label",
+          "selector": "span"
+        }
+      ]
+    },
     {
       "name": "crn-textarea",
       "text_pt_BR": "Área de texto",
