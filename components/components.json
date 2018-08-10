@@ -1156,6 +1156,7 @@
         {
           "name": "xattr-size",
           "type": "options",
+          "selector": "div",
           "target": "class",
           "values": [
             {
@@ -1273,6 +1274,20 @@
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon",
           "selector": "i"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "class",
+          "selector": "i",
+          "displayName_pt_BR":"Ícone",
+          "displayName_en_US":"Icon",
+          "type": "icon"
+        },
+        {
+          "name": "content",
+          "selector": "span",
+          "type": "content"
         }
       ]
     },
