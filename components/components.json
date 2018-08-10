@@ -1438,7 +1438,7 @@
       "class": "adjust-icon mdi mdi-star-outline",
       "wrapper": false,
       "designTimeDynamic": true,
-      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.designtime.html",
+      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/evaluation.designtime.html",
       "designTimeSelector": ":self",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
       "properties": {
