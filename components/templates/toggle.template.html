@@ -1,20 +1,8 @@
-<ul class="list toggle-group">
-  <li class="item item-toggle">
-     Choose A
-     <label  data-component="crn-toggle-button" class="toggle toggle-assertive">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-  </li>
-    <li class="item item-toggle">
-     Choose B
-     <label data-component="crn-toggle-button" class="toggle toggle-balanced">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-  </li>
-</ul>
+<label class="item item-toggle"> <span>Choose A</span>
+    <div class="toggle toggle-assertive">
+        <input type="checkbox" ng-model="vars.toggle${RANDOM}">
+        <div class="track">
+            <div class="handle"></div>
+        </div>
+    </div>
+</label>
