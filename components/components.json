@@ -303,15 +303,77 @@
       "text_en_US": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
-      "handleRules": {
-        "canIncrement": true,
-        "rules": [
-          {
-            "sourceHTML": " <li class=\"item item-toggle\"> Choose Other <label data-component=\"crn-toggle-button\" class=\"toggle toggle-balanced\"> <input type=\"checkbox\"> <div class=\"track\"><div class=\"handle\"></div></div></label></li> ",
-            "targetSelector": ".toggle-group"
-          }
-        ]
-      }
+      "childrenProperties": [
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type": "text"
+        },
+        {
+          "name": "content",
+          "selector": "span",
+          "type": "content"
+        },
+        {
+          "name": "xattr-theme",
+          "selector": "div:first",
+          "type":"options"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "toggle-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "toggle-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "toggle-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "toggle-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "toggle-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "toggle-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "toggle-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "toggle-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "toggle-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "crn-list",
@@ -1329,73 +1391,6 @@
       "class": "adjust-icon mdi mdi-file-document",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/form.template.html"
-    },
-    {
-      "name": "crn-toggle-button",
-      "text": "Toggle Button",
-      "class": "adjust-icon mdi mdi-toggle-switch-off",
-      "pallete": false,
-      "wrapper": false,
-      "template": "<label class=\"toggle toggle-balanced\" xattr-theme=\"toggle-balanced\"><input type=\"checkbox\" checked><div class=\"track\"><div class=\"handle\"></div> </div> </label>",
-      "properties": {
-        "xattr-theme": {
-          "displayName": "Theme"
-        }
-      },
-      "attributesForPreview": [
-        {
-          "name": "xattr-theme",
-          "type": "options",
-          "target": "class",
-          "values": [
-            {
-              "key": "toggle-assertive",
-              "value": "Assertive",
-              "color": "#ef473a"
-            },
-            {
-              "key": "toggle-balanced",
-              "value": "Balanced",
-              "color": "#33cd5f"
-            },
-            {
-              "key": "toggle-energized",
-              "value": "Energized",
-              "color": "#ffc900"
-            },
-            {
-              "key": "toggle-light",
-              "value": "Light",
-              "color": "#fff"
-            },
-            {
-              "key": "toggle-stable",
-              "value": "Stable",
-              "color": "#f8f8f8"
-            },
-            {
-              "key": "toggle-calm",
-              "value": "Calm",
-              "color": "#11c1f3"
-            },
-            {
-              "key": "toggle-positive",
-              "value": "Positive",
-              "color": "#387ef5"
-            },
-            {
-              "key": "toggle-royal",
-              "value": "Royal",
-              "color": "#886aea"
-            },
-            {
-              "key": "toggle-dark",
-              "value": "Dark",
-              "color": "#444"
-            }
-          ]
-        }
-      ]
     },
     {
       "name": "crn-input-button",
