@@ -4,6 +4,9 @@
   "components": [
     {
       "name": "crn-datasource",
+      "wrapper": false,
+      "autoWrapper": true,
+      "order": 0,
       "text_pt_BR": "Fonte de dados",
       "text_en_US": "Datasource",
       "class": "adjust-icon mdi mdi-table-large",
@@ -11,14 +14,24 @@
       "properties": {
         "entity": {
           "removable": false,
-          "type": "datasourceList"
+          "global": true
+        },
+        "parameters": {
+          "removable": false,
+          "global": true
+        },
+        "checkrequired": {
+          "removable": false,
+          "type": "logic",
+          "global": true
+        },
+        "lazy": {
+          "removable": false,
+          "type": "logic"
         },
         "keys": {
           "removable": false,
-          "type": "datasourceKeys"
-        },
-        "filter": {
-          "removable": true,
+          "type": "datasourceKeys",
           "global": true
         },
         "on-before-create": {
@@ -61,17 +74,10 @@
           "type": "event",
           "global": true
         },
-        "dependent-by": {
-          "removable": false,
-          "global": true
-        },
         "dependent-lazy-post": {
           "removable": false,
-          "global": true
-        },
-        "dependent-lazy-post-field": {
-          "removable": false,
-          "global": true
+          "global": true,
+          "type": "pageDatasourceObject"
         }
       }
     },
@@ -483,25 +489,16 @@
         {
           "name": "ng-model",
           "selector": "select",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        }
-      ],
-      "groupedChildren": [
+        },
         {
-          "text_pt_BR": "Rótulo",
-          "text_en_US": "Label",
-          "selector": "div"
+          "name": "content",
+          "selector": "div",
+          "type": "content"
         }
       ],
-      "properties": {
-        "onclick": {
-          "type": "event"
-        }
-      },
       "handleRules": {
         "canIncrement": true,
         "rules": [
@@ -538,6 +535,11 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamic-combobox.template.html",
       "childrenProperties": [
         {
+          "name": "content",
+          "selector": "span",
+          "type":"content"
+        },
+        {
           "name": "crn-datasource",
           "selector": "select",
           "displayName_pt_BR": "Fonte de dados",
@@ -563,13 +565,6 @@
           "type": "datasourceFieldList",
           "onSave": "javascript:function() {var selected = arguments[0]; return 'opt as opt.' + selected + ' for opt in datasource.data track by opt.' + selected}",
           "onDisplay": "javascript:function() { var selected = arguments[0]; var expr = \/(opt\\.)\\w+\/g; var result = selected.match(expr); result = result[0].replace(\/opt\\.\/g, ''); return result;}"
-        }
-      ],
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Rótulo",
-          "text_en_US": "Label",
-          "selector": "span"
         }
       ]
     },
@@ -775,15 +770,18 @@
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
       "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
-      "handleRules": {
-        "canIncrement": true,
-        "rules": [
-          {
-            "sourceHTML": "<li class=\"item item-checkbox\"><label class=\"checkbox\"><input type=\"checkbox\" checked=\"\"></label> Choose Other</li>",
-            "targetSelector": ".list, .checkbox-group"
-          }
-        ]
-      }
+      "childrenProperties":[
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type":"text"
+        },
+        {
+          "name": "content",
+          "selector": "span",
+          "type":"content"
+        }
+      ]
     },
     {
       "name": "crn-spacer",
@@ -1408,19 +1406,17 @@
       "class": "adjust-icon mdi mdi-label-outline",
       "wrapper": false,
       "forcedGroup": true,
-      "template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\" ng-model=\"vars.inputButton${RANDOM}\" mask></label><button class=\"button component-holder button-small button-balanced button-clear\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button-${RANDOM}\" xattr-size=\"button-small\" xattr-type=\"button-clear\" xattr-theme=\"button-balanced\"> <span>Search</span></button></div>",
+      "template": "<div data class=\"item item-input-inset\"><label class=\"item-input-wrapper\"><input type=\"text\" placeholder=\"Placeholder Text\" ng-model=\"vars.inputButton${RANDOM}\" mask></label><button class=\"button component-holder button-small button-outline button-balanced\" type=\"submit\" ng-click=\"\" data-component=\"crn-button\" id=\"crn-button${RANDOM}\" xattr-type=\"button-outline\" xattr-size=\"button-small\" xattr-theme=\"button-balanced\"><i class=\"ion ion-ios-search\"></i> <span>Search</span></button></div>",
       "childrenProperties": [
         {
           "name": "placeholder",
           "selector": "input[placeholder]",
-          "displayName_pt_BR": "Sugestão",
-          "displayName_en_US": "Placeholder"
+          "type":"text"
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field"
+          "type":"text"
         }
       ],
       "groupedChildren": [
