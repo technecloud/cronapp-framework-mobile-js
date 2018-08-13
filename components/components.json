@@ -712,13 +712,20 @@
           "name": "placeholder",
           "selector": "input[placeholder]",
           "displayName_pt_BR": "Sugestão",
-          "displayName_en_US": "Placeholder"
+          "displayName_en_US": "Placeholder",
+          "type":"text"
         },
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
           "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field"
+          "displayName_en_US": "Field",
+          "type":"text"
+        },
+        {
+          "name": "type",
+          "selector": "input[type]",
+          "type":"inputType"
         }
       ]
     },
@@ -746,6 +753,11 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text"
+        },
+        {
+          "name": "type",
+          "selector": "input[type]",
+          "type":"inputType"
         }
       ]
     },
@@ -773,6 +785,11 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text"
+        },
+        {
+          "name": "type",
+          "selector": "input[type]",
+          "type":"inputType"
         }
       ]
     },
@@ -800,6 +817,11 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type": "text"
+        },
+        {
+          "name": "type",
+          "selector": "input[type]",
+          "type":"inputType"
         }
       ]
     },
@@ -1504,6 +1526,11 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text"
+        },
+        {
+          "name": "type",
+          "selector": "input[type]",
+          "type":"inputType"
         }
       ],
       "groupedChildren": [
