@@ -1365,18 +1365,6 @@
           ]
         }
       ],
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Rótulo",
-          "text_en_US": "Label",
-          "selector": "span"
-        },
-        {
-          "text_pt_BR": "Ícone",
-          "text_en_US": "Icon",
-          "selector": "i"
-        }
-      ],
       "childrenProperties": [
         {
           "name": "class",
@@ -1499,14 +1487,6 @@
       "class": "adjust-icon mdi mdi-airplay",
       "wrapper": false,
       "template": "<ion-view view-title=\"Title\" > <ion-content data-component=\"crn-ion-view\" data-replace=\"true\"></ion-content></ion-view>"
-    },
-    {
-      "name": "crn-from-crud",
-      "text_pt_BR": "Formulário crud",
-      "text_en_US": "Form Crud",
-      "class": "adjust-icon mdi mdi-file-document",
-      "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/form.template.html"
     },
     {
       "name": "crn-input-button",
@@ -1634,17 +1614,18 @@
       "text_en_US": "Chart",
       "class": "adjust-icon mdi mdi-chart-bar",
       "wrapper": false,
-      "template": "<div> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
-      "classForPreview": {
-        "targetSelector": "canvas",
-        "condition": [
-          {
-            "name": "data-component",
-            "value": "crn-chart",
-            "class": "chart chart-line"
-          }
-        ]
-      }
+      "template": "<div class=\"col-xs-12\"> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
+      "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
+      "designTimeSelector": "canvas",
+      "childrenProperties":[
+        {
+          "name":"id",
+          "selector":"canvas",
+          "type":"text",
+          "displayName_pt_BR": "Identificador do gráfico",
+          "displayName_en_US": "Chart Id"
+        }]
+
     },
     {
       "name": "crn-chat",
