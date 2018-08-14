@@ -842,7 +842,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\"><input type=\"radio\" name=\"group\" value=\"${RANDOM}\" crn-value><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
+            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"><input type=\"radio\" name=\"group\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
             "targetSelector": ":self"
           }
         ]
@@ -854,15 +854,18 @@
       "childrenProperties": [
         {
           "name": "value",
-          "selector": "input[value]",
+          "selector": "label[value]",
           "displayName_pt_BR": "Valor do campo",
-          "displayName_en_US": "Field value"
+          "displayName_en_US": "Field value",
+          "type": "text"
         },
         {
-          "name": "crn-view-value",
+          "name": "content",
           "selector": "div.item-content",
           "displayName_pt_BR": "Valor de exibição",
-          "displayName_en_US": "Text value"
+          "displayName_en_US": "Text value",
+          "type": "text",
+          "onDisplay": "javascript:function() { return arguments[0].trim(); }"
         }
       ]
     },
