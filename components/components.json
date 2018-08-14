@@ -1615,6 +1615,8 @@
       "class": "adjust-icon mdi mdi-qrcode",
       "wrapper": false,
       "template": "<div qr=\"true\" ng-model=\"vars.QR${RANDOM}\" ><div> </div> </div>",
+      "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/qr-code.png\"/>",
+      "designTimeSelector": "div",
       "properties": {
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
@@ -1624,21 +1626,6 @@
           "removable": false,
           "displayName": "QR Code"
         }
-      },
-      "classForPreview": {
-        "targetSelector": "div:parent",
-        "condition": [
-          {
-            "name": "qr",
-            "value": "true",
-            "class": "qrCodeCronapp"
-          },
-          {
-            "name": "qr",
-            "value": "false",
-            "class": "qrCodeCronapp"
-          }
-        ]
       }
     },
     {
