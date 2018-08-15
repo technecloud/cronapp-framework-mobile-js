@@ -1597,16 +1597,21 @@
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         }
       },
-      "groupedChildren": [
+      "childrenProperties": [
         {
-          "text_pt_BR": "R�tulo",
-          "text_en_US": "Label",
-          "selector": "label"
+          "name": "content",
+          "selector": "label",
+          "type": "content"
         },
         {
-          "text_pt_BR": "Campo",
-          "text_en_US": "Field",
-          "selector": "dynamic-image|div[dynamic-image]"
+          "name": "ng-model",
+          "selector": "div[dynamic-image]",
+          "type": "text"
+        },
+        {
+          "name": "max-file-size",
+          "selector": "div[dynamic-image]",
+          "type": "text"
         }
       ]
     },
