@@ -659,7 +659,22 @@
       "text_pt_BR": "Procurar",
       "text_en_US": "Search",
       "class": "adjust-icon mdi mdi-magnify",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
+      "forceGroup" : true,
+      "childrenProperties": [
+        {
+          "name": "placeholder",
+          "selector": "input[placeholder]",
+          "displayName_pt_BR": "Sugestão",
+          "displayName_en_US": "Placeholder",
+          "type":"text"
+        },
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type": "text"
+        }
+      ]
     },
     {
       "name": "crn-range",
