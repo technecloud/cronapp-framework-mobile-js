@@ -220,29 +220,24 @@ var app = (function() {
             element.bind("click", function(event) {
               scope.$apply(function() {
                 ngModelCtrl.$setViewValue(evaluatedValue);
+                $(element).data('changed', true);
               }.bind(element));
             });
             
-            if (ngModelCtrl) {
-              ngModelCtrl.$formatters.push(function (value) {
+            scope.$watch(function(){return ngModelCtrl.$modelValue}, function(value, old){
+          		if (value !== old) {
                 var dataEvaluated = element.attr("data-evaluated");
-                
-                if (value && JSON.stringify(''+value) == dataEvaluated) {
-                  $(element)[0].children[0].checked = true
+                var changed = $(element).data('changed');
+                $(element).data('changed', false);
+                if (!changed) {
+                  if (value && JSON.stringify(''+value) == dataEvaluated) {
+                    $(element)[0].children[0].checked = true
+                  } else {
+                    $(element)[0].children[0].checked = false;
+                  }
                 }
-
-                return null;
-              });
-              
-              ngModelCtrl.$parsers.push(function (value) {
-                if (value) {
-                  return value;
-                }
-
-                return null;
-              });
-            }
-            
+          		}
+        	  });
           }
         };
       }])
