@@ -842,7 +842,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\"><input type=\"radio\" name=\"group\" value=\"${RANDOM}\" crn-value><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
+            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"><input type=\"radio\" name=\"group\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
             "targetSelector": ":self"
           }
         ]
@@ -854,15 +854,18 @@
       "childrenProperties": [
         {
           "name": "value",
-          "selector": "input[value]",
+          "selector": "label[value]",
           "displayName_pt_BR": "Valor do campo",
-          "displayName_en_US": "Field value"
+          "displayName_en_US": "Field value",
+          "type": "text"
         },
         {
-          "name": "crn-view-value",
+          "name": "content",
           "selector": "div.item-content",
           "displayName_pt_BR": "Valor de exibição",
-          "displayName_en_US": "Text value"
+          "displayName_en_US": "Text value",
+          "type": "text",
+          "onDisplay": "javascript:function() { return arguments[0].trim(); }"
         }
       ]
     },
@@ -1234,7 +1237,18 @@
       "text_pt_BR": "Lista com swipe",
       "text_en_US": "List Swipe",
       "class": "adjust-icon mdi mdi-ray-end-arrow",
+      "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
+      "childrenProperties": [
+        {
+          "name": "crn-datasource",
+          "selector": "ion-list",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type":"pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        }
+      ],
       "properties": {
         "onclick": {
           "type": "event"
@@ -1244,8 +1258,8 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-item class=\"item\"> <div class=\"row\"> <div class=\"col\" > Item </div> </div> <div class=\"component-holder\" data-component=\"crn-item-options\"> <div class=\"crn-item-options\" data-item=\"true\"> <ion-option-button class=\"button-assertive button\"> <i class=\"icon ion-trash-a\">delete</i></ion-option-button><ion-option-button class=\"button-positive button\"> <i class=\"icon ion-edit\">edit</i> </ion-option-button> </div> </div> </ion-item>",
-            "targetSelector": ".listCanSwipe"
+            "sourceHTML": "<div class=\"col\">New Item</div>",
+            "targetSelector": ".row"
           }
         ]
       }
@@ -1454,7 +1468,14 @@
       "text": "Option Button",
       "pallete": false,
       "class": "adjust-icon mdi mdi-stop",
-      "template": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>"
+      "template": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>",
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Ícone",
+          "text_en_US": "Icon",
+          "selector": "i"
+        }
+      ]
     },
     {
       "name": "crn-ion-nav-buttons",
