@@ -659,7 +659,22 @@
       "text_pt_BR": "Procurar",
       "text_en_US": "Search",
       "class": "adjust-icon mdi mdi-magnify",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
+      "forceGroup" : true,
+      "childrenProperties": [
+        {
+          "name": "placeholder",
+          "selector": "input[placeholder]",
+          "displayName_pt_BR": "Sugestão",
+          "displayName_en_US": "Placeholder",
+          "type":"text"
+        },
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type": "text"
+        }
+      ]
     },
     {
       "name": "crn-range",
@@ -901,7 +916,16 @@
       "name": "crn-video",
       "text": "Video",
       "class": "adjust-icon mdi mdi-youtube-play",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
+      "forceGroup" : true,
+      "wrapper": false,
+      "groupedChildren": [
+        {
+          "text_pt_BR": "Imagem",
+          "text_en_US": "Image",
+          "selector": "iframe"
+        }
+      ]
     },
     {
       "name": "crn-map",
@@ -991,21 +1015,20 @@
       "text_en_US": "Image",
       "class": " adjust-icon mdi mdi-image",
       "wrapper": false,
-      "template": "<img src=\"img/nophoto.png\" class=\"\" style=\"display:block; width: 100px; height:100px;\" xattr-position=\"\">",
-      "properties": {
-        "src": {
-          "removable": false,
+      "template": "<div class=\"row\"> <img src=\"img/nophoto.png\" class=\"\" style=\"\" height=\"30%;\" width=\"30%\" xattr-position=\"\" ></div/>",
+      "childrenProperties": [
+        {
+          "name": "src",
+          "selector": "img",
           "type": "projectResource",
           "resourceType": "image/jpeg,image/gif,image/png"
         },
-        "onclick": {
-          "removable": true,
-          "type": "event"
-        },
-        "xattr-position": {
-          "displayName": "Position"
+        {
+          "name": "xattr-position",
+          "selector": "img",
+          "type":"btngroup"
         }
-      },
+      ],
       "attributesForPreview": [
         {
           "name": "xattr-position",
@@ -1096,18 +1119,45 @@
       "text_pt_BR": "Ícone",
       "text_en_US": "Icon",
       "class": "adjust-icon mdi mdi-star",
-      "template": "<i class=\"ion ion-star\"/>",
+      "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"\" xattr-size=\"\"/>",
       "wrapper": false,
-      "properties": {
-        "ng-click": {
-          "removable": true,
-          "type": "event"
-        },
-        "onmouseover": {
-          "removable": true,
-          "type": "event"
+      "attributesForPreview": [
+        {
+          "name": "xattr-size",
+          "type": "options",
+          "target": "style",
+          "values": [
+            {
+              "key": "",
+              "value": "100%"
+            },
+            {
+              "key": "font-size:200%;",
+              "value": "200%"
+            },
+            {
+              "key": "font-size:300%;",
+              "value": "300%"
+            },
+            {
+              "key": "font-size:400%;",
+              "value": "400%"
+            },
+            {
+              "key": "font-size:500%;",
+              "value": "500%"
+            },
+            {
+              "key": "font-size:600%;",
+              "value": "600%"
+            },
+            {
+              "key": "font-size:700%;",
+              "value": "700%"
+            }
+          ]
         }
-      }
+      ]
     },
     {
       "name": "crn-paragraph",
@@ -1379,18 +1429,6 @@
           ]
         }
       ],
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Rótulo",
-          "text_en_US": "Label",
-          "selector": "span"
-        },
-        {
-          "text_pt_BR": "Ícone",
-          "text_en_US": "Icon",
-          "selector": "i"
-        }
-      ],
       "childrenProperties": [
         {
           "name": "class",
@@ -1522,14 +1560,6 @@
       "template": "<ion-view view-title=\"Title\" > <ion-content data-component=\"crn-ion-view\" data-replace=\"true\"></ion-content></ion-view>"
     },
     {
-      "name": "crn-from-crud",
-      "text_pt_BR": "Formulário crud",
-      "text_en_US": "Form Crud",
-      "class": "adjust-icon mdi mdi-file-document",
-      "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/form.template.html"
-    },
-    {
       "name": "crn-input-button",
       "text_pt_BR": "Entrada de texto com botão",
       "text_en_US": "Input Button",
@@ -1591,16 +1621,21 @@
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         }
       },
-      "groupedChildren": [
+      "childrenProperties": [
         {
-          "text_pt_BR": "R�tulo",
-          "text_en_US": "Label",
-          "selector": "label"
+          "name": "content",
+          "selector": "label",
+          "type": "content"
         },
         {
-          "text_pt_BR": "Campo",
-          "text_en_US": "Field",
-          "selector": "dynamic-image|div[dynamic-image]"
+          "name": "ng-model",
+          "selector": "div[dynamic-image]",
+          "type": "text"
+        },
+        {
+          "name": "max-file-size",
+          "selector": "div[dynamic-image]",
+          "type": "text"
         }
       ]
     },
@@ -1655,17 +1690,18 @@
       "text_en_US": "Chart",
       "class": "adjust-icon mdi mdi-chart-bar",
       "wrapper": false,
-      "template": "<div> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
-      "classForPreview": {
-        "targetSelector": "canvas",
-        "condition": [
-          {
-            "name": "data-component",
-            "value": "crn-chart",
-            "class": "chart chart-line"
-          }
-        ]
-      }
+      "template": "<div class=\"col-xs-12\"> <canvas id=\"chart${RANDOM}\" data-component=\"crn-chart\" class=\"col-xs-12\"></canvas></div>",
+      "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
+      "designTimeSelector": "canvas",
+      "childrenProperties":[
+        {
+          "name":"id",
+          "selector":"canvas",
+          "type":"text",
+          "displayName_pt_BR": "Identificador do gráfico",
+          "displayName_en_US": "Chart Id"
+        }]
+
     },
     {
       "name": "crn-chat",
