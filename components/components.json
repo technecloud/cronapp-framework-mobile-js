@@ -988,21 +988,20 @@
       "text_en_US": "Image",
       "class": " adjust-icon mdi mdi-image",
       "wrapper": false,
-      "template": "<img src=\"img/nophoto.png\" class=\"\" style=\"display:block; width: 100px; height:100px;\" xattr-position=\"\">",
-      "properties": {
-        "src": {
-          "removable": false,
+      "template": "<div class=\"row\"> <img src=\"img/nophoto.png\" class=\"\" style=\"\" height=\"30%;\" width=\"30%\" xattr-position=\"\" ></div/>",
+      "childrenProperties": [
+        {
+          "name": "src",
+          "selector": "img",
           "type": "projectResource",
           "resourceType": "image/jpeg,image/gif,image/png"
         },
-        "onclick": {
-          "removable": true,
-          "type": "event"
-        },
-        "xattr-position": {
-          "displayName": "Position"
+        {
+          "name": "xattr-position",
+          "selector": "img",
+          "type":"btngroup"
         }
-      },
+      ],
       "attributesForPreview": [
         {
           "name": "xattr-position",
