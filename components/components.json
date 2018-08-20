@@ -215,85 +215,126 @@
     },
     {
       "name": "crn-list-item-avatar",
-      "text_pt_BR": "Item da lista com avatar",
-      "text_en_US": "List Item Avatar",
+      "text_pt_BR": "Item  com avatar",
+      "text_en_US": "Item Avatar",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
+      "forcedGroup":true,
       "properties": {
-        "target": {
-          "removable": false,
-          "type": "list",
-          "options": [
+        "xattr-position": {
+          "displayName": "Position"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
             {
-              "key": "_blank",
-              "value": "Nova janela"
+              "key": "item-avatar-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
             },
             {
-              "key": "_self",
-              "value": "Mesma janela"
-            },
-            {
-              "key": "_parent",
-              "value": "Janela pai"
-            },
-            {
-              "key": "_top",
-              "value": "Top"
+              "key": "item-avatar-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
             }
           ]
-        },
-        "href": {
+        }
+      ],
+      "childrenProperties":[
+        {
+          "name":"src",
+          "selector":"img",
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "selector":"h2",
+          "type":"content"
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Subtítulo",
+          "displayName_en_US": "Subtitle",
+          "selector":"p",
+          "type":"content"
         }
-      }
+      ]
     },
     {
       "name": "crn-list-item-icon",
-      "text_pt_BR": "Item da lista com ícone",
-      "text_en_US": "List Item Icon",
+      "text_pt_BR": "Item com ícone",
+      "text_en_US": "Item Icon",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
       "properties": {
-        "target": {
-          "removable": false,
-          "type": "list",
-          "options": [
+        "xattr-position": {
+          "displayName": "Position"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
             {
-              "key": "_blank",
-              "value": "Nova janela"
+              "key": "item-icon-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
             },
             {
-              "key": "_self",
-              "value": "Mesma janela"
-            },
-            {
-              "key": "_parent",
-              "value": "Janela pai"
-            },
-            {
-              "key": "_top",
-              "value": "Top"
+              "key": "item-icon-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
             }
           ]
-        },
-        "href": {
-          "removable": false,
-          "type": "projectResource",
-          "resourceType": "text/html"
         }
-      }
+      ],
+      "childrenProperties":[
+        {
+          "name":"content",
+          "selector":"h2",
+          "type":"content"
+        },
+        {
+          "name":"class",
+          "selector":"i",
+          "type":"icon"
+        }
+      ]
     },
     {
       "name": "crn-list-item-thumbnail",
-      "text_pt_BR": "Item da lista com miniatura",
-      "text_en_US": "List Item Thumbnail",
+      "text_pt_BR": "Item com imagem",
+      "text_en_US": "Item Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html"
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
+      "forcedGroup":true,
+      "childrenProperties":[
+        {
+          "name":"src",
+          "selector":"img",
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        {
+          "name":"content",
+          "selector":"h2",
+          "type":"content"
+        }
+      ]
     },
     {
       "name": "crn-list-item-divider",
@@ -413,8 +454,8 @@
     },
     {
       "name": "crn-list-item",
-      "text_pt_BR": "Item da lista normal",
-      "text_en_US": "List Item Normal",
+      "text_pt_BR": "Item",
+      "text_en_US": "Item",
       "wrapper": false,
       "class": "adjust-icon mdi mdi-view-sequential",
       "template": "<ion-item  class=\"item dark\" xattr-theme=\"dark\" data-replace=\"true\">Item 1</ion-item>",
