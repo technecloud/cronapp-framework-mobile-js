@@ -2071,6 +2071,24 @@
       "text_en_US": "Chat",
       "class": "adjust-icon mdi mdi-wechat",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/chat.template.html"
+    },
+	{
+      "name": "crn-ion-list",
+      "text_pt_BR": "Lista Avançada",
+      "text_en_US": "Advanced List",
+      "class": "adjust-icon mdi mdi-view-quilt",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
+      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Tilte</h2><p>SubTitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
+      "designTimeSelector": "cron-list",
+      "properties": {},
+      "childrenProperties": [
+        {
+          "name": "options",
+          "selector": "cron-list",
+          "displayName_pt_BR": "Configuração",
+          "displayName_en_US": "Configuration"
+        }
+      ]
     }
   ]
 }
