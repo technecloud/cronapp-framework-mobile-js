@@ -44,7 +44,7 @@
         $scope[x]= app.userEvents[x].bind($scope);
 
       $scope.autoLogin = function(){
-        if(localStorage.getItem('_u') && localStorage.getItem('_u').token ){
+        if(localStorage.getItem('_u')){
           refreshToken($http, function(){
             $state.go('home');
           }, function(){
