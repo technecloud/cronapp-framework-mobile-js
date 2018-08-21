@@ -265,6 +265,58 @@
               "icon": "mdi mdi-ray-end"
             }
           ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
         }
       ],
       "childrenProperties":[
@@ -283,11 +335,25 @@
           "type":"content"
         },
         {
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema do Tìtulo",
+          "displayName_en_US": "Title theme",
+          "selector":"h2",
+          "type":"text"
+        },
+        {
           "name":"content",
           "displayName_pt_BR": "Subtítulo",
           "displayName_en_US": "Subtitle",
-          "selector":"p",
+          "selector":"h3",
           "type":"content"
+        },
+        {
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema do Subtítulo",
+          "displayName_en_US": "Subtitle theme",
+          "selector":"h3",
+          "type":"text"
         },
         {
           "name":"xattr-text-position",
@@ -349,6 +415,58 @@
               "icon": "mdi mdi-ray-end"
             }
           ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
         }
       ],
       "childrenProperties":[
@@ -358,9 +476,25 @@
           "type":"content"
         },
         {
+          "name":"xattr-theme",
+          "selector":"h2",
+          "displayName_pt_BR": "Tema do conteúdo",
+          "displayName_en_US": "Content Theme",
+          "type":"text"
+        },
+        {
           "name":"class",
           "selector":"i",
+          "displayName_pt_BR": "Ícone",
+          "displayName_en_US": "Icon",
           "type":"icon"
+        },
+        {
+          "name":"xattr-theme",
+          "selector":"i",
+          "displayName_pt_BR": "Tema do ícone",
+          "displayName_en_US": "Icon Theme",
+          "type":"text"
         },
         {
           "name":"xattr-text-position",
@@ -423,6 +557,58 @@
               "icon": "mdi mdi-ray-end"
             }
           ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
         }
       ],
       "childrenProperties":[
@@ -439,6 +625,13 @@
           "type":"content"
         },
         {
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Text Theme",
+          "selector":"h2",
+          "type":"text"
+        },
+        {
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
@@ -446,14 +639,6 @@
           "type":"text"
         }
       ]
-    },
-    {
-      "name": "crn-list-item-divider",
-      "text_pt_BR": "Item da lista com divisão",
-      "text_en_US": "List Item Divider",
-      "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
-      "template": "<ion-item  class=\"item item-divider \">Item Divider</ion-item>"
     },
     {
       "name": "crn-toggle",
@@ -569,10 +754,13 @@
       "text_en_US": "Item",
       "wrapper": false,
       "class": "adjust-icon mdi mdi-view-sequential",
-      "template": "<ion-item  class=\"item dark\" xattr-theme=\"dark\" data-replace=\"true\">Item 1</ion-item>",
+      "template": "<ion-item  class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
       "properties": {
         "xattr-theme": {
           "displayName": "Theme"
+        },
+        "xattr-text-position": {
+          "displayName": "Position"
         }
       },
       "attributesForPreview": [
@@ -625,6 +813,28 @@
               "key": "dark",
               "value": "Dark",
               "color": "#444"
+            }
+          ]
+        },
+        {
+          "name": "xattr-text-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
+            {
+              "key": "text-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "text-center",
+              "value": "Center",
+              "icon": "mdi mdi-ray-vertex"
+            },
+            {
+              "key": "text-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
             }
           ]
         }
