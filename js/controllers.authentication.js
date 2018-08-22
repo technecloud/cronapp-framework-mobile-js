@@ -2,7 +2,7 @@
   angular.module('custom.controllers', []);
 
   // refresh token
-  var  refreshToken = function($http,success,error) {
+  var  refreshToken = function($http,success,err) {
     $http({
       method : 'GET',
       url : 'auth/refresh'
@@ -12,12 +12,12 @@
       localStorage.setItem("_u", JSON.stringify(data));
       // Recussive
       setTimeout(function() {
-        $scope.refreshToken($http, success,error);
+        $scope.refreshToken($http, success,err);
         // refres time
       }, (1800 * 1000));
       success();
     }).error(function() {
-      error();
+      err();
     });
   };
 
@@ -171,6 +171,12 @@
       // was saved on the browser's sessionStorage
       $rootScope.session = (localStorage._u) ? JSON.parse(localStorage._u) : null;
 
+      $rootScope.logout = function logout() {
+        $rootScope.session = {};
+          localStorage.removeItem("_u");
+        $state.go("login");
+      }
+
       if(!$rootScope.session) {
 
         if(!$scope.ignoreAuth){
@@ -187,14 +193,6 @@
         if ($rootScope.session.token) refreshToken($http, function(){},  $rootScope.logout);
       }
 
-      $rootScope.logout = function logout() {
-        $rootScope.session = {};
-        if(typeof (Storage) !== "undefined") {
-          // save the user data on localStorage
-          localStorage.removeItem("_u");
-        }
-        $state.go("login");
-      }
 
       $scope.changePassword = function() {
 
