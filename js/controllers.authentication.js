@@ -46,7 +46,7 @@
       $scope.autoLogin = function(){
         if(localStorage.getItem('_u')){
           refreshToken($http, function(){
-            $state.go('home');
+            $state.go('app.home');
           }, function(){
             localStorage.removeItem('_u');
           })
