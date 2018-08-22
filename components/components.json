@@ -215,8 +215,8 @@
     },
     {
       "name": "crn-list-item-avatar",
-      "text_pt_BR": "Item  com avatar",
-      "text_en_US": "Item Avatar",
+      "text_pt_BR": "Item com avatar",
+      "text_en_US": "Avatar Item ",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
@@ -724,7 +724,7 @@
       "text_en_US": "Simple List",
       "wrapper": false,
       "class": "adjust-icon mdi mdi-view-sequential",
-      "template": "<div class=\"item\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
+      "template": "<div class=\"item\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
       "properties": {
         "crn-datasource": {
           "name": "crn-datasource",
@@ -829,6 +829,161 @@
               "icon": "mdi mdi-ray-end"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "crn-list-item-avatar",
+      "text_pt_BR": "Lista com avatar",
+      "text_en_US": "Avatar List",
+      "class": "adjust-icon mdi mdi-view-list",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
+      "forcedGroup":true,
+      "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type":"pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
+            {
+              "key": "item-avatar-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "item-avatar-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        },
+        {
+          "name": "xattr-text-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
+            {
+              "key": "text-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "text-center",
+              "value": "Center",
+              "icon": "mdi mdi-ray-vertex"
+            },
+            {
+              "key": "text-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ],
+      "childrenProperties":[
+        {
+          "name":"src",
+          "selector":"img",
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "selector":"h2",
+          "type":"content"
+        },
+        {
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema do Tìtulo",
+          "displayName_en_US": "Title theme",
+          "selector":"h2",
+          "type":"text"
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Subtítulo",
+          "displayName_en_US": "Subtitle",
+          "selector":"h3",
+          "type":"content"
+        },
+        {
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema do Subtítulo",
+          "displayName_en_US": "Subtitle theme",
+          "selector":"h3",
+          "type":"text"
+        },
+        {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"div",
+          "type":"text"
         }
       ]
     },
