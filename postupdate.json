@@ -24,6 +24,11 @@
       "file": "index.html",
       "script": "plugins/angular-moment/angular-moment.js",
       "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "js/dataSourceMap.js",
+      "type": "script"
     }
   ]
 }
