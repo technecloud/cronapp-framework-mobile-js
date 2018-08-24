@@ -1111,6 +1111,13 @@
           "type":"text"
         },
         {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"div > div",
+          "type":"text"
+        },
+        {
           "name":"class",
           "selector":"i",
           "displayName_pt_BR": "Ícone",
@@ -1125,10 +1132,10 @@
           "type":"text"
         },
         {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div>div",
+          "name":"xattr-position",
+          "selector":"div:first",
+          "displayName_pt_BR": "Tema do ícone",
+          "displayName_en_US": "Icon Theme",
           "type":"text"
         }
       ]
