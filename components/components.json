@@ -833,7 +833,7 @@
       ]
     },
     {
-      "name": "crn-list-item-avatar",
+      "name": "crn-list-avatar",
       "text_pt_BR": "Lista com avatar",
       "text_en_US": "Avatar List",
       "class": "adjust-icon mdi mdi-view-list",
@@ -1111,6 +1111,13 @@
           "type":"text"
         },
         {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"div > div",
+          "type":"text"
+        },
+        {
           "name":"class",
           "selector":"i",
           "displayName_pt_BR": "Ícone",
@@ -1125,15 +1132,162 @@
           "type":"text"
         },
         {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div>div",
+          "name":"xattr-position",
+          "selector":"div:first",
+          "displayName_pt_BR": "Tema do ícone",
+          "displayName_en_US": "Icon Theme",
           "type":"text"
         }
       ]
     },
     {
+      "name": "crn-list-thumbnail",
+      "text_pt_BR": "Listas com imagem",
+      "text_en_US": "List Thumbnail",
+      "class": "adjust-icon mdi mdi-view-list",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.thumbnail.template.html",
+      "forcedGroup":true,
+      "properties": {
+        "xattr-position": {
+          "displayName": "Position"
+        },
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type":"pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
+            {
+              "key": "item-thumbnail-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "item-thumbnail-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        },
+        {
+          "name": "xattr-text-position",
+          "type": "btngroup",
+          "target": "class",
+          "values": [
+            {
+              "key": "text-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "text-center",
+              "value": "Center",
+              "icon": "mdi mdi-ray-vertex"
+            },
+            {
+              "key": "text-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ],
+      "childrenProperties":[
+        {
+          "name":"src",
+          "selector":"img",
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        {
+          "name":"xattr-position",
+          "selector":"div",
+          "type": "text"
+        },
+        {
+          "name":"content",
+          "selector":"h2",
+          "type":"content"
+        },
+        {
+          "name":"xattr-theme",
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Text Theme",
+          "selector":"h2",
+          "type":"text"
+        },
+        {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"div",
+          "type":"text"
+        }
+      ]
+    },   
+	{
       "name": "crn-list",
       "text_pt_BR": "Lista",
       "text_en_US": "List",
