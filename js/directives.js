@@ -656,6 +656,7 @@
               	   <div class="item-avatar"></div> \
               	 </ion-item> \
                </ion-list> \
+               <ion-infinite-scroll></ion-infinite-scroll> \
                ';
                
     var getExpression = function(dataSourceName) {
@@ -708,9 +709,7 @@
     }
     
     var addImage = function(column) {
-      const IMAGE_TEMPLATE = '<img src="img/nophoto.png">';
-      
-      return IMAGE_TEMPLATE;
+      return '<img data-ng-src="data:image/png;base64,{{rowData.' + column.field + '}}">';
     }
     
     var encodeHTML = function(value) {
@@ -790,6 +789,7 @@
         try {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
+          var dataSource = eval(optionsList.dataSourceScreen.name);
           var searchableField;
           var isNativeEdit = false;
           var addedImage = false;
@@ -839,6 +839,15 @@
         ionAvatar.append(image);
         ionAvatar.append(content);
         ionAvatar.append(buttons);
+        
+        scope.nextPageInfinite = function() {
+          dataSource.nextPage();
+          scope.$broadcast('scroll.infiniteScrollComplete');
+        }
+        
+        var infiniteScroll = $(element).find('ion-infinite-scroll');
+        infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
+        infiniteScroll.attr('distance', '1%');
         
         $compile(templateDyn)(element.scope());
       }
