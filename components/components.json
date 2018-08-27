@@ -951,6 +951,13 @@
           "resourceType": "image/jpeg,image/gif,image/png"
         },
         {
+          "name":"xattr-position",
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Image Position",
+          "selector":"div:first",
+          "type":"text"
+        },
+        {
           "name":"content",
           "displayName_pt_BR": "Título",
           "displayName_en_US": "Title",
@@ -982,7 +989,7 @@
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
-          "selector":"div",
+          "selector":"div > div",
           "type":"text"
         }
       ]
