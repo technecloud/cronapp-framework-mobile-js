@@ -224,6 +224,11 @@
       "properties": {
         "xattr-position": {
           "displayName": "Position"
+        },
+        "href": {
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "text/html"
         }
       },
       "attributesForPreview": [
@@ -373,7 +378,13 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
       "properties": {
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição do  Ícone" ,
+          "displayName_en_US": "Icon Position"
+        },
+        "href": {
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "text/html"
         }
       },
       "attributesForPreview": [
@@ -516,6 +527,11 @@
       "properties": {
         "xattr-position": {
           "displayName": "Position"
+        },
+        "href": {
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "text/html"
         }
       },
       "attributesForPreview": [
@@ -723,8 +739,9 @@
       "text_pt_BR": "Lista Simples",
       "text_en_US": "Simple List",
       "wrapper": false,
+      "forcedGroup":true,
       "class": "adjust-icon mdi mdi-view-sequential",
-      "template": "<div class=\"item\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
+      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
       "properties": {
         "crn-datasource": {
           "name": "crn-datasource",
@@ -1141,8 +1158,8 @@
         {
           "name":"xattr-position",
           "selector":"div:first",
-          "displayName_pt_BR": "Tema do ícone",
-          "displayName_en_US": "Icon Theme",
+          "displayName_pt_BR": "Posição do Ícone",
+          "displayName_en_US": "Icon Position",
           "type":"text"
         }
       ]
@@ -1156,9 +1173,6 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
-        "xattr-position": {
-          "displayName": "Position"
-        },
         "crn-datasource": {
           "name": "crn-datasource",
           "displayName_pt_BR": "Fonte de dados",
@@ -1293,8 +1307,8 @@
           "type":"text"
         }
       ]
-    },   
-	{
+    },
+    {
       "name": "crn-list",
       "text_pt_BR": "Lista",
       "text_en_US": "List",
@@ -1337,6 +1351,11 @@
         },
         "xattr-text-position": {
           "displayName": "Position"
+        },
+        "href": {
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "text/html"
         }
       },
       "attributesForPreview": [
@@ -1416,7 +1435,7 @@
         }
       ]
     },
-	{
+    {
       "name": "crn-select",
       "text_pt_BR": "Caixa de seleção",
       "text_en_US": "Combobox",
@@ -1464,7 +1483,7 @@
         ]
       }
     },
-	{
+    {
       "name": "crn-dynamic-select",
       "text_pt_BR": "Caixa de seleção Dinâmica",
       "text_en_US": "Dynamic Combobox",
@@ -1506,7 +1525,7 @@
         }
       ]
     },
-	{
+    {
       "name": "crn-multiselect",
       "text_pt_BR": "Seleção Multipla",
       "text_en_US": "Multiselect",
@@ -2490,12 +2509,127 @@
       }
     },
     {
-      "name": "crn-ion-view",
-      "text_pt_BR": "Visualização",
-      "text_en_US": "View",
+      "name": "crn-ion-content",
+      "text_pt_BR": "Conteúdo",
+      "text_en_US": "Content",
+      "pallete":false,
       "class": "adjust-icon mdi mdi-airplay",
       "wrapper": false,
-      "template": "<ion-view view-title=\"Title\" > <ion-content data-component=\"crn-ion-view\" data-replace=\"true\"></ion-content></ion-view>"
+      "template": "<ion-content data-component=\"crn-ion-content\"></ion-content>",
+      "controls":{
+        "ungroup":true,
+        "resizable":false,
+        "additive":false,
+        "duplicable":false,
+        "pluggable":false,
+        "removable":false
+      },
+      "droppableArea":{
+        "onmiddle":true,
+        "ontop":false,
+        "onbottom":false,
+        "onleft":false,
+        "onright":false
+      }
+    },
+    {
+      "name": "crn-ion-header-bar",
+      "text_pt_BR": "Cabeçalho",
+      "text_en_US": "Header",
+      "pallete":false,
+      "class": "adjust-icon mdi mdi-airplay",
+      "wrapper": false,
+      "template": "<ion-header data-component=\"crn-ion-header\"></ion-header>",
+      "controls":{
+        "ungroup":true,
+        "resizable":false,
+        "additive":false,
+        "duplicable":false,
+        "pluggable":false,
+        "removable":false
+      },
+      "droppableArea":{
+        "onmiddle":true,
+        "ontop":false,
+        "onbottom":false,
+        "onleft":false,
+        "onright":false
+      }
+    },
+    {
+      "name": "crn-ion-footer-bar",
+      "text_pt_BR": "Rodapé",
+      "text_en_US": "Footer",
+      "pallete":false,
+      "class": "adjust-icon mdi mdi-airplay",
+      "wrapper": false,
+      "template": "<ion-footer-bar data-component=\"crn-ion-header\"></ion-footer-bar>",
+      "controls":{
+        "ungroup":true,
+        "resizable":false,
+        "additive":false,
+        "duplicable":false,
+        "pluggable":false,
+        "removable":false
+      },
+      "droppableArea":{
+        "onmiddle":true,
+        "ontop":false,
+        "onbottom":false,
+        "onleft":false,
+        "onright":false
+      }
+    },
+    {
+      "name": "crn-ion-footer-bar",
+      "text_pt_BR": "Abas",
+      "text_en_US": "Footer",
+      "pallete":false,
+      "class": "adjust-icon mdi mdi-airplay",
+      "wrapper": false,
+      "template": "<ion-footer-bar data-component=\"crn-ion-header\"></ion-footer-bar>",
+      "controls":{
+        "ungroup":true,
+        "resizable":false,
+        "additive":false,
+        "duplicable":false,
+        "pluggable":false,
+        "removable":false
+      },
+      "droppableArea":{
+        "onmiddle":true,
+        "ontop":false,
+        "onbottom":false,
+        "onleft":false,
+        "onright":false
+      }
+    },
+    {
+      "name": "crn-ion-tab",
+      "text_pt_BR": "Item aba",
+      "text_en_US": "Nav item",
+      "pallete":false,
+      "class": "adjust-icon mdi mdi-airplay",
+      "wrapper": false,
+      "template": "<ion-tab title=\"About\" icon-on=\"ion-ios-clock\" icon-off=\"ion-ios-clock-outline\"> </ion-tab>",
+      "designTimeDynamic": true,
+      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab.designtime.html",
+      "designTimeSelector": ":self",
+      "controls":{
+        "ungroup":true,
+        "resizable":false,
+        "additive":false,
+        "duplicable":false,
+        "pluggable":false,
+        "removable":false
+      },
+      "droppableArea":{
+        "onmiddle":true,
+        "ontop":false,
+        "onbottom":false,
+        "onleft":false,
+        "onright":false
+      }
     },
     {
       "name": "crn-input-button",
@@ -2536,7 +2670,6 @@
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
       "wrapper": false,
-      "designTimeDynamic": true,
       "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/evaluation.designtime.html",
       "designTimeSelector": ":self",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
@@ -2648,13 +2781,13 @@
       "class": "adjust-icon mdi mdi-wechat",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/chat.template.html"
     },
-	{
+    {
       "name": "crn-ion-list",
       "text_pt_BR": "Lista Avançada",
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Tilte</h2><p>SubTitle</p></div></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Tilte</h2><p>SubTitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
       "properties": {},
       "childrenProperties": [

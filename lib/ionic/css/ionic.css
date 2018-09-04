@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
@@ -6183,8 +6183,8 @@ a.item-content {
 
 .item-complex.item-icon-left {
   padding-left: 0; }
-.item-complex.item-icon-left .item-content {
-  padding-left: 10px; }
+.item-complex.item-icon-left > .item-content{
+  padding-left: 50px; }
 
 .item-icon-right .item-content{
   padding-right: 32px;
@@ -6194,7 +6194,7 @@ a.item-content {
 
 .item-complex.item-icon-right {
   padding-right: 0; }
-.item-complex.item-icon-right .item-content {
+.item-complex.item-icon-right > .item-content {
   padding-right: 10px; }
 
 .item-icon-left.item-icon-right .icon:first-child {
