@@ -12,7 +12,7 @@ var app = (function() {
     'tmh.dynamicLocale',
     'ui-notification',
     'ngFileUpload',
-	'angularMoment'
+    'angularMoment'
   ])
       .constant('LOCALES', {
         'locales': {
@@ -53,7 +53,7 @@ var app = (function() {
             function($q, $rootScope) {
               var service = {
                 'request': function(config) {
-                  var _u = JSON.parse(sessionStorage.getItem('_u'));
+                  var _u = JSON.parse(localStorage.getItem('_u'));
                   if (_u && _u.token) {
                     config.headers['X-AUTH-TOKEN'] = _u.token;
                     window.uToken = _u.token;
@@ -95,21 +95,21 @@ var app = (function() {
               controller: 'LoginController',
               templateUrl: 'views/login.view.html'
             })
-			
-			.state('publicRoot', {
+
+            .state('publicRoot', {
               url: "/public/{name:.*}",
               controller: 'PageController',
               templateUrl: function(urlattr) {
                 return 'views/public/' + urlattr.name + '.view.html';
               }
             })
-            
+
             .state('public', {
               url: "/app/public",
               controller: 'PublicController',
               templateUrl: 'views/public/menu.view.html'
             })
-            
+
             .state('public.home', {
               url: "/home",
               views: {
@@ -208,22 +208,40 @@ var app = (function() {
         return {
           restrict: 'A',
           require: '^ngModel',
-          link: function(scope, element, attr, ngModel) {
+          link: function(scope, element, attr, ngModelCtrl) {
             var evaluatedValue;
             if (attr.value) {
               evaluatedValue = attr.value;
             } else {
               evaluatedValue = $parse(attr.crnValue)(scope);
             }
+
             element.attr("data-evaluated", JSON.stringify(evaluatedValue));
             element.bind("click", function(event) {
               scope.$apply(function() {
-                ngModel.$setViewValue(evaluatedValue);
+                ngModelCtrl.$setViewValue(evaluatedValue);
+                $(element).data('changed', true);
               }.bind(element));
+            });
+
+            scope.$watch(function(){return ngModelCtrl.$modelValue}, function(value, old){
+              if (value !== old) {
+                var dataEvaluated = element.attr("data-evaluated");
+                var changed = $(element).data('changed');
+                $(element).data('changed', false);
+                if (!changed) {
+                  if (value && JSON.stringify(''+value) == dataEvaluated) {
+                    $(element)[0].children[0].checked = true
+                  } else {
+                    $(element)[0].children[0].checked = false;
+                  }
+                }
+              }
             });
           }
         };
       }])
+
       .decorator("$xhrFactory", [
         "$delegate", "$injector",
         function($delegate, $injector) {
@@ -274,7 +292,8 @@ var app = (function() {
           if (arguments.length >= 6) {
             var requestObj = arguments[5];
             if (requestObj.status === 404 || requestObj.status === 403) {
-              $state.go(requestObj.status.toString());
+              localStorage.removeItem('_u');
+              $state.go('login');
             }
           } else {
             $state.go('404');
@@ -342,7 +361,7 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal) {
     if (cronapi) {
       $scope['cronapi'] = app.bindScope($scope, cronapi);
       $scope['cronapi'].$scope = $scope;
-	  $scope['cronapi'].$scope.$ionicModal = $ionicModal;
+      $scope['cronapi'].$scope.$ionicModal = $ionicModal;
       $scope.safeApply = safeApply;
       if ($translate) {
         $scope['cronapi'].$translate = $translate;

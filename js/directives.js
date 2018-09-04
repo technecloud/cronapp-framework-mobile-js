@@ -645,8 +645,215 @@
           buttonBehavior(scope, element, attrs, ngModelCtrl, $element, typeElement, operator, autopost);
       }
     }
-  })  
-	
+  })
+
+  .directive('cronList', ['$compile', function($compile){
+    'use strict';
+    
+    const TEMPLATE = '\
+               <ion-list can-swipe="listCanSwipe"> \
+            	   <ion-item class="item" ng-repeat="rowData in datasource"> \
+              	   <div class="item-avatar"></div> \
+              	 </ion-item> \
+               </ion-list> \
+               <ion-infinite-scroll></ion-infinite-scroll> \
+               ';
+               
+    var getExpression = function(dataSourceName) {
+      return 'rowData in '.concat(dataSourceName).concat('.data');
+    }
+    
+    var buildFormat = function(column) {
+      var result = '';
+      
+      if (column.format) {
+        result = ' | mask: "' + column.format + '"';
+      } else {
+        switch (column.type) {
+          case 'date' : result = ' | mask: "date"'; break;
+          case 'number':
+          case 'money' : result = ' | mask: "number"'; break;
+        }
+      }
+      
+      return result;
+    }
+    
+    var addDefaultColumn = function(column, first) {
+      var result = null;
+      
+      if (first) {
+        result = '<h2>{{rowData.' + column.field + buildFormat(column) + '}}</h2>';
+      } else {
+        result = '<p>{{rowData.' + column.field + buildFormat(column) + '}}</p>';
+      }
+      
+      return result;
+    }
+    
+    var getEditCommand = function(dataSourceName) {
+      return dataSourceName + '.startEditing(rowData)';
+    }
+    
+    var addDefaultButton = function(dataSourceName, column) {
+      const EDIT_TEMPLATE = '<ion-option-button class="button-positive" ng-click="' + getEditCommand(dataSourceName) + '"><i class="icon ion-edit"></i></ion-option-button>';
+      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive" ng-click="' + dataSourceName + '.remove(rowData)"><i class="icon ion-trash-a"></i></ion-option-button>';
+      
+      if (column.command == 'edit|destroy') {
+        return EDIT_TEMPLATE.concat(DELETE_TEMPLATE);
+      } else if (column.command == 'edit') {
+        return EDIT_TEMPLATE;
+      } else if (column.command == 'destroy') {
+        return DELETE_TEMPLATE;
+      } 
+    }
+    
+    var addImage = function(column) {
+      return '<img data-ng-src="data:image/png;base64,{{rowData.' + column.field + '}}">';
+    }
+    
+    var encodeHTML = function(value) {
+      return value.replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&apos;');
+    }
+          
+    var generateBlocklyCall = function(blocklyInfo) {
+      var call;
+      if (blocklyInfo.type == "client")  {
+        var splitedClass = blocklyInfo.blocklyClass.split('/');
+        var blocklyName = splitedClass[splitedClass.length-1];
+        call = "blockly.js.blockly." + blocklyName;
+        call += "." +  blocklyInfo.blocklyMethod;
+        var params = "()";
+        if (blocklyInfo.blocklyParams.length > 0) {
+          params = "(";
+          blocklyInfo.blocklyParams.forEach(function(p) {
+            params += (p.value ? encodeHTML(p.value) : "''") + ",";
+          }.bind(this))
+          params = params.substr(0, params.length - 1);
+          params += ")";
+        }
+        call += params;
+      } else if (blocklyInfo.type == "server") {
+        var blocklyName = blocklyInfo.blocklyClass + ':' + blocklyInfo.blocklyMethod;
+        call = "cronapi.util.makeCallServerBlocklyAsync('"+blocklyName+"',null,null,";
+        if (blocklyInfo.blocklyParams.length > 0) {
+          blocklyInfo.blocklyParams.forEach(function(p) {
+            call += (p.value ? encodeHTML(p.value) : "''") + ",";
+          }.bind(this))
+        }
+        call = call.substr(0, call.length - 1);
+        call += ")";
+      }
+      
+      return call;
+    }
+    
+    var addBlockly = function(column) {
+      return '<ion-option-button class="button-dark" ng-click="'
+              + generateBlocklyCall(column.blocklyInfo)
+              + '"><i class="icon ion-navigate"></i></ion-option-button>';
+    }
+    
+    var isImage = function(fieldName, schemaFields) {
+      for (var i = 0; i < schemaFields.length; i++) {
+        var field = schemaFields[i];
+        if (fieldName == field.name) {
+          return (field.type == 'Binary');
+        }
+      }
+      
+      return false;
+    }
+    
+    var getSearchableList = function(dataSourceName, fieldName) {
+      return '\
+              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i> \
+                <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
+                crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
+              </label>\
+             ';
+    }
+    
+    return {
+      restrict: 'E',
+      link: function(scope, element, attrs, ngModelCtrl) {
+        var optionsList = {};
+        var dataSourceName = '';
+        var content = '';
+        var buttons = '';
+        var image = '';
+        try {
+          optionsList = JSON.parse(attrs.options);
+          dataSourceName = optionsList.dataSourceScreen.name;
+          var dataSource = eval(optionsList.dataSourceScreen.name);
+          var searchableField = null;
+          var isNativeEdit = false;
+          var addedImage = false;
+          for (var i = 0; i < optionsList.columns.length; i++) {
+            var column = optionsList.columns[i];
+            if (column.visible) {
+              if (column.field && column.dataType == 'Database') {
+                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields)) {
+                  image = addImage(column);
+                  addedImage = true;
+                } else {
+                  content = content.concat(addDefaultColumn(column, (i == 0)));
+                  if (column.filterable) {
+                    searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
+                  }
+                }
+              } else if (column.dataType == 'Command') {
+                buttons = buttons.concat(addDefaultButton(dataSourceName, column));
+                if (column.command == 'edit') {
+                  isNativeEdit = true;    
+                }
+              } else if (column.dataType == 'Blockly') {
+                buttons = buttons.concat(addBlockly(column));
+              }
+            }
+          }
+        } catch(err) {
+          console.log('CronList invalid configuration! ' + err);
+        }
+        
+        var templateDyn = null;
+        if (searchableField) {
+          templateDyn = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE);
+        } else {
+          templateDyn = $(TEMPLATE);
+        }
+        $(element).html(templateDyn);
+        
+        var ionItem = $(element).find('ion-item');
+        ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        
+        if (isNativeEdit) {
+          ionItem.attr('ng-click', getEditCommand(dataSourceName));
+        }
+        
+        var ionAvatar = $(element).find('.item-avatar');
+        ionAvatar.append(image);
+        ionAvatar.append(content);
+        ionAvatar.append(buttons);
+        
+        scope.nextPageInfinite = function() {
+          dataSource.nextPage();
+          scope.$broadcast('scroll.infiniteScrollComplete');
+        }
+        
+        var infiniteScroll = $(element).find('ion-infinite-scroll');
+        infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
+        infiniteScroll.attr('distance', '1%');
+        
+        $compile(templateDyn)(element.scope());
+      }
+    }
+  }])
+  
 }(app));
 function maskDirectiveAsDate($compile, $translate) {
   return maskDirective($compile, $translate, 'as-date');
