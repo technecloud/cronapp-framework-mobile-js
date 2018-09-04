@@ -656,6 +656,7 @@
               	   <div class="item-avatar"></div> \
               	 </ion-item> \
                </ion-list> \
+               <ion-infinite-scroll></ion-infinite-scroll> \
                ';
                
     var getExpression = function(dataSourceName) {
@@ -708,9 +709,7 @@
     }
     
     var addImage = function(column) {
-      const IMAGE_TEMPLATE = '<img src="img/nophoto.png">';
-      
-      return IMAGE_TEMPLATE;
+      return '<img data-ng-src="data:image/png;base64,{{rowData.' + column.field + '}}">';
     }
     
     var encodeHTML = function(value) {
@@ -790,7 +789,8 @@
         try {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
-          var searchableField;
+          var dataSource = eval(optionsList.dataSourceScreen.name);
+          var searchableField = null;
           var isNativeEdit = false;
           var addedImage = false;
           for (var i = 0; i < optionsList.columns.length; i++) {
@@ -802,8 +802,8 @@
                   addedImage = true;
                 } else {
                   content = content.concat(addDefaultColumn(column, (i == 0)));
-                  if (!searchableField && column.sortable) {
-                    searchableField = column.field;
+                  if (column.filterable) {
+                    searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                   }
                 }
               } else if (column.dataType == 'Command') {
@@ -840,11 +840,20 @@
         ionAvatar.append(content);
         ionAvatar.append(buttons);
         
+        scope.nextPageInfinite = function() {
+          dataSource.nextPage();
+          scope.$broadcast('scroll.infiniteScrollComplete');
+        }
+        
+        var infiniteScroll = $(element).find('ion-infinite-scroll');
+        infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
+        infiniteScroll.attr('distance', '1%');
+        
         $compile(templateDyn)(element.scope());
       }
     }
-  }])  
-	
+  }])
+  
 }(app));
 function maskDirectiveAsDate($compile, $translate) {
   return maskDirective($compile, $translate, 'as-date');
