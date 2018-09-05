@@ -405,6 +405,41 @@
           ]
         },
         {
+          "name": "xattr-icon-size",
+          "type": "options",
+          "target": "style",
+          "values": [
+            {
+              "key": "font-size:50%;",
+              "value": "50%"
+            },
+            {
+              "key": "font-size:100%;",
+              "value": "100%"
+            },
+            {
+              "key": "font-size:150%;",
+              "value": "150%"
+            },
+            {
+              "key": "font-size:175%;",
+              "value": "175%"
+            },
+            {
+              "key": "font-size:200%;",
+              "value": "200%"
+            },
+            {
+              "key": "font-size:250%;",
+              "value": "250%"
+            },
+            {
+              "key": "font-size:300%;",
+              "value": "300%"
+            }
+          ]
+        },
+        {
           "name": "xattr-text-position",
           "type": "btngroup",
           "target": "class",
@@ -498,6 +533,12 @@
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
           "type":"icon"
+        },
+        {
+          "name":"xattr-icon-size",
+          "selector":"i",
+          "displayName_pt_BR": "Tamanho do Ícone",
+          "displayName_en_US": "Icon Size"
         },
         {
           "name":"xattr-theme",
