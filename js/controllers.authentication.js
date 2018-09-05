@@ -172,9 +172,9 @@
       $rootScope.session = (localStorage._u) ? JSON.parse(localStorage._u) : null;
 
       $rootScope.logout = function logout() {
-        $rootScope.session = {};
-          localStorage.removeItem("_u");
-        $state.go("login");
+        $rootScope.session = null;
+        localStorage.removeItem("_u");
+        $state.go("main");
       }
 
       if(!$rootScope.session) {
