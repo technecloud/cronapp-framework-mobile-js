@@ -671,8 +671,9 @@
       } else {
         switch (column.type) {
           case 'date' : result = ' | mask: "date"'; break;
-          case 'number':
-          case 'money' : result = ' | mask: "number"'; break;
+          case 'datetime' : result = ' | mask: "datetime"'; break;
+          case 'number': result = ' | mask: "number"'; break;
+          case 'money' : result = ' | mask: "money"'; break;
         }
       }
       
@@ -808,7 +809,7 @@
                 }
               } else if (column.dataType == 'Command') {
                 buttons = buttons.concat(addDefaultButton(dataSourceName, column));
-                if (column.command == 'edit') {
+                if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
                   isNativeEdit = true;    
                 }
               } else if (column.dataType == 'Blockly') {
@@ -852,7 +853,7 @@
         $compile(templateDyn)(element.scope());
       }
     }
-  }])
+  }])	
   
 }(app));
 function maskDirectiveAsDate($compile, $translate) {
