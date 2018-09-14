@@ -854,6 +854,31 @@
       }
     }
   }])	
+    
+  .directive('cronInfiniteScroll', ['$compile', function($compile){
+    'use strict';
+    return {
+      restrict: 'E',
+      link: function(scope, element, attrs) {
+        var dataSource = (attrs.crnDatasource) ? eval(attrs.crnDatasource) : null;
+        if (dataSource) {
+          var templateDyn = $('<ion-infinite-scroll></ion-infinite-scroll>');
+          $(element).html(templateDyn);
+          
+          scope.nextPageInfinite = function() {
+            dataSource.nextPage();
+            scope.$broadcast('scroll.infiniteScrollComplete');
+          }
+          
+          var infiniteScroll = $(element).find('ion-infinite-scroll');
+          infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
+          infiniteScroll.attr('distance', '1%');
+          
+          $compile(templateDyn)(element.scope());
+        }
+      }
+    }
+  }])
   
 }(app));
 function maskDirectiveAsDate($compile, $translate) {
