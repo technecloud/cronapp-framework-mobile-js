@@ -858,17 +858,17 @@
   .directive('cronInfiniteScroll', ['$compile', function($compile){
     'use strict';
     return {
-      restrict: 'E',
+      restrict: 'EA',
       link: function(scope, element, attrs) {
-        var dataSource = (attrs.crnDatasource) ? eval(attrs.crnDatasource) : null;
+        var dataSource = attrs.cronInfiniteScroll ? eval(attrs.cronInfiniteScroll) : attrs.crnDatasource ? eval(attrs.crnDatasource): undefined;
         if (dataSource) {
-          var templateDyn = $('<ion-infinite-scroll></ion-infinite-scroll>');
-          $(element).html(templateDyn);
-          
           scope.nextPageInfinite = function() {
             dataSource.nextPage();
             scope.$broadcast('scroll.infiniteScrollComplete');
           }
+            
+          var templateDyn = $('<ion-infinite-scroll></ion-infinite-scroll>');
+          $(element).html(templateDyn);
           
           var infiniteScroll = $(element).find('ion-infinite-scroll');
           infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
