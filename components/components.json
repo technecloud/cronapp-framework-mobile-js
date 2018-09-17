@@ -181,35 +181,94 @@
       "name": "crn-navbar",
       "text_pt_BR": "Barra de navegação",
       "text_en_US": "Navbar",
-      "class": "cpn cpn-navbar",
+      "class": "adjust-icon mdi mdi-navigation",
       "template": "",
       "pallete": false,
-      "handleRules": {
-        "canIncrement": true,
-        "rules": [
-          {
-            "sourceHTML": "<div data-component=\"crn-anchor\" menu-close class=\"item-icon-left item item-complex\"><a href=\"#\" class=\"component-holder item-content ng-binding\" ><i class=\"icon ion-home\"></i><label>Action item</label></a></div> ",
-            "targetSelector": ".nav.navbar-nav"
-          }
-        ]
-      }
-    },
-    {
-      "name": "crn-menu-item",
-      "text_pt_BR": "Item de Menu",
-      "text_en_US": "Menu Item",
-      "class": "cpn cpn-navbar",
-      "template": "",
-      "pallete": false,
+      "properties": {
+        "xattr-theme": {
+          "displayName": "Theme"
+        }
+      },
+      "controls": {
+        "ungroup": true,
+        "resizable": false,
+        "additive": false,
+        "duplicable": false,
+        "pluggable": false,
+        "removable": false
+      },
+      "droppableArea": {
+        "onmiddle": true,
+        "ontop": false,
+        "onbottom": false,
+        "onleft": false,
+        "onright": false
+      },
       "childrenProperties": [
         {
-          "name": "href",
-          "selector": "a[href]",
-          "displayName_pt_BR": "Referência",
-          "displayName_en_US": "Anchor",
-          "removable": false,
-          "type": "projectResource",
-          "resourceType": "text/html"
+          "name": "content",
+          "selector": "h1[class='title']",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "type": "content"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "bar-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "bar-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "bar-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "bar-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "bar-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "bar-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "bar-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "bar-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "bar-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
         }
       ]
     },
@@ -2379,6 +2438,10 @@
           "target": "class",
           "values": [
             {
+              "key": "",
+              "value": "Default"
+            },
+            {
               "key": "button-assertive",
               "value": "Assertive",
               "color": "#ef473a"
@@ -2424,15 +2487,78 @@
               "color": "#444"
             }
           ]
+        },
+        {
+          "name": "xattr-icon-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
         }
       ],
       "childrenProperties": [
         {
           "name": "class",
           "selector": "i",
-          "displayName_pt_BR":"Ícone",
-          "displayName_en_US":"Icon",
+          "displayName_pt_BR": "Ícone",
+          "displayName_en_US": "Icon",
           "type": "icon"
+        },
+        {
+          "name": "xattr-icon-theme",
+          "selector": "i",
+          "displayName_pt_BR": "Tema do ícone",
+          "displayName_en_US": "Icon Theme",
+          "type": "text"
         },
         {
           "name": "content",
