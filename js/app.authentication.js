@@ -141,7 +141,7 @@ var app = (function() {
       url: "/app",
       cache:false,
       controller: 'HomeController',
-      templateUrl: 'views/logged/menu.view.html'
+      templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/menu.template.html'
     })
 
     .state('app.home', {
