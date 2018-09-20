@@ -2356,10 +2356,6 @@
           "removable": true,
           "type": "event"
         },
-        "onmouseover": {
-          "removable": true,
-          "type": "event"
-        },
         "xattr-fullsize": {
           "displayName": "Width"
         },
