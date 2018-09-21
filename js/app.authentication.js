@@ -1,19 +1,25 @@
+var cronappModules = [
+  'ionic',
+  'ui.router',
+  'ngResource',
+  'ngSanitize',
+  'custom.controllers',
+  'custom.services',
+  'datasourcejs',
+  'pascalprecht.translate',
+  'tmh.dynamicLocale',
+  'ui-notification',
+  'ngFileUpload',
+  'angularMoment'
+  ]
+
+if (window.customModules) {
+  cronappModules = cronappModules.concat(window.customModules);
+}
+
 var app = (function() {
 
-  return angular.module('MyApp', [
-    'ionic',
-    'ui.router',
-    'ngResource',
-    'ngSanitize',
-    'custom.controllers',
-    'custom.services',
-    'datasourcejs',
-    'pascalprecht.translate',
-    'tmh.dynamicLocale',
-    'ui-notification',
-    'ngFileUpload',
-    'angularMoment'
-  ])
+  return angular.module('MyApp', cronappModules)
       .constant('LOCALES', {
         'locales': {
           'pt_br': 'Portugues (Brasil)',
@@ -81,6 +87,10 @@ var app = (function() {
           positionY: 'top'
         });
 
+		if (window.customStateProvider) {
+		  window.customStateProvider($stateProvider);
+		}
+		else {
         // Set up the states
         $stateProvider
 
@@ -174,6 +184,7 @@ var app = (function() {
                 return 'views/error/403.view.html';
               }
             });
+		}
 
         // For any unmatched url, redirect to /state1
         $urlRouterProvider.otherwise("/error/404");

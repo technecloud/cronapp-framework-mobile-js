@@ -1,5 +1,4 @@
-var app = (function() {
-  return angular.module('MyApp', [
+var cronappModules = [
       'ionic',
       'ui.router',
       'ngResource',
@@ -12,7 +11,14 @@ var app = (function() {
       'ui-notification',
       'ngFileUpload',
 	  'angularMoment'
-    ])
+	  ];
+  
+if (window.customModules) {
+  cronappModules = cronappModules.concat(window.customModules);
+}
+
+var app = (function() {
+  return angular.module('MyApp', cronappModules)
     .constant('LOCALES', {
       'locales': {
         'pt_br': 'Portugues (Brasil)',
@@ -73,7 +79,11 @@ var app = (function() {
         positionX: 'right',
         positionY: 'top'
       });
-
+      
+      if (window.customStateProvider) {
+      window.customStateProvider($stateProvider);
+      }
+      else {
       // Set up the states
       $stateProvider
 
@@ -118,7 +128,7 @@ var app = (function() {
             return 'views/error/403.view.html';
           }
         });
-
+      } 
       // For any unmatched url, redirect to /state1
       $urlRouterProvider.otherwise("/error/404");
     })
@@ -203,6 +213,10 @@ var app = (function() {
         }
       }
       registerComponentScripts();
+		try {
+		var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+		app.copyContext(contextAfterPageController, this, 'AfterPageController');
+		} catch(e) {};
     }])
 
     .run(function($rootScope, $state) {

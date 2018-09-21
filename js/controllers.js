@@ -9,7 +9,13 @@
       for(var x in app.userEvents)
           $scope[x]= app.userEvents[x].bind($scope);
         $scope.message = {};
-
+      
+    try {
+      var contextAfterHomeController = $controller('AfterHomeController', { $scope: $scope });
+      app.copyContext(contextAfterHomeController, this, 'AfterHomeController');
+    } catch(e) {};
+    try { if ($scope.blockly.events.afterHomeRender) $scope.blockly.events.afterHomeRender(); } catch(e) {};
+      
     }]);
 	
 app.controller('chatController', [
