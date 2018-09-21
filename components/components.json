@@ -2072,7 +2072,7 @@
       "text_en_US": "Image",
       "class": " adjust-icon mdi mdi-image",
       "wrapper": false,
-      "template": "<img src=\"img/nophoto.png\" class=\"\" style=\"\" height=\"30%;\" width=\"30%\" xattr-position=\"\" >",
+      "template": "<img src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
       "properties": {
         "src": {
           "type": "projectResource",
