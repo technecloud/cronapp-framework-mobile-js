@@ -55,6 +55,6 @@
       "file": "index.html",
       "script": "js/custom.controllers.js",
       "type": "script"
-    },
+    }
   ]
 }
