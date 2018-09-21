@@ -38,6 +38,23 @@
       "file": "index.html",
       "script": "plugins/angular-moment/angular-moment.js",
       "type": "script"
-    }
+    },
+	 {
+      "file": "index.html",
+      "script": "js/customModules.js",
+      "type": "script",
+      "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "js/customStateProvider.js",
+      "type": "script",
+      "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "js/custom.controllers.js",
+      "type": "script"
+    },
   ]
 }
