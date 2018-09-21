@@ -107,10 +107,11 @@ var app = (function() {
           templateUrl: 'views/home.view.html'
         })
 
-        .state('home.pages', {
-          url: "/{name:.*}",
+        .state('pages', {
+          url: "/app/{name:.*}",
+          cache: false,
           controller: 'PageController',
-          templateUrl: function (urlattr) {
+          templateUrl: function(urlattr) {
             return 'views/' + urlattr.name + '.view.html';
           }
         })
@@ -118,7 +119,7 @@ var app = (function() {
         .state('404', {
           url: "/error/404",
           controller: 'PageController',
-          templateUrl: function (urlattr) {
+          templateUrl: function(urlattr) {
             return 'views/error/404.view.html';
           }
         })
@@ -126,7 +127,7 @@ var app = (function() {
         .state('403', {
           url: "/error/403",
           controller: 'PageController',
-          templateUrl: function (urlattr) {
+          templateUrl: function(urlattr) {
             return 'views/error/403.view.html';
           }
         });
