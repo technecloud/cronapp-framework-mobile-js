@@ -215,6 +215,10 @@ var app = (function() {
         }
       }
       registerComponentScripts();
+      try {
+        var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+        app.copyContext(contextAfterPageController, this, 'AfterPageController');
+      } catch(e) {};
     }])
 
     .run(function($rootScope, $state) {

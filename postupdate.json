@@ -1,4 +1,18 @@
 {
+  "copies": [
+    {
+      "from": "plugins/cronapp-framework-mobile-js/js/custom.controllers.js",
+      "to": "js/custom.controllers.js"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/js/customModules.js",
+      "to": "js/customModules.js"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/js/customStateProvider.js",
+      "to": "js/customStateProvider.js"
+    }
+  ],
   "includes": [
     {
       "file": "index.html",

@@ -120,6 +120,12 @@
         Notification.error(error);
       }
 
+      try {
+        var contextAfterLoginController = $controller('AfterLoginController', { $scope: $scope });
+        app.copyContext(contextAfterLoginController, this, 'AfterLoginController');
+      } catch(e) {};
+      try { if ($scope.blockly.events.afterLoginRender) $scope.blockly.events.afterLoginRender(); } catch(e) {};
+
     } ]);
 
   app.controller('HomeController', [

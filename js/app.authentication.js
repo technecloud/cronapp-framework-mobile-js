@@ -1,19 +1,26 @@
+var cronappModules = [
+  'ionic',
+  'ui.router',
+  'ngResource',
+  'ngSanitize',
+  'custom.controllers',
+  'custom.services',
+  'datasourcejs',
+  'pascalprecht.translate',
+  'tmh.dynamicLocale',
+  'ui-notification',
+  'ngFileUpload',
+  'angularMoment'
+  ]
+
+if (window.customModules) {
+  cronappModules = cronappModules.concat(window.customModules);
+}
+
+
 var app = (function() {
 
-  return angular.module('MyApp', [
-    'ionic',
-    'ui.router',
-    'ngResource',
-    'ngSanitize',
-    'custom.controllers',
-    'custom.services',
-    'datasourcejs',
-    'pascalprecht.translate',
-    'tmh.dynamicLocale',
-    'ui-notification',
-    'ngFileUpload',
-    'angularMoment'
-  ])
+  return angular.module('MyApp', cronappModules)
   .constant('LOCALES', {
     'locales': {
       'pt_br': 'Portugues (Brasil)',
@@ -81,111 +88,115 @@ var app = (function() {
       positionY: 'top'
     });
 
-    // Set up the states
-    $stateProvider
+    if (window.customStateProvider) {
+      window.customStateProvider($stateProvider);
+    }
+    else {
+      // Set up the states
+      $stateProvider
 
-    .state('login', {
-      url: "",
-      cache:false,
-      controller: 'LoginController',
-      templateUrl: 'views/login.view.html'
-    })
+      .state('login', {
+        url: "",
+        cache: false,
+        controller: 'LoginController',
+        templateUrl: 'views/login.view.html'
+      })
 
-    .state('main', {
-      url: "/",
-      cache:false,
-      controller: 'LoginController',
-      templateUrl: 'views/login.view.html'
-    })
+      .state('main', {
+        url: "/",
+        cache: false,
+        controller: 'LoginController',
+        templateUrl: 'views/login.view.html'
+      })
 
-    .state('publicRoot', {
-      url: "/public/{name:.*}",
-      cache:false,
-      controller: 'PageController',
-      templateUrl: function(urlattr) {
-        return 'views/public/' + urlattr.name + '.view.html';
-      }
-    })
-
-    .state('public', {
-      url: "/app/public",
-      cache:false,
-      controller: 'PublicController',
-      templateUrl: 'views/public/menu.view.html'
-    })
-
-    .state('public.home', {
-      url: "/home",
-      cache:false,
-      views: {
-        'menuContent': {
-          controller: 'PublicController',
-          templateUrl: 'views/public/home.view.html'
+      .state('publicRoot', {
+        url: "/public/{name:.*}",
+        cache: false,
+        controller: 'PageController',
+        templateUrl: function (urlattr) {
+          return 'views/public/' + urlattr.name + '.view.html';
         }
-      }
-    })
-    .state('public.pages', {
-      url: "/{name:.*}",
-      cache:false,
-      views: {
-        'menuContent': {
-          controller: 'PageController',
-          templateUrl: function(urlattr) {
-            return 'views/public/' + urlattr.name + '.view.html';
+      })
+
+      .state('public', {
+        url: "/app/public",
+        cache: false,
+        controller: 'PublicController',
+        templateUrl: 'views/public/menu.view.html'
+      })
+
+      .state('public.home', {
+        url: "/home",
+        cache: false,
+        views: {
+          'menuContent': {
+            controller: 'PublicController',
+            templateUrl: 'views/public/home.view.html'
           }
         }
-      }
-    })
-
-    .state('app', {
-      url: "/app",
-      cache:false,
-      controller: 'HomeController',
-      templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/menu.template.html'
-    })
-
-    .state('app.home', {
-      url: "/home",
-      cache:false,
-      views: {
-        'menuContent': {
-          controller: 'HomeController',
-          templateUrl: 'views/logged/home.view.html'
-        }
-      }
-    })
-
-    .state('app.pages', {
-      url: "/{name:.*}",
-      cache:false,
-      views: {
-        'menuContent': {
-          controller: 'PageController',
-          templateUrl: function(urlattr) {
-            return 'views/' + urlattr.name + '.view.html';
+      })
+      .state('public.pages', {
+        url: "/{name:.*}",
+        cache: false,
+        views: {
+          'menuContent': {
+            controller: 'PageController',
+            templateUrl: function (urlattr) {
+              return 'views/public/' + urlattr.name + '.view.html';
+            }
           }
         }
-      }
-    })
+      })
 
-    .state('404', {
-      url: "/error/404",
-      cache:false,
-      controller: 'PageController',
-      templateUrl: function(urlattr) {
-        return 'views/error/404.view.html';
-      }
-    })
+      .state('app', {
+        url: "/app",
+        cache: false,
+        controller: 'HomeController',
+        templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/menu.template.html'
+      })
 
-    .state('403', {
-      url: "/error/403",
-      cache:false,
-      controller: 'PageController',
-      templateUrl: function(urlattr) {
-        return 'views/error/403.view.html';
-      }
-    });
+      .state('app.home', {
+        url: "/home",
+        cache: false,
+        views: {
+          'menuContent': {
+            controller: 'HomeController',
+            templateUrl: 'views/logged/home.view.html'
+          }
+        }
+      })
 
+      .state('app.pages', {
+        url: "/{name:.*}",
+        cache: false,
+        views: {
+          'menuContent': {
+            controller: 'PageController',
+            templateUrl: function (urlattr) {
+              return 'views/' + urlattr.name + '.view.html';
+            }
+          }
+        }
+      })
+
+      .state('404', {
+        url: "/error/404",
+        cache: false,
+        controller: 'PageController',
+        templateUrl: function (urlattr) {
+          return 'views/error/404.view.html';
+        }
+      })
+
+      .state('403', {
+        url: "/error/403",
+        cache: false,
+        controller: 'PageController',
+        templateUrl: function (urlattr) {
+          return 'views/error/403.view.html';
+        }
+      });
+    }
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/error/404");
   })
@@ -296,6 +307,11 @@ var app = (function() {
     }
 
     $scope.registerComponentScripts();
+
+    try {
+      var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+      app.copyContext(contextAfterPageController, this, 'AfterPageController');
+    } catch(e) {};
   }])
 
   .run(function($rootScope, $state) {
