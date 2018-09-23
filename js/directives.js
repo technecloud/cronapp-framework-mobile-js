@@ -878,6 +878,31 @@
       }
     }
   }])
+  
+  .filter('raw',function($translate) {
+    return function(o) {
+      if (o != null && o !== undefined) {
+        if (typeof o == 'number') {
+          return o + "";
+        }
+	      if (typeof o == 'boolean') {
+          return o + "";
+        }
+        if (o instanceof Date) {
+          var dt = "datetimeoffset'" + o.toISOString() + "'";
+        }
+        else {
+          if (o.length >= 10 && o.match(ISO_PATTERN)) {
+            return "datetimeoffset'" + o + "'";
+          } else {
+            return "'" + o + "'";
+          }
+        }
+      } else {
+        return "";
+      }
+    }
+  })
 
 }(app));
 
