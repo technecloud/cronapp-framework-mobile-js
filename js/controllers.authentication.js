@@ -34,9 +34,9 @@
     '$timeout',
     '$stateParams',
     '$ionicModal',
-    function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams,$ionicModal) {
+    function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal) {
 
-      app.registerEventsCronapi($scope, $translate,$ionicModal);
+      app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
 
@@ -58,16 +58,7 @@
       $scope.message = {};
 
       $scope.login = function() {
-
-        $ionicLoading.show({
-          content : 'Loading',
-          animation : 'fade-in',
-          showBackdrop : true,
-          maxWidth : 200,
-          showDelay : 0
-        });
-
-
+        this.cronapi.screen.showLoading();
         $scope.message.error = undefined;
 
         if(window.hostApp) {
@@ -80,7 +71,7 @@
 
         }
         else {
-          $ionicLoading.hide();
+          cronapi.screen.showLoading();
           Notification.error("HostApp is required!");
         }
 
@@ -138,9 +129,10 @@
     'Notification',
     '$ionicHistory',
     '$ionicModal',
-    function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal) {
+    '$ionicLoading',
+    function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
 
-      app.registerEventsCronapi($scope, $translate,$ionicModal);
+      app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
 
@@ -255,9 +247,9 @@
     '$rootScope',
     '$http',
     'Notification',
-    function chatController($scope, $state,$ionicPopup, $ionicScrollDelegate, $timeout, $interval, $ionicModal,$translate,$rootScope,$http,Notification) {
+    function chatController($scope, $state,$ionicPopup, $ionicScrollDelegate, $timeout, $interval, $ionicModal,$translate,$rootScope,$http,Notification ) {
 
-      app.registerEventsCronapi($scope, $translate);
+      app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
       for(var x in app.userEvents)
@@ -303,6 +295,54 @@
       };
     }
   ]);
+
+  // General controller
+  app.controller('PageController', [
+    "$scope",
+    "$stateParams",
+    "Notification",
+    "$location",
+    "$http",
+    "$rootScope",
+    "$translate",
+    "$ionicModal",
+    "$ionicLoading",
+    function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading) {
+
+      app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
+
+      // save state params into scope
+      $scope.params = $stateParams;
+      $scope.$http = $http;
+
+      // Query string params
+      var queryStringParams = $location.search();
+      for (var key in queryStringParams) {
+        if (queryStringParams.hasOwnProperty(key)) {
+          $scope.params[key] = queryStringParams[key];
+        }
+      }
+
+      //Components personalization jquery
+      $scope.registerComponentScripts = function() {
+        //carousel slider
+        $('.carousel-indicators li').on('click', function() {
+          var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
+          var index = $(currentCarousel + ' .carousel-indicators li').index(this);
+          $(currentCarousel + ' #carousel-example-generic').carousel(index);
+        });
+      }
+
+      $scope.registerComponentScripts();
+
+      try {
+        var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+        app.copyContext(contextAfterPageController, this, 'AfterPageController');
+      } catch(e) {};
+    }]);
+
 }(app));
 
 window.safeApply = function(fn) {
