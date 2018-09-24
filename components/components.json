@@ -1613,14 +1613,18 @@
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         },
         {
-          "editExpression": false,
-          "name": "ng-options",
+          "name": "xkey-field",
           "selector": "select",
-          "displayName_pt_BR": "Texto Exibição",
-          "displayName_en_US": "Text Display",
-          "type": "datasourceFieldList",
-          "onSave": "javascript:function() {var selected = arguments[0]; return 'opt as opt.' + selected + ' for opt in datasource.data track by opt.' + selected}",
-          "onDisplay": "javascript:function() { var selected = arguments[0]; var expr = \/(opt\\.)\\w+\/g; var result = selected.match(expr); result = result[0].replace(\/opt\\.\/g, ''); return result;}"
+          "displayName_pt_BR": "Campo Chave",
+          "displayName_en_US": "Key Field",
+          "type": "datasourceFieldList"
+        },
+        {
+          "name": "xdisplay-field",
+          "selector": "select",
+          "displayName_pt_BR": "Campo Texto",
+          "displayName_en_US": "Display Field",
+          "type": "datasourceFieldList"
         }
       ]
     },
@@ -1650,14 +1654,18 @@
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         },
         {
-          "editExpression": false,
-          "name": "ng-options",
+          "name": "xkey-field",
           "selector": "select",
-          "displayName_pt_BR": "Texto Exibição",
-          "displayName_en_US": "Text Display",
-          "type": "datasourceFieldList",
-          "onSave": "javascript:function() {var selected = arguments[0]; return 'opt as opt.' + selected + ' for opt in datasource.data track by opt.' + selected}",
-          "onDisplay": "javascript:function() { var selected = arguments[0]; var expr = \/(opt\\.)\\w+\/g; var result = selected.match(expr); result = result[0].replace(\/opt\\.\/g, ''); return result;}"
+          "displayName_pt_BR": "Campo Chave",
+          "displayName_en_US": "Key Field",
+          "type": "datasourceFieldList"
+        },
+        {
+          "name": "xdisplay-field",
+          "selector": "select",
+          "displayName_pt_BR": "Campo Texto",
+          "displayName_en_US": "Display Field",
+          "type": "datasourceFieldList"
         }
       ],
       "groupedChildren": [
