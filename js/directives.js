@@ -904,6 +904,33 @@
     }
   })
 
+  .directive('xkeyField', ['$compile', function($compile){
+    'use strict';
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        if (attrs.xkeyField && attrs.xdisplayField) {
+          var dataSource = '';
+          if (attrs.crnDatasource) {
+            dataSource = attrs.crnDatasource;
+          }
+
+          var ngOptions;
+          element.removeAttr('xkey-field');
+          element.removeAttr('xdisplay-field');
+          if (attrs.multiple) {
+            ngOptions = 'opt as opt.' + attrs.xdisplayField + ' for opt in ' + dataSource + '.data track by opt.' + attrs.xkeyField;
+            element.attr('ng-options', ngOptions);
+          } else {
+            element.append('<option ng-repeat="opt in ' + dataSource + '.data" value="{{opt.' + attrs.xkeyField  + '}}">{{opt.' + attrs.xdisplayField + '}}</option>');
+          }
+
+          $compile($(element))(scope);
+        }
+      }
+    }
+  }])
+
 }(app));
 
 
