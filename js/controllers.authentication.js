@@ -343,6 +343,53 @@
       } catch(e) {};
     }]);
 
+  // General controller
+  app.controller('PageController', [
+    "$scope",
+    "$stateParams",
+    "$http",
+    "Notification",
+    "$location",
+    "$rootScope",
+    "$translate",
+    "$ionicModal",
+    "$ionicLoading",
+    function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading) {
+
+      app.registerEventsCronapi($scope, $http, $translate,$ionicModal, $ionicLoading);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
+
+      // save state params into scope
+      $scope.params = $stateParams;
+      $scope.$http = $http;
+
+      // Query string params
+      var queryStringParams = $location.search();
+      for (var key in queryStringParams) {
+        if (queryStringParams.hasOwnProperty(key)) {
+          $scope.params[key] = queryStringParams[key];
+        }
+      }
+
+      //Components personalization jquery
+      $scope.registerComponentScripts = function() {
+        //carousel slider
+        $('.carousel-indicators li').on('click', function() {
+          var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
+          var index = $(currentCarousel + ' .carousel-indicators li').index(this);
+          $(currentCarousel + ' #carousel-example-generic').carousel(index);
+        });
+      }
+
+      $scope.registerComponentScripts();
+
+      try {
+        var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+        app.copyContext(contextAfterPageController, this, 'AfterPageController');
+      } catch(e) {};
+    }]);
+
 }(app));
 
 window.safeApply = function(fn) {
