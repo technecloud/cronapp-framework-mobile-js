@@ -11,7 +11,7 @@ var cronappModules = [
   'ui-notification',
   'ngFileUpload',
   'angularMoment'
-  ]
+]
 
 if (window.customModules) {
   cronappModules = cronappModules.concat(window.customModules);
@@ -277,42 +277,6 @@ var app = (function() {
       };
     }
   ])
-  // General controller
-  .controller('PageController', ["$scope", "$stateParams", "Notification", "$location", "$http", "$rootScope", "$translate","$ionicModal", function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate,$ionicModal) {
-
-    app.registerEventsCronapi($scope, $translate,$ionicModal);
-    $rootScope.http = $http;
-    $scope.Notification = Notification;
-
-    // save state params into scope
-    $scope.params = $stateParams;
-    $scope.$http = $http;
-
-    // Query string params
-    var queryStringParams = $location.search();
-    for (var key in queryStringParams) {
-      if (queryStringParams.hasOwnProperty(key)) {
-        $scope.params[key] = queryStringParams[key];
-      }
-    }
-
-    //Components personalization jquery
-    $scope.registerComponentScripts = function() {
-      //carousel slider
-      $('.carousel-indicators li').on('click', function() {
-        var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
-        var index = $(currentCarousel + ' .carousel-indicators li').index(this);
-        $(currentCarousel + ' #carousel-example-generic').carousel(index);
-      });
-    }
-
-    $scope.registerComponentScripts();
-
-    try {
-      var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
-      app.copyContext(contextAfterPageController, this, 'AfterPageController');
-    } catch(e) {};
-  }])
 
   .run(function($rootScope, $state) {
     $rootScope.$on('$stateChangeError', function() {
@@ -378,7 +342,7 @@ app.bindScope = function($scope, obj) {
   return newObj;
 };
 
-app.registerEventsCronapi = function($scope, $translate, $ionicModal) {
+app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoading) {
   for (var x in app.userEvents)
     $scope[x] = app.userEvents[x].bind($scope);
 
@@ -389,6 +353,8 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal) {
       $scope['cronapi'] = app.bindScope($scope, cronapi);
       $scope['cronapi'].$scope = $scope;
       $scope['cronapi'].$scope.$ionicModal = $ionicModal;
+      $scope['cronapi'].$scope.$ionicLoading = $ionicLoading;
+
       $scope.safeApply = safeApply;
       if ($translate) {
         $scope['cronapi'].$translate = $translate;

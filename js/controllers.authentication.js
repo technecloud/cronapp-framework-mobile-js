@@ -3,22 +3,26 @@
 
   // refresh token
   var  refreshToken = function($http,success,err) {
-    $http({
-      method : 'GET',
-      url : 'auth/refresh'
-    }).success(function(data, status, headers, config) {
-      // Store data response on local storage
-      console.log('revive :', new Date(data.expires));
-      localStorage.setItem("_u", JSON.stringify(data));
-      // Recussive
-      setTimeout(function() {
-        $scope.refreshToken($http, success,err);
-        // refres time
-      }, (1800 * 1000));
-      success();
-    }).error(function() {
-      err();
-    });
+    if(window.hostApp) {
+      $http({
+        method: 'GET',
+        url: window.hostApp + 'auth/refresh'
+      }).success(function (data, status, headers, config) {
+        // Store data response on local storage
+        console.log('revive :', new Date(data.expires));
+        localStorage.setItem("_u", JSON.stringify(data));
+        // Recussive
+        setTimeout(function () {
+          $scope.refreshToken($http, success, err);
+          // refres time
+        }, (1800 * 1000));
+        success();
+      }).error(function () {
+        err();
+      });
+    }else{
+      Notification.error("HostApp is required to refresh token!");
+    }
   };
 
   app.controller('LoginController', [
@@ -34,9 +38,9 @@
     '$timeout',
     '$stateParams',
     '$ionicModal',
-    function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams,$ionicModal) {
+    function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal) {
 
-      app.registerEventsCronapi($scope, $translate,$ionicModal);
+      app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
 
@@ -58,19 +62,10 @@
       $scope.message = {};
 
       $scope.login = function() {
-
-        $ionicLoading.show({
-          content : 'Loading',
-          animation : 'fade-in',
-          showBackdrop : true,
-          maxWidth : 200,
-          showDelay : 0
-        });
-
-
         $scope.message.error = undefined;
 
         if(window.hostApp) {
+          this.cronapi.screen.showLoading();
           $http({
             method : 'POST',
             url : window.hostApp + 'auth',
@@ -80,7 +75,6 @@
 
         }
         else {
-          $ionicLoading.hide();
           Notification.error("HostApp is required!");
         }
 
@@ -138,9 +132,10 @@
     'Notification',
     '$ionicHistory',
     '$ionicModal',
-    function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal) {
+    '$ionicLoading',
+    function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
 
-      app.registerEventsCronapi($scope, $translate,$ionicModal);
+      app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
 
@@ -255,9 +250,9 @@
     '$rootScope',
     '$http',
     'Notification',
-    function chatController($scope, $state,$ionicPopup, $ionicScrollDelegate, $timeout, $interval, $ionicModal,$translate,$rootScope,$http,Notification) {
+    function chatController($scope, $state,$ionicPopup, $ionicScrollDelegate, $timeout, $interval, $ionicModal,$translate,$rootScope,$http,Notification ) {
 
-      app.registerEventsCronapi($scope, $translate);
+      app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
       for(var x in app.userEvents)
@@ -303,6 +298,101 @@
       };
     }
   ]);
+
+  // General controller
+  app.controller('PageController', [
+    "$scope",
+    "$stateParams",
+    "Notification",
+    "$location",
+    "$http",
+    "$rootScope",
+    "$translate",
+    "$ionicModal",
+    "$ionicLoading",
+    function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading) {
+
+      app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
+
+      // save state params into scope
+      $scope.params = $stateParams;
+      $scope.$http = $http;
+
+      // Query string params
+      var queryStringParams = $location.search();
+      for (var key in queryStringParams) {
+        if (queryStringParams.hasOwnProperty(key)) {
+          $scope.params[key] = queryStringParams[key];
+        }
+      }
+
+      //Components personalization jquery
+      $scope.registerComponentScripts = function() {
+        //carousel slider
+        $('.carousel-indicators li').on('click', function() {
+          var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
+          var index = $(currentCarousel + ' .carousel-indicators li').index(this);
+          $(currentCarousel + ' #carousel-example-generic').carousel(index);
+        });
+      }
+
+      $scope.registerComponentScripts();
+
+      try {
+        var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+        app.copyContext(contextAfterPageController, this, 'AfterPageController');
+      } catch(e) {};
+    }]);
+
+  // General controller
+  app.controller('PageController', [
+    "$scope",
+    "$stateParams",
+    "$http",
+    "Notification",
+    "$location",
+    "$rootScope",
+    "$translate",
+    "$ionicModal",
+    "$ionicLoading",
+    function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading) {
+
+      app.registerEventsCronapi($scope, $http, $translate,$ionicModal, $ionicLoading);
+      $rootScope.http = $http;
+      $scope.Notification = Notification;
+
+      // save state params into scope
+      $scope.params = $stateParams;
+      $scope.$http = $http;
+
+      // Query string params
+      var queryStringParams = $location.search();
+      for (var key in queryStringParams) {
+        if (queryStringParams.hasOwnProperty(key)) {
+          $scope.params[key] = queryStringParams[key];
+        }
+      }
+
+      //Components personalization jquery
+      $scope.registerComponentScripts = function() {
+        //carousel slider
+        $('.carousel-indicators li').on('click', function() {
+          var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
+          var index = $(currentCarousel + ' .carousel-indicators li').index(this);
+          $(currentCarousel + ' #carousel-example-generic').carousel(index);
+        });
+      }
+
+      $scope.registerComponentScripts();
+
+      try {
+        var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
+        app.copyContext(contextAfterPageController, this, 'AfterPageController');
+      } catch(e) {};
+    }]);
+
 }(app));
 
 window.safeApply = function(fn) {
