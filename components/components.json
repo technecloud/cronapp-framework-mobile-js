@@ -1720,23 +1720,323 @@
     },
     {
       "name": "crn-search",
-      "text_pt_BR": "Procurar",
-      "text_en_US": "Search",
+      "text_pt_BR": "Filtro",
+      "text_en_US": "Filter",
       "class": "adjust-icon mdi mdi-magnify",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
-      "forceGroup" : true,
-      "childrenProperties": [
+      "properties": {
+        "crn-datasource": {
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "removable": false,
+          "type": "pageDatasource",
+          "selector": "input",
+          "childrenProperty": true
+        },
+        "cronapp-filter-caseinsensitive":  {
+          "removable": false,
+          "type": "logic",
+          "selector": "input",
+          "childrenProperty": true
+        },
+        "cronapp-filter-autopost": {
+          "removable": false,
+          "type": "logic",
+          "selector": "input",
+          "childrenProperty": true
+        },
+        "cronapp-filter-operator": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "value": "=",
+              "key": "="
+            },
+            {
+              "value": ">",
+              "key": ">"
+            },
+            {
+              "value": ">=",
+              "key": ">="
+            },
+            {
+              "value": "<",
+              "key": "<"
+            },
+            {
+              "value": "<=",
+              "key": "<="
+            }
+          ],
+          "selector": "input",
+          "childrenProperty": true
+        }
+      },
+      "groupedChildren": [
         {
-          "name": "placeholder",
-          "selector": "input[placeholder]",
-          "displayName_pt_BR": "Sugestão",
-          "displayName_en_US": "Placeholder",
-          "type":"text"
+          "text_pt_BR": "Campo",
+          "text_en_US": "Field",
+          "selector": "input"
+        }
+      ]
+    },
+	{
+      "name": "crn-complex-search",
+      "text_pt_BR": "Filtro Complexo",
+      "text_en_US": "Complex Filter",
+      "class": "adjust-icon mdi mdi-filter",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/complexsearch.template.html"
+    },
+	{
+      "name": "crn-filter-button",
+      "text_pt_BR": "Botão do Filtro",
+      "text_en_US": "Filter Button",
+      "class": "adjust-icon mdi mdi-stop",
+      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/filterbutton.template.html",
+      "properties": {
+	    "crn-datasource": {
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "removable": false,
+          "type": "pageDatasource"
+        },
+		"cronapp-filter-caseinsensitive": {
+          "removable": false,
+          "type": "logic",
+          "selector": "input",
+          "childrenProperty": true
+        },
+        "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "xattr-fullsize": {
+          "displayName": "Width"
+        },
+        "xattr-theme": {
+          "displayName": "Theme"
+        },
+        "xattr-type": {
+          "displayName": "Style Type"
+        },
+        "xattr-size": {
+          "displayName": "Size"
+        }
+      },
+      "attributesForPreview": [
+        {
+          "name": "xattr-size",
+          "type": "options",
+          "selector": "div",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Standard"
+            },
+            {
+              "key": "button-large",
+              "value": "Large"
+            },
+            {
+              "key": "button-small",
+              "value": "Small"
+            }
+          ]
+        },
+		{
+          "name": "crn-datasource",
+          "type": "pageDatasource",
+          "target": "button"
         },
         {
-          "name": "ng-model",
-          "selector": "input",
+          "name": "xattr-type",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "button-clear",
+              "value": "Clear"
+            },
+            {
+              "key": "button-outline",
+              "value": "Outline"
+            }
+          ]
+        },
+        {
+          "name": "xattr-fullsize",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "button-block",
+              "value": "Block"
+            },
+            {
+              "key": "",
+              "value": "Inline"
+            },
+            {
+              "key": "button-full",
+              "value": "Full Width"
+            }
+          ]
+        },
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "button-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "button-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "button-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "button-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "button-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "button-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "button-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "button-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "button-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        },
+		{
+          "name": "required-filter",
+          "type": "options",
+          "target": "required-filter",
+          "values": [
+            {
+              "key": "true",
+              "value": "Sim"
+            },
+            {
+              "key": "false",
+              "value": "Não"
+            }
+          ]
+        },
+        {
+          "name": "xattr-icon-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "",
+              "value": "Default"
+            },
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "class",
+          "selector": "i",
+          "displayName_pt_BR": "Ícone",
+          "displayName_en_US": "Icon",
+          "type": "icon"
+        },
+        {
+          "name": "xattr-icon-theme",
+          "selector": "i",
+          "displayName_pt_BR": "Tema do ícone",
+          "displayName_en_US": "Icon Theme",
           "type": "text"
+        },
+        {
+          "name": "content",
+          "selector": "span",
+          "type": "content"
         }
       ]
     },
