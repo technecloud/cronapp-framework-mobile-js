@@ -21,7 +21,7 @@
         err();
       });
     }else{
-      Notification.error("HostApp is required!");
+      Notification.error("HostApp is required to refresh token!");
     }
   };
 
