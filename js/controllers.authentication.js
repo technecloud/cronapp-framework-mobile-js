@@ -3,22 +3,26 @@
 
   // refresh token
   var  refreshToken = function($http,success,err) {
-    $http({
-      method : 'GET',
-      url : 'auth/refresh'
-    }).success(function(data, status, headers, config) {
-      // Store data response on local storage
-      console.log('revive :', new Date(data.expires));
-      localStorage.setItem("_u", JSON.stringify(data));
-      // Recussive
-      setTimeout(function() {
-        $scope.refreshToken($http, success,err);
-        // refres time
-      }, (1800 * 1000));
-      success();
-    }).error(function() {
-      err();
-    });
+    if(window.hostApp) {
+      $http({
+        method: 'GET',
+        url: window.hostApp + 'auth/refresh'
+      }).success(function (data, status, headers, config) {
+        // Store data response on local storage
+        console.log('revive :', new Date(data.expires));
+        localStorage.setItem("_u", JSON.stringify(data));
+        // Recussive
+        setTimeout(function () {
+          $scope.refreshToken($http, success, err);
+          // refres time
+        }, (1800 * 1000));
+        success();
+      }).error(function () {
+        err();
+      });
+    }else{
+      Notification.error("HostApp is required!");
+    }
   };
 
   app.controller('LoginController', [
@@ -58,10 +62,10 @@
       $scope.message = {};
 
       $scope.login = function() {
-        this.cronapi.screen.showLoading();
         $scope.message.error = undefined;
 
         if(window.hostApp) {
+          this.cronapi.screen.showLoading();
           $http({
             method : 'POST',
             url : window.hostApp + 'auth',
@@ -71,7 +75,6 @@
 
         }
         else {
-          cronapi.screen.showLoading();
           Notification.error("HostApp is required!");
         }
 
