@@ -1125,15 +1125,47 @@ function maskDirective($compile, $translate, attrName) {
       }
 
       if (type == 'date' || type == 'datetime' || type == 'datetime-local' || type == 'month' || type == 'time' || type == 'time-local' || type == 'week') {
-
-        if(type == 'date'|| type == 'month'){
+        var useUTC = type == 'date' || type == 'datetime' || type == 'time';
+        if(type == 'date'){
+          mask = moment.HTML5_FMT.DATE;
           $element.attr("type", "date");
+        }
+        else if(type == 'month'){
+          mask = moment.HTML5_FMT.MONTH;
+          $element.attr("type", "month");
         }else if( type == 'week'){
+          mask = moment.HTML5_FMT.WEEK;
           $element.attr("type", "week");
         }else if(  type == 'datetime' || type == 'datetime-local' ){
+          mask = moment.HTML5_FMT.DATETIME_LOCAL;
           $element.attr("type", "datetime-local");
         }else if( type == 'time' || type == 'time-local'  ){
+          mask = moment.HTML5_FMT.TIME;
           $element.attr("type", "time");
+        }
+
+        if (ngModelCtrl) {
+          ngModelCtrl.$formatters.push(function (value) {
+
+            if(value){
+              if(useUTC){
+                return moment.utc(value).format(mask);
+              }
+              return moment(value).format(mask);
+            }else{
+              return null;
+            }
+          });
+
+          ngModelCtrl.$parsers.push(function (value) {
+            if (value) {
+              if(useUTC){
+                return moment.utc(value, mask).toDate();
+              }
+              return moment(value,mask).toDate();
+            }
+            return new Date(value);
+          });
         }
 
       } else if (type == 'number' || type == 'money' || type == 'integer') {
