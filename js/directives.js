@@ -674,15 +674,8 @@ function maskDirective($compile, $translate, attrName) {
 
       $element.data("type", type);
 
-      if (type == 'datetime') {
-        $element.attr('type', 'datetime-local');
-      }
-      else if (type == 'time-local') {
-        $element.attr('type', 'time');
-      }
-      else if (type == 'integer' || type == 'number' || type == 'money') {
-        $element.attr('type', 'tel');
-      }
+      $element.attr("type", "text");
+
       if (ngModelCtrl) {
         ngModelCtrl.$formatters = [];
         ngModelCtrl.$parsers = [];
@@ -714,51 +707,49 @@ function maskDirective($compile, $translate, attrName) {
 
       if (type == 'date' || type == 'datetime' || type == 'datetime-local' || type == 'month' || type == 'time' || type == 'time-local' || type == 'week') {
         var useUTC = type == 'date' || type == 'datetime' || type == 'time';
-        var IONIC_FORMAT = '';
-        
-        switch (type) {
-          case 'date' : IONIC_FORMAT = 'YYYY-MM-DD'; break;
-          case 'datetime' : IONIC_FORMAT = 'YYYY-MM-DDTHH:mm'; break;
-          case 'time' : IONIC_FORMAT = 'HH:mm'; break;
+        if(type == 'date'){
+           mask = moment.HTML5_FMT.DATE;
+          $element.attr("type", "date");
         }
-
+        else if(type == 'month'){
+          mask = moment.HTML5_FMT.MONTH;
+          $element.attr("type", "month");
+        }else if( type == 'week'){
+          mask = moment.HTML5_FMT.WEEK;
+          $element.attr("type", "week");
+        }else if(  type == 'datetime' || type == 'datetime-local' ){
+          mask = moment.HTML5_FMT.DATETIME_LOCAL;
+          $element.attr("type", "datetime-local");
+        }else if( type == 'time' || type == 'time-local'  ){
+          mask = moment.HTML5_FMT.TIME;
+          $element.attr("type", "time");
+        }
+        
         if (ngModelCtrl) {
           ngModelCtrl.$formatters.push(function (value) {
-            if (value) {
-              var momentDate = null;
 
-              if (useUTC) {
-                momentDate = moment.utc(value);
-              } else {
-                momentDate = moment(value);
+            if(value){
+              if(useUTC){
+                return moment.utc(value).format(mask);
               }
-              
-              $(this).val(momentDate.format(IONIC_FORMAT));
-              
-              return momentDate.format(IONIC_FORMAT);
+              return moment(value).format(mask);
+            }else{
+              return null;
             }
-
-            return null;
-          }.bind($element));
+          });
 
           ngModelCtrl.$parsers.push(function (value) {
             if (value) {
-              var momentDate = null;
-              
-              if (useUTC) {
-                momentDate = moment.utc(value, IONIC_FORMAT);
-              } else {
-                momentDate = moment(value, IONIC_FORMAT);
+              if(useUTC){
+                return moment.utc(value, mask).toDate(); 
               }
-              
-              return momentDate.toDate();
+              return moment(value,mask).toDate();
             }
-
-            return null;
+              return new Date(value);
           });
         }
 
-      } else if (!attrs.mask && (type == 'number' || type == 'money' || type == 'integer')) {
+      } else if (type == 'number' || type == 'money' || type == 'integer') {
         removeMask = true;
         textMask = false;
 
@@ -826,33 +817,45 @@ function maskDirective($compile, $translate, attrName) {
 
         $(element).inputmask(inputmaskType, ipOptions);
 
+        var unmaskedvalue = function() {
+          $(this).data('rawvalue',$(this).inputmask('unmaskedvalue'));
+        };
+        $(element).off("keypress");
+        scope.safeApply(function(){
+          $(element).on('keyup',unmaskedvalue);
+        });
         if (ngModelCtrl) {
           ngModelCtrl.$formatters.push(function (value) {
             if (value != undefined && value != null && value != '') {
               return format(mask, value);
             }
-
             return null;
           });
-
           ngModelCtrl.$parsers.push(function (value) {
             if (value != undefined && value != null && value != '') {
               var unmaskedvalue = $element.inputmask('unmaskedvalue');
               if (unmaskedvalue != '')
                 return unmaskedvalue;
             }
-
             return null;
           });
         }
       }
-      else if (type == 'text' || type == 'tel' || attrs.mask) {
+
+      else if (type == 'text' || type == 'tel') {
+
         var options = {};
         if (attrs.maskPlaceholder) {
           options.placeholder = attrs.maskPlaceholder
         }
 
         $element.mask(mask, options);
+
+        var unmaskedvalue = function() {
+          if (removeMask)
+            $(this).data('rawvalue',$(this).cleanVal());
+        }
+        $(element).on('keydown', unmaskedvalue).on('keyup', unmaskedvalue);
 
         if (removeMask && ngModelCtrl) {
           ngModelCtrl.$formatters.push(function (value) {
