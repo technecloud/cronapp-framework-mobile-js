@@ -2,7 +2,7 @@
   angular.module('custom.controllers', []);
 
   // refresh token
-  var  refreshToken = function($http,success,err) {
+  var  refreshToken = function(Notification, $http, success, err) {
     if(window.hostApp) {
       $http({
         method: 'GET',
@@ -13,7 +13,7 @@
         localStorage.setItem("_u", JSON.stringify(data));
         // Recussive
         setTimeout(function () {
-          $scope.refreshToken($http, success, err);
+          $scope.refreshToken(Notification, $http, success, err);
           // refres time
         }, (1800 * 1000));
         success();
@@ -49,7 +49,7 @@
 
       $scope.autoLogin = function(){
         if(localStorage.getItem('_u')){
-          refreshToken($http, function(){
+          refreshToken(Notification, $http, function(){
             $state.go('app.home');
           }, function(){
             localStorage.removeItem('_u');
@@ -191,7 +191,7 @@
         // we must send back to login page
         // TODO - REVISAR login oauth2
       }else {
-        if ($rootScope.session.token) refreshToken($http, function(){},  $rootScope.logout);
+        if ($rootScope.session.token) refreshToken(Notification, $http, function(){},  $rootScope.logout);
       }
 
 
@@ -359,7 +359,7 @@
     "$ionicLoading",
     function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading) {
 
-      app.registerEventsCronapi($scope, $http, $translate,$ionicModal, $ionicLoading);
+      app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
       $rootScope.http = $http;
       $scope.Notification = Notification;
 
