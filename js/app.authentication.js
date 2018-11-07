@@ -96,18 +96,21 @@ var app = (function() {
 
             .state('login', {
               url: "",
+			  cache: false,
               controller: 'LoginController',
               templateUrl: 'views/login.view.html'
             })
 
             .state('main', {
               url: "/",
+			  cache: false,
               controller: 'LoginController',
               templateUrl: 'views/login.view.html'
             })
 
             .state('publicRoot', {
               url: "/public/{name:.*}",
+			  cache: false,
               controller: 'PageController',
               templateUrl: function(urlattr) {
                 return 'views/public/' + urlattr.name + '.view.html';
@@ -116,6 +119,7 @@ var app = (function() {
 
             .state('public', {
               url: "/app/public",
+			  cache: false,
               controller: 'PublicController',
               templateUrl: 'views/public/menu.view.html'
             })
@@ -131,6 +135,7 @@ var app = (function() {
             })
             .state('public.pages', {
               url: "/{name:.*}",
+			  cache: false,
               views: {
                 'menuContent': {
                   controller: 'PageController',
@@ -143,12 +148,14 @@ var app = (function() {
 
             .state('app', {
               url: "/app",
+			  cache: false,
               controller: 'HomeController',
               templateUrl: 'views/logged/menu.view.html'
             })
 
             .state('app.home', {
               url: "/home",
+			  cache: false,
               views: {
                 'menuContent': {
                   controller: 'HomeController',
@@ -159,6 +166,7 @@ var app = (function() {
 
             .state('app.pages', {
               url: "/{name:.*}",
+			  cache: false,
               views: {
                 'menuContent': {
                   controller: 'PageController',
@@ -171,6 +179,7 @@ var app = (function() {
 
             .state('404', {
               url: "/error/404",
+			  cache: false,
               controller: 'PageController',
               templateUrl: function(urlattr) {
                 return 'views/error/404.view.html';
@@ -179,6 +188,7 @@ var app = (function() {
 
             .state('403', {
               url: "/error/403",
+			  cache: false,
               controller: 'PageController',
               templateUrl: function(urlattr) {
                 return 'views/error/403.view.html';
