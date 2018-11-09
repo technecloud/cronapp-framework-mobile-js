@@ -275,7 +275,7 @@
     {
       "name": "crn-list-item-avatar",
       "text_pt_BR": "Item com avatar",
-      "text_en_US": "Avatar Item ",
+      "text_en_US": "Avatar Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
@@ -3474,7 +3474,7 @@
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Tilte</h2><p>SubTitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Title</h2><p>Subtitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
       "properties": {},
       "childrenProperties": [
@@ -3483,6 +3483,28 @@
           "selector": "cron-list",
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration"
+        }
+      ],
+      "styles": [
+        {
+          "selector": "div#{id} .item-input",
+          "text_pt_BR": "Pesquisar",
+          "text_en_US": "Search"
+        },
+        {
+          "selector": "div#{id} .item-content",
+          "text_pt_BR": "Lista",
+          "text_en_US": "List"
+        },
+        {
+          "selector": "div#{id} h2",
+          "text_pt_BR": "Título",
+          "text_en_US": "Title"
+        },
+        {
+          "selector": "div#{id} p",
+          "text_pt_BR": "Subtítulo",
+          "text_en_US": "Subtitle"
         }
       ]
     },
