@@ -425,6 +425,36 @@
           "displayName_en_US": "Text Position",
           "selector":"div",
           "type":"text"
+        },
+        {
+          "name":"ng-click",
+          "selector":"a",
+          "type":"event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "a",
+          "type": "event"
         }
       ],
       "styles": [
@@ -1172,6 +1202,36 @@
           "displayName_en_US": "Text Position",
           "selector":"div > div",
           "type":"text"
+        },
+        {
+          "name":"ng-click",
+          "selector":"a",
+          "type":"event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "a",
+          "type": "event"
         }
       ],
       "styles": [
@@ -1656,6 +1716,26 @@
           "name": "content",
           "selector": "div",
           "type": "content"
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
         }
       ],
       "handleRules": {
@@ -1670,6 +1750,7 @@
       "styles": [
         {
           "selector": "label#{id} div",
+          "order": 99999,
           "text_pt_BR": "Item Selecionado",
           "text_en_US": "Selected Item"
         },
@@ -2582,6 +2663,26 @@
           "name": "content",
           "selector": "span",
           "type":"content"
+        },
+        {
+          "name": "ng-click",
+          "selector": "ul",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "ul",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "ul",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "ul",
+          "type": "event"
         }
       ],
       "styles": [
@@ -2700,6 +2801,36 @@
           "selector": "ion-slide-box[does-continue]",
           "displayName_pt_BR": "Reprodução contínua?",
           "displayName_en_US": "Does continue?"
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
         }
       ]
     },
@@ -2753,7 +2884,38 @@
           "name":"content",
           "selector":"div",
           "type":"content"
-        }],
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
+        }
+      ],
       "styles": [
         {
           "selector": "div#{id} div",
@@ -4009,7 +4171,47 @@
           "displayName_en_US": "Configuration"
         },
         {
-          "name": "ng-click",
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
           "selector": "div",
           "type": "event"
         }
