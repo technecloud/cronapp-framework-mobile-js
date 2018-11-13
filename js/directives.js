@@ -396,7 +396,7 @@
       link: function(scope, elem, attrs, ngModelCtrl) {
 
         var $elem = $(elem);
-        var $star = $($elem.children().get(0));
+        var $star = $('<i style="font-size: 200%" class="component-holder ion ion-android-star-outline" style="" xattr-size="" data-component="crn-icon"></i>' );
 
         $elem.html("");
         var stars = [];
