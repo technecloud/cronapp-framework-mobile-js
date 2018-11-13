@@ -2332,6 +2332,21 @@
           "name": "type",
           "selector": "input[type]",
           "type":"inputType"
+        },
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "styles": [
@@ -2459,6 +2474,21 @@
           "name": "type",
           "selector": "input[type]",
           "type":"inputType"
+        },
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "styles": [
@@ -3195,6 +3225,11 @@
           "name": "content",
           "selector": "span",
           "type": "content"
+        },
+        {
+          "name": "ng-click",
+          "selector": "button",
+          "type": "event"
         }
       ],
       "styles": [
@@ -3972,6 +4007,11 @@
           "selector": "cron-list",
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div",
+          "type": "event"
         }
       ],
       "styles": [
