@@ -793,7 +793,7 @@
     },
     {
       "name": "crn-toggle",
-      "text_pt_BR": "Alternancia",
+      "text_pt_BR": "Alternância",
       "text_en_US": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
@@ -866,6 +866,23 @@
               "color": "#444"
             }
           ]
+        }
+      ],
+      "styles": [
+        {
+          "selector": "div#{id} label",
+          "text_pt_BR": "Descrição",
+          "text_en_US": "Description"
+        },
+        {
+          "selector": "div#{id} .track",
+          "text_pt_BR": "Fundo do Botão de AlternÂncia",
+          "text_en_US": "Toggle Button Background"
+        },
+        {
+          "selector": "div#{id} .handle",
+          "text_pt_BR": "Botão de Alternância",
+          "text_en_US": "Toggle Button"
         }
       ]
     },
@@ -3278,6 +3295,7 @@
       "text_en_US": "Nav Button",
       "class": "adjust-icon mdi mdi-tab",
       "wrapper": true,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/nav.bar.template.html",
       "classForPreview": {
         "targetSelector": ".crn-ion-nav-buttons",
@@ -3619,7 +3637,6 @@
           }
         ]
       },
-
       "attributesForPreview": [
         {
           "name": "xattr-theme",
@@ -3673,6 +3690,23 @@
             }
           ]
         }
+      ],
+      "styles": [
+        {
+          "selector": "ion-tabs#{id} .tabs",
+          "text_pt_BR": "Geral",
+          "text_en_US": "General"
+        },
+        {
+          "selector": "ion-tabs#{id} i",
+          "text_pt_BR": "Ícones",
+          "text_en_US": "Icons"
+        },
+        {
+          "selector": "ion-tabs#{id} span",
+          "text_pt_BR": "Descrição",
+          "text_en_US": "Description"
+        }
       ]
     },
     {
@@ -3682,6 +3716,7 @@
       "class": "adjust-icon mdi mdi-window-maximize",
       "wrapper": false,
       "designTimeDynamic": true,
+      "pallete": false,
       "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab-item.designtime.html",
       "designTimeSelector": ":self",
       "template": "<ion-tab title=\"\" icon-on=\"ion-ios-filing\" icon-off=\"ion-ios-filing-outline\" id=\"ion-tab-${RANDOM}\" href=\"\" ></ion-tab>",
@@ -3773,7 +3808,19 @@
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }"
         }
-      }
+      },
+      "styles": [
+        {
+          "selector": "div#{id} i.ion-android-star",
+          "text_pt_BR": "Ícone Estrela Preenchido",
+          "text_en_US": "Filled Star Icon"
+        },
+        {
+          "selector": "div#{id} i.ion-android-star-outline",
+          "text_pt_BR": "Ícone Estrela Contorno",
+          "text_en_US": "Outlined Star Icon"
+        }
+      ]
     },
     {
       "name": "crn-dynamic-image",
