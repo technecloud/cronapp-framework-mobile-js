@@ -1402,6 +1402,31 @@
           "displayName_pt_BR": "Posição do Ícone",
           "displayName_en_US": "Icon Position",
           "type":"text"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "div",
+          "type": "event"
         }
       ],
       "styles": [
@@ -2494,6 +2519,21 @@
           "name": "type",
           "selector": "input[type]",
           "type":"inputType"
+        },
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "styles": [
@@ -2538,6 +2578,21 @@
           "name": "type",
           "selector": "input[type]",
           "type":"inputType"
+        },
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "styles": [
@@ -4013,6 +4068,26 @@
           "name": "type",
           "selector": "input[type]",
           "type":"inputType"
+        },
+        {
+          "name": "ng-click",
+          "selector": "button",
+          "type": "event"
+        },
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "groupedChildren": [
