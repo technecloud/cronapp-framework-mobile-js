@@ -1716,26 +1716,6 @@
           "name": "content",
           "selector": "div",
           "type": "content"
-        },
-        {
-          "name":"ng-click",
-          "selector":"div",
-          "type":"event"
-        },
-        {
-          "name": "on-hold",
-          "selector": "div",
-          "type": "event"
-        },
-        {
-          "name": "on-drag",
-          "selector": "div",
-          "type": "event"
-        },
-        {
-          "name": "on-swipe",
-          "selector": "div",
-          "type": "event"
         }
       ],
       "handleRules": {
@@ -2022,6 +2002,23 @@
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
         }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        }
       ]
     },
     {
@@ -2048,13 +2045,43 @@
         },
         {
           "selector": "div#{id} label",
-          "text_pt_BR": "Entrada de texto",
+          "text_pt_BR": "Entrada de Texto",
           "text_en_US": "Text Input"
         },
         {
           "selector": "div#{id} label i",
           "text_pt_BR": "Ícone da Entrada de Texto",
           "text_en_US": "Input Icon"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event",
+          "displayName_pt_BR": "Apertar Tecla no Texto",
+          "displayName_en_US": "On Input Keydown"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "input",
+          "type": "event",
+          "displayName_pt_BR": "Ao Focar no Texto",
+          "displayName_en_US": "On Input Focus"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "input",
+          "type": "event",
+          "displayName_pt_BR": "Ao Sair do Foco no Texto",
+          "displayName_en_US": "On Input Blur"
+        },
+        {
+          "name": "ng-click",
+          "selector": "button",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Botão",
+          "displayName_en_US": "On Button Click"
         }
       ]
     },
@@ -3389,7 +3416,17 @@
           "type": "content"
         },
         {
-          "name": "ng-click",
+          "name": "on-hold",
+          "selector": "button",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "button",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
           "selector": "button",
           "type": "event"
         }
@@ -3443,6 +3480,23 @@
           "selector": "div#{id} span",
           "text_pt_BR": "Descrição",
           "text_en_US": "Description"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "on-hold",
+          "selector": "button",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "button",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "button",
+          "type": "event"
         }
       ]
     },
@@ -4046,6 +4100,16 @@
           "name": "max-file-size",
           "selector": "div[dynamic-image]",
           "type": "text"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div[dynamic-image]",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div[dynamic-image]",
+          "type": "event"
         }
       ],
       "styles": [
@@ -4105,6 +4169,18 @@
           "selector": "div#{id} label",
           "text_pt_BR": "Label",
           "text_en_US": "Label"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-click",
+          "selector": "div[dynamic-file]",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div[dynamic-file]",
+          "type": "event"
         }
       ]
     },
@@ -4172,47 +4248,24 @@
         },
         {
           "name": "ng-keydown",
-          "selector": "input",
-          "type": "event"
-        },
-        {
-          "name": "ng-focus",
-          "selector": "input",
-          "type": "event"
-        },
-        {
-          "name": "ng-blur",
-          "selector": "input",
-          "type": "event"
-        },
-        {
-          "name":"ng-click",
-          "selector":"div",
-          "type":"event"
+          "selector": "cron-list",
+          "type": "event",
+          "displayName_pt_BR": "Apertar Tecla ao Pesquisar",
+          "displayName_en_US": "On Search Keydown"
         },
         {
           "name": "ng-mouseenter",
-          "selector": "div",
+          "selector": "cron-list",
           "type": "event"
         },
         {
           "name": "ng-mouseleave",
-          "selector": "div",
-          "type": "event"
-        },
-        {
-          "name": "on-hold",
-          "selector": "div",
-          "type": "event"
-        },
-        {
-          "name": "on-drag",
-          "selector": "div",
+          "selector": "cron-list",
           "type": "event"
         },
         {
           "name": "on-swipe",
-          "selector": "div",
+          "selector": "cron-list",
           "type": "event"
         }
       ],
