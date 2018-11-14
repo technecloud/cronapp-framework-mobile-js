@@ -195,7 +195,7 @@ var app = (function() {
       }
     ])
     // General controller
-    .controller('PageController', ["$scope", "$stateParams", "Notification", "$location", "$http", "$rootScope","$ionicModal", function($scope, $stateParams, Notification, $location, $http, $rootScope, $ionicModal) {
+    .controller('PageController', ["$scope", "$stateParams", "Notification", "$location", "$http", "$rootScope", "$ionicModal", "$translate", function($scope, $stateParams, Notification, $location, $http, $rootScope, $ionicModal, $translate) {
 
 	    app.registerEventsCronapi($scope, $translate, $ionicModal);
       $rootScope.http = $http;
