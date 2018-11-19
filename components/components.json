@@ -139,6 +139,13 @@
             }
           ]
         }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-mouseover",
+          "selector": "a",
+          "type": "event"
+        }
       ]
     },
     {
@@ -659,6 +666,11 @@
           "displayName_en_US": "Text Position",
           "selector":"div",
           "type":"text"
+        },
+        {
+          "name": "ng-click",
+          "selector": "a.item",
+          "type": "event"
         }
       ],
       "styles": [
@@ -811,6 +823,11 @@
           "displayName_en_US": "Text Position",
           "selector":"div",
           "type":"text"
+        },
+        {
+          "name":"ng-click",
+          "selector":"a",
+          "type":"event"
         }
       ],
       "styles": [
@@ -842,6 +859,36 @@
           "name": "xattr-theme",
           "selector": "div:first",
           "type":"options"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseenter",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "label",
+          "type": "event"
         }
       ],
       "attributesForPreview": [
@@ -936,6 +983,22 @@
           "removable": false,
           "type": "projectResource",
           "resourceType": "text/html"
+        },
+        "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
+          "removable": true,
+          "type": "event"
         }
       },
       "childrenProperties":[
@@ -1583,6 +1646,21 @@
           "displayName_en_US": "Text Position",
           "selector":"div",
           "type":"text"
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
         }
       ],
       "styles": [
@@ -1606,6 +1684,21 @@
           "displayName_pt_BR": "Fonte de Dados",
           "displayName_en_US": "Datasource",
           "type": "pageDatasource"
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
         }
       ],
       "properties": {
@@ -1719,6 +1812,13 @@
               "icon": "mdi mdi-ray-end"
             }
           ]
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-click",
+          "selector": "ion-item",
+          "type": "event"
         }
       ]
     },
@@ -1884,6 +1984,21 @@
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
           "type": "datasourceFieldList"
+        },
+        {
+          "name":"ng-click",
+          "selector":"select",
+          "type":"event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "label",
+          "type": "event"
         }
       ],
       "groupedChildren": [
@@ -1917,6 +2032,15 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
+        "ng-keydown": {
+          "type": "event"
+        },
+        "ng-focus": {
+          "type": "event"
+        },
+        "ng-blur": {
+          "type": "event"
         }
       },
       "rows": {
@@ -2414,6 +2538,21 @@
           "name": "min",
           "selector": "input",
           "type": "text"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseover",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-mouseleave",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "styles": [
@@ -2678,6 +2817,14 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
+          "removable": true,
+          "type": "event"
         }
       },
       "handleRules": {
@@ -2704,6 +2851,13 @@
           "selector": "div#{id} .ion-checkmark",
           "text_pt_BR": "Marcador",
           "text_en_US": "Checkmark"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-click",
+          "selector": "label",
+          "type": "event"
         }
       ]
     },
@@ -2952,6 +3106,13 @@
             }
           ]
         }
+      ],
+      "childrenProperties":[
+        {
+          "name":"on-swipe",
+          "selector":"i",
+          "type":"event"
+        }
       ]
     },
     {
@@ -3024,6 +3185,30 @@
       "properties": {
         "xattr-position": {
           "displayName": "Position"
+        },
+        "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "ng-mouseover": {
+          "removable": true,
+          "type": "event"
+        },
+        "ng-mouseleave": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
+          "removable": true,
+          "type": "event"
         }
       },
       "attributesForPreview": [
@@ -3095,6 +3280,13 @@
             }
           ]
         }
+      ],
+      "childrenProperties": [
+        {
+          "name": "on-swipe",
+          "selector": "i",
+          "type":"event"
+        }
       ]
     },
     {
@@ -3132,6 +3324,13 @@
             }
           ]
         }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-mouseover",
+          "selector": "p",
+          "type": "event"
+        }
       ]
     },
     {
@@ -3168,6 +3367,13 @@
               "icon": "mdi mdi-ray-end"
             }
           ]
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-mouseover",
+          "selector": "h2",
+          "type": "event"
         }
       ]
     },
@@ -3209,6 +3415,30 @@
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div.row",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div.row",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "ion-option-button.button-positive",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar em Editar",
+          "displayName_en_US": "On Edit Click"
+        },
+        {
+          "name": "ng-click",
+          "selector": "ion-option-button.button-assertive",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar em Deletar",
+          "displayName_en_US": "On Delete Click"
         }
       ],
       "properties": {
@@ -3262,6 +3492,18 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
       "properties": {
         "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
           "removable": true,
           "type": "event"
         },
@@ -3469,21 +3711,6 @@
           "name": "content",
           "selector": "span",
           "type": "content"
-        },
-        {
-          "name": "on-hold",
-          "selector": "button",
-          "type": "event"
-        },
-        {
-          "name": "on-drag",
-          "selector": "button",
-          "type": "event"
-        },
-        {
-          "name": "on-swipe",
-          "selector": "button",
-          "type": "event"
         }
       ],
       "styles": [
@@ -3789,6 +4016,20 @@
           "name": "content",
           "selector": "h1[class='title']",
           "type":"content"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div.buttons-left",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Botão Esquerdo",
+          "displayName_en_US": "On Left Button Click"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div.buttons-right",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Botão Direito",
+          "displayName_en_US": "On Right Button Click"
         }
       ],
       "styles": [
@@ -3906,6 +4147,20 @@
           "name": "content",
           "selector": "h1[class='title']",
           "type":"content"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div .button-left",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Botão Esquerdo",
+          "displayName_en_US": "On Left Button Click"
+        },
+        {
+          "name": "ng-click",
+          "selector": "div .button-right",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Botão Direito",
+          "displayName_en_US": "On Right Button Click"
         }
       ],
       "styles": [
@@ -4012,6 +4267,13 @@
           "selector": "ion-tabs#{id} span",
           "text_pt_BR": "Descrição",
           "text_en_US": "Description"
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-click",
+          "selector": "ion-tab",
+          "type": "event"
         }
       ]
     },
