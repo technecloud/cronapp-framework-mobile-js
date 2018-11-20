@@ -11,6 +11,22 @@
     {
       "from": "plugins/cronapp-framework-mobile-js/js/customStateProvider.js",
       "to": "js/customStateProvider.js"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/templates/views/public/home.view.html",
+      "to": "views/public/home.view.html"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/templates/views/public/menu.view.html",
+      "to": "views/public/menu.view.html"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth/Home.blockly",
+      "to": "js/blockly/auth/Home.blockly"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth/Home.blockly.js",
+      "to": "js/blockly/auth/Home.blockly.js"
     }
   ],
   "includes": [
