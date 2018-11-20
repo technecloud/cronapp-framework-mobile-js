@@ -89,8 +89,28 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/anchor.template.html",
       "properties": {
-        "onclick": {
+        "ng-click": {
           "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         },
         "target": {
           "removable": false,
@@ -434,32 +454,32 @@
           "type":"text"
         },
         {
-          "name":"ng-click",
-          "selector":"a",
-          "type":"event"
-        },
-        {
-          "name": "ng-mouseenter",
-          "selector": "a",
-          "type": "event"
-        },
-        {
-          "name": "ng-mouseleave",
-          "selector": "a",
-          "type": "event"
-        },
-        {
-          "name": "on-hold",
-          "selector": "a",
-          "type": "event"
-        },
-        {
           "name": "on-drag",
           "selector": "a",
           "type": "event"
         },
         {
+          "name":"ng-click",
+          "selector":"a",
+          "type":"event"
+        },
+        {
+          "name":"on-tap",
+          "selector":"a",
+          "type":"event"
+        },
+        {
+          "name":"on-double-tap",
+          "selector":"a",
+          "type":"event"
+        },
+        {
           "name": "on-swipe",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
           "selector": "a",
           "type": "event"
         }
@@ -497,6 +517,30 @@
           "removable": false,
           "type": "projectResource",
           "resourceType": "text/html"
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -702,6 +746,30 @@
           "removable": false,
           "type": "projectResource",
           "resourceType": "text/html"
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -823,11 +891,6 @@
           "displayName_en_US": "Text Position",
           "selector":"div",
           "type":"text"
-        },
-        {
-          "name":"ng-click",
-          "selector":"a",
-          "type":"event"
         }
       ],
       "styles": [
@@ -866,27 +929,12 @@
           "type": "event"
         },
         {
-          "name": "ng-mouseenter",
-          "selector": "label",
+          "name": "on-double-tap",
+          "selector": "input",
           "type": "event"
         },
         {
-          "name": "ng-mouseleave",
-          "selector": "label",
-          "type": "event"
-        },
-        {
-          "name": "on-hold",
-          "selector": "label",
-          "type": "event"
-        },
-        {
-          "name": "on-drag",
-          "selector": "label",
-          "type": "event"
-        },
-        {
-          "name": "on-swipe",
+          "name": "on-tap",
           "selector": "label",
           "type": "event"
         }
@@ -985,20 +1033,28 @@
           "resourceType": "text/html"
         },
         "ng-click": {
-          "removable": true,
+          "removable": false,
           "type": "event"
         },
         "on-hold": {
-          "removable": true,
-          "type": "event"
+           "removable": false,
+            "type": "event"
         },
-        "on-drag": {
-          "removable": true,
-          "type": "event"
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
         },
         "on-swipe": {
-          "removable": true,
-          "type": "event"
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "childrenProperties":[
@@ -1267,17 +1323,17 @@
           "type":"text"
         },
         {
-          "name":"ng-click",
-          "selector":"a",
-          "type":"event"
-        },
-        {
-          "name": "ng-mouseenter",
+          "name": "ng-click",
           "selector": "a",
           "type": "event"
         },
         {
-          "name": "ng-mouseleave",
+          "name": "on-tap",
+          "selector": "a",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
           "selector": "a",
           "type": "event"
         },
@@ -1287,12 +1343,12 @@
           "type": "event"
         },
         {
-          "name": "on-drag",
+          "name": "on-swipe",
           "selector": "a",
           "type": "event"
         },
         {
-          "name": "on-swipe",
+          "name": "on-drag",
           "selector": "a",
           "type": "event"
         }
@@ -1472,7 +1528,17 @@
           "type": "event"
         },
         {
-          "name": "on-drag",
+          "name": "on-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
           "selector": "div",
           "type": "event"
         },
@@ -1482,12 +1548,7 @@
           "type": "event"
         },
         {
-          "name": "ng-mouseenter",
-          "selector": "div",
-          "type": "event"
-        },
-        {
-          "name": "ng-mouseleave",
+          "name": "on-drag",
           "selector": "div",
           "type": "event"
         }
@@ -1520,6 +1581,30 @@
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -1646,21 +1731,6 @@
           "displayName_en_US": "Text Position",
           "selector":"div",
           "type":"text"
-        },
-        {
-          "name":"ng-click",
-          "selector":"div",
-          "type":"event"
-        },
-        {
-          "name": "on-drag",
-          "selector": "div",
-          "type": "event"
-        },
-        {
-          "name": "on-swipe",
-          "selector": "div",
-          "type": "event"
         }
       ],
       "styles": [
@@ -1686,17 +1756,32 @@
           "type": "pageDatasource"
         },
         {
-          "name":"ng-click",
-          "selector":"div",
-          "type":"event"
+          "name": "ng-click",
+          "selector": "div",
+          "type": "event"
         },
         {
-          "name": "on-drag",
+          "name": "on-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
           "selector": "div",
           "type": "event"
         },
         {
           "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "div",
           "type": "event"
         }
@@ -1736,6 +1821,30 @@
         },
         "xattr-text-position": {
           "displayName": "Position"
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -1813,13 +1922,6 @@
             }
           ]
         }
-      ],
-      "childrenProperties": [
-        {
-          "name": "ng-click",
-          "selector": "ion-item",
-          "type": "event"
-        }
       ]
     },
     {
@@ -1829,6 +1931,32 @@
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
+      "properties": {
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
       "childrenProperties": [
         {
           "name": "ng-model",
@@ -1890,6 +2018,32 @@
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamic-combobox.template.html",
+      "properties": {
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
       "childrenProperties": [
         {
           "name": "content",
@@ -1953,6 +2107,32 @@
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
+        "properties": {
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
       "childrenProperties": [
         {
           "name": "crn-datasource",
@@ -1984,21 +2164,6 @@
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
           "type": "datasourceFieldList"
-        },
-        {
-          "name":"ng-click",
-          "selector":"select",
-          "type":"event"
-        },
-        {
-          "name": "on-drag",
-          "selector": "label",
-          "type": "event"
-        },
-        {
-          "name": "on-swipe",
-          "selector": "label",
-          "type": "event"
         }
       ],
       "groupedChildren": [
@@ -2034,6 +2199,9 @@
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         },
         "ng-keydown": {
+          "type": "event"
+        },
+        "ng-keypress": {
           "type": "event"
         },
         "ng-focus": {
@@ -2159,12 +2327,42 @@
           "type": "event"
         },
         {
+          "name": "ng-keyup",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-focus",
           "selector": "input",
           "type": "event"
         },
         {
           "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "input",
           "type": "event"
         }
@@ -2202,36 +2400,6 @@
           "text_pt_BR": "Ícone da Entrada de Texto",
           "text_en_US": "Input Icon"
         }
-      ],
-      "childrenProperties": [
-        {
-          "name": "ng-keydown",
-          "selector": "input",
-          "type": "event",
-          "displayName_pt_BR": "Apertar Tecla no Texto",
-          "displayName_en_US": "On Input Keydown"
-        },
-        {
-          "name": "ng-focus",
-          "selector": "input",
-          "type": "event",
-          "displayName_pt_BR": "Ao Focar no Texto",
-          "displayName_en_US": "On Input Focus"
-        },
-        {
-          "name": "ng-blur",
-          "selector": "input",
-          "type": "event",
-          "displayName_pt_BR": "Ao Sair do Foco no Texto",
-          "displayName_en_US": "On Input Blur"
-        },
-        {
-          "name": "ng-click",
-          "selector": "button",
-          "type": "event",
-          "displayName_pt_BR": "Ao Clicar no Botão",
-          "displayName_en_US": "On Button Click"
-        }
       ]
     },
     {
@@ -2255,6 +2423,26 @@
           "childrenProperty": true
         },
         "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-double-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
           "removable": true,
           "type": "event"
         },
@@ -2540,17 +2728,27 @@
           "type": "text"
         },
         {
+          "name": "on-drag",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-click",
           "selector": "input",
           "type": "event"
         },
         {
-          "name": "ng-mouseover",
+          "name": "on-double-tap",
           "selector": "input",
           "type": "event"
         },
         {
-          "name": "ng-mouseleave",
+          "name": "on-tap",
           "selector": "input",
           "type": "event"
         }
@@ -2611,12 +2809,42 @@
           "type": "event"
         },
         {
+          "name": "ng-keyup",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-focus",
           "selector": "input",
           "type": "event"
         },
         {
           "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "input",
           "type": "event"
         }
@@ -2665,12 +2893,42 @@
           "type": "event"
         },
         {
+          "name": "ng-keyup",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-focus",
           "selector": "input",
           "type": "event"
         },
         {
           "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "input",
           "type": "event"
         }
@@ -2724,12 +2982,42 @@
           "type": "event"
         },
         {
+          "name": "ng-keyup",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-focus",
           "selector": "input",
           "type": "event"
         },
         {
           "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "input",
           "type": "event"
         }
@@ -2783,12 +3071,42 @@
           "type": "event"
         },
         {
+          "name": "ng-keyup",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "input",
+          "type": "event"
+        },
+        {
           "name": "ng-focus",
           "selector": "input",
           "type": "event"
         },
         {
           "name": "ng-blur",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "input",
           "type": "event"
         }
@@ -2817,14 +3135,6 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
-        "on-drag": {
-          "removable": true,
-          "type": "event"
-        },
-        "on-swipe": {
-          "removable": true,
-          "type": "event"
         }
       },
       "handleRules": {
@@ -2856,6 +3166,31 @@
       "childrenProperties": [
         {
           "name": "ng-click",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-tap",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "label",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
           "selector": "label",
           "type": "event"
         }
@@ -2902,6 +3237,16 @@
         },
         {
           "name": "ng-click",
+          "selector": "ul",
+          "type": "event"
+        },
+        {
+          "name": "on-tap",
+          "selector": "ul",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
           "selector": "ul",
           "type": "event"
         },
@@ -3044,12 +3389,12 @@
           "type":"event"
         },
         {
-          "name": "ng-mouseenter",
+          "name": "on-tap",
           "selector": "div",
           "type": "event"
         },
         {
-          "name": "ng-mouseleave",
+          "name": "on-double-tap",
           "selector": "div",
           "type": "event"
         },
@@ -3067,6 +3412,16 @@
           "name": "on-swipe",
           "selector": "div",
           "type": "event"
+        },
+        {
+          "name": "on-swipe-left",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-right",
+          "selector": "div",
+          "type": "event"
         }
       ]
     },
@@ -3081,6 +3436,30 @@
         "src": {
           "type": "projectResource",
           "resourceType": "image/jpeg,image/gif,image/png"
+        },
+         "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -3106,13 +3485,6 @@
             }
           ]
         }
-      ],
-      "childrenProperties":[
-        {
-          "name":"on-swipe",
-          "selector":"i",
-          "type":"event"
-        }
       ]
     },
     {
@@ -3134,12 +3506,12 @@
           "type":"event"
         },
         {
-          "name": "ng-mouseenter",
+          "name": "on-tap",
           "selector": "div",
           "type": "event"
         },
         {
-          "name": "ng-mouseleave",
+          "name": "on-double-tap",
           "selector": "div",
           "type": "event"
         },
@@ -3190,25 +3562,25 @@
           "removable": true,
           "type": "event"
         },
-        "ng-mouseover": {
-          "removable": true,
-          "type": "event"
-        },
-        "ng-mouseleave": {
-          "removable": true,
-          "type": "event"
-        },
         "on-hold": {
-          "removable": true,
-          "type": "event"
+           "removable": true,
+            "type": "event"
         },
-        "on-drag": {
-          "removable": true,
-          "type": "event"
+        "on-double-tap": {
+           "removable": true,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": true,
+            "type": "event"
         },
         "on-swipe": {
-          "removable": true,
-          "type": "event"
+           "removable": true,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": true,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -3244,6 +3616,32 @@
       "class": "adjust-icon mdi mdi-star",
       "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"\" xattr-size=\"\"/>",
       "wrapper": false,
+      "properties": {
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
       "attributesForPreview": [
         {
           "name": "xattr-size",
@@ -3280,13 +3678,6 @@
             }
           ]
         }
-      ],
-      "childrenProperties": [
-        {
-          "name": "on-swipe",
-          "selector": "i",
-          "type":"event"
-        }
       ]
     },
     {
@@ -3299,6 +3690,30 @@
       "properties": {
         "xattr-position": {
           "displayName": "Position"
+        },
+        "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": true,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": true,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": true,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": true,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": true,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -3343,6 +3758,30 @@
       "properties": {
         "xattr-position": {
           "displayName": "Position"
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "attributesForPreview": [
@@ -3416,17 +3855,7 @@
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         },
-        {
-          "name": "on-drag",
-          "selector": "div.row",
-          "type": "event"
-        },
-        {
-          "name": "on-swipe",
-          "selector": "div.row",
-          "type": "event"
-        },
-        {
+         {
           "name": "ng-click",
           "selector": "ion-option-button.button-positive",
           "type": "event",
@@ -3439,6 +3868,31 @@
           "type": "event",
           "displayName_pt_BR": "Ao Clicar em Deletar",
           "displayName_en_US": "On Delete Click"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div.row",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div.row",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-left",
+          "selector": "div.row",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-right",
+          "selector": "div.row",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div.row",
+          "type": "event"
         }
       ],
       "properties": {
@@ -3492,6 +3946,14 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
       "properties": {
         "ng-click": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-double-tap": {
           "removable": true,
           "type": "event"
         },
@@ -3920,6 +4382,26 @@
         "align-title":{
           "displayName_pt_BR": "Alinhamento do Título",
           "displayName_en_US": "Title Align"
+        },
+        "on-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-double-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
+          "removable": true,
+          "type": "event"
         }
       },
       "controls":{
@@ -4051,6 +4533,26 @@
         "align-title":{
           "displayName_pt_BR": "Alinhamento do Título",
           "displayName_en_US": "Title Align"
+        },
+        "on-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-double-tap": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": true,
+          "type": "event"
+        },
+        "on-swipe": {
+          "removable": true,
+          "type": "event"
         }
       },
       "controls":{
@@ -4189,6 +4691,20 @@
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab.template.html",
       "forcedGroup": true,
+      "properties": {
+        "on-double-tap": {
+          "type": "event"
+        },
+        "on-hold": {
+          "type": "event"
+        },
+        "on-swipe": {
+          "type": "event"
+        },
+        "on-drag": {
+          "type": "event"
+        }
+      },
       "handleRules": {
         "canIncrement": true,
         "rules": [
@@ -4268,13 +4784,6 @@
           "text_pt_BR": "Descrição",
           "text_en_US": "Description"
         }
-      ],
-      "childrenProperties": [
-        {
-          "name": "ng-click",
-          "selector": "ion-tab",
-          "type": "event"
-        }
       ]
     },
     {
@@ -4303,10 +4812,13 @@
           "removable": false,
           "type": "projectResource",
           "resourceType": "text/html"
+        },
+        "ng-click":{
+          "removable": false,
+          "type": "event"
         }
       }
     },
-
     {
       "name": "crn-input-button",
       "text_pt_BR": "Entrada de texto com botão",
@@ -4315,6 +4827,20 @@
       "wrapper": false,
       "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/textinputbutton.template.html",
+      "properties": {
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
       "childrenProperties": [
         {
           "name": "placeholder",
@@ -4334,10 +4860,38 @@
         {
           "name": "ng-click",
           "selector": "button",
-          "type": "event"
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Botão",
+          "displayName_en_US": "On Button Click"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "button",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clique Duplo Rápido no Botão",
+          "displayName_en_US": "On Button Double Tap"
+        },
+        {
+          "name": "ng-click",
+          "selector": "input",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clicar no Texto",
+          "displayName_en_US": "On Input Click"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "input",
+          "type": "event",
+          "displayName_pt_BR": "Ao Clique Duplo Rápido no Texto",
+          "displayName_en_US": "On Input Double Click"
         },
         {
           "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
+        {
+          "name": "ng-keyup",
           "selector": "input",
           "type": "event"
         },
@@ -4395,6 +4949,30 @@
         "ng-model": {
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }"
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       },
       "styles": [
@@ -4444,8 +5022,23 @@
           "type": "event"
         },
         {
-          "name": "on-swipe",
+          "name": "on-tap",
           "selector": "div[dynamic-image]",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div.item",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div.item",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div.item",
           "type": "event"
         }
       ],
@@ -4515,8 +5108,23 @@
           "type": "event"
         },
         {
-          "name": "on-swipe",
+          "name": "on-tap",
           "selector": "div[dynamic-file]",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div.item",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div.item",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div.item",
           "type": "event"
         }
       ]
@@ -4538,6 +5146,26 @@
         "qr": {
           "removable": false,
           "displayName": "QR Code"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
         }
       }
     },
@@ -4564,6 +5192,7 @@
       "name": "crn-chat",
       "text_pt_BR": "Chat",
       "text_en_US": "Chat",
+      "pallete": false,
       "class": "adjust-icon mdi mdi-wechat",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/chat.template.html"
     },
@@ -4584,24 +5213,47 @@
           "displayName_en_US": "Configuration"
         },
         {
-          "name": "ng-keydown",
-          "selector": "cron-list",
-          "type": "event",
-          "displayName_pt_BR": "Apertar Tecla ao Pesquisar",
-          "displayName_en_US": "On Search Keydown"
-        },
-        {
-          "name": "ng-mouseenter",
+          "name": "ng-click",
           "selector": "cron-list",
           "type": "event"
         },
         {
-          "name": "ng-mouseleave",
+          "name": "on-double-tap",
+          "selector": "cron-list",
+          "type": "event"
+        },
+        {
+          "name": "ng-keydown",
+          "selector": "cron-list",
+          "type": "event"
+        },
+        {
+          "name": "ng-keyup",
+          "selector": "cron-list",
+          "type": "event"
+        },
+        {
+          "name": "ng-focus",
+          "selector": "cron-list",
+          "type": "event"
+        },
+        {
+          "name": "ng-blur",
+          "selector": "cron-list",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
           "selector": "cron-list",
           "type": "event"
         },
         {
           "name": "on-swipe",
+          "selector": "cron-list",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
           "selector": "cron-list",
           "type": "event"
         }
