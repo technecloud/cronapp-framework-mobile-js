@@ -33,7 +33,7 @@
     },
 	{
       "from": "plugins/cronapp-framework-mobile-js/templates/blockly",
-      "to": "js/blockly",
+      "to": "js/blockly/",
 	  "folder":true,
 	  "replace":false
     },
