@@ -15,12 +15,6 @@
       "to": "js/customStateProvider.js",
 	  "replace":false
     },
-	{
-      "from": "plugins/cronapp-framework-mobile-js/templates/views/public",
-      "to": "views/public/",
-	  "folder":true,
-	  "replace":false
-    },
     {
       "from": "plugins/cronapp-framework-mobile-js/templates/views/public/home.view.html",
       "to": "views/public/home.view.html",
@@ -29,12 +23,6 @@
     {
       "from": "plugins/cronapp-framework-mobile-js/templates/views/public/menu.view.html",
       "to": "views/public/menu.view.html",
-	  "replace":false
-    },
-	{
-      "from": "plugins/cronapp-framework-mobile-js/templates/blockly",
-      "to": "js/blockly/",
-	  "folder":true,
 	  "replace":false
     },
 	{
