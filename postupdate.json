@@ -3,21 +3,21 @@
     {
       "from": "plugins/cronapp-framework-mobile-js/js/custom.controllers.js",
       "to": "js/custom.controllers.js",
-	  "replace":true
+	  "replace":false
     },
     {
       "from": "plugins/cronapp-framework-mobile-js/js/customModules.js",
       "to": "js/customModules.js",
-	  "replace":true
+	  "replace":false
     },
     {
       "from": "plugins/cronapp-framework-mobile-js/js/customStateProvider.js",
       "to": "js/customStateProvider.js",
-	  "replace":true
+	  "replace":false
     },
 	{
       "from": "plugins/cronapp-framework-mobile-js/templates/views/public",
-      "to": "views/public",
+      "to": "views/public/",
 	  "folder":true,
 	  "replace":false
     },
@@ -39,7 +39,7 @@
     },
 	{
       "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth",
-      "to": "js/blockly/auth",
+      "to": "js/blockly/auth/",
 	  "folder":true,
 	  "replace":false
     },
