@@ -32,6 +32,12 @@
 	  "replace":false
     },
 	{
+      "from": "plugins/cronapp-framework-mobile-js/templates/blockly",
+      "to": "js/blockly",
+	  "folder":true,
+	  "replace":false
+    },
+	{
       "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth",
       "to": "js/blockly/auth",
 	  "folder":true,
