@@ -16,28 +16,28 @@
 	  "replace":false
     },
     {
-      "from": "plugins/cronapp-framework-mobile-js/templates/views/public/home.view.html",
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/views/public/home.view.html",
       "to": "views/public/home.view.html",
 	  "replace":false
     },
     {
-      "from": "plugins/cronapp-framework-mobile-js/templates/views/public/menu.view.html",
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/views/public/menu.view.html",
       "to": "views/public/menu.view.html",
 	  "replace":false
     },
 	{
-      "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth",
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/blockly/auth",
       "to": "js/blockly/auth/",
 	  "folder":true,
 	  "replace":false
     },
     {
-      "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth/Home.blockly",
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/blockly/auth/Home.blockly",
       "to": "js/blockly/auth/Home.blockly",
 	  "replace":false
     },
     {
-      "from": "plugins/cronapp-framework-mobile-js/templates/blockly/auth/Home.blockly.js",
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/blockly/auth/Home.blockly.js",
       "to": "js/blockly/auth/Home.blockly.js",
 	  "replace":false
     }
