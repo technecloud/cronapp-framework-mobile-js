@@ -67,7 +67,7 @@
   "General.RemoveData": "Do you whant to remove?",
   "General.ErrorNotSpecified": "Error not specified",
   "Login.view.invalidPassword": "Username or password invalid!",
-  "HomeViewPasswordchanged": "Username or password invalid!",
+  "LoginViewInvalidpassword": "Username or password invalid!",
   "Home.view.passwordChanged": "Password successfully changed!",
   "Home.view.InvalidPassword": "Invalid Password!",
   "Home.view.ChangePassword": "Change Password",
