@@ -39,6 +39,14 @@
 	{
       "from": "plugins/cronapp-framework-mobile-js/components/templates/blockly/auth/Login.blockly.js",
       "to": "js/blockly/auth/Login.blockly.js"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/blockly/auth/ChangePassword.blockly",
+      "to": "js/blockly/auth/ChangePassword.blockly"
+    },
+    {
+      "from": "plugins/cronapp-framework-mobile-js/components/templates/blockly/auth/ChangePassword.blockly.js",
+      "to": "js/blockly/auth/ChangePassword.blockly.js"
     }
   ],
   "includes": [
