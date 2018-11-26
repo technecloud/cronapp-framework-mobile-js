@@ -53,6 +53,7 @@
 
 .dynamic-image-container {
   border-style: dashed;
+  min-height: 58px;
 }
 
 .camera-container {
