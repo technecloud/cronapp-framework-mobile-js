@@ -18,6 +18,9 @@ body {
     padding-bottom: 0;
     transition: 0.09s all linear;
 }
+.item {
+    margin-top: 0px;
+}
 .list .item.item-accordion.ng-hide {
     line-height: 0px;
 }
