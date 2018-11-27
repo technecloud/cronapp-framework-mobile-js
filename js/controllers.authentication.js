@@ -142,20 +142,29 @@
             for(var x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
 
-            $ionicModal.fromTemplateUrl('views/logged/_changepassword.view.html', {
-                scope: $scope,
-                animation: 'slide-in-up'
-            }).then(function(modal) {
-                $scope.modal = modal;
-            });
+            if(!$scope.ignoreAuth){
 
-            $scope.openChangePassword = function() {
-                $scope.modal.show();
-            };
+                $ionicModal.fromTemplateUrl('views/logged/_changepassword.view.html', {
+                    scope: $scope,
+                    animation: 'slide-in-up'
+                }).then(function(modal) {
+                    $scope.modal = modal;
+                });
 
-            $scope.closeChangePassword = function() {
-                $scope.modal.hide();
-            };
+                $scope.openChangePassword = function() {
+                    $scope.modal.show();
+                };
+
+                $scope.closeChangePassword = function() {
+                    $scope.modal.hide();
+                };
+
+                $rootScope.logout = function logout() {
+                    $rootScope.session = null;
+                    localStorage.removeItem("_u");
+                    $state.go("main");
+                }
+            }
 
             $scope.shouldShowDelete = false;
             $scope.shouldShowReorder = false;
@@ -171,12 +180,6 @@
             // if the user is authenticated and the userData
             // was saved on the browser's sessionStorage
             $rootScope.session = (localStorage._u) ? JSON.parse(localStorage._u) : null;
-
-            $rootScope.logout = function logout() {
-                $rootScope.session = null;
-                localStorage.removeItem("_u");
-                $state.go("main");
-            }
 
             if(!$rootScope.session) {
 
