@@ -1,3 +1,12 @@
+window.addEventListener('message', function(event) {
+  if (event.data == "reload") {
+    window.location.reload();
+  }
+  else if (event.data == "reload(true)") {
+    window.location.reload(true);
+  }
+});
+
 (function($app) {
 
   var isoDate = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
