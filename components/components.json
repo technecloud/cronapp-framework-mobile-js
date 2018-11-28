@@ -137,7 +137,10 @@
         "href": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "text/html",
+          "extraOptions": {
+            "underViewsFolder": true
+          }
         },
         "xattr-fullsize": {
           "displayName": "Width"
