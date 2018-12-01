@@ -44,7 +44,7 @@ gulp.task('minify-components-js', function() {
 });
 
 gulp.task('minify-components-templates', function() {
-  return gulp.src(['components/templates/**'])
+  return gulp.src(['components/templates/**', '!components/templates/blockly/**', '!components/templates/blockly'])
     .pipe(htmlmin({
       collapseWhitespace: true
     }))
