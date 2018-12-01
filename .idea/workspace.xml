@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ionic/css/ionic.css" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ionic/css/ionic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/directives.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,14 +16,15 @@
     <session id="-346997480">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="4" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -32,7 +32,7 @@
           <entry key="blockly" value="2" />
           <entry key="css" value="5" />
           <entry key="html" value="4" />
-          <entry key="js" value="5" />
+          <entry key="js" value="6" />
           <entry key="json" value="9" />
           <entry key="svg" value="1" />
         </counts>
@@ -42,7 +42,7 @@
           <entry key="CSS" value="5" />
           <entry key="HTML" value="4" />
           <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="5" />
+          <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="1" />
           <entry key="XML" value="1" />
@@ -52,8 +52,9 @@
         <counts>
           <entry key="css" value="26" />
           <entry key="html" value="6" />
+          <entry key="js" value="1" />
           <entry key="json" value="171" />
-          <entry key="txt" value="251" />
+          <entry key="txt" value="301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -61,27 +62,22 @@
           <entry key="CSS" value="26" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="171" />
-          <entry key="PLAIN_TEXT" value="251" />
+          <entry key="JavaScript" value="1" />
+          <entry key="PLAIN_TEXT" value="301" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/ionic/css/ionic.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="9871" column="1" selection-start-line="9871" selection-start-column="1" selection-end-line="9871" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/app.css">
+        <entry file="file://$PROJECT_DIR$/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="1101" column="33" lean-forward="true" selection-start-line="1101" selection-start-column="33" selection-end-line="1101" selection-end-column="33" />
+            <state relative-caret-position="496">
+              <caret line="1405" column="1" selection-start-line="1405" selection-start-column="1" selection-end-line="1405" selection-end-column="1" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,6 +118,7 @@
         <option value="$PROJECT_DIR$/js/controllers.authentication.js" />
         <option value="$PROJECT_DIR$/lib/ionic/css/ionic.css" />
         <option value="$PROJECT_DIR$/css/app.css" />
+        <option value="$PROJECT_DIR$/js/directives.js" />
       </list>
     </option>
   </component>
@@ -140,16 +137,17 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -176,6 +174,11 @@
             <path>
               <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
               <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -195,14 +198,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
+    <property name="SearchEverywhereHistoryKey" value="directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543614364758" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543695536576" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -250,7 +252,8 @@
       <workItem from="1543345774846" duration="3723000" />
       <workItem from="1543402923788" duration="785000" />
       <workItem from="1543538724327" duration="3448000" />
-      <workItem from="1543613981331" duration="335000" />
+      <workItem from="1543613981331" duration="2052000" />
+      <workItem from="1543695488189" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="copiando home e public">
       <created>1542743659394</created>
@@ -308,17 +311,24 @@
       <option name="project" value="LOCAL" />
       <updated>1543576220354</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ajustes de everaldo + gulp">
+      <created>1543615242041</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543615242041</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31605000" />
+    <option name="totallyTimeSpent" value="33370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20067114" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2033557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -336,7 +346,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.18014185" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.18014185" />
       <window_info anchor="bottom" id="JRebel Executor" order="11" />
       <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -365,7 +375,8 @@
     <MESSAGE value="correção template" />
     <MESSAGE value="gulp" />
     <MESSAGE value="correção csss ionic para type integer" />
-    <option name="LAST_COMMIT_MESSAGE" value="correção csss ionic para type integer" />
+    <MESSAGE value="ajustes de everaldo + gulp" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes de everaldo + gulp" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -388,13 +399,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/templates/blockly/auth/Home.blockly">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="749" column="8" selection-start-line="749" selection-start-column="8" selection-end-line="749" selection-end-column="8" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/templates/views/public/menu.view.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -452,17 +456,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="1103" column="20" selection-start-line="1103" selection-start-column="20" selection-end-line="1103" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ionic/css/ionic.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
+        <state relative-caret-position="341">
           <caret line="9871" column="1" selection-start-line="9871" selection-start-column="1" selection-end-line="9871" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/app.css">
+    <entry file="file://$PROJECT_DIR$/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="1101" column="33" lean-forward="true" selection-start-line="1101" selection-start-column="33" selection-end-line="1101" selection-end-column="33" />
+        <state relative-caret-position="496">
+          <caret line="1405" column="1" selection-start-line="1405" selection-start-column="1" selection-end-line="1405" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
