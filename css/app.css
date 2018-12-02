@@ -1116,7 +1116,7 @@ body {
     border: 0px solid #d7d7d7;
 }
 
-label.item.item-input {
+.login-bg label.item.item-input {
     padding: 10px;
     border: 1px solid #d7d7d7;
 }

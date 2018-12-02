@@ -9833,40 +9833,7 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.item {
-  border-color: transparent;
-  background-color: transparent;
-  color: #444;
-  position: relative;
-  z-index: 2;
-  display: block;
-  margin: -1px;
-  padding: 0;
-  border-width: 1px;
-  border-style: solid;
-  font-size: 16px;
-}
-
-.item-input {
-  padding: 6px 0 5px 0;
-}
-
 input[type="text"], input[type="email"], input[type="password"] {
   border-bottom: 1px solid #aaa;
   border-radius: 0;
-}
-
-.item-avatar {
-  padding-left:0;
-}
-
-.item-avatar h2 {
-  margin: 0 0 2px 0;
-  font-size: 14px;
-  font-weight: bold;
-  color: #555555;
-}
-
-.item-right-editable {
-  border: 1px solid #dadada;
 }
