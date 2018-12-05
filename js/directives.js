@@ -362,6 +362,39 @@ window.addEventListener('message', function(event) {
             }
         })
 
+        .directive('ionSideMenus', function( $compile) {
+            return {
+                restrict: 'E',
+                priority: 400,
+                link: function(scope, element, attrs, ctrl) {
+                    if(element.find("ion-nav-back-button").length == 0){
+                        var folder = '';
+                        if(element.attr("state") == "public"){
+                            folder = 'public';
+                        }else{
+                            folder = 'logged';
+                        }
+
+                        scope.http({
+                            method:'GET',
+                            url:'views/'+folder+'/menu.view.html'
+                        }).then(function onsuccess(response){
+                            if($(response.data).find("ion-nav-back-button").length > 0){
+                                // ALTERAR TEMPLATE
+                                $(element).html(response.data);
+                                $compile(element)(scope);
+                                return;
+
+                            }else{
+                                // MENU NOVO, FUNCIONANDO NORMAL.
+                                return;
+                            }
+                        });
+                    };
+                }
+            }
+        })
+
         .directive('cronappSecurity', function() {
             return {
                 restrict: 'A',
