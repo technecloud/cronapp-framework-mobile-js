@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/directives.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,16 +15,16 @@
     <session id="-346997480">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.2" value="5" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -67,24 +66,15 @@
           <entry key="PLAIN_TEXT" value="460" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/directives.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="904">
-              <caret line="395" column="10" selection-start-line="395" selection-start-column="10" selection-end-line="395" selection-end-column="10" />
-              <folding>
-                <element signature="e#18384#20240#0" />
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -109,6 +99,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="support/2.0.0" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -143,17 +138,16 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,14 +164,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="ioniccss&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
+    <property name="SearchEverywhereHistoryKey" value="components.json&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;ioniccss&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544035696824" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544184053454" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cronapp-common-js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -232,6 +227,10 @@
       <workItem from="1543856783192" duration="624000" />
       <workItem from="1543945045564" duration="34000" />
       <workItem from="1544034233084" duration="223000" />
+      <workItem from="1544035683106" duration="638000" />
+      <workItem from="1544058045196" duration="674000" />
+      <workItem from="1544115224333" duration="729000" />
+      <workItem from="1544183810329" duration="145000" />
     </task>
     <task id="LOCAL-00001" summary="copiando home e public">
       <created>1542743659394</created>
@@ -338,16 +337,24 @@
       <option name="project" value="LOCAL" />
       <updated>1544034426109</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="correção para projetos antigos.">
+      <created>1544035715788</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1544035715788</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40689000" />
+    <option name="totallyTimeSpent" value="42875000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21677852" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18230277" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -363,13 +370,13 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3177305" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3177305" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.18014185" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.13774404" />
       <window_info anchor="bottom" id="JRebel Executor" order="11" />
       <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.093959734" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.07462686" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -503,12 +510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="904">
+        <state relative-caret-position="399">
           <caret line="395" column="10" selection-start-line="395" selection-start-column="10" selection-end-line="395" selection-end-column="10" />
-          <folding>
-            <element signature="e#18384#20240#0" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
