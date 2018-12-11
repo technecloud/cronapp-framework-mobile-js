@@ -1,27 +1,22 @@
 var cronappModules = [
+    'ionic',
     'ui.router',
-    'ui.select',
-    'ui-select-infinity',
     'ngResource',
     'ngSanitize',
     'custom.controllers',
     'custom.services',
     'datasourcejs',
-    'chart.js',
-    'ngJustGage',
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'ui-notification',
-    'ui.bootstrap',
     'ngFileUpload',
-    'report.services',
-    'upload.services',
-    'ui.tinymce'
-];
+    'angularMoment'
+]
 
 if (window.customModules) {
     cronappModules = cronappModules.concat(window.customModules);
 }
+
 
 var app = (function() {
 
@@ -31,8 +26,30 @@ var app = (function() {
                 'pt_br': 'Portugues (Brasil)',
                 'en_us': 'English'
             },
-            'preferredLocale': 'pt_br',
-            'urlPrefix': ''
+            'preferredLocale': 'pt_br'
+        })
+        .run(function($ionicPlatform) {
+            $ionicPlatform.ready(function() {
+                // Remove splash screen
+                setTimeout(function() {
+                    if (navigator.splashscreen) {
+                        navigator.splashscreen.hide();
+                    }
+                }, 100);
+                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+                // for form inputs)
+                if (window.cordova &&
+                    window.cordova.plugins && window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard
+                        .hideKeyboardAccessoryBar(true);
+                    cordova.plugins.Keyboard.disableScroll(true);
+
+                }
+                if (window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.styleDefault();
+                }
+            });
         })
         .config([
             '$httpProvider',
@@ -57,6 +74,9 @@ var app = (function() {
                 $httpProvider.interceptors.push(interceptor);
             }
         ])
+        .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+            $ionicConfigProvider.navBar.alignTitle('center')
+        })
         .config(function($stateProvider, $urlRouterProvider, NotificationProvider) {
             NotificationProvider.setOptions({
                 delay: 5000,
@@ -74,114 +94,110 @@ var app = (function() {
             else {
                 // Set up the states
                 $stateProvider
-                    .state('login', {
-                        url: "",
-                        controller: 'LoginController',
-                        templateUrl: 'views/login.view.html'
-                    })
-
-                    .state('social', {
-                        url: "/connected",
-                        controller: 'SocialController',
-                        templateUrl: 'views/login.view.html'
-                    })
-
-                    .state('socialError', {
-                        url: "/notconnected",
-                        controller: 'SocialController',
-                        templateUrl: 'views/login.view.html'
-                    })
 
                     .state('main', {
-                        url: "/",
+                        url: "",
+                        cache: false,
+                        controller: 'InitialController',
+                        templateUrl: ''
+                    })
+
+                    .state('login', {
+                        url: "/app/login",
+                        cache: false,
                         controller: 'LoginController',
                         templateUrl: 'views/login.view.html'
                     })
 
                     .state('publicRoot', {
                         url: "/public/{name:.*}",
+                        cache: false,
                         controller: 'PageController',
-                        templateUrl: function(urlattr) {
+                        templateUrl: function (urlattr) {
                             return 'views/public/' + urlattr.name + '.view.html';
                         }
                     })
 
                     .state('public', {
-                        url: "/home/public",
-                        controller: 'PublicController',
-                        templateUrl: function(urlattr) {
-                            return 'views/public/home.view.html';
-                        }
+                        url: "/app/public",
+                        cache: false,
+                        controller: 'PublicMenuController',
+                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/publicMenu.template.html'
                     })
 
                     .state('public.pages', {
                         url: "/{name:.*}",
-                        controller: 'PageController',
-                        templateUrl: function(urlattr) {
-                            return 'views/public/' + urlattr.name + '.view.html';
+                        cache: false,
+                        views: {
+                            'menuContent': {
+                                controller: 'PageController',
+                                templateUrl: function (urlattr) {
+                                    return 'views/public/' + urlattr.name + '.view.html';
+                                }
+                            }
                         }
                     })
 
-                    .state('home', {
-                        url: "/home",
-                        controller: 'HomeController',
-                        templateUrl: 'views/logged/home.view.html'
+                    .state('app', {
+                        url: "/app/logged",
+                        cache: false,
+                        controller: 'MenuController',
+                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/menu.template.html'
                     })
 
-                    .state('home.pages', {
+                    .state('app.home', {
+                        url: "/home",
+                        cache: false,
+                        views: {
+                            'menuContent': {
+                                controller: 'PageController',
+                                templateUrl: 'views/logged/home.view.html'
+                            }
+                        }
+                    })
+
+                    .state('app.pages', {
                         url: "/{name:.*}",
-                        controller: 'PageController',
-                        templateUrl: function(urlattr) {
-                            return 'views/' + urlattr.name + '.view.html';
+                        cache: false,
+                        views: {
+                            'menuContent': {
+                                controller: 'PageController',
+                                templateUrl: function (urlattr) {
+                                    return 'views/logged/' + urlattr.name + '.view.html';
+                                }
+                            }
                         }
                     })
 
                     .state('404', {
                         url: "/error/404",
+                        cache: false,
                         controller: 'PageController',
-                        templateUrl: function(urlattr) {
+                        templateUrl: function (urlattr) {
                             return 'views/error/404.view.html';
                         }
                     })
 
                     .state('403', {
                         url: "/error/403",
+                        cache: false,
                         controller: 'PageController',
-                        templateUrl: function(urlattr) {
+                        templateUrl: function (urlattr) {
                             return 'views/error/403.view.html';
                         }
                     });
             }
-
             // For any unmatched url, redirect to /state1
             $urlRouterProvider.otherwise("/error/404");
         })
-        .factory('originPath', ['$location', function($location) {
-            var originPath = {
-                request: function(config) {
-                    config.headers['origin-path'] = $location.path();
-                    return config;
-                }
-            };
-            return originPath;
-        }])
-        .config(['$httpProvider', function($httpProvider) {
-            $httpProvider.interceptors.push('originPath');
-        }])
+
         .config(function($translateProvider, tmhDynamicLocaleProvider) {
 
             $translateProvider.useMissingTranslationHandlerLog();
 
             $translateProvider.useStaticFilesLoader({
-                files: [
-                    {
-                        prefix: 'i18n/locale_',
-                        suffix: '.json'
-                    },
-                    {
-                        prefix: 'plugins/cronapp-framework-js/i18n/locale_',
-                        suffix: '.json'
-                    }]
+                prefix: 'i18n/locale_',
+                suffix: '.json'
             });
 
             $translateProvider.registerAvailableLanguageKeys(
@@ -198,31 +214,46 @@ var app = (function() {
             $translateProvider.useSanitizeValueStrategy('escaped');
 
             tmhDynamicLocaleProvider.localeLocationPattern('plugins/angular-i18n/angular-locale_{{locale}}.js');
-
-            if (moment)
-                moment.locale(locale);
         })
 
         .directive('crnValue', ['$parse', function($parse) {
             return {
                 restrict: 'A',
                 require: '^ngModel',
-                link: function(scope, element, attr, ngModel) {
+                link: function(scope, element, attr, ngModelCtrl) {
                     var evaluatedValue;
                     if (attr.value) {
                         evaluatedValue = attr.value;
                     } else {
                         evaluatedValue = $parse(attr.crnValue)(scope);
                     }
+
                     element.attr("data-evaluated", JSON.stringify(evaluatedValue));
                     element.bind("click", function(event) {
                         scope.$apply(function() {
-                            ngModel.$setViewValue(evaluatedValue);
+                            ngModelCtrl.$setViewValue(evaluatedValue);
+                            $(element).data('changed', true);
                         }.bind(element));
+                    });
+
+                    scope.$watch(function(){return ngModelCtrl.$modelValue}, function(value, old){
+                        if (value !== old) {
+                            var dataEvaluated = element.attr("data-evaluated");
+                            var changed = $(element).data('changed');
+                            $(element).data('changed', false);
+                            if (!changed) {
+                                if (value && JSON.stringify(''+value) == dataEvaluated) {
+                                    $(element)[0].children[0].checked = true
+                                } else {
+                                    $(element)[0].children[0].checked = false;
+                                }
+                            }
+                        }
                     });
                 }
             };
         }])
+
         .decorator("$xhrFactory", [
             "$delegate", "$injector",
             function($delegate, $injector) {
@@ -236,50 +267,6 @@ var app = (function() {
                 };
             }
         ])
-        // General controller
-        .controller('PageController', function($controller, $scope, $stateParams, $location, $http, $rootScope, $translate, Notification, UploadService) {
-            // save state params into scope
-            $scope.params = $stateParams;
-            $scope.$http = $http;
-            $scope.Notification = Notification;
-            $scope.UploadService = UploadService;
-
-            app.registerEventsCronapi($scope, $translate);
-
-            // Query string params
-            var queryStringParams = $location.search();
-            for (var key in queryStringParams) {
-                if (queryStringParams.hasOwnProperty(key)) {
-                    $scope.params[key] = queryStringParams[key];
-                }
-            }
-
-            var screenParams = eval($('#starter[data-component="crn-start"]').attr('screen-params'));
-            if (screenParams && screenParams.length) {
-                screenParams.forEach(function(screenParam) {
-                    if (!$scope.params[screenParam.key])
-                        $scope.params[screenParam.key] = screenParam.value;
-                });
-            }
-
-            //Components personalization jquery
-            $scope.registerComponentScripts = function() {
-                //carousel slider
-                $('.carousel-indicators li').on('click', function() {
-                    var currentCarousel = '#' + $(this).parent().parent().parent().attr('id');
-                    var index = $(currentCarousel + ' .carousel-indicators li').index(this);
-                    $(currentCarousel + ' #carousel-example-generic').carousel(index);
-                });
-            }
-
-            $scope.registerComponentScripts();
-
-            try {
-                var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
-                app.copyContext(contextAfterPageController, this, 'AfterPageController');
-            } catch(e) {};
-            try { if ($scope.blockly.events.afterPageRender) $scope.blockly.events.afterPageRender(); } catch(e) {};
-        })
 
         .run(function($rootScope, $state) {
             $rootScope.$on('$stateChangeError', function() {
@@ -293,6 +280,29 @@ var app = (function() {
                     $state.go('404');
                 }
             });
+            $rootScope.$on('$stateChangeSuccess', function() {
+                setTimeout(function() {
+
+                    $($('.icon.ion-plus-round').parent()).off('click');
+                    $($('.icon.ion-plus-round').parent()).on('click',function() {
+                        $('[required]').removeClass('input-validation-error');
+                        $('input:invalid').removeClass('input-validation-error');
+                    });
+
+                    $($('.icon.ion-checkmark').parent()).off('click');
+                    $($('.icon.ion-checkmark').parent()).on('click',function() {
+                        $('[required].ng-invalid-required, [required].ng-invalid, [required].ng-empty').addClass('input-validation-error');
+                        $('input:invalid').addClass('input-validation-error');
+                    });
+
+                    $('input').off('keydown')
+                    $('input').on('keydown', function() {
+                        $(this).removeClass('input-validation-error');
+                    });
+
+                }, 300);
+
+            });
         });
 
 }(window));
@@ -302,11 +312,14 @@ app.userEvents = {};
 //Configuration
 app.config = {};
 app.config.datasourceApiVersion = 2;
+app.config.defaultRoute = "/app";
 
 app.bindScope = function($scope, obj) {
     var newObj = {};
 
     for (var x in obj) {
+        // var name = parentName+'.'+x;
+        // console.log(name);
         if (typeof obj[x] == 'string')
             newObj[x] = obj[x];
         else if (typeof obj[x] == 'function')
@@ -319,7 +332,7 @@ app.bindScope = function($scope, obj) {
     return newObj;
 };
 
-app.registerEventsCronapi = function($scope, $translate) {
+app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoading) {
     for (var x in app.userEvents)
         $scope[x] = app.userEvents[x].bind($scope);
 
@@ -329,6 +342,9 @@ app.registerEventsCronapi = function($scope, $translate) {
         if (cronapi) {
             $scope['cronapi'] = app.bindScope($scope, cronapi);
             $scope['cronapi'].$scope = $scope;
+            $scope['cronapi'].$scope.$ionicModal = $ionicModal;
+            $scope['cronapi'].$scope.$ionicLoading = $ionicLoading;
+
             $scope.safeApply = safeApply;
             if ($translate) {
                 $scope['cronapi'].$translate = $translate;
@@ -344,17 +360,6 @@ app.registerEventsCronapi = function($scope, $translate) {
     } catch (e) {
         console.info('Not loaded blockly functions');
         console.info(e);
-    }
-};
-
-app.copyContext = function(fromContext, toContext, controllerName) {
-    if (fromContext) {
-        for (var item in fromContext) {
-            if (!toContext[item])
-                toContext[item] = fromContext[item];
-            else
-                toContext[item+controllerName] = fromContext[item];
-        }
     }
 };
 

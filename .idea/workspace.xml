@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/templates/menu.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/templates/menu.template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/app.authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/app.authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/controllers.authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/controllers.authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/directives.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.authentication.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/controllers.authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/controllers.authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/directives.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,7 +58,7 @@
         <counts>
           <entry key="css" value="26" />
           <entry key="html" value="6" />
-          <entry key="js" value="23" />
+          <entry key="js" value="28" />
           <entry key="json" value="216" />
           <entry key="txt" value="495" />
         </counts>
@@ -65,7 +68,7 @@
           <entry key="CSS" value="26" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="216" />
-          <entry key="JavaScript" value="23" />
+          <entry key="JavaScript" value="28" />
           <entry key="PLAIN_TEXT" value="495" />
         </counts>
       </usages-collector>
@@ -90,17 +93,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers.authentication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="410" lean-forward="true" selection-start-line="410" selection-end-line="410" />
+            <state relative-caret-position="395">
+              <caret line="294" column="52" selection-start-line="294" selection-start-column="52" selection-end-line="294" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/templates/menu.template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="272">
+              <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -108,17 +111,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.authentication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="336" column="17" lean-forward="true" selection-start-line="336" selection-start-column="17" selection-end-line="336" selection-end-column="17" />
+            <state relative-caret-position="347">
+              <caret line="369" column="17" selection-start-line="369" selection-start-column="17" selection-end-line="369" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="363" selection-start-line="363" selection-end-line="363" />
+            <state relative-caret-position="238">
+              <caret line="363" column="8" lean-forward="true" selection-start-line="363" selection-start-column="8" selection-end-line="363" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
               </folding>
@@ -150,6 +153,7 @@
       <find>Rótulo</find>
       <find>conte</find>
       <find>conteu</find>
+      <find>ui-select</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -172,11 +176,11 @@
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/lib/ionic/css/ionic.css" />
         <option value="$PROJECT_DIR$/css/app.css" />
-        <option value="$PROJECT_DIR$/js/directives.js" />
         <option value="$PROJECT_DIR$/components/components.json" />
-        <option value="$PROJECT_DIR$/js/app.authentication.js" />
-        <option value="$PROJECT_DIR$/js/controllers.authentication.js" />
         <option value="$PROJECT_DIR$/components/templates/menu.template.html" />
+        <option value="$PROJECT_DIR$/js/controllers.authentication.js" />
+        <option value="$PROJECT_DIR$/js/app.authentication.js" />
+        <option value="$PROJECT_DIR$/js/directives.js" />
       </list>
     </option>
   </component>
@@ -229,7 +233,7 @@
     <property name="SearchEverywhereHistoryKey" value="menu.tem&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/templates/menu.template.html&#10;components.json&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;ioniccss&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544545090944" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544547174507" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cronapp-common-js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -291,7 +295,7 @@
       <workItem from="1544472508266" duration="633000" />
       <workItem from="1544485455046" duration="54000" />
       <workItem from="1544528878588" duration="82000" />
-      <workItem from="1544544386084" duration="702000" />
+      <workItem from="1544544386084" duration="2269000" />
     </task>
     <task id="LOCAL-00001" summary="copiando home e public">
       <created>1542743659394</created>
@@ -412,11 +416,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544184151860</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[CRONIDE-191] Padronização de nomes.">
+      <created>1544545193052</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1544545193052</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45884000" />
+    <option name="totallyTimeSpent" value="47451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -438,9 +449,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3177305" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3167028" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.29609543" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.29609543" />
       <window_info anchor="bottom" id="JRebel Executor" order="11" />
       <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -563,34 +574,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
+    <entry file="file://$PROJECT_DIR$/components/templates/menu.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="363" selection-start-line="363" selection-end-line="363" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.authentication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="336" column="17" lean-forward="true" selection-start-line="336" selection-start-column="17" selection-end-line="336" selection-end-column="17" />
+        <state relative-caret-position="347">
+          <caret line="369" column="17" selection-start-line="369" selection-start-column="17" selection-end-line="369" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.authentication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="410" lean-forward="true" selection-start-line="410" selection-end-line="410" />
+        <state relative-caret-position="395">
+          <caret line="294" column="52" selection-start-line="294" selection-start-column="52" selection-end-line="294" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/templates/menu.template.html">
+    <entry file="file://$PROJECT_DIR$/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="238">
+          <caret line="363" column="8" lean-forward="true" selection-start-line="363" selection-start-column="8" selection-end-line="363" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
