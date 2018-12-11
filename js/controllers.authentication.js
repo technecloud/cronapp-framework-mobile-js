@@ -50,7 +50,7 @@
             $scope.autoLogin = function(){
                 if(localStorage.getItem('_u')){
                     refreshToken(Notification, $http, function(){
-                        $state.go('app.home');
+                        $state.go('app.home',null,{reload:false});
                     }, function(){
                         localStorage.removeItem('_u');
                     })
@@ -302,6 +302,49 @@
         }
     ]);
 
+    app.controller('MenuController', [
+        '$scope',
+        '$http',
+        '$rootScope',
+        '$state',
+        '$timeout',
+        '$translate',
+        'Notification',
+        '$ionicHistory',
+        '$ionicModal',
+        '$ionicLoading',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
+
+            app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
+            $rootScope.http = $http;
+            $scope.Notification = Notification;
+            $scope.folder= 'logged';
+
+            for(var x in app.userEvents)
+                $scope[x]= app.userEvents[x].bind($scope);
+
+
+            $scope.http({
+                method:'GET',
+                url:'views/'+$scope.folder+'/menu.view.html'
+            }).then(function onsuccess(response){
+                if($(response.data).find("ion-nav-bar").length > 0){
+                    $scope.isOldMenu = true;
+                }else{
+                    $scope.isOldMenu = false;
+                }
+            });
+        }]);
+
+    app.controller('PublicMenuController', function($controller, $scope) {
+        $scope.folder = 'public';
+        angular.extend(this, $controller('MenuController', {
+            $scope: $scope
+        }));
+    });
+
+
+
     // General controller
     app.controller('PageController', [
         "$scope",
@@ -370,19 +413,11 @@
             $scope.params = $stateParams;
             $scope.$http = $http;
 
-            // Query string params
-            var queryStringParams = $location.search();
-            for (var key in queryStringParams) {
-                if (queryStringParams.hasOwnProperty(key)) {
-                    $scope.params[key] = queryStringParams[key];
-                }
-            }
             $scope.blockly.js.blockly.auth.Home.change();
 
         }]);
 
 }(app));
-
 window.safeApply = function(fn) {
     var phase = this.$root.$$phase;
     if (phase == '$apply' || phase == '$digest') {
