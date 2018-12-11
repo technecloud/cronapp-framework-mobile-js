@@ -121,20 +121,10 @@ var app = (function() {
                     .state('public', {
                         url: "/app/public",
                         cache: false,
-                        controller: 'PublicController',
-                        templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/publicMenu.template.html'
+                        controller: 'PublicMenuController',
+                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/publicMenu.template.html'
                     })
 
-                    .state('public.home', {
-                        url: "/home",
-                        cache: false,
-                        views: {
-                            'menuContent': {
-                                controller: 'PublicController',
-                                templateUrl: 'views/public/home.view.html'
-                            }
-                        }
-                    })
                     .state('public.pages', {
                         url: "/{name:.*}",
                         cache: false,
@@ -151,8 +141,8 @@ var app = (function() {
                     .state('app', {
                         url: "/app/logged",
                         cache: false,
-                        controller: 'HomeController',
-                        templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/menu.template.html'
+                        controller: 'MenuController',
+                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/menu.template.html'
                     })
 
                     .state('app.home', {
@@ -160,7 +150,7 @@ var app = (function() {
                         cache: false,
                         views: {
                             'menuContent': {
-                                controller: 'HomeController',
+                                controller: 'PageController',
                                 templateUrl: 'views/logged/home.view.html'
                             }
                         }

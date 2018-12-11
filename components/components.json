@@ -2171,8 +2171,8 @@
       ],
       "groupedChildren": [
         {
-          "text_pt_BR": "Rótulo",
-          "text_en_US": "Label",
+          "text_pt_BR": "Conteúdo",
+          "text_en_US": "Content",
           "selector": "span"
         }
       ],
@@ -2872,7 +2872,7 @@
           "name": "content",
           "selector": "span",
           "type": "content",
-          "displayName_pt_BR": "Rótulo",
+          "displayName_pt_BR": "Conteúdo",
           "displayName_en_US": "Label"
         },
         {
@@ -3753,8 +3753,8 @@
     },
     {
       "name": "crn-label",
-      "text_pt_BR": "Rótulo",
-      "text_en_US": "Label",
+      "text_pt_BR": "Conteúdo",
+      "text_en_US": "Content",
       "class": "adjust-icon mdi  mdi-format-header-2",
       "wrapper": false,
       "template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",

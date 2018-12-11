@@ -241,6 +241,71 @@
         }));
     });
 
+    app.controller('MenuController', [
+        '$scope',
+        '$http',
+        '$rootScope',
+        '$state',
+        '$timeout',
+        '$translate',
+        'Notification',
+        '$ionicHistory',
+        '$ionicModal',
+        '$ionicLoading',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
+
+            app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
+            $rootScope.http = $http;
+            $scope.Notification = Notification;
+            $scope.folder= 'logged';
+
+            for(var x in app.userEvents)
+                $scope[x]= app.userEvents[x].bind($scope);
+
+
+            $scope.http({
+                method:'GET',
+                url:'views/'+$scope.folder+'/menu.view.html'
+            }).then(function onsuccess(response){
+                if($(response.data).find("ion-nav-bar").length > 0){
+                    $scope.isOldMenu = true;
+                }else{
+                    $scope.isOldMenu = false;
+                }
+            });
+        }]);
+
+    app.controller('PublicMenuController', function($controller, $scope) {
+        $scope.folder = 'public';
+        angular.extend(this, $controller('MenuController', {
+            $scope: $scope
+        }));
+    });
+
+    app.controller('InitialController', [
+        "$scope",
+        "$stateParams",
+        "$http",
+        "Notification",
+        "$location",
+        "$rootScope",
+        "$translate",
+        "$ionicModal",
+        "$ionicLoading",
+        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading) {
+
+            app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
+            $rootScope.http = $http;
+            $scope.Notification = Notification;
+
+            // save state params into scope
+            $scope.params = $stateParams;
+            $scope.$http = $http;
+
+            $scope.blockly.js.blockly.auth.Home.change();
+
+        }]);
+
     app.controller('chatController', [
         '$scope',
         '$state',
