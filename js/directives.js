@@ -367,8 +367,8 @@ window.addEventListener('message', function(event) {
                 restrict: 'A',
                 link: function(scope, element, attrs) {
                     var roles = [];
-                    if (scope.session && scope.session.roles) {
-                        roles = scope.session.roles.toLowerCase().split(",");
+                    if (window.localStorage.getItem("_u")  && JSON.parse(window.localStorage.getItem("_u")).roles) {
+                        roles = JSON.parse(window.localStorage.getItem("_u")).roles.toLowerCase().split(",");
                     }
 
                     var perms = parsePermission(attrs.cronappSecurity);
