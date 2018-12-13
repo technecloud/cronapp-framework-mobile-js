@@ -1118,3 +1118,19 @@ body {
     padding: 10px;
     border: 1px solid #d7d7d7;
 }
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.right-block {
+  display: block;
+  margin-left: auto;
+}
+
+.left-block {
+  display: block;
+  magin-right: auto;
+}

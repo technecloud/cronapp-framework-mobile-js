@@ -3472,17 +3472,17 @@
           "target": "style",
           "values": [
             {
-              "key": "display: block; margin-right:auto;",
+              "key": "left-block",
               "value": "Standard",
               "icon": "mdi mdi-ray-start"
             },
             {
-              "key": "display: block; margin-left:auto; margin-right:auto;",
+              "key": "center-block",
               "value": "Middle",
               "icon": "mdi mdi-ray-vertex"
             },
             {
-              "key": "display: block; margin-left:auto;",
+              "key": "right-block",
               "value": "Right",
               "icon": "mdi mdi-ray-end"
             }
