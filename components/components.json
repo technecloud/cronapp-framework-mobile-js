@@ -570,32 +570,32 @@
           "target": "style",
           "values": [
             {
-              "key": "font-size:50%;",
-              "value": "50%"
-            },
-            {
-              "key": "font-size:100%;",
+              "key": "font-size:100%",
               "value": "100%"
             },
             {
-              "key": "font-size:150%;",
-              "value": "150%"
-            },
-            {
-              "key": "font-size:175%;",
-              "value": "175%"
-            },
-            {
-              "key": "font-size:200%;",
+              "key": "font-size:200%",
               "value": "200%"
             },
             {
-              "key": "font-size:250%;",
-              "value": "250%"
+              "key": "font-size:300%",
+              "value": "300%"
             },
             {
-              "key": "font-size:300%;",
-              "value": "300%"
+              "key": "font-size:400%",
+              "value": "400%"
+            },
+            {
+              "key": "font-size:500%",
+              "value": "500%"
+            },
+            {
+              "key": "font-size:600%",
+              "value": "600%"
+            },
+            {
+              "key": "font-size:700%",
+              "value": "700%"
             }
           ]
         },
@@ -3652,31 +3652,31 @@
           "target": "style",
           "values": [
             {
-              "key": "",
+              "key": "font-size:100%",
               "value": "100%"
             },
             {
-              "key": "font-size:200%;",
+              "key": "font-size:200%",
               "value": "200%"
             },
             {
-              "key": "font-size:300%;",
+              "key": "font-size:300%",
               "value": "300%"
             },
             {
-              "key": "font-size:400%;",
+              "key": "font-size:400%",
               "value": "400%"
             },
             {
-              "key": "font-size:500%;",
+              "key": "font-size:500%",
               "value": "500%"
             },
             {
-              "key": "font-size:600%;",
+              "key": "font-size:600%",
               "value": "600%"
             },
             {
-              "key": "font-size:700%;",
+              "key": "font-size:700%",
               "value": "700%"
             }
           ]
