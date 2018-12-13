@@ -3469,7 +3469,7 @@
         {
           "name": "xattr-position",
           "type": "btngroup",
-          "target": "style",
+          "target": "class",
           "values": [
             {
               "key": "left-block",
