@@ -22,10 +22,7 @@ var app = (function() {
 
     return angular.module('MyApp', cronappModules)
         .constant('LOCALES', {
-            'locales': {
-                'pt_br': 'Portugues (Brasil)',
-                'en_us': 'English'
-            },
+            'locales': window.translations.locales,
             'preferredLocale': 'pt_br'
         })
         .run(function($ionicPlatform) {
@@ -201,11 +198,8 @@ var app = (function() {
             });
 
             $translateProvider.registerAvailableLanguageKeys(
-                ['pt_br', 'en_us'], {
-                    'en*': 'en_us',
-                    'pt*': 'pt_br',
-                    '*': 'pt_br'
-                }
+                window.translations.localesKeys,
+                window.translations.localesRef
             );
 
             var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
