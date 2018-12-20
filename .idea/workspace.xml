@@ -3,7 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/components.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/components.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular-ui/angular-ui-router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular-ui/angular-ui-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular-ui/angular-ui-router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular-ui/angular-ui-router.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular-ui/angular-ui-router.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular-ui/angular-ui-router.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-animate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-animate.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular-animate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-animate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-animate.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular-animate.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-resource.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-resource.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular-resource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-resource.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-resource.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular-resource.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-sanitize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-sanitize.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular-sanitize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-sanitize.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular-sanitize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular-sanitize.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/angular/angular.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/angular/angular.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic-angular.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic-angular.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/ionic-angular.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic-angular.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic-angular.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/ionic-angular.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/ionic.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/ionic.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/ionic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ionic/js/ionic.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/js/ionic.min.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,16 +47,16 @@
     <session id="-346997480">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="7" />
-          <entry key="project.open.time.2" value="6" />
+          <entry key="project.open.time.2" value="7" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="4" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -33,7 +64,7 @@
           <entry key="blockly" value="2" />
           <entry key="css" value="8" />
           <entry key="html" value="7" />
-          <entry key="js" value="12" />
+          <entry key="js" value="13" />
           <entry key="json" value="11" />
           <entry key="svg" value="1" />
         </counts>
@@ -43,7 +74,7 @@
           <entry key="CSS" value="8" />
           <entry key="HTML" value="7" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="12" />
+          <entry key="JavaScript" value="13" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="1" />
           <entry key="XML" value="1" />
@@ -55,7 +86,7 @@
           <entry key="html" value="18" />
           <entry key="js" value="28" />
           <entry key="json" value="222" />
-          <entry key="txt" value="496" />
+          <entry key="txt" value="573" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -64,7 +95,7 @@
           <entry key="HTML" value="18" />
           <entry key="JSON" value="222" />
           <entry key="JavaScript" value="28" />
-          <entry key="PLAIN_TEXT" value="496" />
+          <entry key="PLAIN_TEXT" value="573" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -98,18 +129,23 @@
         <entry file="file://$PROJECT_DIR$/components/templates/views/public/menu.view.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/components.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="576" column="38" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/components.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="576" column="38" lean-forward="true" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="38" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/lib/js/angular/angular.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -194,7 +230,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,25 +240,48 @@
             <path>
               <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
               <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
               <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="ionic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="angular.js" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="menu.tem&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/templates/menu.template.html&#10;components.json&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;ioniccss&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544719739427" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545306872554" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cronapp-common-js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -286,7 +344,8 @@
       <workItem from="1544485455046" duration="54000" />
       <workItem from="1544528878588" duration="82000" />
       <workItem from="1544544386084" duration="2269000" />
-      <workItem from="1544720006187" duration="205000" />
+      <workItem from="1544720006187" duration="848000" />
+      <workItem from="1545306743284" duration="259000" />
     </task>
     <task id="LOCAL-00001" summary="copiando home e public">
       <created>1542743659394</created>
@@ -421,17 +480,23 @@
       <option name="project" value="LOCAL" />
       <updated>1544719734397</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="[QAIBT-989] Ajustes no WYSIWUG de ícones">
+      <created>1544720240421</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1544720240421</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48770000" />
+    <option name="totallyTimeSpent" value="49672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15724947" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15884861" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -447,9 +512,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3167028" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3167028" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.20390455" />
+      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.20390455" />
       <window_info anchor="bottom" id="JRebel Executor" order="11" />
       <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -470,6 +535,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="copiando home e public" />
     <MESSAGE value="[CRONIDE-239] Novo tema mobile + tela de mudar password" />
     <MESSAGE value="[CRONIDE-239] gulp" />
@@ -486,7 +552,9 @@
     <MESSAGE value="correção para projetos antigos." />
     <MESSAGE value="[CRONIDE-191] Padronização de nomes." />
     <MESSAGE value="[QAIBT-989] Ajustes no Menu para permitir customização." />
-    <option name="LAST_COMMIT_MESSAGE" value="[QAIBT-989] Ajustes no Menu para permitir customização." />
+    <MESSAGE value="[QAIBT-989] Ajustes no WYSIWUG de ícones" />
+    <MESSAGE value="voltando versão do ionic para antiga." />
+    <option name="LAST_COMMIT_MESSAGE" value="voltando versão do ionic para antiga." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -597,16 +665,19 @@
     <entry file="file://$PROJECT_DIR$/components/templates/views/public/menu.view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/components.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
-          <caret line="576" column="38" lean-forward="true" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="38" />
+          <caret line="576" column="38" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="38" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/js/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
