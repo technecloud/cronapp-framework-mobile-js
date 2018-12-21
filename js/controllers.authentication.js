@@ -142,40 +142,6 @@
             for(var x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
 
-            if(!$scope.ignoreAuth){
-
-                $ionicModal.fromTemplateUrl('views/logged/_changepassword.view.html', {
-                    scope: $scope,
-                    animation: 'slide-in-up'
-                }).then(function(modal) {
-                    $scope.modal = modal;
-                });
-
-                $scope.openChangePassword = function() {
-                    $scope.modal.show();
-                };
-
-                $scope.closeChangePassword = function() {
-                    $scope.modal.hide();
-                };
-
-                $rootScope.logout = function logout() {
-                    $rootScope.session = null;
-                    localStorage.removeItem("_u");
-                    $state.go("main");
-                }
-            }
-
-            $scope.shouldShowDelete = false;
-            $scope.shouldShowReorder = false;
-            $scope.listCanSwipe = true
-
-            $scope.message = {};
-
-            $scope.selecionado = {
-                valor : 1
-            }
-
             // When access home page we have to check
             // if the user is authenticated and the userData
             // was saved on the browser's sessionStorage
@@ -197,41 +163,6 @@
                 if ($rootScope.session.token) refreshToken(Notification, $http, function(){},  $rootScope.logout);
             }
 
-
-            $scope.changePassword = function() {
-
-                var user = {
-                    oldPassword : oldPassword.value,
-                    newPassword : newPassword.value,
-                    newPasswordConfirmation : newPasswordConfirmation.value
-                };
-
-                $http({
-                    method : 'POST',
-                    url: window.hostApp + 'changePassword',
-                    data : $.param(user),
-                    headers : {
-                        'Content-Type' : 'application/x-www-form-urlencoded'
-                    }
-                }).success(changeSuccess).error(changeError);
-
-                function changeSuccess(data, status, headers, config) {
-                    Notification.info($translate.instant('Home.view.passwordChanged'));
-                    cleanPasswordFields();
-                }
-
-                function changeError(data, status, headers, config) {
-                    var error = status >= 401 ? $translate.instant('Home.view.InvalidPassword') : data;
-                    Notification.error(error);
-                }
-
-                function cleanPasswordFields() {
-                    oldPassword.value = "";
-                    newPassword.value = "";
-                    newPasswordConfirmation.value = "";
-                    $scope.closeChangePassword();
-                }
-            };
         } ]);
 
     app.controller('PublicController', function($controller, $scope) {
@@ -261,6 +192,30 @@
 
             for(var x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
+
+            if(!$scope.ignoreAuth){
+
+                $ionicModal.fromTemplateUrl('views/logged/_changepassword.view.html', {
+                    scope: $scope,
+                    animation: 'slide-in-up'
+                }).then(function(modal) {
+                    $scope.modal = modal;
+                });
+
+                $scope.openChangePassword = function() {
+                    $scope.modal.show();
+                };
+
+                $scope.closeChangePassword = function() {
+                    $scope.modal.hide();
+                };
+
+                $scope.logout = function logout() {
+                    $rootScope.session = null;
+                    localStorage.removeItem("_u");
+                    $state.go("main");
+                }
+            }
 
 
             $scope.http({
