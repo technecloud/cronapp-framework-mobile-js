@@ -342,6 +342,7 @@
             // save state params into scope
             $scope.params = $stateParams;
             $scope.$http = $http;
+            $scope.listCanSwipe = true;
 
             // Query string params
             var queryStringParams = $location.search();
