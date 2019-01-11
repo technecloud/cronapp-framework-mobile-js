@@ -99,7 +99,12 @@ var app = (function() {
                         url: "",
                         cache: false,
                         controller: 'InitialController',
-                        templateUrl: ''
+                        templateUrl: function (urlattr) {
+                            if(navigator.app){
+                                navigator.app.exitApp();
+                            }
+                            return '';
+                        }
                     })
 
                     .state('login', {

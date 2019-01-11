@@ -213,7 +213,7 @@
                 $scope.logout = function logout() {
                     $rootScope.session = null;
                     localStorage.removeItem("_u");
-                    $state.go("main");
+                    $state.go("login");
                 }
             }
 
