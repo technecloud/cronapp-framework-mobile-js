@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="" resourceType="JS" ruleDescription="Login" ruleName="Login" ruleSynchronous="false" ruleTimeout="" ruleType="I">
-  <metadata scale="1" scrollx="488.70000000000005" scrolly="-54.60000000000008" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="426.6" scrolly="-687.8999999999991" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-350" y="130">
     <mutation>
       <arg name="login"/>
@@ -240,8 +240,8 @@
                             <field name="TEXT"/>
                           </shadow>
                           <block colour="#5b93a5" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="efzbu6w)zA]jI[voKS/a" origintype="text_i18n" output="true" tooltip="function () { [native code] }" type="text_i18n">
-                            <mutation data="%7B%22text%22:%22LoginViewInvalidpassword%22,%22value%22:%22LoginViewInvalidpassword%22,%22token%22:%22%7B%7B'LoginViewInvalidpassword'%20%7C%20translate%7D%7D%22,%22key%22:%22LoginViewInvalidpassword%22,%22params%22:%5B%5D%7D" name=""/>
-                            <field name="TEXT">LoginViewInvalidpassword</field>
+                            <mutation data="%7B%22text%22:%22Usu%C3%A1rio%20ou%20senha%20inv%C3%A1lidos!%22,%22value%22:%22LoginViewInvalidpassword%22,%22token%22:%22%7B%7B'Login.view.invalidPassword'%20%7C%20translate%7D%7D%22,%22key%22:%22Login.view.invalidPassword%22,%22params%22:%5B%5D%7D" name=""/>
+                            <field name="TEXT">Usuário ou senha inválidos!</field>
                           </block>
                         </value>
                       </block>
