@@ -26,12 +26,12 @@ window.blockly.js.blockly.auth.ChangePassword.changePassword = function() {
       this.cronapi.util.getURLFromOthers('POST', 'application/x-www-form-urlencoded', String(this.cronapi.screen.getHostapp()) + String('changePassword'), this.cronapi.object.createObjectFromString(['{ \"oldPassword\": \"',oldPassword,'\" , \"newPassword\": \"',confirmationPassword,'\" , \"newPasswordConfirmation\": \"',newPasswordConfirmation,'\" } '].join('')), this.cronapi.object.createObjectFromString(['{ \"X-AUTH-TOKEN\": \"',this.cronapi.util.getUserToken(),'\" } '].join('')), function(sender_item) {
           item = sender_item;
         this.cronapi.screen.hide();
-        this.cronapi.screen.notify('info',this.cronapi.i18n.translate("HomeViewPasswordchanged",[  ]));
+        this.cronapi.screen.notify('info',this.cronapi.i18n.translate("Home.view.passwordChanged",[  ]));
         this.blockly.js.blockly.auth.ChangePassword.closeModal();
       }.bind(this), function(sender_item) {
           item = sender_item;
         if (this.cronapi.object.getProperty(item, 'status') == '403' || this.cronapi.object.getProperty(item, 'status') == '401') {
-          this.cronapi.screen.notify('error',this.cronapi.i18n.translate("LoginViewInvalidpassword",[  ]));
+          this.cronapi.screen.notify('error',this.cronapi.i18n.translate("Login.view.invalidPassword",[  ]));
         } else {
           this.cronapi.screen.notify('error',this.cronapi.object.getProperty(item, 'responseJSON.message'));
         }
@@ -42,7 +42,7 @@ window.blockly.js.blockly.auth.ChangePassword.changePassword = function() {
       this.cronapi.screen.notify('error','HostApp is Required');
     }
   } else {
-    this.cronapi.screen.notify('error',this.cronapi.i18n.translate("LoginViewInvalidpassword",[  ]));
+    this.cronapi.screen.notify('error',this.cronapi.i18n.translate("Login.view.invalidPassword",[  ]));
   }
 }
 
