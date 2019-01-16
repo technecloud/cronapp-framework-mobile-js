@@ -41,7 +41,7 @@ window.blockly.js.blockly.auth.Login.login = function(login, password, options) 
 												'error',
 												this.cronapi.i18n
 														.translate(
-																"LoginViewInvalidpassword",
+																"Login.view.invalidPassword",
 																[]));
 							} else {
 								this.cronapi.screen.notify('error',
