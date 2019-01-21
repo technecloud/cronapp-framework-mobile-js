@@ -203,7 +203,17 @@
                 });
 
                 $scope.openChangePassword = function() {
-                    $scope.modal.show();
+                    if($scope.modal.modelEl){
+                        $scope.modal.show();
+                    }else{
+                        $http({url:'views/logged/_changepassword.view.html'}).then(function(data){
+                            $scope.modal = $ionicModal.fromTemplate($(data.data).last().text(), {
+                                scope: $scope,
+                                animation: 'slide-in-up'
+                            });
+                            $scope.modal.show();
+                        });
+                    }
                 };
 
                 $scope.closeChangePassword = function() {
