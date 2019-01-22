@@ -524,33 +524,33 @@ window.addEventListener('message', function(event) {
                     if (this.length > 0) {
                         if (filterTemplate != "") {
                             if (isOData) {
-                                filterTemplate += " and ";
+                                filterTemplate += " or ";
                             } else {
                                 filterTemplate += ";";
                             }
                         }
 
                         if (isOData) {
-                            if (operator == "=" && typeElement == 'text') {
-                                filterTemplate = "startswith(tolower("+this+"), {value.lower})";
+                            if (operator == "=" && typeElement == 'text' && filterTemplate == "") {
+                                filterTemplate = "substringof({value.lower}, tolower("+this+"))";
                             }
                             else if (operator == "=") {
-                                filterTemplate = this + " eq {value}";
+                                filterTemplate += " substringof({value.lower},tolower("+this+"))";
                             }
                             else if (operator == "!=") {
-                                filterTemplate = this + " ne {value}";
+                                filterTemplate += this + " ne {value}";
                             }
                             else if (operator == ">") {
-                                filterTemplate = this + " gt {value}";
+                                filterTemplate += this + " gt {value}";
                             }
                             else if (operator == ">=") {
-                                filterTemplate = this + " ge {value}";
+                                filterTemplate += this + " ge {value}";
                             }
                             else if (operator == "<") {
-                                filterTemplate = this + " lt {value}";
+                                filterTemplate += this + " lt {value}";
                             }
                             else if (operator == "<=") {
-                                filterTemplate = this + " le {value}";
+                                filterTemplate += this + " le {value}";
                             }
                         } else {
                             if (typeElement == 'text') {
