@@ -80,6 +80,12 @@
 
             }
 
+            if($scope.isOldMenu){
+                if($(document).find("ion-header-bar").length > 0){
+                  $(document).find("ion-nav-bar").show();
+                }
+            }
+
             $rootScope.infiniteReached = function() {
                 //
             }
@@ -234,6 +240,9 @@
             }).then(function onsuccess(response){
                 if($(response.data).find("ion-nav-bar").length > 0){
                     $scope.isOldMenu = true;
+                      if($(document).find("ion-header-bar").length > 0){
+                        $(document).find("ion-nav-bar").show();
+                      }
                 }else{
                     $scope.isOldMenu = false;
                 }
@@ -373,6 +382,32 @@
             }
 
             $scope.registerComponentScripts();
+
+            if ($scope.isOldMenu) {
+              $scope.http({
+                method: 'GET',
+                url: 'views/logged/' + $scope.params.name + '.view.html'
+              }).then(function onsuccess(response) {
+                if ($(response.data).find("ion-header-bar").length > 0) {
+                  if ($(document).find("ion-header-bar").length > 1) {
+                    $(document).find("ion-nav-bar").hide();
+                  }
+                }
+                else {
+                  if ($(document).find("ion-header-bar").length > 1) {
+                    $(document).find("ion-nav-bar").show();
+                  }
+                }
+              });
+            }
+
+            if($scope.isOldMenu){
+                if($scope.params.length === undefined){
+                    if($(document).find("ion-header-bar").length > 1){
+                        $(document).find("ion-nav-bar").show();
+                    }
+                }
+            }
 
             try {
                 var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
