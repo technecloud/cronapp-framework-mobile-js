@@ -383,27 +383,29 @@
 
             $scope.registerComponentScripts();
 
-            if ($scope.isOldMenu) {
-              $scope.http({
-                method: 'GET',
-                url: 'views/logged/' + $scope.params.name + '.view.html'
-              }).then(function onsuccess(response) {
-                if ($(response.data).find("ion-header-bar").length > 0) {
-                  if ($(document).find("ion-header-bar").length > 1) {
-                    $(document).find("ion-nav-bar").hide();
+            if($scope.params.name !== undefined) {
+              if ($scope.isOldMenu) {
+                $scope.http({
+                  method: 'GET',
+                  url: 'views/logged/' + $scope.params.name + '.view.html'
+                }).then(function onsuccess(response) {
+                  if ($(response.data).find("ion-header-bar").length > 0) {
+                    if ($(document).find("ion-header-bar").length > 1) {
+                      $(document).find("ion-nav-bar").hide();
+                    }
                   }
-                }
-                else {
-                  if ($(document).find("ion-header-bar").length > 1) {
-                    $(document).find("ion-nav-bar").show();
+                  else {
+                    if ($(document).find("ion-header-bar").length > 0) {
+                      $(document).find("ion-nav-bar").show();
+                    }
                   }
-                }
-              });
+                });
+              }
             }
 
             if($scope.isOldMenu){
                 if($scope.params.length === undefined){
-                    if($(document).find("ion-header-bar").length > 1){
+                    if($(document).find("ion-header-bar").length > 0){
                         $(document).find("ion-nav-bar").show();
                     }
                 }
