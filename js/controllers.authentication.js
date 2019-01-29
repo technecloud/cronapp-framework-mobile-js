@@ -80,12 +80,6 @@
 
             }
 
-            if($scope.isOldMenu){
-                if($(document).find("ion-header-bar").length > 0){
-                  $(document).find("ion-nav-bar").show();
-                }
-            }
-
             $rootScope.infiniteReached = function() {
                 //
             }
@@ -383,16 +377,14 @@
 
             $scope.registerComponentScripts();
 
-            if($scope.params.name !== undefined) {
-              if ($scope.isOldMenu) {
+            if ($scope.isOldMenu) {
+                var name = $scope.params.name ||'home';
                 $scope.http({
                   method: 'GET',
-                  url: 'views/logged/' + $scope.params.name + '.view.html'
+                  url: 'views/logged/' + name + '.view.html'
                 }).then(function onsuccess(response) {
                   if ($(response.data).find("ion-header-bar").length > 0) {
-                    if ($(document).find("ion-header-bar").length > 1) {
-                      $(document).find("ion-nav-bar").hide();
-                    }
+                    $(document).find("ion-nav-bar").hide();
                   }
                   else {
                     if ($(document).find("ion-header-bar").length > 0) {
@@ -400,15 +392,6 @@
                     }
                   }
                 });
-              }
-            }
-
-            if($scope.isOldMenu){
-                if($scope.params.length === undefined){
-                    if($(document).find("ion-header-bar").length > 0){
-                        $(document).find("ion-nav-bar").show();
-                    }
-                }
             }
 
             try {
