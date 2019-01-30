@@ -878,7 +878,6 @@ body {
 }
 
 .menu-view [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar, .login-bg [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
-    background: #0083d8;
     color:#ffffff;
 }
 
