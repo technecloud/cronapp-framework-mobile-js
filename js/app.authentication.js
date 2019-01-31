@@ -200,22 +200,17 @@ var app = (function() {
 
             $translateProvider.useMissingTranslationHandlerLog();
 
-            $translateProvider.useStaticFilesLoader({
-                prefix: 'i18n/locale_',
-                suffix: '.json'
-            });
-
-            $translateProvider.useStaticFilesLoader({
-                files: [
-                  {
-                    prefix: 'plugins/cronapp-framework-js/i18n/locale_',
-                    suffix: '.json'
-                  }]
-            });
-
             $translateProvider.useLoader('customTranslateLoader', {
-                prefix: 'i18n/locale_',
-                suffix: '.json'
+                files: [
+                    {
+                      prefix: 'i18n/locale_',
+                      suffix: '.json'
+                    },
+                    {
+                        prefix: 'plugins/cronapp-framework-mobile-js/i18n/locale_',
+                        suffix: '.json'
+                    }
+                ]
             });
 
             var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
@@ -405,8 +400,8 @@ app.factory('customTranslateLoader', function ($http, $q) {
         params: ''
       }, options.$http)).success(function (data) {
         deferred.resolve(data);
-      }).error(function (data) {
-        deferred.reject(options.key);
+      }).error(function () {
+        deferred.reject({});
       });
 
       return deferred.promise;
@@ -425,7 +420,6 @@ app.factory('customTranslateLoader', function ($http, $q) {
     }
 
     $q.all(promises).then(function (data) {
-      data = [data[0]];
       var length = data.length,
           mergedData = {};
 
