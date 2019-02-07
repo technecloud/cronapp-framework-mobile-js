@@ -5304,6 +5304,16 @@
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
         }
       ]
+    },
+    {
+      "name": "crn-start",
+      "pallete": false,
+      "wrapper": false,
+      "properties": {
+        "screen-params": {
+          "removable": false
+        }
+      }
     }
   ]
 }
