@@ -279,7 +279,9 @@ var app = (function() {
                     var requestObj = arguments[5];
                     if (requestObj.status === 404 || requestObj.status === 403) {
                         localStorage.removeItem('_u');
-                        $state.go('login');
+                        $state.go('login').catch(function(){
+                            $state.go('404');
+                        });
                     }
                 } else {
                     $state.go('404');
