@@ -824,6 +824,7 @@ body {
 
 .menu-view {
     background-color: #0087d4;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 #menu-blue .item {
     border-color: transparent;
