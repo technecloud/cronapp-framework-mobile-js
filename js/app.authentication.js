@@ -49,6 +49,18 @@ var app = (function() {
                     // org.apache.cordova.statusbar required
                     StatusBar.styleDefault();
                 }
+
+              // Fix for iPhone X/XS screen rotation issue
+              // https://stackoverflow.com/questions/53290178/cordova-iphone-x-safe-area-after-layout-orientation-changes
+              if(ionic.Platform.is('ios')){
+                window.addEventListener("orientationchange", function() {
+                  var originalMarginTop = document.body.style.marginTop;
+                  document.body.style.marginTop = "1px";
+                  setTimeout(function () {
+                    document.body.style.marginTop = originalMarginTop;
+                  }, 100);
+                }, false);
+              }
             });
         })
         .config([
