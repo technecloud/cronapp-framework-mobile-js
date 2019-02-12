@@ -818,8 +818,12 @@ body {
 
 .login-bg {
     background: -webkit-linear-gradient(45deg,#2767e6 0,#34b3f7 76%,#34b3f7 95%);
-    margin: 0 auto;
-    padding: 90px 5px;
+}
+
+.center-content-vertically{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .menu-view {
@@ -1054,9 +1058,9 @@ body {
 }
 
 .login-mobile input:focus {
-    border-bottom: 1px solid #142354;
+    border-bottom: 1px solid #2b71c0 !important;
     transition: 700ms;
-    color: #142354;
+    /*color: #142354;*/
     background-color: transparent!important;
 }
 
@@ -1116,7 +1120,7 @@ body {
 
 .login-bg label.item.item-input {
     padding: 10px;
-    border: 1px solid #d7d7d7;
+    /*border: 1px solid #d7d7d7;*/
 }
 
 .center-block {
