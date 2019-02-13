@@ -4712,7 +4712,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-tab title=\"Title\" icon-on=\"ion-ios-filing\" icon-off=\"ion-ios-filing-outline\" id=\"ion-tab-${RANDOM}\" data-component=\"crn-ion-tab-item\" href=\"\" ></ion-tab>",
+            "sourceHTML": "<a class = \"tab-item has-badge\" id=\"ion-tab-item-${RANDOM}\" data-component=\"crn-ion-tab-item\" href=\"\"> <span class=\"badge\">0</span><i class=\"icon ion-ios-home\"></i><span class=\"tab-title\">Home</span></a>",
             "targetSelector": ":self"
           }
         ]
@@ -4795,22 +4795,33 @@
       "text_en_US": "Tab Item",
       "class": "adjust-icon mdi mdi-window-maximize",
       "wrapper": false,
-      "designTimeDynamic": true,
+      "forcedGroup": true,
       "pallete": false,
-      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab-item.designtime.html",
-      "designTimeSelector": ":self",
-      "template": "<ion-tab title=\"\" icon-on=\"ion-ios-filing\" icon-off=\"ion-ios-filing-outline\" id=\"ion-tab-${RANDOM}\" href=\"\" ></ion-tab>",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab-item.designtime.html",
+      "childrenProperties": [
+        {
+          "name": "content",
+          "selector": "span[class='badge']",
+          "displayName_pt_BR": "Badge",
+          "displayName_en_US": "Badge",
+          "type":"content"
+        },
+        {
+          "name": "content",
+          "selector": "span[class='tab-title']",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "type":"content"
+        },
+        {
+          "name":"class",
+          "selector":"i",
+          "displayName_pt_BR": "Ícone",
+          "displayName_en_US": "Icon",
+          "type":"icon"
+        }
+      ],
       "properties": {
-        "icon-on":{
-          "displayName_pt_BR": "Ícone ativo",
-          "displayName_en_US": "Active Icon",
-          "type":"icon"
-        },
-        "icon-off":{
-          "displayName_pt_BR": "Ícone Inativo",
-          "displayName_en_US": "Inactive Icon",
-          "type":"icon"
-        },
         "href": {
           "removable": false,
           "type": "projectResource",
