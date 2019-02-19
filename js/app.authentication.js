@@ -113,7 +113,8 @@ var app = (function() {
                         controller: 'InitialController',
                         templateUrl: function (urlattr) {
                             if(navigator.app){
-                                navigator.app.exitApp();
+                                // The code bellow is causing force close on devices running chromium WebView
+                                // navigator.app.exitApp();
                             }
                             return '';
                         }
