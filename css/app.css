@@ -1,5 +1,81 @@
 /* Empty. Add your own CSS if you like */
 
+/*Set CSS Properties to Iphone x^ devices*/
+:root {
+    --safe-area-inset-top : env(safe-area-inset-top);
+    --safe-area-inset-right : env(safe-area-inset-right);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left : env(safe-area-inset-left);
+
+
+    /* //portrait orientation, status bar is shown */
+    /*
+    additionalSafeAreaInsets.top = 24.0
+    additionalSafeAreaInsets.bottom = 34.0
+    */
+
+    /* //portrait orientation, status bar is hidden */
+    /*
+    additionalSafeAreaInsets.top = 44.0
+    additionalSafeAreaInsets.bottom = 34.0
+    */
+
+    /* //landscape orientation */
+    /*
+    additionalSafeAreaInsets.top = 0.0
+    additionalSafeAreaInsets.left = 44.0
+    additionalSafeAreaInsets.bottom = 21.0
+    additionalSafeAreaInsets.right = 44.0
+    */
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .has-header,
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: calc(64px + var(--safe-area-inset-top));
+    padding-left: calc(0px + var(--safe-area-inset-left));
+    padding-right: calc(0px + var(--safe-area-inset-right));
+    padding-bottom: calc(0px + var(--safe-area-inset-bottom));
+}
+
+@media (orientation : portrait){
+
+    .tabs {
+        height: calc(30px + var(--safe-area-inset-bottom, 19px)) !important;
+        min-height: 49px;
+    }
+
+    .bar-header:not(.bar-subheader) {
+        height: calc(45px + var(--safe-area-inset-top, 19px)) !important;
+    }
+
+    .bar-header:not(.bar-subheader) > * {
+        margin-top: var(--safe-area-inset-top, 20px) !important;
+    }
+
+    .platform-ios.platform-cordova:not(.fullscreen) .has-header,
+    .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+        padding-top: calc(45px + var(--safe-area-inset-top) - 64px);
+        padding-bottom: var(--safe-area-inset-bottom);
+    }
+
+}
+
+
+@media (orientation : landscape) {
+
+    .tabs {
+        height: calc(45px + var(--safe-area-inset-bottom, 19px)) !important;
+        min-height: 49px;
+    }
+
+    .platform-ios.platform-cordova:not(.fullscreen) .has-header,
+    .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+        padding-left: var(--safe-area-inset-left);
+        padding-right: var(--safe-area-inset-right);
+        padding-bottom: var(--safe-area-inset-bottom);
+    }
+}
+
 body {
     background-color: #fff;
 }
