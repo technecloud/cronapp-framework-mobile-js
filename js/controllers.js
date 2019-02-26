@@ -1,8 +1,18 @@
 (function ($app) {
     angular.module('custom.controllers', []);
     
-    app.controller('HomeController', ['$scope', '$http', '$rootScope', '$state', '$translate', 'Notification','$ionicModal', function ($scope, $http, $rootScope, $state, $translate, Notification, $ionicModal) {
+    app.controller('HomeController', ['$scope', '$http', '$rootScope', '$state', '$translate', 'Notification','$ionicModal', '$location', '$stateParams', function ($scope, $http, $rootScope, $state, $translate, Notification, $ionicModal, $location, $stateParams) {
       $rootScope.http = $http;
+      // save state params into scope
+      $scope.params = $stateParams;
+
+      // Query string params
+      var queryStringParams = $location.search();
+      for (var key in queryStringParams) {
+        if (queryStringParams.hasOwnProperty(key)) {
+          $scope.params[key] = queryStringParams[key];
+        }
+      }
 	    app.registerEventsCronapi($scope, $translate,$ionicModal);
       $scope.Notification = Notification;
 
