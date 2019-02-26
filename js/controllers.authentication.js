@@ -43,6 +43,16 @@
             app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
             $rootScope.http = $http;
             $scope.Notification = Notification;
+            // save state params into scope
+            $scope.params = $stateParams;
+
+            // Query string params
+            var queryStringParams = $location.search();
+            for (var key in queryStringParams) {
+              if (queryStringParams.hasOwnProperty(key)) {
+                $scope.params[key] = queryStringParams[key];
+              }
+            }
 
             for(var x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
@@ -133,11 +143,24 @@
         '$ionicHistory',
         '$ionicModal',
         '$ionicLoading',
-        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
+        '$stateParams',
+        '$location',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
             $scope.Notification = Notification;
+
+            // save state params into scope
+            $scope.params = $stateParams;
+
+            // Query string params
+            var queryStringParams = $location.search();
+            for (var key in queryStringParams) {
+                if (queryStringParams.hasOwnProperty(key)) {
+                  $scope.params[key] = queryStringParams[key];
+                }
+              }
 
             for(var x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
