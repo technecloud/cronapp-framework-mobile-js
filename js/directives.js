@@ -867,7 +867,11 @@ window.addEventListener('message', function(event) {
             }
 
             var addImage = function(column) {
-                return '<img data-ng-src="data:image/png;base64,{{rowData.' + column.field + '}}">';
+                return '<div class="custom-item-avatar-imagem" style="background-image:url(\'data:image/png;base64,{{rowData.' + column.field + '}}\')"></div>';
+            }
+
+            var addImageLink = function(column) {
+                return '<div class="custom-item-avatar-imagem" style="background-image:url(\'{{rowData.' + column.field + '}}\')"></div>';
             }
 
             var encodeHTML = function(value) {
@@ -942,8 +946,6 @@ window.addEventListener('message', function(event) {
                 return false;
             }
 
-
-
             var getSearchableList = function(dataSourceName, fieldName) {
                 return '\
               <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i> \
@@ -956,8 +958,6 @@ window.addEventListener('message', function(event) {
             return {
                 restrict: 'E',
                 link: function(scope, element, attrs, ngModelCtrl) {
-
-
 
                     var optionsList = {};
                     var dataSourceName = '';
@@ -995,7 +995,6 @@ window.addEventListener('message', function(event) {
                             event.stopPropagation();
                         }
 
-
                         var searchableField = null;
                         var isNativeEdit = false;
                         var addedImage = false;
@@ -1006,6 +1005,9 @@ window.addEventListener('message', function(event) {
                                     if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields)) {
                                         image = addImage(column);
                                         addedImage = true;
+                                    } else if (!addedImage && (column.type == 'image')) {
+                                        image = addImageLink(column);
+                                        addedImage = true;                                    
                                     } else {
                                         content = content.concat(addDefaultColumn(column, (i == 0)));
                                         if (column.filterable) {
@@ -1049,6 +1051,7 @@ window.addEventListener('message', function(event) {
 
                     $(element).removeAttr('ng-click');
 
+                    content = '<div class="item-list-detail">' + content + '<\div>';
                     var ionAvatar = $(element).find('.item-avatar');
                     ionAvatar.append(image);
                     ionAvatar.append(content);
@@ -1062,8 +1065,6 @@ window.addEventListener('message', function(event) {
                     var infiniteScroll = $(element).find('ion-infinite-scroll');
                     infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
                     infiniteScroll.attr('distance', '1%');
-
-
 
                     $compile(templateDyn)(scope);
                 }
