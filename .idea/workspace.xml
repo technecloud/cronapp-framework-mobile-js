@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="2.1.11">
+    <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="remoção do .iml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/components.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/components.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/directives.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/controllers.authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/controllers.authentication.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,26 +75,35 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="2136961472">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="17" />
+          <entry key="PLAIN_TEXT" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/components.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="5309" column="10" selection-start-line="5309" selection-start-column="10" selection-end-line="5309" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/directives.js">
+        <entry file="file://$PROJECT_DIR$/js/controllers.authentication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="291" column="38" lean-forward="true" selection-start-line="291" selection-start-column="38" selection-end-line="291" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -158,12 +166,12 @@
         <option value="$PROJECT_DIR$/components/templates/views/public/menu.view.html" />
         <option value="$PROJECT_DIR$/js/app.authentication.js" />
         <option value="$PROJECT_DIR$/postupdate.json" />
-        <option value="$PROJECT_DIR$/js/controllers.authentication.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/components/components.json" />
         <option value="$PROJECT_DIR$/js/directives.js" />
+        <option value="$PROJECT_DIR$/js/controllers.authentication.js" />
       </list>
     </option>
   </component>
@@ -182,17 +190,32 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="y" value="-2" />
+    <option name="width" value="1920" />
+    <option name="height" value="1082" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="cronapp-framework-mobile-js" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="cronapp-framework-mobile-js" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="cronapp-framework-mobile-js" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="cronapp-framework-mobile-js" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,24 +223,18 @@
               <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
               <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="cronapp-framework-mobile-js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cronapp-framework-mobile-js" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="direc&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;compon&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;menu.tem&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/templates/menu.template.html&#10;components.json&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;ioniccss&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549568459173" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cronapp-common-js" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552674054268" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -298,6 +315,8 @@
       <workItem from="1548242574626" duration="609000" />
       <workItem from="1548856045515" duration="540000" />
       <workItem from="1549566714263" duration="714000" />
+      <workItem from="1552674034484" duration="78000" />
+      <workItem from="1552675743932" duration="211000" />
     </task>
     <task id="LOCAL-00001" summary="copiando home e public">
       <created>1542743659394</created>
@@ -541,13 +560,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63091000" />
+    <option name="totallyTimeSpent" value="63380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18456376" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -565,7 +584,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.21560283" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.2496454" />
+      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.24894957" />
       <window_info anchor="bottom" id="JRebel Executor" order="11" />
       <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -578,38 +597,6 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21748401" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="JRebel" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.18438178" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.20281996" />
-      <window_info anchor="bottom" id="JRebel Executor" order="11" />
-      <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.036780383" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -748,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.authentication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="215" column="21" selection-start-line="215" selection-start-column="21" selection-end-line="215" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -776,20 +756,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/components.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="646">
           <caret line="5309" column="10" selection-start-line="5309" selection-start-column="10" selection-end-line="5309" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
+    <entry file="file://$PROJECT_DIR$/js/controllers.authentication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="291" column="38" lean-forward="true" selection-start-line="291" selection-start-column="38" selection-end-line="291" selection-end-column="38" />
         </state>
       </provider>
     </entry>

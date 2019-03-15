@@ -283,7 +283,15 @@
         "$translate",
         "$ionicModal",
         "$ionicLoading",
-        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading) {
+        "$ionicPlatform",
+        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading,$ionicPlatform) {
+
+            $ionicPlatform.registerBackButtonAction(function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                navigator.app.exitApp();
+            },101);
+
 
             app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
             $rootScope.http = $http;
@@ -434,7 +442,14 @@
         "$translate",
         "$ionicModal",
         "$ionicLoading",
-        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading) {
+        "$ionicPlatform",
+        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading,$ionicPlatform) {
+
+            $ionicPlatform.registerBackButtonAction(function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                navigator.app.exitApp();
+            },101);
 
             app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
             $rootScope.http = $http;
