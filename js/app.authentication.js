@@ -357,6 +357,7 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoad
         $scope[x] = app.userEvents[x].bind($scope);
 
     $scope.vars = {};
+    $scope.$evt = $evt;
 
     try {
         if (cronapi) {
