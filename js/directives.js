@@ -1042,14 +1042,18 @@ window.addEventListener('message', function(event) {
                     var ionItem = $(element).find('ion-item');
                     ionItem.attr('ng-repeat', getExpression(dataSourceName));
 
-                    if (isNativeEdit && !attrs.ngClick) {
+                    if (isNativeEdit) {
                         ionItem.attr('ng-click', getEditCommand(dataSourceName));
                     }
-                    else if(attrs.ngClick){
-                        ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
+
+                    const attrsExcludeds = ['options','ng-repeat'];
+                    const filteredItems = Object.values(attrs.$attr).filter(function(item) {
+                        return !attrsExcludeds.includes(item);
+                    })
+                    for( let o in filteredItems){
+                        ionItem.attr(filteredItems[o], attrs[o]);
                     }
 
-                    $(element).removeAttr('ng-click');
 
                     content = '<div class="item-list-detail">' + content + '<\div>';
                     var ionAvatar = $(element).find('.item-avatar');
