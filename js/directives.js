@@ -1256,7 +1256,7 @@ function maskDirective($compile, $translate, attrName) {
                     });
                 }
 
-            } else if (type == 'number' || type == 'money' || type == 'integer') {
+            } else if (type == 'number' || type == 'money' || type == 'integer' || type == 'money-decimal') {
                 removeMask = true;
                 textMask = false;
 
@@ -1314,7 +1314,8 @@ function maskDirective($compile, $translate, attrName) {
                     'prefix': prefix,
                     'suffix': suffix,
                     'radixPoint': decimal,
-                    'digits': precision
+                    'digits': precision,
+                    'numericInput' :  (type == 'money-decimal')
                 };
 
                 if (thousands) {
