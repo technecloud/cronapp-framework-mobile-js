@@ -932,7 +932,7 @@ window.addEventListener('message', function(event) {
             }
 
             var addCustomButton = function(column) {
-                return '<ion-option-button class="button-dark" ng-click="listButtonClick($index, rowData, \''+window.stringToJs(column.execute)+'\', $event)"><i class="icon ion-navigate"></i></ion-option-button>';
+                return `<ion-option-button class="button-dark" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)"><i class=" ${column.iconClass}"></i> ${column.label}</ion-option-button> `
             }
 
             var isImage = function(fieldName, schemaFields) {
