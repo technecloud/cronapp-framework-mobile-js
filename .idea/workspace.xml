@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="2.1.20">
+    <list default="true" id="1f92b4e2-1f5c-43db-b2ab-61fdd1dab684" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/directives.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/directives.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,7 +88,7 @@
         <counts>
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="22" />
-          <entry key="PLAIN_TEXT" value="86" />
+          <entry key="PLAIN_TEXT" value="154" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -106,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="1055" lean-forward="true" selection-start-line="1055" selection-end-line="1055" />
+            <state relative-caret-position="391">
+              <caret line="1049" column="24" selection-start-line="1049" selection-start-column="24" selection-end-line="1049" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -203,9 +201,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-2" />
-    <option name="width" value="1920" />
-    <option name="height" value="1082" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
@@ -246,8 +245,8 @@
     <property name="SearchEverywhereHistoryKey" value="direc&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;compon&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;directives&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js&#10;menu.tem&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/templates/menu.template.html&#10;components.json&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/components/components.json&#10;ioniccss&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;ionic.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/lib/ionic/css/ionic.css&#10;app.css&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/css/app.css&#10;control&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/controllers.authentication.js&#10;directives.js&#9;FILE&#9;file://C:/CronApp/cronapp-framework-mobile-js/js/directives.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553689854991" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553694344495" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cronapp-framework-js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -330,7 +329,7 @@
       <workItem from="1549566714263" duration="714000" />
       <workItem from="1552674034484" duration="78000" />
       <workItem from="1552675743932" duration="627000" />
-      <workItem from="1553687188992" duration="1830000" />
+      <workItem from="1553687188992" duration="2888000" />
     </task>
     <task id="LOCAL-00001" summary="copiando home e public">
       <created>1542743659394</created>
@@ -591,11 +590,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553687714487</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="remoção de campos options e ng-repeat dos elementos da cronlist">
+      <created>1553689897429</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1553689897429</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65626000" />
+    <option name="totallyTimeSpent" value="66684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -641,7 +647,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="ajustes de thiago na diretiva" />
     <MESSAGE value="correção de passagem de evento." />
     <MESSAGE value="gulp + remoção de mimificados de blockly" />
     <MESSAGE value="ajustes do css" />
@@ -666,7 +671,8 @@
     <MESSAGE value="botão voltar sai da aplicação." />
     <MESSAGE value="2.1.20" />
     <MESSAGE value="suporte a eventos na cronList" />
-    <option name="LAST_COMMIT_MESSAGE" value="suporte a eventos na cronList" />
+    <MESSAGE value="remoção de campos options e ng-repeat dos elementos da cronlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="remoção de campos options e ng-repeat dos elementos da cronlist" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -807,8 +813,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="1055" lean-forward="true" selection-start-line="1055" selection-end-line="1055" />
+        <state relative-caret-position="391">
+          <caret line="1049" column="24" selection-start-line="1049" selection-start-column="24" selection-end-line="1049" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
