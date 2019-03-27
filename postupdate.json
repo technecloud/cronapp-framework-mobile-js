@@ -128,7 +128,7 @@
       "file": "index.html",
       "script": "plugins/font-awesome/css/font-awesome.min.css",
       "type": "style"
-    },
+    }
   ],
   "removes": [
     {
