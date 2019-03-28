@@ -2754,6 +2754,11 @@
           "name": "on-tap",
           "selector": "input",
           "type": "event"
+        },
+		{
+          "name":"ng-change",
+          "selector": "input",
+          "type": "event"
         }
       ],
       "styles": [
