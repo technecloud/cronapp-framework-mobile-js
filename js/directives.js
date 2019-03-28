@@ -1268,12 +1268,18 @@ function maskDirective($compile, $translate, attrName) {
                 var decimal = ',';
                 var precision = 0;
 
-                if (mask.startsWith(currency)) {
+                if(type != 'money-decimal'){
+                  if (mask.startsWith(currency)) {
                     prefix = currency;
-                }
-
-                else if (mask.endsWith(currency)) {
+                  }
+                  else if (mask.endsWith(currency)) {
                     suffix = currency;
+                  }
+                }
+                else {
+                  if (mask == 'money-decimal'){
+                    mask = "#.##0,00";
+                  }
                 }
 
                 var pureMask = mask.trim().replace(prefix, '').replace(suffix, '').trim();
@@ -1307,15 +1313,19 @@ function maskDirective($compile, $translate, attrName) {
                 if (precision == 0)
                     inputmaskType = 'integer';
 
+                if(type == 'money-decimal'){
+                  inputmaskType = 'currency';
+                }
+
                 var ipOptions = {
-                    'rightAlign':  (type == 'money'),
-                    'unmaskAsNumber': true,
-                    'allowMinus': true,
-                    'prefix': prefix,
-                    'suffix': suffix,
-                    'radixPoint': decimal,
-                    'digits': precision,
-                    'numericInput' :  (type == 'money-decimal')
+                  'rightAlign':  (type == 'money' || type == 'money-decimal'),
+                  'unmaskAsNumber': true,
+                  'allowMinus': true,
+                  'prefix': prefix,
+                  'suffix': suffix,
+                  'radixPoint': decimal,
+                  'digits': precision,
+                  'numericInput' :  (type == 'money-decimal')
                 };
 
                 if (thousands) {
