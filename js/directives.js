@@ -1268,18 +1268,11 @@ function maskDirective($compile, $translate, attrName) {
                 var decimal = ',';
                 var precision = 0;
 
-                if(type != 'money-decimal'){
-                  if (mask.startsWith(currency)) {
-                    prefix = currency;
-                  }
-                  else if (mask.endsWith(currency)) {
-                    suffix = currency;
-                  }
+                if (mask.startsWith(currency)) {
+                  prefix = currency;
                 }
-                else {
-                  if (mask == 'money-decimal'){
-                    mask = "#.##0,00";
-                  }
+                else if (mask.endsWith(currency)) {
+                  suffix = currency;
                 }
 
                 var pureMask = mask.trim().replace(prefix, '').replace(suffix, '').trim();
@@ -1426,7 +1419,7 @@ function parseMaskType(type, $translate) {
             type = '0,00'
     }
 
-    else if (type == "money") {
+    else if (type == "money" || type == "money-decimal") {
         type = $translate.instant('Format.Money');
         if (type == 'Format.Money')
             type = '#.#00,00'
