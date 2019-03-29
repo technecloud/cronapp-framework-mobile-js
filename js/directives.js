@@ -1046,20 +1046,23 @@ window.addEventListener('message', function(event) {
                         ionItem.attr('ng-click', getEditCommand(dataSourceName));
                     }
 
-                    const attrsExcludeds = ['options','ng-repeat'];
-                    const filteredItems = Object.values(attrs.$attr).filter(function(item) {
-                        return !attrsExcludeds.includes(item);
-                    })
-                    for( let o in filteredItems){
-                        ionItem.attr(filteredItems[o], attrs[o]);
+                    if(attrs.ngClick){
+                      ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
                     }
 
+                    const attrsExcludeds = ['options','ng-repeat','ng-click'];
+                    const filteredItems = Object.values(attrs.$attr).filter(function(item) {
+                      return !attrsExcludeds.includes(item);
+                    })
+                    for( let o in filteredItems){
+                      ionItem.attr(filteredItems[o], attrs[o]);
+                    }
 
                     content = '<div class="item-list-detail">' + content + '<\div>';
-                    var ionAvatar = $(element).find('.item-avatar');
-                    ionAvatar.append(image);
-                    ionAvatar.append(content);
-                    ionAvatar.append(buttons);
+                      var ionAvatar = $(element).find('.item-avatar');
+                      ionAvatar.append(image);
+                      ionAvatar.append(content);
+                      ionAvatar.append(buttons);
 
                     scope.nextPageInfinite = function() {
                         dataSource.nextPage();
