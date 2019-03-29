@@ -2984,6 +2984,11 @@
           "selector": "input[type]",
           "type":"inputType"
         },
+		{
+          "name": "ng-keydown",
+          "selector": "input",
+          "type": "event"
+        },
         {
           "name": "ng-keydown",
           "selector": "input",
