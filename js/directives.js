@@ -1046,20 +1046,23 @@ window.addEventListener('message', function(event) {
                         ionItem.attr('ng-click', getEditCommand(dataSourceName));
                     }
 
-                    const attrsExcludeds = ['options','ng-repeat'];
-                    const filteredItems = Object.values(attrs.$attr).filter(function(item) {
-                        return !attrsExcludeds.includes(item);
-                    })
-                    for( let o in filteredItems){
-                        ionItem.attr(filteredItems[o], attrs[o]);
+                    if(attrs.ngClick){
+                      ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
                     }
 
+                    const attrsExcludeds = ['options','ng-repeat','ng-click'];
+                    const filteredItems = Object.values(attrs.$attr).filter(function(item) {
+                      return !attrsExcludeds.includes(item);
+                    })
+                    for( let o in filteredItems){
+                      ionItem.attr(filteredItems[o], attrs[o]);
+                    }
 
                     content = '<div class="item-list-detail">' + content + '<\div>';
-                    var ionAvatar = $(element).find('.item-avatar');
-                    ionAvatar.append(image);
-                    ionAvatar.append(content);
-                    ionAvatar.append(buttons);
+                      var ionAvatar = $(element).find('.item-avatar');
+                      ionAvatar.append(image);
+                      ionAvatar.append(content);
+                      ionAvatar.append(buttons);
 
                     scope.nextPageInfinite = function() {
                         dataSource.nextPage();
@@ -1256,7 +1259,7 @@ function maskDirective($compile, $translate, attrName) {
                     });
                 }
 
-            } else if (type == 'number' || type == 'money' || type == 'integer') {
+            } else if (type == 'number' || type == 'money' || type == 'integer' || type == 'money-decimal') {
                 removeMask = true;
                 textMask = false;
 
@@ -1269,11 +1272,10 @@ function maskDirective($compile, $translate, attrName) {
                 var precision = 0;
 
                 if (mask.startsWith(currency)) {
-                    prefix = currency;
+                  prefix = currency;
                 }
-
                 else if (mask.endsWith(currency)) {
-                    suffix = currency;
+                  suffix = currency;
                 }
 
                 var pureMask = mask.trim().replace(prefix, '').replace(suffix, '').trim();
@@ -1307,14 +1309,19 @@ function maskDirective($compile, $translate, attrName) {
                 if (precision == 0)
                     inputmaskType = 'integer';
 
+                if(type == 'money-decimal'){
+                  inputmaskType = 'currency';
+                }
+
                 var ipOptions = {
-                    'rightAlign':  (type == 'money'),
-                    'unmaskAsNumber': true,
-                    'allowMinus': true,
-                    'prefix': prefix,
-                    'suffix': suffix,
-                    'radixPoint': decimal,
-                    'digits': precision
+                  'rightAlign':  (type == 'money' || type == 'money-decimal'),
+                  'unmaskAsNumber': true,
+                  'allowMinus': true,
+                  'prefix': prefix,
+                  'suffix': suffix,
+                  'radixPoint': decimal,
+                  'digits': precision,
+                  'numericInput' :  (type == 'money-decimal')
                 };
 
                 if (thousands) {
@@ -1415,7 +1422,7 @@ function parseMaskType(type, $translate) {
             type = '0,00'
     }
 
-    else if (type == "money") {
+    else if (type == "money" || type == "money-decimal") {
         type = $translate.instant('Format.Money');
         if (type == 'Format.Money')
             type = '#.#00,00'
