@@ -1340,15 +1340,15 @@ function maskDirective($compile, $translate, attrName) {
                 });
                 if (ngModelCtrl) {
                     ngModelCtrl.$formatters.push(function (value) {
-                        if (value != undefined && value != null && value != '') {
+                        if (value != undefined && value != null && value !== '') {
                             return format(mask, value);
                         }
                         return null;
                     });
                     ngModelCtrl.$parsers.push(function (value) {
-                        if (value != undefined && value != null && value != '') {
+                        if (value != undefined && value != null && value !== '') {
                             var unmaskedvalue = $element.inputmask('unmaskedvalue');
-                            if (unmaskedvalue != '')
+                            if (unmaskedvalue !== '')
                                 return unmaskedvalue;
                         }
                         return null;
