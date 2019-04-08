@@ -171,6 +171,11 @@ var app = (function() {
                                 controller: 'PageController',
                                 templateUrl: 'views/logged/home.view.html'
                             }
+                        },
+                        resolve: {
+                          data: function ($translate) {
+                            $translate.refresh();
+                          }
                         }
                     })
 
