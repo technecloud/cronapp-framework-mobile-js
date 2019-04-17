@@ -129,7 +129,6 @@ window.addEventListener('message', function(event) {
                 scope: true,
                 require: 'ngModel',
                 link: function(scope, element, attr) {
-                    debugger;
                     var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
                     var content = element.html();
                     var templateDyn    =
@@ -322,7 +321,6 @@ window.addEventListener('message', function(event) {
                     var render = function(canvas, value, typeNumber, correction, size, inputMode){
                         var trim = /^\s+|\s+$/g;
                         var text = value.replace(trim, '');
-                        debugger;
                         var qr = new QRCode(typeNumber, correction, inputMode);
                         qr.addData(text);
                         qr.make();
