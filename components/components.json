@@ -12,27 +12,62 @@
       "class": "adjust-icon mdi mdi-table-large",
       "template": "<datasource name=\"\" entity=\"\" keys=\"\" rows-per-page=\"100\" on-before-create=\"\" on-after-create=\"\" on-before-update=\"\" on-after-update=\"\" on-before-delete=\"\" on-after-delete=\"\" on-after-fill=\"\"><i class=\"cpn cpn-datasource\" ></i></datasource>",
       "properties": {
+        "name": {
+          "removable": false,
+          "global": true,
+          "order": 7,
+          "afterChange": "javascript:function() { var result = arguments[0]; return result.replace(/ /g,''); }"
+        },
         "entity": {
+          "order": 1,
+          "displayName_pt_BR": "Configurações",
+          "displayName_en_US": "Configuration",
           "removable": false,
           "global": true
         },
         "parameters": {
           "removable": false,
-          "global": true
+          "global": true,
+          "order": 3
+        },
+        "parameters-null-strategy": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "default",
+              "value_en_US": "Default",
+              "value_pt_BR": "Padrão"
+            },
+            {
+              "key": "clean",
+              "value_en_US": "Clean Data",
+              "value_pt_BR": "Limpar Dados"
+            },
+            {
+              "key": "ignore",
+              "value_en_US": "Remove Clause",
+              "value_pt_BR": "Remover Cláusula"
+            }
+          ],
+          "order": 3
         },
         "checkrequired": {
           "removable": false,
           "type": "logic",
-          "global": true
+          "global": true,
+          "order": 6
         },
         "lazy": {
           "removable": false,
-          "type": "logic"
+          "type": "logic",
+          "order": 5
         },
         "keys": {
           "removable": false,
           "type": "datasourceKeys",
-          "global": true
+          "global": true,
+          "order": 2
         },
         "on-before-create": {
           "removable": true,
@@ -78,6 +113,15 @@
           "removable": false,
           "global": true,
           "type": "pageDatasourceObject"
+        },
+        "class": {
+          "order": 9999
+        },
+        "order-by": {
+          "order": 4
+        },
+        "condition": {
+          "order": 2
         }
       }
     },
@@ -910,6 +954,11 @@
       "text_en_US": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "ng-model",
@@ -919,7 +968,8 @@
         {
           "name": "content",
           "selector": "span",
-          "type": "content"
+          "type": "content",
+          "order": 1
         },
         {
           "name": "xattr-theme",
@@ -2197,9 +2247,34 @@
       "wrapper":false,
       "template": "<textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
       "properties": {
+        "class": {
+          "order": 9999
+        },
+        "id": {
+          "order": 9997
+        },
+        "ng-show": {
+          "order": 9998
+        },
+        "style": {
+          "order": 9998
+        },
         "ng-model": {
-          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
+          "order": 1
+        },
+        "ng-initial-value": {
+          "order": 2
+        },
+        "placeholder": {
+          "order": 3
+        },
+        "rows": {
+          "order": 4
+        },
+        "maxlength": {
+          "order": 5
         },
         "ng-keydown": {
           "type": "event"
@@ -2700,6 +2775,11 @@
       "class": "adjust-icon mdi mdi-toggle-switch",
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/range.template.html",
+      "properties": {
+        "class": {
+          "order": 9999
+        }
+      },
       "childrenProperties": [
         {
           "name": "class",
@@ -4815,21 +4895,25 @@
         "icon-on":{
           "displayName_pt_BR": "Ícone ativo",
           "displayName_en_US": "Active Icon",
-          "type":"icon"
+          "type":"icon",
+          "order": 3
         },
         "icon-off":{
           "displayName_pt_BR": "Ícone Inativo",
           "displayName_en_US": "Inactive Icon",
-          "type":"icon"
+          "type":"icon",
+          "order": 4
         },
         "href": {
           "removable": false,
           "type": "projectResource",
-          "resourceType": "text/html"
+          "resourceType": "text/html",
+          "order": 2
         },
         "ng-click":{
           "removable": false,
-          "type": "event"
+          "type": "event",
+          "order": 1
         }
       }
     },
