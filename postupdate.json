@@ -82,6 +82,12 @@
     },
     {
       "file": "index.html",
+      "script": "plugins/jquery/dist/jquery.min.js",
+      "type": "script",
+      "onTop": true
+    },
+    {
+      "file": "index.html",
       "script": "plugins/cronapp-framework-mobile-js/lib/ionic/js/ionic.bundle.js",
       "type": "script",
 	  "onTop": true
@@ -151,5 +157,10 @@
       "script": "js/index/js",
       "type": "script"
     },
+    {
+      "file": "index.html",
+      "script": "plugins/jquery/dist/jquery.min.js",
+      "type": "script"
+    }
   ]
 }
