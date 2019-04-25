@@ -396,6 +396,8 @@
                 }
             }
 
+            $rootScope.session = (localStorage.getItem('_u') != undefined) ? JSON.parse(localStorage.getItem('_u')) : null;
+
             //Components personalization jquery
             $scope.registerComponentScripts = function() {
                 //carousel slider
