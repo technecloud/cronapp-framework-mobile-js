@@ -411,51 +411,60 @@ window.addEventListener('message', function(event) {
             }
         })
 
-        .directive('cronappStars', [function() {
-            'use strict';
-            return {
-                restrict: 'A',
-                require: 'ngModel',
-                link: function(scope, elem, attrs, ngModelCtrl) {
+  .directive('cronappStars', [function() {
+    'use strict';
+    return {
+      restrict: 'E',
+      require: 'ngModel',
+      link: function(scope, elem, attrs, ngModelCtrl) {
 
-                    var $elem = $(elem);
-                    var $star = $('<i style="font-size: 200%" class="component-holder ion ion-android-star-outline" style="" xattr-size="" data-component="crn-icon"></i>' );
+        attrs.theme = $(elem).find('i').attr('xattr-theme');
+        attrs.iconOn = $(elem).find('i').attr('class');
 
-                    $elem.html("");
-                    var stars = [];
+        var $elem = $(elem);
+        var starArray = []
 
-                    for (var i=1;i<=5;i++) {
-                        var clonned = $star.clone();
-                        $elem.append(clonned);
+        for (var i=1;i<=5;i++) {
+          starArray.push($(elem).find('i').get(i - 1));
+          $(starArray[i-1]).addClass(attrs.iconOff || "fa fa-star-o");
+        }
 
-                        clonned.attr("idx", i);
-                        clonned.click(function() {
-                            scope.$apply(function() {
-                                ngModelCtrl.$viewValue = parseInt($(this).attr("idx")); //set new view value
-                                ngModelCtrl.$commitViewValue();
+        $elem.html("");
+        var stars = [];
 
-                            }.bind(this));
-                        });
+        for (var i=1;i<=5;i++) {
+          var clonned = $(starArray[i-1]).clone();
+          $elem.append(clonned);
 
-                        stars.push(clonned);
-                    }
+          clonned.attr("idx", i);
+          clonned.click(function() {
+            scope.$apply(function() {
+              ngModelCtrl.$viewValue = parseInt($(this).attr("idx")); //set new view value
+              ngModelCtrl.$commitViewValue();
 
-                    function changeStars(value) {
-                        for (var i=1;i<=5;i++) {
-                            stars[i-1].removeClass('ion-android-star-outline');
-                            stars[i-1].removeClass('ion-android-star');
-                            if (i <= value) {
-                                stars[i-1].addClass('ion-android-star');
-                            } else {
-                                stars[i-1].addClass('ion-android-star-outline');
-                            }
-                        }
+            }.bind(this));
+          });
 
-                        return value;
-                    }
+          stars.push(clonned);
+        }
 
-                    ngModelCtrl.$parsers.push(changeStars);
-                    ngModelCtrl.$formatters.push(changeStars);
+        function changeStars(value) {
+          for (var i=1;i<=5;i++) {
+            stars[i-1].removeClass(attrs.iconOff || "ion ion-android-star-outline");
+            stars[i-1].removeClass(attrs.iconOn);
+            stars[i-1].removeClass(attrs.theme);
+            if (i <= value) {
+              stars[i-1].addClass(attrs.iconOn);
+              stars[i-1].addClass(attrs.theme);
+            } else {
+              stars[i-1].addClass(attrs.iconOff || "ion ion-android-star-outline");
+              stars[i-1].addClass(attrs.theme);
+            }
+          }
+          return value;
+        }
+        ngModelCtrl.$parsers.push(changeStars);
+        ngModelCtrl.$formatters.push(changeStars);
 
                 }
             }
@@ -1005,7 +1014,7 @@ window.addEventListener('message', function(event) {
                                         addedImage = true;
                                     } else if (!addedImage && (column.type == 'image')) {
                                         image = addImageLink(column);
-                                        addedImage = true;                                    
+                                        addedImage = true;
                                     } else {
                                         content = content.concat(addDefaultColumn(column, (i == 0)));
                                         if (column.filterable) {

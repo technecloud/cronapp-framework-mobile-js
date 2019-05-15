@@ -4955,50 +4955,143 @@
       "text_pt_BR": "Avaliação",
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
-      "wrapper": false,
-      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/evaluation.designtime.html",
-      "designTimeSelector": ":self",
+      "wrapper": true,
+      "autoWrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
       "properties": {
-        "ng-model": {
-          "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }"
+        "id": {
+          "order": 1
         },
-        "ng-click": {
-          "removable": false,
-          "type": "event"
-        },
-        "on-hold": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-double-tap": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-tap": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-swipe": {
-           "removable": false,
-            "type": "event"
-        },
-        "on-drag": {
-           "removable": false,
-            "type": "event"
+        "class": {
+          "order": 9999
         }
       },
       "styles": [
         {
-          "selector": "div#{id} i.ion-android-star",
-          "text_pt_BR": "Ícone Estrela Preenchido",
-          "text_en_US": "Filled Star Icon"
+          "selector": "div#{id} i",
+          "text_pt_BR": "Ícone",
+          "text_en_US": "Icon"
+        }
+      ],
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ],
+      "childrenProperties": [
+        {
+          "name": "ng-model",
+          "selector": "cronapp-stars",
+          "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
+          "type": "text",
+          "order": 1
         },
         {
-          "selector": "div#{id} i.ion-android-star-outline",
-          "text_pt_BR": "Ícone Estrela Contorno",
-          "text_en_US": "Outlined Star Icon"
+          "name": "class",
+          "selector": "i",
+          "displayName_pt_BR": "Ícone Ativo",
+          "displayName_en_US": "Active Icon",
+          "type": "icon",
+          "order": 2
+        },
+        {
+          "name": "icon-off",
+          "selector": "cronapp-stars",
+          "displayName_pt_BR": "Ícone Inativo",
+          "displayName_en_US": "Inactive Icon",
+          "type": "icon",
+          "order": 2
+        },
+        {
+          "name": "xattr-theme",
+          "selector": "i",
+          "type": "text",
+          "order": 3
+        },
+        {
+          "name": "ng-init",
+          "selector": "cronapp-stars",
+          "type": "event"
+        },
+        {
+          "name": "ng-click",
+          "selector": "cronapp-stars",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "cronapp-stars",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "cronapp-stars",
+          "type": "event"
+        },
+        {
+          "name": "on-tap",
+          "selector": "cronapp-stars",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "cronapp-stars",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "cronapp-stars",
+          "type": "event"
         }
       ]
     },
