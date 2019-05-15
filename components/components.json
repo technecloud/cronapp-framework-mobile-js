@@ -4955,9 +4955,72 @@
       "text_pt_BR": "Avaliação",
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
+      "wrapper": false,
+      "pallete": false,
+      "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/evaluation.designtime.html",
+      "designTimeSelector": ":self",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
+      "properties": {
+        "ng-model": {
+          "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
+          "order": 1
+        },
+        "cronapp-stars": {
+          "order": 2
+        },
+        "id": {
+          "order": 3
+        },
+        "class": {
+          "order": 9999
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-double-tap": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-tap": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-swipe": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-drag": {
+          "removable": false,
+          "type": "event"
+        }
+      },
+      "styles": [
+        {
+          "selector": "div#{id} i.ion-android-star",
+          "text_pt_BR": "Ícone Estrela Preenchido",
+          "text_en_US": "Filled Star Icon"
+        },
+        {
+          "selector": "div#{id} i.ion-android-star-outline",
+          "text_pt_BR": "Ícone Estrela Contorno",
+          "text_en_US": "Outlined Star Icon"
+        }
+      ]
+    },
+    {
+      "name": "crn-rating",
+      "text_pt_BR": "Avaliação",
+      "text_en_US": "Evaluation",
+      "class": "adjust-icon mdi mdi-star-outline",
       "wrapper": true,
       "autoWrapper": false,
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/rating.template.html",
       "properties": {
         "id": {
           "order": 1
@@ -5030,7 +5093,7 @@
       "childrenProperties": [
         {
           "name": "ng-model",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
           "type": "text",
@@ -5046,7 +5109,7 @@
         },
         {
           "name": "icon-off",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "displayName_pt_BR": "Ícone Inativo",
           "displayName_en_US": "Inactive Icon",
           "type": "icon",
@@ -5060,37 +5123,37 @@
         },
         {
           "name": "ng-init",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         },
         {
           "name": "ng-click",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         },
         {
           "name": "on-hold",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         },
         {
           "name": "on-double-tap",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         },
         {
           "name": "on-tap",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         },
         {
           "name": "on-swipe",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         },
         {
           "name": "on-drag",
-          "selector": "cronapp-stars",
+          "selector": "cronapp-rating",
           "type": "event"
         }
       ]

@@ -414,6 +414,56 @@ window.addEventListener('message', function(event) {
   .directive('cronappStars', [function() {
     'use strict';
     return {
+      restrict: 'A',
+      require: 'ngModel',
+      link: function(scope, elem, attrs, ngModelCtrl) {
+
+        var $elem = $(elem);
+        var $star = $('<i style="font-size: 200%" class="component-holder ion ion-android-star-outline" style="" xattr-size="" data-component="crn-icon"></i>' );
+
+        $elem.html("");
+        var stars = [];
+
+        for (var i=1;i<=5;i++) {
+          var clonned = $star.clone();
+          $elem.append(clonned);
+
+          clonned.attr("idx", i);
+          clonned.click(function() {
+            scope.$apply(function() {
+              ngModelCtrl.$viewValue = parseInt($(this).attr("idx")); //set new view value
+              ngModelCtrl.$commitViewValue();
+
+            }.bind(this));
+          });
+
+          stars.push(clonned);
+        }
+
+        function changeStars(value) {
+          for (var i=1;i<=5;i++) {
+            stars[i-1].removeClass('ion-android-star-outline');
+            stars[i-1].removeClass('ion-android-star');
+            if (i <= value) {
+              stars[i-1].addClass('ion-android-star');
+            } else {
+              stars[i-1].addClass('ion-android-star-outline');
+            }
+          }
+
+          return value;
+        }
+
+        ngModelCtrl.$parsers.push(changeStars);
+        ngModelCtrl.$formatters.push(changeStars);
+
+      }
+    }
+  }])
+
+  .directive('cronappRating', [function() {
+    'use strict';
+    return {
       restrict: 'E',
       require: 'ngModel',
       link: function(scope, elem, attrs, ngModelCtrl) {
