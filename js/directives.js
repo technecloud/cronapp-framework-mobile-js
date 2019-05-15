@@ -432,18 +432,26 @@ window.addEventListener('message', function(event) {
   .directive('cronappStars', [function() {
     'use strict';
     return {
-      restrict: 'A',
+      restrict: 'E',
       require: 'ngModel',
       link: function(scope, elem, attrs, ngModelCtrl) {
 
+        attrs.theme = $(elem).find('i').attr('xattr-theme');
+        attrs.iconOn = $(elem).find('i').attr('class');
+
         var $elem = $(elem);
-        var $star = $('<i style="font-size: 200%" class="component-holder ion ion-android-star-outline" style="" xattr-size="" data-component="crn-icon"></i>' );
+        var starArray = []
+
+        for (var i=1;i<=5;i++) {
+          starArray.push($(elem).find('i').get(i - 1));
+          $(starArray[i-1]).addClass(attrs.iconOff || "fa fa-star-o");
+        }
 
         $elem.html("");
         var stars = [];
 
         for (var i=1;i<=5;i++) {
-          var clonned = $star.clone();
+          var clonned = $(starArray[i-1]).clone();
           $elem.append(clonned);
 
           clonned.attr("idx", i);
@@ -460,18 +468,19 @@ window.addEventListener('message', function(event) {
 
         function changeStars(value) {
           for (var i=1;i<=5;i++) {
-            stars[i-1].removeClass('ion-android-star-outline');
-            stars[i-1].removeClass('ion-android-star');
+            stars[i-1].removeClass(attrs.iconOff || "ion ion-android-star-outline");
+            stars[i-1].removeClass(attrs.iconOn);
+            stars[i-1].removeClass(attrs.theme);
             if (i <= value) {
-              stars[i-1].addClass('ion-android-star');
+              stars[i-1].addClass(attrs.iconOn);
+              stars[i-1].addClass(attrs.theme);
             } else {
-              stars[i-1].addClass('ion-android-star-outline');
+              stars[i-1].addClass(attrs.iconOff || "ion ion-android-star-outline");
+              stars[i-1].addClass(attrs.theme);
             }
           }
-
           return value;
         }
-
         ngModelCtrl.$parsers.push(changeStars);
         ngModelCtrl.$formatters.push(changeStars);
 
