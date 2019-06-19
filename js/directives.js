@@ -1343,6 +1343,24 @@ function maskDirective($compile, $translate, attrName) {
 
         var currency = mask.trim().replace(/\./g, '').replace(/\,/g, '').replace(/#/g, '').replace(/0/g, '').replace(/9/g, '');
 
+        if(type == 'integer') {
+          $element.attr('pattern', "\\d*");
+        }
+        else{
+          $element.attr('inputmode', "decimal");
+        }
+
+        if(cordova.platformId === "ios"){
+          $element.attr('decimal', "true");
+          $element.attr('allow-multiple-decimals', "true");
+          var userLang = navigator.language || navigator.userLanguage;
+          if(userLang === 'pt-BR'){
+            $element.attr('decimal-char', ",");
+          }else{
+            $element.attr('decimal-char', ".");
+          }
+        }
+
         var prefix = '';
         var suffix = '';
         var thousands = '';
@@ -1439,6 +1457,10 @@ function maskDirective($compile, $translate, attrName) {
         var options = {};
         if (attrs.maskPlaceholder) {
           options.placeholder = attrs.maskPlaceholder
+        }
+
+        if(type === 'tel'){
+          $element.attr("type", "tel");
         }
 
         $element.mask(mask, options);
