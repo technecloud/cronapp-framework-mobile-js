@@ -1351,14 +1351,7 @@ function maskDirective($compile, $translate, attrName) {
         }
 
         if(cordova.platformId === "ios"){
-          $element.attr('decimal', "true");
-          $element.attr('allow-multiple-decimals', "true");
-          var userLang = navigator.language || navigator.userLanguage;
-          if(userLang === 'pt-BR'){
-            $element.attr('decimal-char', ",");
-          }else{
-            $element.attr('decimal-char', ".");
-          }
+          $element.attr('type', "tel");
         }
 
         var prefix = '';
