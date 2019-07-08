@@ -381,8 +381,10 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoad
         console.info(e);
     }
     try {
-        if (blockly)
-            $scope['blockly'] = app.bindScope($scope, blockly);
+      if (blockly) {
+        blockly.cronapi = cronapi;
+        $scope['blockly'] = app.bindScope($scope, blockly);
+      }
     } catch (e) {
         console.info('Not loaded blockly functions');
         console.info(e);
