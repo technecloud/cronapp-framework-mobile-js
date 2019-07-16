@@ -1499,7 +1499,7 @@ function maskDirective($compile, $translate, attrName) {
 }
 
 function parseKeyboardType(keyboard, keyboardDecimalChar, $element) {
-  if(keyboard == 'integer' || keyboard == 'number' || keyboard == 'tel') {
+  if(keyboard == 'integer' || keyboard == 'number') {
     $element.attr('pattern', "\\d*");
     $element.attr('inputmode', "decimal");
   }
