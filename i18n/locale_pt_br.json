@@ -99,5 +99,6 @@
   "Roles.view.Salvar": "Salvar",
   "Roles.view.Voltar": "Voltar",
   "Permission.view.Salvar": "Salvar",
-  "Permission.view.Voltar": "Voltar"
+  "Permission.view.Voltar": "Voltar",
+  "keyboardDecimalChar": ","
 }
