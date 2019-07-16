@@ -104,5 +104,6 @@
   "error": "Error",
   "success": "",
   "info": "",
-  "warning": ""
+  "warning": "",
+  "keyboardDecimalChar": "."
 }

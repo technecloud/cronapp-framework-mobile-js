@@ -1284,7 +1284,7 @@ function maskDirective($compile, $translate, attrName) {
       var mask = attrMask.replace(';1', '').replace(';0', '').replace(';local', '').trim();
 
       var keyboard = attrs.keyboard;
-      var keyboardDecimalChar = ",";
+      var keyboardDecimalChar = $translate.instant('keyboardDecimalChar') && $translate.instant('keyboardDecimalChar').length == 1 ? $translate.instant('keyboardDecimalChar') : ',';
 
       if (keyboard) {
         parseKeyboardType(keyboard, keyboardDecimalChar, $element)
