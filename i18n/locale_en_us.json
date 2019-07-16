@@ -99,5 +99,10 @@
   "Roles.view.Salvar": "Save",
   "Roles.view.Voltar": "Cancel",
   "Permission.view.Salvar": "Save",
-  "Permission.view.Voltar": "Cancel"
+  "Permission.view.Voltar": "Cancel",
+  "primary": "",
+  "error": "Error",
+  "success": "",
+  "info": "",
+  "warning": ""
 }
