@@ -70,6 +70,12 @@ var app = (function() {
         $httpProvider.interceptors.push(interceptor);
       }
     ])
+    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+      $ionicConfigProvider.navBar.alignTitle('center');
+      if(ionic.Platform.isIOS()) {
+        $ionicConfigProvider.scrolling.jsScrolling(false);
+      }
+    })
     .config(function($stateProvider, $urlRouterProvider, NotificationProvider) {
       NotificationProvider.setOptions({
         delay: 5000,
