@@ -100,5 +100,10 @@
   "Roles.view.Voltar": "Voltar",
   "Permission.view.Salvar": "Salvar",
   "Permission.view.Voltar": "Voltar",
+  "primary": "",
+  "error": "Erro",
+  "success": "",
+  "info": "",
+  "warning": "",
   "keyboardDecimalChar": ","
 }

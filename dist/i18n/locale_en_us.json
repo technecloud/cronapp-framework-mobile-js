@@ -100,5 +100,10 @@
   "Roles.view.Voltar": "Cancel",
   "Permission.view.Salvar": "Save",
   "Permission.view.Voltar": "Cancel",
+  "primary": "",
+  "error": "Error",
+  "success": "",
+  "info": "",
+  "warning": "",
   "keyboardDecimalChar": "."
 }
