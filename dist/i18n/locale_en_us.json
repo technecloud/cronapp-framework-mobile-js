@@ -105,5 +105,7 @@
   "success": "",
   "info": "",
   "warning": "",
-  "keyboardDecimalChar": "."
+  "keyboardDecimalChar": ".",
+  "FieldIsInvalid": "Field '{0}' is invalid!",
+  "FieldIsRequired": "Field '{0}' is required!"
 }
