@@ -1227,6 +1227,59 @@ window.addEventListener('message', function(event) {
     }
   }])
 
+  .directive('cronMobileMenu', ['$compile', '$translate', function($compile, $translate){
+      'use strict';
+
+      var populateMenu = function(menuOptions) {
+          var template = '';
+          if (menuOptions && menuOptions!= null && menuOptions.subMenuOptions && menuOptions.subMenuOptions != null && Array.isArray(menuOptions.subMenuOptions)){
+              menuOptions.subMenuOptions.forEach(function(menu) {
+                  var security = (menu.security && menu.security != null) ? ' cronapp-security="' + menu.security + '" ' : '';
+                  var action = (menu.action && menu.action != null) ? ' ng-click="' + menu.action + '" ' : '';
+                  var hide = (menu.hide && menu.hide != null) ? ' ng-hide="' + menu.hide + '" ' : '';
+                  var iconClass = (menu.iconClass && menu.iconClass != null) ? menu.iconClass : '';
+                  var imagePosition = (menu.imagePosition && menu.imagePosition != null) ? 'item-icon-' + menu.imagePosition : '';
+                  var textPosition = (menu.textPosition && menu.textPosition != null) ? 'text-' + menu.textPosition : '';
+                  var contentTheme = (menu.contentTheme && menu.contentTheme != null) ? menu.contentTheme : '';
+                  var iconTheme = (menu.iconTheme && menu.iconTheme != null) ? menu.iconTheme : '';
+                  var title = $translate.instant(menu.title);
+
+                  template = template  + '\
+                    <a menu-close="" class="item ' + imagePosition + '" ' + action + security + hide + '> \
+                      <i class="' + iconClass + ' ' + iconTheme + '" style="font-size: 150%"></i> \
+                      <div class="item-content ' + textPosition + '"> \
+                          <h2 class="' + contentTheme + '">' + title + '</h2> \
+                      </div> \
+                    </a> ';
+              })
+          }
+          return template;
+      }
+
+      return {
+          restrict: 'EA',
+          link: function(scope, element, attrs) {
+              var TEMPLATE_MAIN = '<ul class="nav navbar-nav" style="float:none"></ul>';
+              var options = {};
+              try {
+                  options = JSON.parse(attrs.options);
+              } catch(e) {
+                  console.log('CronMobileMenu: Invalid configuration!')
+              }
+
+              var main = $(TEMPLATE_MAIN);
+              var menus = populateMenu(options);
+              main.append(menus);
+
+              var newElement = angular.element(main);
+              element.html('');
+              element.append(main);
+              element.attr('id' , null);
+              $compile(newElement)(scope);
+          }
+      }
+  }])
+
 }(app));
 
 
