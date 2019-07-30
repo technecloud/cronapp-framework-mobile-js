@@ -1007,13 +1007,13 @@ body {
     border: 0px solid #c0c0c0;
 }
 
-.menu-view input[type="text"],input[type="email"],input[type="password"], .login-bg input[type="text"],input[type="email"],input[type="password"] {
+/* .menu-view input[type="text"],input[type="email"],input[type="password"], .login-bg input[type="text"],input[type="email"],input[type="password"] {
     border-bottom: 1px solid #aaaaaa;
 }
 
 .menu-view input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus, .login-bg input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus {
     border-bottom: 1px solid #0083d8;
-}
+} */
 
 .menu-view .bar-header button i, .login-bg .bar-header button i {
     font-size:10px;
@@ -1212,7 +1212,7 @@ body {
 
 .left-block {
     display: block;
-    magin-right: auto;
+    margin-right: auto;
 }
 
 .item-list-detail {

@@ -889,7 +889,6 @@ window.addEventListener('message', function(event) {
     const TEMPLATE = '\
                <ion-list can-swipe="listCanSwipe"> \
             	   <ion-item class="item" ng-repeat="rowData in datasource"> \
-              	   <div class="item-avatar"></div> \
               	 </ion-item> \
                </ion-list> \
                <ion-infinite-scroll></ion-infinite-scroll> \
@@ -1131,10 +1130,18 @@ window.addEventListener('message', function(event) {
         }
 
         content = '<div class="item-list-detail">' + content + '<\div>';
-        var ionAvatar = $(element).find('.item-avatar');
-        ionAvatar.append(image);
-        ionAvatar.append(content);
-        ionAvatar.append(buttons);
+        if(image){
+          var imageContent = '<div></div>';
+          ionItem.append(imageContent);
+          var imageItem = $(ionItem).find('div');
+          imageItem.append(image);
+          imageItem.append(content);
+          imageItem.append(buttons);
+        } 
+        else{
+          ionItem.append(content);
+          ionItem.append(buttons);
+        }
 
         scope.nextPageInfinite = function() {
           dataSource.nextPage();
