@@ -2230,8 +2230,8 @@
         {
           "name": "ng-model",
           "selector": "select",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
@@ -2324,8 +2324,8 @@
         {
           "name": "ng-model",
           "selector": "select",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
@@ -3118,8 +3118,8 @@
         {
           "name": "ng-model",
           "selector": "input[ng-model]",
-          "displayName_pt_BR": "Campo",
-          "displayName_en_US": "Field",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
           "type":"text",
           "order": 1
         },
