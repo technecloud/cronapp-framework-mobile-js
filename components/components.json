@@ -371,6 +371,13 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
       "forcedGroup":true,
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "id": {
           "order": 1
         },
@@ -497,6 +504,20 @@
           "order": 1
         },
         {
+          "name":"xattr-position",
+          "selector":"a",
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Image Position",
+          "type":"text"
+        },
+        {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"a",
+          "type":"text"
+        },
+        {
           "name":"xattr-theme",
           "displayName_pt_BR": "Tema do Tìtulo",
           "displayName_en_US": "Title theme",
@@ -516,13 +537,6 @@
           "displayName_pt_BR": "Tema do Subtítulo",
           "displayName_en_US": "Subtitle theme",
           "selector":"h3",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div",
           "type":"text"
         },
         {
@@ -579,17 +593,21 @@
       "text_pt_BR": "Item com ícone",
       "text_en_US": "Item Icon",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "id": {
           "order": 1
         },
         "class": {
           "order": 9999
-        },
-        "xattr-position": {
-          "displayName": "Position"
         },
         "href": {
           "removable": false,
@@ -765,6 +783,20 @@
           "type":"text"
         },
         {
+          "name":"xattr-position",
+          "selector":"a",
+          "displayName_pt_BR": "Posição do Ícone",
+          "displayName_en_US": "Icon Position",
+          "type":"text"
+        },
+        {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"div",
+          "type":"text"
+        },
+        {
           "name":"class",
           "selector":"i",
           "displayName_pt_BR": "Ícone",
@@ -783,13 +815,6 @@
           "selector":"i",
           "displayName_pt_BR": "Tema do ícone",
           "displayName_en_US": "Icon Theme",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div",
           "type":"text"
         },
         {
@@ -816,10 +841,17 @@
       "text_pt_BR": "Item com imagem",
       "text_en_US": "Item Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "id": {
           "order": 1
         },
@@ -1119,6 +1151,13 @@
       "class": "adjust-icon mdi mdi-view-sequential",
       "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "id": {
           "order": 3
         },
@@ -1160,15 +1199,6 @@
         }
       },
       "childrenProperties":[
-        {
-          "name": "crn-datasource",
-          "selector": "ion-item",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
-        },
         {
           "name":"content",
           "selector":"ion-item",
@@ -1283,6 +1313,13 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
       "forcedGroup":true,
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "ng-repeat": {
           "order": 2
         },
@@ -1388,15 +1425,6 @@
       ],
       "childrenProperties":[
         {
-          "name": "crn-datasource",
-          "selector": "div",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
-        },
-        {
           "name":"src",
           "selector":"img",
           "removable": false,
@@ -1408,7 +1436,14 @@
           "name":"xattr-position",
           "displayName_pt_BR": "Posição da Imagem",
           "displayName_en_US": "Image Position",
-          "selector":"div:first",
+          "selector":"a",
+          "type":"text"
+        },
+        {
+          "name":"xattr-text-position",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "selector":"a",
           "type":"text"
         },
         {
@@ -1439,13 +1474,6 @@
           "displayName_pt_BR": "Tema do Subtítulo",
           "displayName_en_US": "Subtitle theme",
           "selector":"h3",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div > div",
           "type":"text"
         },
         {
@@ -1506,6 +1534,13 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.icon.template.html",
       "forcedGroup": true,
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "ng-repeat": {
           "order": 2
         },
@@ -1611,15 +1646,6 @@
       ],
       "childrenProperties":[
         {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "selector":"div",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
-        },
-        {
           "name":"content",
           "selector":"h2",
           "type":"content",
@@ -1633,10 +1659,17 @@
           "type":"text"
         },
         {
+          "name":"xattr-position",
+          "selector":"a",
+          "displayName_pt_BR": "Posição do Ícone",
+          "displayName_en_US": "Icon Position",
+          "type":"text"
+        },
+        {
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
-          "selector":"div > div",
+          "selector":"div",
           "type":"text"
         },
         {
@@ -1652,13 +1685,6 @@
           "selector":"i",
           "displayName_pt_BR": "Tema do ícone",
           "displayName_en_US": "Icon Theme",
-          "type":"text"
-        },
-        {
-          "name":"xattr-position",
-          "selector":"div:first",
-          "displayName_pt_BR": "Posição do Ícone",
-          "displayName_en_US": "Icon Position",
           "type":"text"
         },
         {
@@ -1707,7 +1733,7 @@
     },
     {
       "name": "crn-list-thumbnail",
-      "text_pt_BR": "Listas com imagem",
+      "text_pt_BR": "Lista com imagem",
       "text_en_US": "List Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
@@ -1852,28 +1878,40 @@
         },
         {
           "name":"xattr-position",
-          "selector":"div",
-          "type": "text"
-        },
-        {
-          "name":"content",
-          "selector":"h2",
-          "type":"content",
-          "order": 2
-        },
-        {
-          "name":"xattr-theme",
-          "displayName_pt_BR": "Tema",
-          "displayName_en_US": "Text Theme",
-          "selector":"h2",
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Image Position",
+          "selector":"a",
           "type":"text"
         },
         {
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
-          "selector":"div",
+          "selector":"a",
           "type":"text"
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "selector":"h2",
+          "type":"content",
+          "order": 3
+        },
+        {
+          "name":"content",
+          "displayName_pt_BR": "Subtítulo",
+          "displayName_en_US": "Subtitle",
+          "selector":"h3",
+          "type":"content",
+          "order": 4
+        },
+        {
+          "name": "xattr-theme",
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Text Theme",
+          "selector": "h2",
+          "type": "text"
         }
       ],
       "styles": [
@@ -1891,13 +1929,6 @@
       "class": "adjust-icon mdi mdi-view-headline",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
       "childrenProperties": [
-        {
-          "name": "crn-datasource",
-          "selector": "div[crn-datasource]",
-          "displayName_pt_BR": "Fonte de Dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource"
-        },
         {
           "name": "ng-click",
           "selector": "div",
@@ -1930,6 +1961,13 @@
         }
       ],
       "properties": {
+        "crn-datasource": {
+          "name": "crn-datasource",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+        },
         "id": {
           "order": 1
         },
