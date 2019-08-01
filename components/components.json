@@ -371,13 +371,6 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
       "forcedGroup":true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
         "id": {
           "order": 1
         },
@@ -487,6 +480,19 @@
         }
       ],
       "childrenProperties":[
+        {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 4
+        },
         {
           "name":"src",
           "selector":"img",
@@ -845,13 +851,6 @@
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
         "id": {
           "order": 1
         },
@@ -1146,23 +1145,13 @@
       "name": "crn-list-simple",
       "text_pt_BR": "Lista Simples",
       "text_en_US": "Simple List",
-      "wrapper": false,
+      "wrapper": true,
       "forcedGroup":true,
       "class": "adjust-icon mdi mdi-view-sequential",
       "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
         "id": {
           "order": 3
-        },
-        "ng-repeat": {
-          "order": 2
         },
         "class": {
           "order": 9999
@@ -1200,10 +1189,23 @@
       },
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 2
+        },
+        {
           "name":"content",
           "selector":"ion-item",
           "type":"content",
-          "order": 2
+          "order": 3
         },
         {
           "name":"xattr-theme",
@@ -1306,23 +1308,13 @@
     },
     {
       "name": "crn-list-avatar",
-      "text_pt_BR": "Lista com avatar",
+      "text_pt_BR": "Lista com Avatar",
       "text_en_US": "Avatar List",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
       "forcedGroup":true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
-        "ng-repeat": {
-          "order": 2
-        },
         "id": {
           "order": 3
         },
@@ -1424,6 +1416,19 @@
         }
       ],
       "childrenProperties":[
+        {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 2
+        },
         {
           "name":"src",
           "selector":"img",
@@ -1527,25 +1532,15 @@
     },
     {
       "name": "crn-list-icon",
-      "text_pt_BR": "Lista com ícone",
+      "text_pt_BR": "Lista com Ícone",
       "text_en_US": "Icon List",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.icon.template.html",
       "forcedGroup": true,
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
-        "ng-repeat": {
-          "order": 2
-        },
         "id": {
-          "order": 3
+          "order": 1
         },
         "class": {
           "order": 9999
@@ -1646,10 +1641,23 @@
       ],
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 4
+        },
+        {
           "name":"content",
           "selector":"h2",
           "type":"content",
-          "order": 2
+          "order": 3
         },
         {
           "name":"xattr-theme",
@@ -1678,7 +1686,7 @@
           "displayName_pt_BR": "Ícone",
           "displayName_en_US": "Icon",
           "type":"icon",
-          "order": 1
+          "order": 2
         },
         {
           "name":"xattr-theme",
@@ -1733,18 +1741,15 @@
     },
     {
       "name": "crn-list-thumbnail",
-      "text_pt_BR": "Lista com imagem",
+      "text_pt_BR": "Lista com Imagem",
       "text_en_US": "List Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": false,
+      "wrapper": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
         "id": {
-          "order": 3
-        },
-        "ng-repeat": {
-          "order": 2
+          "order": 1
         },
         "class": {
           "order": 9999
@@ -1869,12 +1874,25 @@
       ],
       "childrenProperties":[
         {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1
+        },
+        {
+          "name": "ng-repeat",
+          "selector": "div",
+          "order": 5
+        },
+        {
           "name":"src",
           "selector":"img",
           "removable": false,
           "type": "projectResource",
           "resourceType": "image/jpeg,image/gif,image/png",
-          "order": 1
+          "order": 2
         },
         {
           "name":"xattr-position",
@@ -1924,11 +1942,19 @@
     },
     {
       "name": "crn-list",
-      "text_pt_BR": "Lista",
-      "text_en_US": "List",
+      "text_pt_BR": "Lista Múltipla",
+      "text_en_US": "Multiple List",
       "class": "adjust-icon mdi mdi-view-headline",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
       "childrenProperties": [
+        {
+          "name": "crn-datasource",
+          "selector": "div",
+          "displayName_pt_BR": "Fonte de dados",
+          "displayName_en_US": "Datasource",
+          "type": "pageDatasource",
+          "order": 1
+        },
         {
           "name": "ng-click",
           "selector": "div",
@@ -1961,13 +1987,6 @@
         }
       ],
       "properties": {
-        "crn-datasource": {
-          "name": "crn-datasource",
-          "displayName_pt_BR": "Fonte de dados",
-          "displayName_en_US": "Datasource",
-          "type": "pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
-        },
         "id": {
           "order": 1
         },
@@ -3759,7 +3778,7 @@
     },
     {
       "name": "crn-radio",
-      "text_pt_BR": "Lista de opção",
+      "text_pt_BR": "Lista de Opção",
       "text_en_US": "Radio Group",
       "class": "adjust-icon mdi mdi-radiobox-marked",
       "wrapper": false,
@@ -4560,7 +4579,7 @@
     },
     {
       "name": "crn-list-swipe",
-      "text_pt_BR": "Lista com swipe",
+      "text_pt_BR": "Lista com Swipe",
       "text_en_US": "List Swipe",
       "class": "adjust-icon mdi mdi-ray-end-arrow",
       "forcedGroup": true,
@@ -6211,7 +6230,7 @@
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list can-swipe=\"listCanSwipe\"><ion-item class=\"item\"><div class=\"item-avatar\"><img src=\"img/nophoto.png\"><h2>Title</h2><p>Subtitle</p></div><ion-option-button class=\"button-positive\"><i class=\"icon ion-edit\"></i></ion-option-button><ion-option-button class=\"button-assertive\"><i class=\"icon ion-trash-a\"></i></ion-option-button></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><p>Advanced List Subtitle</p><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
       "properties": {
         "id": {
