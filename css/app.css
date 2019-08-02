@@ -952,7 +952,7 @@ body {
     top: 6px;
 }
 
-.menu-view .item-icon-left, .item-icon-left .item-content, .login-bg .item-icon-left, .item-icon-left .item-content {
+.menu-view .item-icon-left, .login-bg .item-icon-left, .item-icon-left .item-content {
     padding-left: 26px;
     margin-left: 20px;
     min-height: auto;
@@ -1032,13 +1032,6 @@ body {
     width: 45px;
     height: auto;
     padding: 0px;
-}
-
-.menu-view .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content, .login-bg .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
-    padding-left: 10px;
-    padding-top: 8px;
-    min-height: auto;
-    text-transform: capitalize;
 }
 
 .menu-view .input-default input, .login-bg .input-default input {
