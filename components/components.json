@@ -367,7 +367,7 @@
       "text_pt_BR": "Item com avatar",
       "text_en_US": "Avatar Item",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": true,
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
       "forcedGroup":true,
       "properties": {
@@ -578,17 +578,12 @@
       ],
       "styles": [
         {
-          "selector": "div#{id} a",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
-          "selector": "div#{id} h2",
+          "selector": "a#{id} h2",
           "text_pt_BR": "Título",
           "text_en_US": "Title"
         },
         {
-          "selector": "div#{id} h3",
+          "selector": "a#{id} h3",
           "text_pt_BR": "Subtítulo",
           "text_en_US": "Subtitle"
         }
@@ -599,7 +594,7 @@
       "text_pt_BR": "Item com ícone",
       "text_en_US": "Item Icon",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": true,
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
       "properties": {
         "crn-datasource": {
@@ -847,7 +842,7 @@
       "text_pt_BR": "Item com imagem",
       "text_en_US": "Item Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
-      "wrapper": true,
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
       "forcedGroup":true,
       "properties": {
@@ -1017,8 +1012,13 @@
       "styles": [
         {
           "selector": "a#{id} h2",
-          "text_pt_BR": "Descrição",
-          "text_en_US": "Description"
+          "text_pt_BR": "Título",
+          "text_en_US": "Title"
+        },
+        {
+          "selector": "a#{id} h3",
+          "text_pt_BR": "Subtítulo",
+          "text_en_US": "Subtitle"
         }
       ]
     },
@@ -1027,6 +1027,7 @@
       "text_pt_BR": "Alternância",
       "text_en_US": "Toggle",
       "class": "adjust-icon mdi mdi-toggle-switch-off",
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
       "properties": {
         "id": {
@@ -1125,17 +1126,17 @@
       ],
       "styles": [
         {
-          "selector": "div#{id} label",
+          "selector": "label#{id} span",
           "text_pt_BR": "Descrição",
           "text_en_US": "Description"
         },
         {
-          "selector": "div#{id} .track",
+          "selector": "label#{id} .track",
           "text_pt_BR": "Fundo do Botão de AlternÂncia",
           "text_en_US": "Toggle Button Background"
         },
         {
-          "selector": "div#{id} .handle",
+          "selector": "label#{id} .handle",
           "text_pt_BR": "Botão de Alternância",
           "text_en_US": "Toggle Button"
         }
@@ -1728,6 +1729,11 @@
       ],
       "styles": [
         {
+          "selector": "div#{id} a",
+          "text_pt_BR": "Geral",
+          "text_en_US": "General"
+        },
+        {
           "selector": "div#{id} i",
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
@@ -1934,8 +1940,18 @@
       ],
       "styles": [
         {
+          "selector": "div#{id} a",
+          "text_pt_BR": "Geral",
+          "text_en_US": "General"
+        },
+        {
           "selector": "div#{id} h2",
-          "text_pt_BR": "Descrição",
+          "text_pt_BR": "Título",
+          "text_en_US": "Title"
+        },
+        {
+          "selector": "div#{id} h3",
+          "text_pt_BR": "Subtítulo",
           "text_en_US": "Description"
         }
       ]
@@ -2313,11 +2329,6 @@
       ],
       "styles": [
         {
-          "selector": "label#{id}",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
           "selector": "label#{id} span",
           "text_pt_BR": "Label",
           "text_en_US": "Label"
@@ -2509,6 +2520,7 @@
       "text_pt_BR": "Filtro",
       "text_en_US": "Filter",
       "class": "adjust-icon mdi mdi-magnify",
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
       "properties": {
         "id": {
@@ -2520,17 +2532,12 @@
       },
       "styles": [
         {
-          "selector": "div#{id} label",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
-          "selector": "div#{id} input",
+          "selector": "label#{id} input",
           "text_pt_BR": "Entrada de Texto",
           "text_en_US": "Text Input"
         },
         {
-          "selector": "div#{id} i",
+          "selector": "label#{id} i",
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
         }
@@ -3069,14 +3076,14 @@
           "name": "class",
           "selector": "i:first",
           "type": "icon",
-          "displayName_pt_BR": "Ícone inicial",
+          "displayName_pt_BR": "Ícone Inicial",
           "displayName_en_US": "First Icon"
         },
         {
           "name": "class",
           "selector": "i:last",
           "type": "icon",
-          "displayName_pt_BR": "Ícone final",
+          "displayName_pt_BR": "Ícone Final",
           "displayName_en_US": "Last Icon"
         },
         {
@@ -3881,7 +3888,7 @@
       "text_pt_BR": "Caixa de checagem",
       "text_en_US": "Checkbox",
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
-      "wrapper": true,
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
       "properties": {
         "class": {
@@ -3935,12 +3942,7 @@
       ],
       "styles": [
         {
-          "selector": "div#{id} li",
-          "text_pt_BR": "Geral",
-          "text_en_US": "General"
-        },
-        {
-          "selector": "div#{id} span",
+          "selector": "li#{id} span",
           "text_pt_BR": "Legenda",
           "text_en_US": "Caption"
         }
@@ -3965,7 +3967,7 @@
     {
       "name": "crn-video",
       "text": "Video",
-      "class": "adjust-icon mdi mdi-youtube-play",
+      "class": "adjust-icon mdi mdi-video-image",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
       "forceGroup" : true,
       "wrapper": false,
@@ -4133,7 +4135,12 @@
       "properties": {
         "src": {
           "type": "projectResource",
-          "resourceType": "image/jpeg,image/gif,image/png"
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 1
+        },
+        "xattr-position": {
+          "removable": false,
+          "order": 2
         },
          "ng-click": {
           "removable": false,
@@ -4334,7 +4341,7 @@
       "text_pt_BR": "Ícone",
       "text_en_US": "Icon",
       "class": "adjust-icon mdi mdi-star",
-      "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"\" xattr-size=\"\"/>",
+      "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"font-size:300%\" xattr-size=\"font-size:300%\"/>",
       "wrapper": false,
       "properties": {
         "class": {
@@ -6076,6 +6083,7 @@
       "text_pt_BR": "Envio de Arquivo Dinâmico",
       "text_en_US": "Dynamic File Upload",
       "class": "adjust-icon mdi mdi-cloud-upload",
+      "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/dynamicfile.template.html",
       "properties": {
         "id": {
