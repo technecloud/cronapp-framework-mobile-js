@@ -5556,7 +5556,7 @@
       ],
       "styles": [
         {
-          "selector": "ion-tabs#{id} .tabs",
+          "selector": "ion-tabs#{id}, ion-tabs#{id} .tabs",
           "text_pt_BR": "Geral",
           "text_en_US": "General"
         },
