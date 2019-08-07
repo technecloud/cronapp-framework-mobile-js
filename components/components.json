@@ -5470,6 +5470,12 @@
       "text_pt_BR": "Aba",
       "text_en_US": "Tab",
       "class": "adjust-icon mdi mdi-window-maximize",
+      "designTimeClass": [
+        {
+          "selector": "ion-tabs",
+          "class": "tab-nav tabs"
+        }
+      ],
       "wrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab.template.html",
       "forcedGroup": true,
