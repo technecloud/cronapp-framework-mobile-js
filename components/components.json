@@ -794,7 +794,7 @@
           "name":"xattr-text-position",
           "displayName_pt_BR": "Posição do Texto",
           "displayName_en_US": "Text Position",
-          "selector":"div",
+          "selector":"a",
           "type":"text"
         },
         {
