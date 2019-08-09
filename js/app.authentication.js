@@ -88,6 +88,7 @@ var app = (function() {
         ])
         .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             $ionicConfigProvider.navBar.alignTitle('center');
+            $ionicConfigProvider.tabs.position('bottom');
             if(ionic.Platform.isIOS()) {
               $ionicConfigProvider.scrolling.jsScrolling(false);
             }
@@ -102,7 +103,6 @@ var app = (function() {
                 positionX: 'right',
                 positionY: 'top'
             });
-
             if (window.customStateProvider) {
                 window.customStateProvider($stateProvider);
             }

@@ -544,7 +544,7 @@ window.addEventListener('message', function(event) {
 
   .directive('cronappFilter', function($compile) {
     var setFilterInButton = function($element, bindedFilter, operator) {
-      var fieldset = $element.closest('fieldset');
+      var fieldset = $element.closest('div');
       if (!fieldset)
         return;
       var button = fieldset.find('button[cronapp-filter]');
@@ -576,7 +576,7 @@ window.addEventListener('message', function(event) {
     }
 
     var makeAutoPostSearch = function($element, bindedFilter, datasource, attrs) {
-      var fieldset = $element.closest('fieldset');
+      var fieldset = $element.closest('div');
       if (fieldset && fieldset.length > 0) {
         var button = fieldset.find('button[cronapp-filter]');
         if (button && button.length > 0) {
@@ -599,7 +599,7 @@ window.addEventListener('message', function(event) {
       if (attrs.crnDatasource) {
         datasource = eval(attrs.crnDatasource);
       } else {
-        var fieldset = $element.closest('fieldset');
+        var fieldset = $element.closest('div');
         if (!fieldset)
           return;
         var button = fieldset.find('button[cronapp-filter]');
