@@ -2539,13 +2539,6 @@
           "text_en_US": "Icon"
         }
       ],
-      "groupedChildren": [
-        {
-          "text_pt_BR": "Campo",
-          "text_en_US": "Field",
-          "selector": "input"
-        }
-      ],
       "childrenProperties": [
         {
           "name": "crn-datasource",
@@ -2557,18 +2550,38 @@
           "order": 1
         },
         {
+          "name": "cronapp-filter",
+          "selector": "input",
+          "order": 2
+        },
+        {
           "name": "cronapp-filter-caseinsensitive",
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "order": 2
+          "order": 6
+        },
+        {
+          "name": "ng-initial-value",
+          "selector": "input",
+          "displayName_pt_BR": "Valor Inicial",
+          "displayName_en_US": "Initial Value",
+          "type": "logic",
+          "order": 5
+        },
+        {
+          "name": "ng-model",
+          "selector": "input",
+          "type": "text",
+          "order": 4,
+          "mandatory": true
         },
         {
           "name": "cronapp-filter-autopost",
           "removable": false,
           "type": "logic",
           "selector": "input",
-          "order": 3
+          "order": 7
         },
         {
           "name": "cronapp-filter-operator",
@@ -2597,7 +2610,7 @@
             }
           ],
           "selector": "input",
-          "order": 4
+          "order": 8
         },
         {
           "name": "type",
@@ -2610,19 +2623,19 @@
           "type": "text",
           "displayName_pt_BR": "Tipo de Teclado",
           "displayName_en_US": "Keyboard Type",
-          "order": 6
+          "order": 11
         },
         {
           "name": "mask",
           "selector": "input",
           "type": "mask",
-          "order": 4
+          "order": 9
         },
         {
           "name": "mask-placeholder",
           "selector": "input",
           "type": "text",
-          "order": 5
+          "order": 10
         },
         {
           "name": "ng-keydown",
@@ -2713,6 +2726,7 @@
       "text_pt_BR": "Filtro Complexo",
       "text_en_US": "Complex Filter",
       "class": "adjust-icon mdi mdi-filter",
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/complexsearch.template.html",
       "properties": {
         "id": {
@@ -5863,12 +5877,16 @@
       "text_pt_BR": "Avaliação",
       "text_en_US": "Evaluation",
       "class": "adjust-icon mdi mdi-star-outline",
-      "wrapper": true,
+      "wrapper": false,
       "autoWrapper": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/rating.template.html",
       "properties": {
         "id": {
           "order": 1
+        },
+        "xattr-theme": {
+          "displayName": "Theme",
+          "order": 3
         },
         "class": {
           "order": 9999
@@ -5962,7 +5980,7 @@
         },
         {
           "name": "xattr-theme",
-          "selector": "i",
+          "selector": "div",
           "type": "text",
           "order": 3
         },
