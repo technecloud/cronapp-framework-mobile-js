@@ -2461,9 +2461,6 @@
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
           "order": 1
         },
-        "ng-initial-value": {
-          "order": 2
-        },
         "placeholder": {
           "order": 3
         },
