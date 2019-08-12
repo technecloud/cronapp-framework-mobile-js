@@ -6177,8 +6177,8 @@
       "text_pt_BR": "Código QR",
       "text_en_US": "QR Code",
       "class": "adjust-icon mdi mdi-qrcode",
-      "wrapper": false,
-      "template": "<div qr=\"true\" ng-model=\"vars.QR${RANDOM}\" ><div> </div> </div>",
+      "wrapper": true,
+      "template": "<qr ng-model=\"vars.QR${RANDOM}\" ><div> </div> </qr>",
       "designTimeHTML":"<img style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"plugins/cronapp-framework-mobile-js/img/qr-code.png\"/>",
       "designTimeSelector": "div",
       "properties": {
@@ -6188,37 +6188,37 @@
         "class": {
           "order": 9999
         },
-        "ng-model": {
-          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
-        },
-        "qr": {
-          "removable": false,
-          "displayName": "QR Code",
-          "order": 2
-        },
         "on-hold": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-double-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-swipe": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-drag": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         }
-      }
+      },
+      "childrenProperties": [
+        {
+          "name": "ng-model",
+          "selector": "qr",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value",
+          "type":"text",
+          "order": 1
+        }
+      ]
     },
     {
       "name": "crn-chart",

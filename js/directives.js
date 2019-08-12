@@ -257,7 +257,7 @@ window.addEventListener('message', function(event) {
 
   .directive('qr', ['$window', function($window){
     return {
-      restrict: 'A',
+      restrict: 'EA',
       require: '^ngModel',
       template: '<canvas ng-hide="image"></canvas><img ng-if="image" ng-src="{{canvasImage}}"/>',
       link: function postlink(scope, element, attrs, ngModel){
