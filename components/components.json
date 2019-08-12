@@ -2817,7 +2817,8 @@
           "order": 4
         },
         "xattr-type": {
-          "displayName": "Style Type",
+          "displayName_pt_BR": "Tipo de Estilo",
+          "displayName_en_US": "Style Type",
           "order": 6
         },
         "xattr-size": {
@@ -4738,7 +4739,8 @@
           "order": 3
         },
         "xattr-type": {
-          "displayName": "Style Type",
+          "displayName_pt_BR": "Tipo de Estilo",
+          "displayName_en_US": "Style Type",
           "order": 5
         },
         "xattr-size": {
