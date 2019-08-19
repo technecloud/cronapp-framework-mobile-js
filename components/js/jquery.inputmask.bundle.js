@@ -1788,7 +1788,7 @@
                   //   }, 0);
                   //   return false;
                   // }
-                  // break;
+                  break;
 
                 case "keydown":
                   skipKeyPressEvent = false;
