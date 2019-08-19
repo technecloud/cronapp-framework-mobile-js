@@ -1780,15 +1780,15 @@
                     skipInputEvent = false;
                     return e.preventDefault();
                   }
-                  if (mobile) {
-                    var args = arguments;
-                    setTimeout(function() {
-                      eventHandler.apply(that, args);
-                      caret(that, that.inputmask.caretPos, undefined, true);
-                    }, 0);
-                    return false;
-                  }
-                  break;
+                  // if (mobile) {
+                  //   var args = arguments;
+                  //   setTimeout(function() {
+                  //     eventHandler.apply(that, args);
+                  //     caret(that, that.inputmask.caretPos, undefined, true);
+                  //   }, 0);
+                  //   return false;
+                  // }
+                  // break;
 
                 case "keydown":
                   skipKeyPressEvent = false;
@@ -2750,7 +2750,7 @@
           if (mobile) {
             if ("inputmode" in el) {
               el.inputmode = opts.inputmode;
-              el.setAttribute("inputmode", opts.inputmode);
+              //el.setAttribute("inputmode", opts.inputmode);
             }
             if (opts.disablePredictiveText === true) {
               if ("autocorrect" in el) {

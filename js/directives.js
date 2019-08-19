@@ -1230,19 +1230,23 @@ window.addEventListener('message', function(event) {
 }(app));
 
 
-function maskDirectiveAsDate($compile, $translate) {
-  return maskDirective($compile, $translate, 'as-date');
+function maskDirectiveAsDate($compile, $translate, $parse) {
+  return maskDirective($compile, $translate, 'as-date', $parse);
 }
 
-function maskDirectiveMask($compile, $translate) {
-  return maskDirective($compile, $translate, 'mask');
+function maskDirectiveMask($compile, $translate, $parse) {
+  return maskDirective($compile, $translate, 'mask', $parse);
 }
 
-function maskDirective($compile, $translate, attrName) {
+function maskDirective($compile, $translate, attrName, $parse) {
   return {
     restrict: 'A',
     require: '?ngModel',
     link: function (scope, element, attrs, ngModelCtrl) {
+
+      var modelGetter = $parse(attrs['ngModel']);
+      var modelSetter = modelGetter.assign;
+
       if(attrName == 'as-date' && attrs.mask !== undefined)
         return;
 
@@ -1397,17 +1401,14 @@ function maskDirective($compile, $translate, attrName) {
 
         var inputmaskType = 'numeric';
 
-        if (precision == 0)
+        if (precision == 0){
           inputmaskType = 'integer';
-
-        if(type == 'money-decimal'){
-          inputmaskType = 'currency';
         }
 
         var ipOptions = {
           'rightAlign':  (type == 'money' || type == 'money-decimal'),
           'unmaskAsNumber': true,
-          'allowMinus': true,
+          'allowMinus': (type == 'money' || type == 'money-decimal') ? false : true,
           'prefix': prefix,
           'suffix': suffix,
           'radixPoint': decimal,
@@ -1420,17 +1421,51 @@ function maskDirective($compile, $translate, attrName) {
           ipOptions['groupSeparator'] = thousands;
         }
 
+        Inputmask.extendAliases({
+          "isNumeric": {
+            mask: "(.999){+|1},99",
+            numericInput: true,
+            placeholder: "0",
+            rightAlign: true,
+            onBeforeMask: function (initialValue, opts) {
+              return initialValue;
+            },
+            onUnMask: function(maskedValue, unmaskedValue) {
+              //do something with the value
+              return unmaskedValue / 100;
+            },
+            onKeyDown: function(event, buffer, caretPos, opts){
+              return event;
+            }
+          }
+        });
+
+        if(type == 'money-decimal'){
+          inputmaskType = 'isNumeric';
+        }
+
         $(element).inputmask(inputmaskType, ipOptions);
 
-        var unmaskedvalue = function() {
-          $(this).data('rawvalue',$(this).inputmask('unmaskedvalue'));
+        var unmaskedvalue = function(event) {
+          var rawValue = $(this).inputmask('unmaskedvalue');
+          $(this).data('rawvalue',rawValue);
+          element._ignoreFormatter = true;
+          scope.safeApply(function(){
+            modelSetter(scope, rawValue);
+          });
         };
-        $(element).off("keypress");
-        scope.safeApply(function(){
-          $(element).on('keyup',unmaskedvalue);
-        });
+
+        $(element).on('keyup', unmaskedvalue);
+
+        $element = $(element);
+
         if (ngModelCtrl) {
           ngModelCtrl.$formatters.push(function (value) {
+            if (element._ignoreFormatter) {
+              element._ignoreFormatter = false;
+              return $(element).val();
+            }
+            element._ignoreFormatter = false;
             if (value != undefined && value != null && value !== '') {
               return format(mask, value);
             }
