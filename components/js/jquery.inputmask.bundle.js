@@ -1780,6 +1780,7 @@
                     skipInputEvent = false;
                     return e.preventDefault();
                   }
+                  // Rodando em android e ios não funciona o model setter devido ao timeout
                   // if (mobile) {
                   //   var args = arguments;
                   //   setTimeout(function() {

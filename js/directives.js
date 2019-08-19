@@ -1446,6 +1446,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
         $(element).inputmask(inputmaskType, ipOptions);
 
+        //Forçando um set no model no evento de keyup.
         var unmaskedvalue = function(event) {
           var rawValue = $(this).inputmask('unmaskedvalue');
           $(this).data('rawvalue',rawValue);
@@ -1461,6 +1462,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
         if (ngModelCtrl) {
           ngModelCtrl.$formatters.push(function (value) {
+            //Ignorar a formatação pela máscara na primeira vez
             if (element._ignoreFormatter) {
               element._ignoreFormatter = false;
               return $(element).val();
