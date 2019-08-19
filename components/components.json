@@ -4003,6 +4003,72 @@
       }
     },
     {
+      "name": "crn-slider-item",
+      "text_pt_BR": "Item de Carrossel",
+      "text_en_US": "Carousel Item",
+      "class": "adjust-icon mdi mdi-view-carousel",
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.slider.template.html",
+      "wrapper": false,
+      "properties": {
+        "id": {
+          "order": 2
+        },
+        "class": {
+          "order": 9999
+        }
+      },
+      "childrenProperties": [
+        {
+          "name":"src",
+          "selector":"img",
+          "removable": false,
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png",
+          "order": 1
+        },
+        {
+          "name":"ng-click",
+          "selector":"div",
+          "type":"event"
+        },
+        {
+          "name": "on-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-double-tap",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-hold",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-drag",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-left",
+          "selector": "div",
+          "type": "event"
+        },
+        {
+          "name": "on-swipe-right",
+          "selector": "div",
+          "type": "event"
+        }
+      ]
+    },
+    {
       "name": "crn-slider",
       "text_pt_BR": "Carrossel",
       "text_en_US": "Carousel",
@@ -4011,10 +4077,6 @@
       "forcedGroup": true,
       "wrapper": false,
       "properties": {
-        "xattr-collapse": {
-          "displayName": "Collapse",
-          "order": 1
-        },
         "id": {
           "order": 2
         },
@@ -4022,44 +4084,12 @@
           "order": 9999
         }
       },
-      "attributesForPreview": [
-        {
-          "name": "xattr-collapse",
-          "type": "btngroup",
-          "value": "true",
-          "values": [
-            {
-              "key": "true",
-              "value": "true"
-            },
-            {
-              "key": "false",
-              "value": "false"
-            }
-          ]
-        }
-      ],
-      "classForPreview": {
-        "targetSelector": ".crn-slider",
-        "condition": [
-          {
-            "name": "xattr-collapse",
-            "value": "true",
-            "class": "hide-ion-slider"
-          },
-          {
-            "name": "xattr-collapse",
-            "value": "false",
-            "class": ""
-          }
-        ]
-      },
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "activeClass": "",
-            "sourceHTML": "<ion-slide class=\"\" style = \" width:100%;height:100%;\"><div class=\"text-center\" style=\"display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;\"><img src=\"http://placehold.it/400x220\" data-component=\"crn-image\" style=\"width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;\" xattr-position=\"\"></div></ion-slide>",
+            "activeClass": "active",
+            "sourceHTML": "<ion-slide class=\"\" style = \" width:100%;height:100%;\" data-component=\"crn-slider-item\"><div class=\"text-center\" style=\"display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;\"><img src=\"https://picsum.photos/id/141/400/220\" data-component=\"crn-image\" style=\"width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;\" xattr-position=\"\"></div></ion-slide>",
             "targetSelector": "ion-slide-box"
           }
         ]
