@@ -377,8 +377,13 @@
         "class": {
           "order": 9999
         },
-        "xattr-position": {
-          "displayName": "Position"
+        "xattr-image-position": {
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Image Position"
+        },
+        "xattr-text-position": {
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position"
         },
         "href": {
           "removable": false,
@@ -388,7 +393,7 @@
       },
       "attributesForPreview": [
         {
-          "name": "xattr-position",
+          "name": "xattr-image-position",
           "type": "btngroup",
           "target": "class",
           "values": [
@@ -508,20 +513,6 @@
           "selector":"h2",
           "type":"content",
           "order": 1
-        },
-        {
-          "name":"xattr-position",
-          "selector":"a",
-          "displayName_pt_BR": "Posição da Imagem",
-          "displayName_en_US": "Image Position",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"a",
-          "type":"text"
         },
         {
           "name":"xattr-theme",
@@ -852,8 +843,13 @@
         "class": {
           "order": 9999
         },
-        "xattr-position": {
-          "displayName": "Position"
+        "xattr-image-position":{
+          "displayName_pt_BR": "Posição da Imagem",
+          "displayName_en_US": "Imagem Position"
+        },
+        "xattr-text-position":{
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position"
         },
         "href": {
           "removable": false,
@@ -866,29 +862,29 @@
           "type": "event"
         },
         "on-hold": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-double-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-tap": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-swipe": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         },
         "on-drag": {
-           "removable": false,
-            "type": "event"
+          "removable": false,
+          "type": "event"
         }
       },
       "attributesForPreview": [
         {
-          "name": "xattr-position",
+          "name": "xattr-image-position",
           "type": "btngroup",
           "target": "class",
           "values": [
@@ -993,20 +989,6 @@
           "selector":"h2",
           "type":"content",
           "order": 2
-        },
-        {
-          "name":"xattr-theme",
-          "displayName_pt_BR": "Tema",
-          "displayName_en_US": "Text Theme",
-          "selector":"h2",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"div",
-          "type":"text"
         }
       ],
       "styles": [
@@ -2045,10 +2027,12 @@
           "order": 9999
         },
         "xattr-theme": {
-          "displayName": "Theme"
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Theme"
         },
         "xattr-text-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": false,
@@ -4325,7 +4309,8 @@
           "order": 9999
         },
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": true,
@@ -4470,7 +4455,8 @@
           "order": 9999
         },
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": true,
@@ -4544,7 +4530,8 @@
           "order": 9999
         },
         "xattr-position": {
-          "displayName": "Position"
+          "displayName_pt_BR": "Posição",
+          "displayName_en_US": "Position"
         },
         "ng-click": {
           "removable": false,
