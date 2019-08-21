@@ -1421,31 +1421,8 @@ function maskDirective($compile, $translate, attrName, $parse) {
           ipOptions['groupSeparator'] = thousands;
         }
 
-
-        Inputmask.extendAliases({
-          "isNumeric": {
-            mask: prefix + "(.999){+|1},99" + suffix,
-            numericInput: true,
-            placeholder: "0",
-            rightAlign: true,
-            onBeforeMask: function (initialValue, opts) {
-              return initialValue;
-            },
-            onUnMask: function(maskedValue, unmaskedValue) {
-              //do something with the value
-              return unmaskedValue / 100;
-            },
-            onKeyDown: function(event, buffer, caretPos, opts){
-              return event;
-            },
-            allowMinus: false,
-            radixPoint: decimal,
-            digits: precision
-          }
-        });
-
         if(type == 'money-decimal'){
-          inputmaskType = 'isNumeric';
+          inputmaskType = 'currency';
         }
 
         $(element).inputmask(inputmaskType, ipOptions);
