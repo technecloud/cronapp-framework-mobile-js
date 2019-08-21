@@ -1486,9 +1486,10 @@ function maskDirective($compile, $translate, attrName, $parse) {
           ipOptions['groupSeparator'] = thousands;
         }
 
+
         Inputmask.extendAliases({
           "isNumeric": {
-            mask: "(.999){+|1},99",
+            mask: prefix + "(.999){+|1},99" + suffix,
             numericInput: true,
             placeholder: "0",
             rightAlign: true,
@@ -1501,7 +1502,10 @@ function maskDirective($compile, $translate, attrName, $parse) {
             },
             onKeyDown: function(event, buffer, caretPos, opts){
               return event;
-            }
+            },
+            allowMinus: false,
+            radixPoint: decimal,
+            digits: precision
           }
         });
 
