@@ -1456,6 +1456,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
           });
         };
 
+        $(element).off('keypress');
         $(element).on('keyup', unmaskedvalue);
 
         $element = $(element);
