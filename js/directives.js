@@ -496,6 +496,11 @@ window.addEventListener('message', function(event) {
         var $elem = $(elem);
         var starArray = []
 
+        if(attrs.xattrDefaultValue){
+          ngModelCtrl.$viewValue = 0; //set new view value
+          ngModelCtrl.$commitViewValue();
+        }
+
         for (var i=1;i<=5;i++) {
           starArray.push($(elem).find('i').get(i - 1));
           $(starArray[i-1]).addClass(attrs.iconOff || "fa fa-star-o");
