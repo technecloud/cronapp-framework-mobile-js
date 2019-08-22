@@ -69,15 +69,29 @@ var app = (function() {
                 var interceptor = [
                     '$q',
                     '$rootScope',
-                    function($q, $rootScope) {
+                    '$injector',
+                    function($q, $rootScope, $injector) {
                         var service = {
-                            'request': function(config) {
+                            request: function(config) {
                                 var _u = JSON.parse(localStorage.getItem('_u'));
                                 if (_u && _u.token) {
                                     config.headers['X-AUTH-TOKEN'] = _u.token;
                                     window.uToken = _u.token;
                                 }
                                 return config;
+                            },
+                            responseError: function(error) {
+                                if (error.status === 500) {
+                                    // Verify if token is still valid
+                                    let $state = $injector.get('$state');
+                                    let $http = $injector.get('$http');
+                                    let Notification = $injector.get('Notification');
+                                    $rootScope.refreshToken(Notification, $http, ()=>{}, ()=>{
+                                        localStorage.removeItem("_u")
+                                        $state.go("login");
+                                    });
+                                }
+                                return $q.reject(error);
                             }
                         };
                         return service;
