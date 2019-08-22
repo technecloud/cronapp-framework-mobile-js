@@ -1023,13 +1023,22 @@
         {
           "name": "ng-model",
           "selector": "input",
-          "type": "text"
+          "type": "text",
+          "order": 2
         },
         {
           "name": "content",
           "selector": "span",
           "type": "content",
           "order": 1
+        },
+        {
+          "name": "ng-initial-value",
+          "selector": "input",
+          "displayName_pt_BR": "Valor Inicial",
+          "displayName_en_US": "Initial Value",
+          "type": "logic",
+          "order": 3
         },
         {
           "name": "xattr-theme",
@@ -3894,16 +3903,93 @@
           "order": 1
         }
       },
+      "attributesForPreview": [
+        {
+          "name": "xattr-theme",
+          "type": "options",
+          "target": "class",
+          "values": [
+            {
+              "key": "checkbox-assertive",
+              "value": "Assertive",
+              "color": "#ef473a"
+            },
+            {
+              "key": "checkbox-balanced",
+              "value": "Balanced",
+              "color": "#33cd5f"
+            },
+            {
+              "key": "checkbox-energized",
+              "value": "Energized",
+              "color": "#ffc900"
+            },
+            {
+              "key": "checkbox-light",
+              "value": "Light",
+              "color": "#fff"
+            },
+            {
+              "key": "checkbox-stable",
+              "value": "Stable",
+              "color": "#f8f8f8"
+            },
+            {
+              "key": "checkbox-calm",
+              "value": "Calm",
+              "color": "#11c1f3"
+            },
+            {
+              "key": "checkbox-positive",
+              "value": "Positive",
+              "color": "#387ef5"
+            },
+            {
+              "key": "checkbox-royal",
+              "value": "Royal",
+              "color": "#886aea"
+            },
+            {
+              "key": "checkbox-dark",
+              "value": "Dark",
+              "color": "#444"
+            }
+          ]
+        }
+      ],
       "childrenProperties":[
         {
           "name": "content",
           "selector": "span",
-          "type":"content"
+          "type":"content",
+          "order": 1
         },
         {
           "name": "ng-model",
           "selector": "input",
-          "type":"text"
+          "type":"text",
+          "order": 2
+        },
+        {
+          "name": "ng-initial-value",
+          "selector": "input",
+          "displayName_pt_BR": "Valor Inicial",
+          "displayName_en_US": "Initial Value",
+          "type": "logic",
+          "order": 3
+        },
+        {
+          "name": "xattr-theme",
+          "selector": "li:first",
+          "displayName_pt_BR": "Tema",
+          "displayName_en_US": "Theme",
+          "type":"options",
+          "order": 4
+        },
+        {
+          "name": "ng-required",
+          "selector": "input",
+          "type": "logic"
         },
         {
           "name": "ng-click",
