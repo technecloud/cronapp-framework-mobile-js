@@ -13,7 +13,7 @@
                 localStorage.setItem("_u", JSON.stringify(data));
                 // Recussive
                 setTimeout(function () {
-                    $scope.refreshToken(Notification, $http, success, err);
+                    refreshToken(Notification, $http, success, err);
                     // refres time
                 }, (1800 * 1000));
                 success();
@@ -39,6 +39,9 @@
         '$stateParams',
         '$ionicModal',
         function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal) {
+
+            // Make refreshToken method available on $rootScope
+            $rootScope.refreshToken = refreshToken;
 
             app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
             $rootScope.http = $http;
