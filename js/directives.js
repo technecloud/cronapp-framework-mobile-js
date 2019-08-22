@@ -902,8 +902,9 @@ window.addEventListener('message', function(event) {
     var buildFormat = function(column) {
       var result = '';
 
-      if (column.format || column.type != 'string' && column.type != 'text') {
-        result = ' | mask: "' + (column.type||column.format) + '":"'+column.type+'"';
+      result = ' | mask: "' + column.type + '"';
+      if(column.format){
+        result = ' | mask: "' + column.format + '":"'+column.type+'"';
       }
 
       return result;
