@@ -547,6 +547,33 @@ window.addEventListener('message', function(event) {
     }
   }])
 
+  .directive('ngInitialValue', function($parse) {
+      return {
+          restrict: 'A',
+          require: 'ngModel',
+          link: function(scope, element, attrs, ngModelCtrl) {
+              if (attrs.ngInitialValue) {
+                  var modelGetter = $parse(attrs['ngModel']);
+                  var modelSetter = modelGetter.assign;
+                  var evaluated;
+
+                  try {
+                      evaluated = scope.$eval(attrs.ngInitialValue);
+                  } catch (e) {
+                      evaluated = attrs.ngInitialValue;
+                  }
+
+                  // verifica se é um checkbox para transformar para um valor booleano
+                  if (element[0].type == 'checkbox' && evaluated) {
+                      evaluated = ('' + evaluated).toLowerCase() == 'true';
+                  }
+
+                  modelSetter(scope, evaluated);
+              }
+          }
+      }
+  })
+
   .directive('cronappFilter', function($compile) {
     var setFilterInButton = function($element, bindedFilter, operator) {
       var fieldset = $element.closest('div');
