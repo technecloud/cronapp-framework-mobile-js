@@ -4678,23 +4678,30 @@
     },
     {
       "name": "crn-item-swipe",
-      "text_pt_BR": "Item da Lista Swipe",
-      "text_en_US": "List Item Swipe",
-      "class": "adjust-icon mdi mdi-minus",
-      "pallete": false,
+      "text_pt_BR": "Item com Swipe",
+      "text_en_US": "Swipe Item",
+      "class": "adjust-icon mdi mdi-ray-end-arrow",
       "wrapper": false,
+      "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
       "properties": {
         "onclick": {
           "type": "event"
         }
       },
+      "childrenProperties": [
+        {
+          "name": "content",
+          "selector": "h2",
+          "type": "content"
+        }
+      ],
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "",
-            "targetSelector": ".item"
+            "sourceHTML": "<ion-option-button class=\"button-positive button\" data-component=\"crn-button\"><i class=\"ion ion-home\"></i><span>Home</span></ion-option-button>",
+            "targetSelector": ".crn-item-options"
           }
         ]
       }
@@ -4770,8 +4777,8 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div class=\"col\">New Item</div>",
-            "targetSelector": ".row"
+            "sourceHTML": "<ion-item class=\"item\" id=\"crn-list-item-swipe${RANDOM}\" data-component=\"crn-item-swipe\"><h2 style=\"display: inline;\">Item</h2><div id=\"crn-item-options${RANDOM}\" class=\"component-holder\" data-component=\"crn-item-options\"><div class=\"crn-item-options\" data-item=\"true\"><ion-option-button id=\"crn-button${RANDOM}\" data-component=\"crn-button\" class=\"button-positive button\"><i class=\"ion ion-edit\"></i><span>Edit</span></ion-option-button><ion-option-button id=\"crn-option-button${RANDOM}-2\" data-component=\"crn-button\" class=\"button-assertive button\"><i class=\"ion ion-trash-a\"></i><span>Delete</span></ion-option-button></div></div></ion-item>",
+            "targetSelector": ".to-repeat"
           }
         ]
       },
@@ -5153,7 +5160,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>",
+            "sourceHTML": "<ion-option-button class=\"button-positive button\" data-component=\"crn-button\"><i class=\"ion ion-home\"></i><span>Home</span></ion-option-button>",
             "targetSelector": ".crn-item-options"
           }
         ]
