@@ -574,7 +574,82 @@ window.addEventListener('message', function(event) {
       }
   })
 
-  .directive('cronappFilter', function($compile) {
+  .directive('crnAllowNullValues', [function () {
+      return {
+          restrict: 'A',
+          require: '?ngModel',
+          link: function (scope, el, attrs, ctrl) {
+              ctrl.$formatters = [];
+              ctrl.$parsers = [];
+              if (attrs.crnAllowNullValues === 'true') {
+                  ctrl.$render = function () {
+                      var viewValue = ctrl.$viewValue;
+                      el.data('checked', viewValue);
+                      switch (viewValue) {
+                          case true:
+                              el.attr('indeterminate', false);
+                              el.prop('checked', true);
+                              break;
+                          case false:
+                              el.attr('indeterminate', false);
+                              el.prop('checked', false);
+                              break;
+                          default:
+                              el.attr('indeterminate', true);
+                      }
+                  };
+                  el.bind('click', function () {
+                      var checked;
+                      switch (el.data('checked')) {
+                          case false:
+                              checked = true;
+                              break;
+                          case true:
+                              checked = null;
+                              break;
+                          default:
+                              checked = false;
+                      }
+                      ctrl.$setViewValue(checked);
+                      scope.$apply(ctrl.$render);
+                  });
+              } else if (attrs.crnAllowNullValues === 'false'){
+                  ctrl.$render = function () {
+                      var viewValue = ctrl.$viewValue;
+                      if(viewValue === undefined || viewValue === null){
+                          ctrl.$setViewValue(false);
+                          viewValue = false;
+                      }
+                      el.data('checked', viewValue);
+                      switch (viewValue) {
+                          case true:
+                              el.attr('indeterminate', false);
+                              el.prop('checked', true);
+                              break;
+                          default:
+                              el.attr('indeterminate', false);
+                              el.prop('checked', false);
+                              break;
+                      }
+                  };
+                  el.bind('click', function () {
+                      var checked;
+                      switch (el.data('checked')) {
+                          case false:
+                              checked = true;
+                              break;
+                          default:
+                              checked = false;
+                      }
+                      ctrl.$setViewValue(checked);
+                      scope.$apply(ctrl.$render);
+                  });
+              }
+          }
+      };
+  }])
+
+      .directive('cronappFilter', function($compile) {
     var setFilterInButton = function($element, bindedFilter, operator) {
       var fieldset = $element.closest('div');
       if (!fieldset)
@@ -1170,7 +1245,7 @@ window.addEventListener('message', function(event) {
           imageItem.append(image);
           imageItem.append(content);
           imageItem.append(buttons);
-        } 
+        }
         else{
           ionItem.append(content);
           ionItem.append(buttons);
@@ -1712,3 +1787,4 @@ function transformText() {
     }
   }
 }
+

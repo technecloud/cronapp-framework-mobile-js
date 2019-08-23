@@ -3890,7 +3890,7 @@
     },
     {
       "name": "crn-checkbox",
-      "text_pt_BR": "Caixa de checagem",
+      "text_pt_BR": "Checkbox",
       "text_en_US": "Checkbox",
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
       "wrapper": false,
@@ -3976,7 +3976,7 @@
           "displayName_pt_BR": "Valor Inicial",
           "displayName_en_US": "Initial Value",
           "type": "logic",
-          "order": 3
+          "order": 4
         },
         {
           "name": "xattr-theme",
@@ -3984,7 +3984,15 @@
           "displayName_pt_BR": "Tema",
           "displayName_en_US": "Theme",
           "type":"options",
-          "order": 4
+          "order": 3
+        },
+        {
+          "name": "crn-allow-null-values",
+          "selector": "input",
+          "displayName_pt_BR": "Permite Valores Nulos",
+          "displayName_en_US": "Allow Null Values",
+          "type": "logic",
+          "order": 5
         },
         {
           "name": "ng-required",
