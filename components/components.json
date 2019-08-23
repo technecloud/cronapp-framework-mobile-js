@@ -3890,7 +3890,7 @@
     },
     {
       "name": "crn-checkbox",
-      "text_pt_BR": "Checkbox",
+      "text_pt_BR": "Caixa de checagem",
       "text_en_US": "Checkbox",
       "class": "adjust-icon mdi mdi-checkbox-marked-outline",
       "wrapper": false,

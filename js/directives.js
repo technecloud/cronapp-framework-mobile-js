@@ -564,8 +564,8 @@ window.addEventListener('message', function(event) {
                   }
 
                   // verifica se é um checkbox para transformar para um valor booleano
-                  if (element[0].type == 'checkbox' && evaluated) {
-                      evaluated = ('' + evaluated).toLowerCase() == 'true';
+                  if (element[0].type === 'checkbox' && evaluated) {
+                      evaluated = ('' + evaluated).toLowerCase() === 'true';
                   }
 
                   modelSetter(scope, evaluated);
@@ -1245,7 +1245,7 @@ window.addEventListener('message', function(event) {
           imageItem.append(image);
           imageItem.append(content);
           imageItem.append(buttons);
-        }
+        } 
         else{
           ionItem.append(content);
           ionItem.append(buttons);
@@ -1787,4 +1787,3 @@ function transformText() {
     }
   }
 }
-
