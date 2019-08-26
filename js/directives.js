@@ -1033,8 +1033,8 @@ window.addEventListener('message', function(event) {
     }
 
     var addDefaultButton = function(dataSourceName, column) {
-      const EDIT_TEMPLATE = '<ion-option-button class="button-positive" ng-click="' + getEditCommand(dataSourceName) + '"><i class="icon ion-edit"></i></ion-option-button>';
-      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive" ng-click="' + dataSourceName + '.remove(rowData)"><i class="icon ion-trash-a"></i></ion-option-button>';
+      const EDIT_TEMPLATE = '<ion-option-button class="button-positive" ng-click="' + getEditCommand(dataSourceName) + '"><i class="icon ion-edit"></i><span>edit</span></ion-option-button>';
+      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive" ng-click="' + dataSourceName + '.remove(rowData)"><i class="icon ion-trash-a"></i><span>delete</span></ion-option-button>';
 
       if (column.command == 'edit|destroy') {
         return EDIT_TEMPLATE.concat(DELETE_TEMPLATE);
