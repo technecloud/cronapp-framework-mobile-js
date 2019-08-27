@@ -1046,11 +1046,11 @@ window.addEventListener('message', function(event) {
     }
 
     var addImage = function(column) {
-      return '<div class="custom-item-avatar-imagem" style="background-image:url(\'data:image/png;base64,{{rowData.' + column.field + '}}\')"></div>';
+      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}"></img>';
     }
 
     var addImageLink = function(column) {
-      return '<div class="custom-item-avatar-imagem" style="background-image:url(\'{{rowData.' + column.field + '}}\')"></div>';
+      return '<img style="background-image:url(\'{{rowData.' + column.field + '}}\')"></img>';
     }
 
     var encodeHTML = function(value) {
@@ -1181,13 +1181,17 @@ window.addEventListener('message', function(event) {
             var column = optionsList.columns[i];
             if (column.visible) {
               if (column.field && column.dataType == 'Database') {
-                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields)) {
+                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show") {
                   image = addImage(column);
                   addedImage = true;
                 } else if (!addedImage && (column.type == 'image')) {
                   image = addImageLink(column);
                   addedImage = true;
-                } else {
+                } else if (!addedImage && optionsList.icon) {
+                  image = addIcon(column, optionsList.icon);
+                  addedImage = true;
+                }
+                else {
                   content = content.concat(addDefaultColumn(column, (i == 0)));
                   if (column.filterable) {
                     searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
@@ -1229,6 +1233,24 @@ window.addEventListener('message', function(event) {
           ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
         }
 
+        let imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+
+        if(optionsList.icon){
+          ionItem.addClass("item-icon-" + imageDirection);
+        }
+
+        if(optionsList.imageType === "thumbnail"){
+          ionItem.addClass("item-thumbnail-" + imageDirection);
+        }
+
+        if(!optionsList.imageType || optionsList.imageType === "avatar"){
+          ionItem.addClass("item-avatar-" + imageDirection);
+        }
+
+        if(optionsList.icon){
+          ionItem.addClass("item-icon-" + imageDirection);
+        }
+
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
         const filteredItems = Object.values(attrs.$attr).filter(function(item) {
           return !attrsExcludeds.includes(item);
@@ -1239,12 +1261,9 @@ window.addEventListener('message', function(event) {
 
         content = '<div class="item-list-detail">' + content + '<\div>';
         if(image){
-          var imageContent = '<div></div>';
-          ionItem.append(imageContent);
-          var imageItem = $(ionItem).find('div');
-          imageItem.append(image);
-          imageItem.append(content);
-          imageItem.append(buttons);
+          ionItem.append(image);
+          ionItem.append(content);
+          ionItem.append(buttons);
         }
         else{
           ionItem.append(content);
