@@ -1053,6 +1053,10 @@ window.addEventListener('message', function(event) {
       return '<img style="background-image:url(\'{{rowData.' + column.field + '}}\')"></img>';
     }
 
+    var addIcon = function(column, icon) {
+      return '<i class="' + icon + '" xattr-theme="dark"></i>';
+    }
+
     var encodeHTML = function(value) {
       return value.replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -1259,7 +1263,7 @@ window.addEventListener('message', function(event) {
           ionItem.attr(filteredItems[o], attrs[o]);
         }
 
-        content = '<div class="item-list-detail">' + content + '<\div>';
+        content = '<div class="' + attrs.xattrTextPosition + '">' + content + '<\div>';
         if(image){
           ionItem.append(image);
           ionItem.append(content);
