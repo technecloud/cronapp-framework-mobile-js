@@ -364,7 +364,7 @@
     },
     {
       "name": "crn-list-item-avatar",
-      "text_pt_BR": "Item com avatar",
+      "text_pt_BR": "Item com Avatar",
       "text_en_US": "Avatar Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
@@ -830,7 +830,7 @@
     },
     {
       "name": "crn-list-item-thumbnail",
-      "text_pt_BR": "Item com imagem",
+      "text_pt_BR": "Item com Thumbnail",
       "text_en_US": "Thumbnail Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
@@ -1738,7 +1738,7 @@
     },
     {
       "name": "crn-list-thumbnail",
-      "text_pt_BR": "Lista com Imagem",
+      "text_pt_BR": "Lista com Thumbnail",
       "text_en_US": "List Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": true,
