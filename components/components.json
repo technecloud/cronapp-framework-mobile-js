@@ -994,7 +994,7 @@
         },
         {
           "name":"xattr-theme",
-          "displayName_pt_BR": "Tema do Tìtulo",
+          "displayName_pt_BR": "Tema do Título",
           "displayName_en_US": "Title theme",
           "selector":"h2",
           "type":"text"
