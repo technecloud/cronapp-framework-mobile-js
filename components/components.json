@@ -6398,7 +6398,7 @@
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><p>Advanced List Subtitle</p><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
       "properties": {
         "id": {
@@ -6499,9 +6499,14 @@
           "text_en_US": "Title"
         },
         {
-          "selector": "div#{id} p",
+          "selector": "div#{id} h3",
           "text_pt_BR": "Subtítulo",
           "text_en_US": "Subtitle"
+        },
+        {
+          "selector": "div#{id} .item-content > i.icon",
+          "text_pt_BR": "Ícone",
+          "text_en_US": "Icon"
         },
         {
           "selector": "div#{id} .item-input",

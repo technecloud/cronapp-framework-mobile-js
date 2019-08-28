@@ -993,8 +993,8 @@ window.addEventListener('message', function(event) {
   .directive('cronList', ['$compile', function($compile){
     'use strict';
 
-    const TEMPLATE = '\
-               <ion-list can-swipe="listCanSwipe"> \
+    let TEMPLATE = '\
+               <ion-list type="" can-swipe="listCanSwipe"> \
             	   <ion-item class="item" ng-repeat="rowData in datasource"> \
               	 </ion-item> \
                </ion-list> \
@@ -1022,7 +1022,7 @@ window.addEventListener('message', function(event) {
       if (first) {
         result = '<h2>{{rowData.' + column.field + buildFormat(column) + '}}</h2>';
       } else {
-        result = '<p>{{rowData.' + column.field + buildFormat(column) + '}}</p>';
+        result = '<h3 class="dark">{{rowData.' + column.field + buildFormat(column) + '}}</h3>';
       }
 
       return result;
@@ -1033,8 +1033,8 @@ window.addEventListener('message', function(event) {
     }
 
     var addDefaultButton = function(dataSourceName, column) {
-      const EDIT_TEMPLATE = '<ion-option-button class="button-positive" ng-click="' + getEditCommand(dataSourceName) + '"><i class="icon ion-edit"></i><span>edit</span></ion-option-button>';
-      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive" ng-click="' + dataSourceName + '.remove(rowData)"><i class="icon ion-trash-a"></i><span>delete</span></ion-option-button>';
+      const EDIT_TEMPLATE = '<ion-option-button class="button-positive ion-edit" ng-click="' + getEditCommand(dataSourceName) + '"><span>edit</span></ion-option-button>';
+      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive ion-trash-a" ng-click="' + dataSourceName + '.remove(rowData)"><span>delete</span></ion-option-button>';
 
       if (column.command == 'edit|destroy') {
         return EDIT_TEMPLATE.concat(DELETE_TEMPLATE);
@@ -1098,9 +1098,9 @@ window.addEventListener('message', function(event) {
     }
 
     var addBlockly = function(column) {
-      return '<ion-option-button class="button-dark" ng-click="'
+      return '<ion-option-button class="button-dark ion-navigate" ng-click="'
           + generateBlocklyCall(column.blocklyInfo)
-          + '"><i class="icon ion-navigate"></i></ion-option-button>';
+          + '"></ion-option-button>';
     }
 
     var isImage = function(fieldName, schemaFields) {
@@ -1115,7 +1115,7 @@ window.addEventListener('message', function(event) {
     }
 
     var addCustomButton = function(column) {
-      return `<ion-option-button class="button-dark" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)"><i class=" ${column.iconClass}"></i> ${column.label}</ion-option-button> `
+      return `<ion-option-button class="button-dark ${column.iconClass}" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)">${column.label}</ion-option-button> `
     }
 
     var isImage = function(fieldName, schemaFields) {
@@ -1191,9 +1191,6 @@ window.addEventListener('message', function(event) {
                 } else if (!addedImage && (column.type == 'image')) {
                   image = addImageLink(column);
                   addedImage = true;
-                } else if (!addedImage && optionsList.icon) {
-                  image = addIcon(column, optionsList.icon);
-                  addedImage = true;
                 }
                 else {
                   content = content.concat(addDefaultColumn(column, (i == 0)));
@@ -1224,6 +1221,7 @@ window.addEventListener('message', function(event) {
         } else {
           templateDyn = $(TEMPLATE);
         }
+        templateDyn.attr("type", optionsList.listType);
         $(element).html(templateDyn);
 
         var ionItem = $(element).find('ion-item');
@@ -1238,21 +1236,18 @@ window.addEventListener('message', function(event) {
         }
 
         let imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+        let iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
 
         if(optionsList.icon){
-          ionItem.addClass("item-icon-" + imageDirection);
+          ionItem.addClass("item-icon-" + iconDirection);
         }
 
         if(optionsList.imageType === "thumbnail"){
           ionItem.addClass("item-thumbnail-" + imageDirection);
         }
 
-        if(!optionsList.imageType || optionsList.imageType === "avatar"){
+        if(addedImage && (!optionsList.imageType || optionsList.imageType === "avatar")){
           ionItem.addClass("item-avatar-" + imageDirection);
-        }
-
-        if(optionsList.icon){
-          ionItem.addClass("item-icon-" + imageDirection);
         }
 
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
@@ -1263,7 +1258,8 @@ window.addEventListener('message', function(event) {
           ionItem.attr(filteredItems[o], attrs[o]);
         }
 
-        content = '<div class="' + attrs.xattrTextPosition + '">' + content + '<\div>';
+        let iconTemplate  = optionsList.icon ? addIcon(column, optionsList.icon) : '';
+        content = '<div class="' + attrs.xattrTextPosition + '">' + content + iconTemplate + '<\div>';
         if(image){
           ionItem.append(image);
           ionItem.append(content);

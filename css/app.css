@@ -952,7 +952,7 @@ body {
     top: 6px;
 }
 
-.menu-view .item-icon-left, .login-bg .item-icon-left, .item-icon-left .item-content {
+.menu-view .item-icon-left, .login-bg .item-icon-left, ul.nav > .item-icon-left .item-content {
     padding-left: 26px;
     margin-left: 20px;
     min-height: auto;
