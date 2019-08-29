@@ -300,38 +300,6 @@
         }));
     });
 
-    app.controller('InitialController', [
-        "$scope",
-        "$stateParams",
-        "$http",
-        "Notification",
-        "$location",
-        "$rootScope",
-        "$translate",
-        "$ionicModal",
-        "$ionicLoading",
-        "$ionicPlatform",
-        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading,$ionicPlatform) {
-
-            $ionicPlatform.registerBackButtonAction(function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                navigator.app.exitApp();
-            },101);
-
-
-            app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
-            $rootScope.http = $http;
-            $scope.Notification = Notification;
-
-            // save state params into scope
-            $scope.params = $stateParams;
-            $scope.$http = $http;
-
-            $scope.blockly.js.blockly.auth.Home.change();
-
-        }]);
-
     app.controller('chatController', [
         '$scope',
         '$state',
@@ -480,7 +448,9 @@
         "$ionicModal",
         "$ionicLoading",
         "$ionicPlatform",
-        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading,$ionicPlatform) {
+        "$controller",
+        "$timeout",
+        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading, $ionicPlatform, $controller, $timeout) {
 
             $ionicPlatform.registerBackButtonAction(function (event) {
                 event.preventDefault();
@@ -505,7 +475,20 @@
             }
             $scope.blockly.js.blockly.auth.Home.change();
 
-        }]);
+            // Due to HomeController is not being used anymore in mobile project inject AfterHomeController here
+            try {
+              let contextAfterHomeController = $controller('AfterHomeController', {$scope: $scope});
+              app.copyContext(contextAfterHomeController, this, 'AfterHomeController');
+            } catch (e) {
+            }
+
+            $timeout(function () {
+              // Verify if the 'afterHomeRender' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+              if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.afterHomeRender && $scope.blockly.events.afterHomeRender instanceof Function) {
+                $scope.blockly.events.afterHomeRender();
+              }
+            });
+          }]);
 
 }(app));
 
