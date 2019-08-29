@@ -409,6 +409,17 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoad
     }
 };
 
+app.copyContext = function(fromContext, toContext, controllerName) {
+  if (fromContext) {
+    for (var item in fromContext) {
+      if (!toContext[item])
+        toContext[item] = fromContext[item];
+      else
+        toContext[item+controllerName] = fromContext[item];
+    }
+  }
+};
+
 app.factory('customTranslateLoader', function ($http, $q) {
 
   return function (options) {
