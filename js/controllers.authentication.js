@@ -159,7 +159,8 @@
         '$ionicLoading',
         '$stateParams',
         '$location',
-        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location) {
+        '$controller',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location, $controller) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
@@ -199,6 +200,18 @@
             }else {
                 if ($rootScope.session.token) refreshToken(Notification, $http, function(){},  $rootScope.logout);
             }
+
+          try {
+            var contextAfterHomeController = $controller('AfterHomeController', { $scope: $scope });
+            app.copyContext(contextAfterHomeController, this, 'AfterHomeController');
+          } catch(e) {}
+
+          $timeout(function () {
+            // Verify if the 'afterHomeRender' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+            if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.afterHomeRender && $scope.blockly.events.afterHomeRender instanceof Function) {
+              $scope.blockly.events.afterHomeRender();
+            }
+          });
 
         } ]);
 
