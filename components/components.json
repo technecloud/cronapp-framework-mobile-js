@@ -1155,6 +1155,7 @@
       "text_en_US": "Simple List",
       "wrapper": true,
       "forcedGroup":true,
+      "pallete": false,
       "class": "adjust-icon mdi mdi-view-sequential",
       "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
       "properties": {
@@ -1329,6 +1330,15 @@
         "class": {
           "order": 9999
         }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<a class=\"item item-avatar-left text-left\" xattr-position=\"item-avatar-left\" xattr-text-position=\"text-left\" data-component=\"crn-list-item-avatar\" id=\"crn-list-item-avatar-${RANDOM}\"><img src=\"img/nophoto.png\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3</a>",
+            "targetSelector": "div"
+          }
+        ]
       },
       "attributesForPreview": [
         {
@@ -1553,6 +1563,15 @@
         "class": {
           "order": 9999
         }
+      },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<a class=\"item item-icon-left\" xattr-position=\"item-icon-left\" data-component=\"crn-list-item-icon\" id=\"crn-list-item-icon${RANDOM}\" href=\"\"><i class=\"icon ion-home dark\" xattr-theme=\"dark\"></i><h2 class=\"dark\" xattr-theme=\"dark\">List Content</h2></a>",
+            "targetSelector": "div"
+          }
+        ]
       },
       "attributesForPreview": [
         {
@@ -1792,6 +1811,15 @@
             "type": "event"
         }
       },
+      "handleRules": {
+        "canIncrement": true,
+        "rules": [
+          {
+            "sourceHTML": "<a data-component=\"crn-list-item-thumbnail\" class=\"item item-thumbnail-left text-left\" xattr-position=\"item-thumbnail-left\" href=\"\" xattr-text-position=\"text-left\"><img src=\"https://picsum.photos/id/875/100/100\" class=\"component-holder\" data-component=\"crn-image\" id=\"crn-image-${RANDOM}\"><h2 class=\"dark\" xattr-theme=\"dark\">List Title</h2><h3 class=\"dark\" xattr-theme=\"dark\">List Subtitle</h3></a>",
+            "targetSelector": "div"
+          }
+        ]
+      },
       "attributesForPreview": [
         {
           "name": "xattr-position",
@@ -1965,8 +1993,8 @@
     },
     {
       "name": "crn-list",
-      "text_pt_BR": "Lista Múltipla",
-      "text_en_US": "Multiple List",
+      "text_pt_BR": "Lista Simples",
+      "text_en_US": "Simple List",
       "class": "adjust-icon mdi mdi-view-headline",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
       "childrenProperties": [
@@ -2025,7 +2053,7 @@
         "rules": [
           {
             "sourceHTML": "<ion-item  class=\"item\">Item 1</ion-item>",
-            "targetSelector": ".list"
+            "targetSelector": "div"
           }
         ]
       },
