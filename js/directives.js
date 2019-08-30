@@ -25,9 +25,6 @@ window.addEventListener('message', function(event) {
   }
 
   var parsePermission = function(perm) {
-
-
-
     var result = {
       visible: {
         public: true
@@ -1045,8 +1042,12 @@ window.addEventListener('message', function(event) {
       }
     }
 
-    var addImage = function(column) {
-      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}"></img>';
+    var addImage = function(column, imageDirection, iconDirection, iconTemplate, bothDirection, imageType) {
+      let extraClassToAdd = ''
+      if(iconTemplate && imageType && bothDirection){
+        extraClassToAdd = 'image-to-' + bothDirection + '-' + imageType;
+      }
+      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}" class="' + extraClassToAdd + '" ></img>';
     }
 
     var addImageLink = function(column) {
@@ -1151,6 +1152,10 @@ window.addEventListener('message', function(event) {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
           var dataSource = eval(optionsList.dataSourceScreen.name);
+          var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+          var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
+          var iconTemplate  = optionsList.icon ? addIcon(column, optionsList.icon) : '';
+          var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
 
@@ -1186,7 +1191,7 @@ window.addEventListener('message', function(event) {
             if (column.visible) {
               if (column.field && column.dataType == 'Database') {
                 if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show") {
-                  image = addImage(column);
+                  image = addImage(column, imageDirection, iconDirection, iconTemplate, bothDirection, optionsList.imageType);
                   addedImage = true;
                 } else if (!addedImage && (column.type == 'image')) {
                   image = addImageLink(column);
@@ -1235,9 +1240,6 @@ window.addEventListener('message', function(event) {
           ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
         }
 
-        let imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
-        let iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-
         if(optionsList.icon){
           ionItem.addClass("item-icon-" + iconDirection);
         }
@@ -1258,8 +1260,11 @@ window.addEventListener('message', function(event) {
           ionItem.attr(filteredItems[o], attrs[o]);
         }
 
-        let iconTemplate  = optionsList.icon ? addIcon(column, optionsList.icon) : '';
-        content = '<div class="' + attrs.xattrTextPosition + '">' + content + iconTemplate + '<\div>';
+        let extraClassToAdd = ''
+        if(optionsList.imageType && bothDirection && addedImage && iconTemplate){
+            extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
+        }
+        content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
         if(image){
           ionItem.append(image);
           ionItem.append(content);

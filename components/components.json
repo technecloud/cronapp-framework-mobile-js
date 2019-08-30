@@ -6504,7 +6504,7 @@
           "text_en_US": "Subtitle"
         },
         {
-          "selector": "div#{id} .item-content > i.icon",
+          "selector": "div#{id} .item-content > div > i.icon",
           "text_pt_BR": "Ícone",
           "text_en_US": "Icon"
         },
