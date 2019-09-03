@@ -364,7 +364,7 @@
     },
     {
       "name": "crn-list-item-avatar",
-      "text_pt_BR": "Item com avatar",
+      "text_pt_BR": "Item com Avatar",
       "text_en_US": "Avatar Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
@@ -574,7 +574,7 @@
     },
     {
       "name": "crn-list-item-icon",
-      "text_pt_BR": "Item com ícone",
+      "text_pt_BR": "Item com Ícone",
       "text_en_US": "Icon Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
@@ -593,11 +593,21 @@
         "class": {
           "order": 9999
         },
+        "xattr-icon-position": {
+          "displayName_pt_BR": "Posição do Ícone",
+          "displayName_en_US": "Icon Position",
+          "order": 5
+        },
+        "xattr-text-position": {
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "order": 4
+        },
         "href": {
           "removable": false,
           "type": "projectResource",
           "resourceType": "text/html",
-          "order": 4
+          "order": 6
         },
         "ng-click": {
           "removable": false,
@@ -767,20 +777,6 @@
           "type":"text"
         },
         {
-          "name":"xattr-position",
-          "selector":"a",
-          "displayName_pt_BR": "Posição do Ícone",
-          "displayName_en_US": "Icon Position",
-          "type":"text"
-        },
-        {
-          "name":"xattr-text-position",
-          "displayName_pt_BR": "Posição do Texto",
-          "displayName_en_US": "Text Position",
-          "selector":"a",
-          "type":"text"
-        },
-        {
           "name":"class",
           "selector":"i",
           "displayName_pt_BR": "Ícone",
@@ -822,7 +818,7 @@
     },
     {
       "name": "crn-list-item-thumbnail",
-      "text_pt_BR": "Item com imagem",
+      "text_pt_BR": "Item com Thumbnail",
       "text_en_US": "Thumbnail Item",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": false,
@@ -1773,7 +1769,7 @@
     },
     {
       "name": "crn-list-thumbnail",
-      "text_pt_BR": "Lista com Imagem",
+      "text_pt_BR": "Lista com Thumbnail",
       "text_en_US": "List Thumbnail",
       "class": "adjust-icon mdi mdi-view-list",
       "wrapper": true,
@@ -6446,7 +6442,7 @@
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><p>Advanced List Subtitle</p><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
+      "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
       "properties": {
         "id": {
@@ -6456,12 +6452,43 @@
           "order": 9999
         }
       },
+      "attributesForPreview": [
+        {
+          "name": "xattr-text-position",
+          "type": "btngroup",
+          "target": "cron-list",
+          "values": [
+            {
+              "key": "text-left",
+              "value": "Left",
+              "icon": "mdi mdi-ray-start"
+            },
+            {
+              "key": "text-center",
+              "value": "Center",
+              "icon": "mdi mdi-ray-vertex"
+            },
+            {
+              "key": "text-right",
+              "value": "Right",
+              "icon": "mdi mdi-ray-end"
+            }
+          ]
+        }
+      ],
       "childrenProperties": [
         {
           "name": "options",
           "selector": "cron-list",
           "displayName_pt_BR": "Configuração",
           "displayName_en_US": "Configuration"
+        },
+        {
+          "name":"xattr-text-position",
+          "selector":"cron-list",
+          "displayName_pt_BR": "Posição do Texto",
+          "displayName_en_US": "Text Position",
+          "type":"text"
         },
         {
           "name": "ng-click",
@@ -6516,9 +6543,14 @@
           "text_en_US": "Title"
         },
         {
-          "selector": "div#{id} p",
+          "selector": "div#{id} h3",
           "text_pt_BR": "Subtítulo",
           "text_en_US": "Subtitle"
+        },
+        {
+          "selector": "div#{id} .item-content > div > i.icon",
+          "text_pt_BR": "Ícone",
+          "text_en_US": "Icon"
         },
         {
           "selector": "div#{id} .item-input",
