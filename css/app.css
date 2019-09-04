@@ -954,10 +954,14 @@ body {
     top: 6px;
 }
 
-.menu-view .item-icon-left, .login-bg .item-icon-left, ul.nav > a > div, ul.nav > li > a > div {
+.menu-view .item-icon-left, .login-bg .item-icon-left, ul.nav > a > div, ul.nav > li > a > div, div.nav > a > div {
     padding-left: 26px;
     margin-left: 20px;
     min-height: auto;
+}
+
+div.nav > a.item-avatar-left > div.item-content {
+    padding: 16px;
 }
 
 .menu-view [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar, .login-bg [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
