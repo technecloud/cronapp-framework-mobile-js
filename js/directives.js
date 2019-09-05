@@ -1619,43 +1619,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
         $(element).inputmask(inputmaskType, ipOptions);
 
-        //Forçando um set no model no evento de keyup.
-        var unmaskedvalue = function(event) {
-          var rawValue = $(this).inputmask('unmaskedvalue');
-          $(this).data('rawvalue',rawValue);
-          element._ignoreFormatter = true;
-          scope.safeApply(function(){
-            modelSetter(scope, rawValue);
-          });
-        };
-
-        $(element).off('keypress');
-        $(element).on('keyup', unmaskedvalue);
-
-        $element = $(element);
-
-        if (ngModelCtrl) {
-          ngModelCtrl.$formatters.push(function (value) {
-            //Ignorar a formatação pela máscara na primeira vez
-            if (element._ignoreFormatter) {
-              element._ignoreFormatter = false;
-              return $(element).val();
-            }
-            element._ignoreFormatter = false;
-            if (value != undefined && value != null && value !== '') {
-              return format(mask, value);
-            }
-            return null;
-          });
-          ngModelCtrl.$parsers.push(function (value) {
-            if (value != undefined && value != null && value !== '') {
-              var unmaskedvalue = $element.inputmask('unmaskedvalue');
-              if (unmaskedvalue !== '')
-                return unmaskedvalue;
-            }
-            return null;
-          });
-        }
+        useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter);
       }
       else if (type == 'text' || type == 'tel') {
 
@@ -1665,36 +1629,20 @@ function maskDirective($compile, $translate, attrName, $parse) {
           }
         }
 
-        var options = {};
-        if (attrs.maskPlaceholder) {
-          options.placeholder = attrs.maskPlaceholder
+        if(!attrs.maskPlaceholder){
+          $element.mask(mask);
+          useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask);
+        }
+        else{  
+          options = {};
+          options['placeholder'] = attrs.maskPlaceholder
+          $(element).inputmask(mask, options);
+          $(element).off('keypress');
+          if(removeMask){
+            useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter);
+          }
         }
 
-        $element.mask(mask, options);
-
-        var unmaskedvalue = function() {
-          if (removeMask)
-            $(this).data('rawvalue',$(this).cleanVal());
-        }
-        $(element).on('keydown', unmaskedvalue).on('keyup', unmaskedvalue);
-
-        if (removeMask && ngModelCtrl) {
-          ngModelCtrl.$formatters.push(function (value) {
-            if (value) {
-              return $element.masked(value);
-            }
-
-            return null;
-          });
-
-          ngModelCtrl.$parsers.push(function (value) {
-            if (value) {
-              return $element.cleanVal();
-            }
-
-            return null;
-          });
-        }
       }
       else if(type == 'email' || type == 'password' || type == 'search'){
         if (!keyboard) {
@@ -1706,6 +1654,73 @@ function maskDirective($compile, $translate, attrName, $parse) {
         parseKeyboardType(keyboard, keyboardDecimalChar, $element)
       }
     }
+  }
+}
+
+function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter){
+  //Forçando um set no model no evento de keyup.
+  var $element = $(element); 
+  var unmaskedvalue = function(event) {
+  var rawValue = $(this).inputmask('unmaskedvalue');
+    $(this).data('rawvalue',rawValue);
+    element._ignoreFormatter = true;
+    scope.safeApply(function(){
+      modelSetter(scope, rawValue);
+    });
+  };
+
+  $(element).off('keypress');
+  $(element).on('keyup', unmaskedvalue);
+
+  if (ngModelCtrl) {
+    ngModelCtrl.$formatters.push(function (value) {
+      //Ignorar a formatação pela máscara na primeira vez
+      if (element._ignoreFormatter) {
+        element._ignoreFormatter = false;
+        return $(element).val();
+      }
+      element._ignoreFormatter = false;
+      if (value != undefined && value != null && value !== '') {
+        return format(mask, value);
+      }
+      return null;
+    });
+    ngModelCtrl.$parsers.push(function (value) {
+      if (value != undefined && value != null && value !== '') {
+        var unmaskedvalue = $element.inputmask('unmaskedvalue');
+        if (unmaskedvalue !== '')
+          return unmaskedvalue;
+      }
+      return null;
+    });
+  }
+}
+
+function useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask){
+  var $element = $(element); 
+  var unmaskedvalue = function() {
+    if (removeMask)
+      $(this).data('rawvalue',$(this).cleanVal());
+  }
+
+  $(element).on('keydown', unmaskedvalue).on('keyup', unmaskedvalue);
+
+  if (removeMask && ngModelCtrl) {
+    ngModelCtrl.$formatters.push(function (value) {
+      if (value) {
+        return $element.masked(value);
+      }
+
+      return null;
+    });
+
+    ngModelCtrl.$parsers.push(function (value) {
+      if (value) {
+        return $element.cleanVal();
+      }
+
+      return null;
+    });
   }
 }
 
@@ -1768,7 +1783,7 @@ function parseMaskType(type, $translate) {
   }
 
   else if (type == "tel") {
-    type = '(00) 00000-0000;0';
+    type = '(99) 99999-9999;0';
   }
 
   else if (type == "text") {
