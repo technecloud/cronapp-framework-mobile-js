@@ -2568,6 +2568,7 @@
       "text_en_US": "Filter",
       "class": "adjust-icon mdi mdi-magnify",
       "wrapper": false,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
       "properties": {
         "id": {
@@ -2820,6 +2821,7 @@
       "text_en_US": "Filter Button",
       "class": "adjust-icon mdi mdi-stop",
       "wrapper": false,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/filterbutton.template.html",
       "properties": {
         "id": {
