@@ -10,8 +10,9 @@ var cronappModules = [
     'tmh.dynamicLocale',
     'ui-notification',
     'ngFileUpload',
-    'angularMoment'
-]
+    'angularMoment',
+    'upload.services',
+];
 
 if (window.customModules) {
     cronappModules = cronappModules.concat(window.customModules);
