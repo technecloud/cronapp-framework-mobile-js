@@ -1244,12 +1244,12 @@ window.addEventListener('message', function(event) {
           ionItem.addClass("item-icon-" + iconDirection);
         }
 
-        if(optionsList.imageType === "thumbnail"){
-          ionItem.addClass("item-thumbnail-" + imageDirection);
-        }
-
         if(addedImage && (!optionsList.imageType || optionsList.imageType === "avatar")){
           ionItem.addClass("item-avatar-" + imageDirection);
+        }
+
+        if(addedImage && optionsList.imageType === "thumbnail"){
+          ionItem.addClass("item-thumbnail-" + imageDirection);
         }
 
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
