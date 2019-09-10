@@ -1156,7 +1156,7 @@
       "forcedGroup":true,
       "pallete": false,
       "class": "adjust-icon mdi mdi-view-sequential",
-      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
+      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" >Item 1</ion-item></div>",
       "properties": {
         "id": {
           "order": 3
