@@ -2198,6 +2198,7 @@
       "text_en_US": "Combobox",
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
+      "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
       "properties": {
         "id": {
@@ -2250,8 +2251,9 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<option value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
-            "targetSelector": "select"
+            "sourceHTML": "<option data-component=\"crn-item-select\" value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
+            "targetSelector": "select",
+            "activeClass": "active"
           }
         ]
       },
@@ -2266,6 +2268,54 @@
           "selector": "label#{id} select",
           "text_pt_BR": "Dropdown",
           "text_en_US": "Dropdown"
+        }
+      ]
+    },
+    {
+      "name": "crn-item-select",
+      "text_pt_BR": "Item de caixa de seleção",
+      "text_en_US": "Combobox Item",
+      "class": "adjust-icon mdi mdi-equal-box",
+      "wrapper": false,
+      "pallete": false,
+      "template": "<option value=\"1\" class=\"\">Value 1</option>",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "content",
+          "selector": "self",
+          "type": "content"
         }
       ]
     },
