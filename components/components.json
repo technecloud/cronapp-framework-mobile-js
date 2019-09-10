@@ -1999,6 +1999,8 @@
       "text_en_US": "Simple List",
       "class": "adjust-icon mdi mdi-view-headline",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
+      "forcedGroup": true,
+      "wrapper": false,
       "childrenProperties": [
         {
           "name": "crn-datasource",
@@ -2055,7 +2057,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-item  class=\"item\">Item 1</ion-item>",
+            "sourceHTML": "<ion-item data-component=\"crn-list-item\" class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
             "targetSelector": "div"
           }
         ]
