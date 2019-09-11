@@ -987,7 +987,7 @@ window.addEventListener('message', function(event) {
     }
   })
 
-  .directive('cronList', ['$compile', function($compile){
+  .directive('cronList', ['$compile', '$parse', function($compile, $parse){
     'use strict';
 
     let TEMPLATE = '\
@@ -1054,8 +1054,20 @@ window.addEventListener('message', function(event) {
       return '<img style="background-image:url(\'{{rowData.' + column.field + '}}\')"></img>';
     }
 
-    var addIcon = function(column, icon) {
+    var addIcon = function(icon) {
       return '<i class="' + icon + '" xattr-theme="dark"></i>';
+    }
+
+    var addCheckbox = function(columnLength, checkboxAlign){
+      if(columnLength < 3) columnLength = 1;
+      var template = '';
+      if(checkboxAlign === "left"){
+        template = '<ul class="checkbox-group component-holder cron-list-multiselect-left" data-component="crn-checkbox" style="padding-bottom:' + (columnLength - 1) * 7 + 'px"><label class="checkbox"><input type="checkbox"></label></ul>'
+      }
+      else{
+         template = '<ul class="checkbox-group component-holder cron-list-multiselect-right" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>'
+      }
+      return template;
     }
 
     var encodeHTML = function(value) {
@@ -1141,6 +1153,7 @@ window.addEventListener('message', function(event) {
 
     return {
       restrict: 'E',
+      require: '?ngModel',
       link: function(scope, element, attrs, ngModelCtrl) {
 
         var optionsList = {};
@@ -1148,14 +1161,24 @@ window.addEventListener('message', function(event) {
         var content = '';
         var buttons = '';
         var image = '';
+
+        var modelGetter = $parse(attrs['ngModel']);
+        var modelSetter = modelGetter.assign;
+
+        if (ngModelCtrl) {
+          ngModelCtrl.$formatters = [];
+          ngModelCtrl.$parsers = [];
+        }
+
         try {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
           var dataSource = eval(optionsList.dataSourceScreen.name);
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-          var iconTemplate  = optionsList.icon ? addIcon(column, optionsList.icon) : '';
+          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
+          var checkboxTemplate = '';
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
 
@@ -1181,6 +1204,12 @@ window.addEventListener('message', function(event) {
 
             event.preventDefault();
             event.stopPropagation();
+          }
+
+          scope.checkboxButtonClick = function(idx, rowData, fn, event) {
+            modelSetter(scope, dataSource.getKeyValues(rowData));
+            var checked = $(this).find('input[type=checkbox]:checked');
+            console.log(checked.length);
           }
 
           var searchableField = null;
@@ -1236,9 +1265,15 @@ window.addEventListener('message', function(event) {
           ionItem.attr('ng-click', getEditCommand(dataSourceName));
         }
 
+        var ngClickAttrTemplate = '';
+
+        ngClickAttrTemplate = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
+
         if(attrs.ngClick){
-          ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
+          ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)";
         }
+
+        ionItem.attr('ng-click', ngClickAttrTemplate);
 
         if(optionsList.icon){
           ionItem.addClass("item-icon-" + iconDirection);
@@ -1265,12 +1300,22 @@ window.addEventListener('message', function(event) {
             extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
         }
         content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
+                  
+        if((addedImage || optionsList.icon) && (imageDirection ==="left" || iconDirection ==="left")){
+          var checkboxTemplate = addCheckbox(optionsList.columns.length, "right");
+        }
+        else if(imageDirection ==="right" || iconDirection ==="right"){
+           var checkboxTemplate = addCheckbox(optionsList.columns.length, "left")
+        }
+
         if(image){
           ionItem.append(image);
+          ionItem.append(checkboxTemplate);
           ionItem.append(content);
           ionItem.append(buttons);
         }
         else{
+          ionItem.append(checkboxTemplate);
           ionItem.append(content);
           ionItem.append(buttons);
         }
@@ -1283,6 +1328,16 @@ window.addEventListener('message', function(event) {
         var infiniteScroll = $(element).find('ion-infinite-scroll');
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
+
+        if (ngModelCtrl) {
+          ngModelCtrl.$formatters.push(function (value) {
+            return value;
+          });
+
+          ngModelCtrl.$parsers.push(function (value) {
+            return value;
+          });
+        }
 
         $compile(templateDyn)(scope);
       }
