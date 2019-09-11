@@ -6484,6 +6484,12 @@
           "displayName_en_US": "Configuration"
         },
         {
+          "name": "ng-model",
+          "selector": "cron-list",
+          "displayName_pt_BR": "Valor",
+          "displayName_en_US": "Value"
+        },
+        {
           "name":"xattr-text-position",
           "selector":"cron-list",
           "displayName_pt_BR": "Posição do Texto",
