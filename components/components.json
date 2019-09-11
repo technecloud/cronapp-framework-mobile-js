@@ -164,29 +164,6 @@
            "removable": false,
             "type": "event"
         },
-        "target": {
-          "removable": false,
-          "type": "list",
-          "options": [
-            {
-              "key": "_blank",
-              "value": "Nova janela"
-            },
-            {
-              "key": "_self",
-              "value": "Mesma janela"
-            },
-            {
-              "key": "_parent",
-              "value": "Janela pai"
-            },
-            {
-              "key": "_top",
-              "value": "Top"
-            }
-          ],
-          "order": 2
-        },
         "href": {
           "removable": false,
           "type": "projectResource",
