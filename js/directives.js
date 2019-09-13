@@ -1162,13 +1162,39 @@ window.addEventListener('message', function(event) {
         var buttons = '';
         var image = '';
 
-        var modelGetter = $parse(attrs['ngModel']);
-        var modelSetter = modelGetter.assign;
+        //Verificar se é possíve deixar as funções do datasource.js públicas
+        var deepCopyArray = function(from, to) {
+          if (from === null || Object.prototype.toString.call(from) !== '[object Array]')
+            return from;
 
-        if (ngModelCtrl) {
-          ngModelCtrl.$formatters = [];
-          ngModelCtrl.$parsers = [];
+          to = to || [];
+
+          for (var i=0;i<from.length;i++) {
+            to.push(deepCopy(from[i]));
+          }
+
+          return to;
         }
+
+        var deepCopy = function(from, to) {
+          if (Object.prototype.toString.call(from) === '[object Array]') {
+            return deepCopyArray(from, to);
+          }
+
+          if (from === null || Object.prototype.toString.call(from) !== '[object Object]') {
+            return from;
+          }
+
+          to = to || {};
+
+          for (var key in from) {
+            if (from.hasOwnProperty(key)) {
+              to[key] = deepCopy(from[key]);
+            }
+          }
+
+          return to;
+        };
 
         try {
           optionsList = JSON.parse(attrs.options);
@@ -1179,6 +1205,61 @@ window.addEventListener('message', function(event) {
           var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
+          var rowDataArray = [];
+          var convertToArray = false;
+          var modelGetter = $parse(attrs['ngModel']);
+          var modelSetter = modelGetter.assign;
+
+          if(optionsList.allowMultiselect){
+            modelSetter(scope, []);
+
+            scope.checkboxButtonClick = function(idx, rowData, fn, event) {
+              var checkedSize = $(event.currentTarget).find('input[type=checkbox]:checked').length;
+              var modelArrayToInsert = [];
+              if(!$(event.target).is('input[type=checkbox]')){
+                if(checkedSize > 0){
+                  $(event.currentTarget).find("input[type=checkbox]").prop('checked', false);
+                }
+                else{
+                  $(event.currentTarget).find("input[type=checkbox]").prop('checked', true);
+                }
+              }
+              checkedSize = $(event.currentTarget).find('input[type=checkbox]:checked').length;
+              if(checkedSize > 0){
+                rowDataArray[idx].__checked = true;
+              }
+              else{
+                rowDataArray[idx].__checked = false;
+              }             
+              modelArrayToInsert = deepCopyArray(rowDataArray, modelArrayToInsert);  
+              modelArrayToInsert = modelArrayToInsert.filter(function (el) {
+                return el.__checked === true;
+              });
+              modelArrayToInsert.forEach(function (el) {
+                delete el.__checked;
+              });
+              if(convertToArray){
+                var modelArrayToInsertSingle = [];
+                modelArrayToInsert.forEach(function (el) {
+                  var key = Object.keys(el);
+                  modelArrayToInsertSingle.push(el[key]);
+                });
+                modelSetter(scope, modelArrayToInsertSingle);
+              }else{
+                modelSetter(scope, modelArrayToInsert);
+              }
+            }
+
+            scope.initializeChecked = function(idx, rowData, event) {
+              var keyValues = dataSource.getKeyValues(rowData);
+              var keys = Object.keys(keyValues);
+              if (keys.length === 1){
+                convertToArray = true;
+              }
+              keyValues['__checked'] = false;
+              rowDataArray.push(keyValues)
+            }
+          }
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
 
@@ -1204,12 +1285,6 @@ window.addEventListener('message', function(event) {
 
             event.preventDefault();
             event.stopPropagation();
-          }
-
-          scope.checkboxButtonClick = function(idx, rowData, fn, event) {
-            modelSetter(scope, dataSource.getKeyValues(rowData));
-            var checked = $(this).find('input[type=checkbox]:checked');
-            console.log(checked.length);
           }
 
           var searchableField = null;
@@ -1267,7 +1342,10 @@ window.addEventListener('message', function(event) {
 
         var ngClickAttrTemplate = '';
 
-        ngClickAttrTemplate = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
+        if(optionsList.allowMultiselect){
+          ngClickAttrTemplate = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
+          ionItem.attr('ng-init', "initializeChecked($index, rowData, $event)");
+        }
 
         if(attrs.ngClick){
           ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)";
@@ -1301,11 +1379,13 @@ window.addEventListener('message', function(event) {
         }
         content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
                   
-        if((addedImage || optionsList.icon) && (imageDirection ==="left" || iconDirection ==="left")){
-          var checkboxTemplate = addCheckbox(optionsList.columns.length, "right");
-        }
-        else if(imageDirection ==="right" || iconDirection ==="right"){
-           var checkboxTemplate = addCheckbox(optionsList.columns.length, "left")
+        if(optionsList.allowMultiselect){
+          if((addedImage || optionsList.icon) && (imageDirection ==="left" || iconDirection ==="left")){
+            checkboxTemplate = addCheckbox(optionsList.columns.length, "right");
+          }
+          else if(imageDirection ==="right" || iconDirection ==="right"){
+            checkboxTemplate = addCheckbox(optionsList.columns.length, "left")
+          }
         }
 
         if(image){
@@ -1328,16 +1408,6 @@ window.addEventListener('message', function(event) {
         var infiniteScroll = $(element).find('ion-infinite-scroll');
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
-
-        if (ngModelCtrl) {
-          ngModelCtrl.$formatters.push(function (value) {
-            return value;
-          });
-
-          ngModelCtrl.$parsers.push(function (value) {
-            return value;
-          });
-        }
 
         $compile(templateDyn)(scope);
       }

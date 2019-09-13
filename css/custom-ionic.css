@@ -29,3 +29,13 @@
 .image-to-right-avatar{
     margin-right: 39px;
 }
+
+.cron-list-multiselect-left{
+    float: left;
+    padding-right: 15px;
+}
+
+.cron-list-multiselect-right{
+    float: right;
+    padding-left: 15px;
+}
