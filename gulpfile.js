@@ -6,12 +6,17 @@ var gulp = require('gulp'),
   uglifycss = require('gulp-uglifycss'),
   imagemin = require('gulp-imagemin'),
   htmlmin = require('gulp-htmlmin'),
-  ngAnnotate = require('gulp-ng-annotate')
+  ngAnnotate = require('gulp-ng-annotate'),
+  minify = require("gulp-babel-minify");
 
 gulp.task('minify-js', function() {
   return gulp.src('js/**')
 	.pipe(ngAnnotate())
-    .pipe(uglify())
+        .pipe(minify({
+	      mangle: {
+		keepClassName: true
+	      }
+	    }))
     .pipe(gulp.dest('dist/js/'));
 });
 
@@ -44,7 +49,7 @@ gulp.task('minify-components-js', function() {
 });
 
 gulp.task('minify-components-templates', function() {
-  return gulp.src(['components/templates/**'])
+  return gulp.src(['components/templates/**', '!components/templates/blockly/**', '!components/templates/blockly'])
     .pipe(htmlmin({
       collapseWhitespace: true
     }))

@@ -1,0 +1,31 @@
+.text-to-left-thumbnail {
+    padding-left: 94px;
+}
+
+.text-to-left-avatar {
+    padding-left: 58px;
+}
+
+.image-to-left-thumbnail{
+    margin-left: 44px;
+}
+
+.image-to-left-avatar{
+    margin-left: 39px;
+}
+
+.text-to-right-thumbnail {
+    padding-right: 94px;
+}
+
+.text-to-right-avatar {
+    padding-right: 58px;
+}
+
+.image-to-right-thumbnail{
+    margin-right: 44px;
+}
+
+.image-to-right-avatar{
+    margin-right: 39px;
+}

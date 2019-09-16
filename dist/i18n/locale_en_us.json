@@ -67,9 +67,11 @@
   "General.RemoveData": "Do you whant to remove?",
   "General.ErrorNotSpecified": "Error not specified",
   "Login.view.invalidPassword": "Username or password invalid!",
+  "LoginViewInvalidpassword": "Username or password invalid!",
   "Home.view.passwordChanged": "Password successfully changed!",
   "Home.view.InvalidPassword": "Invalid Password!",
   "Home.view.ChangePassword": "Change Password",
+  "HomeViewPasswordchanged":"Change Password",
   "Home.view.Password": "Senha",
   "Login.view.Username": "Username",
   "Login.view.Password": "Password",
@@ -97,5 +99,13 @@
   "Roles.view.Salvar": "Save",
   "Roles.view.Voltar": "Cancel",
   "Permission.view.Salvar": "Save",
-  "Permission.view.Voltar": "Cancel"
+  "Permission.view.Voltar": "Cancel",
+  "primary": "",
+  "error": "Error",
+  "success": "",
+  "info": "",
+  "warning": "",
+  "keyboardDecimalChar": ".",
+  "FieldIsInvalid": "Field '{0}' is invalid!",
+  "FieldIsRequired": "Field '{0}' is required!"
 }
