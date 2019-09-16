@@ -1162,40 +1162,6 @@ window.addEventListener('message', function(event) {
         var buttons = '';
         var image = '';
 
-        //Verificar se é possíve deixar as funções do datasource.js públicas
-        var deepCopyArray = function(from, to) {
-          if (from === null || Object.prototype.toString.call(from) !== '[object Array]')
-            return from;
-
-          to = to || [];
-
-          for (var i=0;i<from.length;i++) {
-            to.push(deepCopy(from[i]));
-          }
-
-          return to;
-        }
-
-        var deepCopy = function(from, to) {
-          if (Object.prototype.toString.call(from) === '[object Array]') {
-            return deepCopyArray(from, to);
-          }
-
-          if (from === null || Object.prototype.toString.call(from) !== '[object Object]') {
-            return from;
-          }
-
-          to = to || {};
-
-          for (var key in from) {
-            if (from.hasOwnProperty(key)) {
-              to[key] = deepCopy(from[key]);
-            }
-          }
-
-          return to;
-        };
-
         try {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
@@ -1206,7 +1172,6 @@ window.addEventListener('message', function(event) {
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
           var rowDataArray = [];
-          var convertToArray = false;
           var modelGetter = $parse(attrs['ngModel']);
           var modelSetter = modelGetter.assign;
 
@@ -1224,39 +1189,17 @@ window.addEventListener('message', function(event) {
                   $(event.currentTarget).find("input[type=checkbox]").prop('checked', true);
                 }
               }
-              checkedSize = $(event.currentTarget).find('input[type=checkbox]:checked').length;
-              if(checkedSize > 0){
-                rowDataArray[idx].__checked = true;
-              }
-              else{
-                rowDataArray[idx].__checked = false;
-              }             
-              modelArrayToInsert = deepCopyArray(rowDataArray, modelArrayToInsert);  
-              modelArrayToInsert = modelArrayToInsert.filter(function (el) {
-                return el.__checked === true;
-              });
-              modelArrayToInsert.forEach(function (el) {
-                delete el.__checked;
-              });
-              if(convertToArray){
-                var modelArrayToInsertSingle = [];
-                modelArrayToInsert.forEach(function (el) {
-                  var key = Object.keys(el);
-                  modelArrayToInsertSingle.push(el[key]);
-                });
-                modelSetter(scope, modelArrayToInsertSingle);
-              }else{
-                modelSetter(scope, modelArrayToInsert);
-              }
+              var allCheckboxes = $(event.currentTarget).parent().find('input[type=checkbox]');       
+              $(allCheckboxes).each(function( index ) {
+                if($(this).is(':checked')){
+                  modelArrayToInsert.push(rowDataArray[index]);
+                } 
+              });   
+              modelSetter(scope, modelArrayToInsert);
             }
 
             scope.initializeChecked = function(idx, rowData, event) {
               var keyValues = dataSource.getKeyValues(rowData);
-              var keys = Object.keys(keyValues);
-              if (keys.length === 1){
-                convertToArray = true;
-              }
-              keyValues['__checked'] = false;
               rowDataArray.push(keyValues)
             }
           }
