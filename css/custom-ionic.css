@@ -30,12 +30,20 @@
     margin-right: 39px;
 }
 
-.cron-list-multiselect-left{
+.cron-list-multiselect-avatar{
     float: left;
-    padding-right: 15px;
+    margin-top: 15px;
+    margin-left: 1%;
 }
 
-.cron-list-multiselect-right{
-    float: right;
-    padding-left: 15px;
+.cron-list-multiselect-thumbnail{
+    float: left;
+    margin-top: 30px;
+    margin-left: 1%;
+}
+
+.cron-list-multiselect-default{
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
 }
