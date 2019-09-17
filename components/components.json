@@ -31,6 +31,13 @@
           "global": true,
           "order": 3
         },
+        "auto-refresh": {
+          "displayName_pt_BR": "Atualizar Atomaticamente (ms)",
+          "displayName_en_US": "Auto Refresh (ms)",
+          "removable": false,
+          "global": true,
+          "order": 8
+        },
         "parameters-null-strategy": {
           "removable": false,
           "type": "list",
@@ -52,6 +59,33 @@
             }
           ],
           "order": 3
+        },
+        "load-data-strategy": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "default",
+              "value_en_US": "Default",
+              "value_pt_BR": "Padrão"
+            },
+            {
+              "key": "all",
+              "value_en_US": "All Parameters Filled",
+              "value_pt_BR": "Todos os Filtros Preenchidos"
+            },
+            {
+              "key": "one",
+              "value_en_US": "At Least One Parameter Filled",
+              "value_pt_BR": "No mínimo um Filtro Preenchido"
+            },
+            {
+              "key": "button",
+              "value_en_US": "On Button Pressed",
+              "value_pt_BR": "Ao Pressionar Botão"
+            }
+          ],
+          "order": 4
         },
         "checkrequired": {
           "removable": false,
