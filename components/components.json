@@ -32,7 +32,7 @@
           "order": 3
         },
         "auto-refresh": {
-          "displayName_pt_BR": "Atualizar Atomaticamente (ms)",
+          "displayName_pt_BR": "Atualizar Automaticamente (ms)",
           "displayName_en_US": "Auto Refresh (ms)",
           "removable": false,
           "global": true,
