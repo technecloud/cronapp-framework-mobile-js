@@ -1058,7 +1058,7 @@ window.addEventListener('message', function(event) {
       return '<i class="' + icon + '" xattr-theme="dark"></i>';
     }
 
-    var addCheckbox = function(addedImage, imageType, checkboxAlign){
+    var addCheckbox = function(addedImage, imageType){
       var template = '';
       if(!addedImage || !imageType){
         imageType = "default";
@@ -1329,7 +1329,7 @@ window.addEventListener('message', function(event) {
         content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
                   
         if(optionsList.allowMultiselect){
-          checkboxTemplate = addCheckbox(addedImage, optionsList.imageType, "left")
+          checkboxTemplate = addCheckbox(addedImage, optionsList.imageType)
         }
 
         if(image){
