@@ -1180,6 +1180,9 @@ window.addEventListener('message', function(event) {
               let currentTarget = $(event.currentTarget);
               let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
               let modelArrayToInsert = modelGetter(scope);
+              if(optionsList.fieldType && optionsList.fieldType === "key"){
+                rowData = this.changeRowDataField(rowData);
+              }
               if(!$(event.target).is('input[type=checkbox]') && !fn){
                 if(checkedSize > 0){
                   currentTarget.find("input[type=checkbox]").prop('checked', false);
@@ -1221,8 +1224,20 @@ window.addEventListener('message', function(event) {
           }
           else{
             scope.setRowDataModel = function(idx, rowData, fn, event) {
+              if(optionsList.fieldType && optionsList.fieldType === "key"){
+                rowData = this.changeRowDataField(rowData);
+              }
               modelSetter(scope, rowData);
             }
+          }
+
+          scope.changeRowDataField = function(rowData){
+            rowData = dataSource.getKeyValues(rowData);
+            var keys = Object.keys(rowData);
+            if(keys.length === 1){
+              rowData = rowData[keys];
+            }
+            return rowData;
           }
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
