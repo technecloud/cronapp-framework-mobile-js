@@ -987,7 +987,7 @@ window.addEventListener('message', function(event) {
     }
   })
 
-  .directive('cronList', ['$compile', function($compile){
+  .directive('cronList', ['$compile', '$parse', function($compile, $parse){
     'use strict';
 
     let TEMPLATE = '\
@@ -1054,8 +1054,19 @@ window.addEventListener('message', function(event) {
       return '<img style="background-image:url(\'{{rowData.' + column.field + '}}\')"></img>';
     }
 
-    var addIcon = function(column, icon) {
+    var addIcon = function(icon) {
       return '<i class="' + icon + '" xattr-theme="dark"></i>';
+    }
+
+    var addCheckbox = function(addedImage, imageType){
+      var template = '';
+      if(!addedImage || !imageType){
+        imageType = "default";
+      }
+      template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
+                      imageType +
+                      '" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>';                
+      return template;
     }
 
     var encodeHTML = function(value) {
@@ -1141,6 +1152,7 @@ window.addEventListener('message', function(event) {
 
     return {
       restrict: 'E',
+      require: '?ngModel',
       link: function(scope, element, attrs, ngModelCtrl) {
 
         var optionsList = {};
@@ -1148,14 +1160,85 @@ window.addEventListener('message', function(event) {
         var content = '';
         var buttons = '';
         var image = '';
+
         try {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
           var dataSource = eval(optionsList.dataSourceScreen.name);
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-          var iconTemplate  = optionsList.icon ? addIcon(column, optionsList.icon) : '';
+          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
+          var checkboxTemplate = '';
+          var modelGetter = $parse(attrs['ngModel']);
+          var modelSetter = modelGetter.assign;
+
+          if(optionsList.allowMultiselect){
+            modelSetter(scope, []);
+            scope.checkboxButtonClick = function(idx, rowData, fn, event) {
+              const cronListClass = 'cron-list-selected';
+              let currentTarget = $(event.currentTarget);
+              let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
+              let modelArrayToInsert = modelGetter(scope);
+              if(optionsList.fieldType && optionsList.fieldType === "key"){
+                rowData = this.changeRowDataField(rowData);
+              }
+              if(!$(event.target).is('input[type=checkbox]') && !fn){
+                if(checkedSize > 0){
+                  currentTarget.find("input[type=checkbox]").prop('checked', false);
+                }
+                else{
+                  currentTarget.find("input[type=checkbox]").prop('checked', true);
+                }
+              }
+              let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');       
+              if($(currentCheckbox).is(':checked')){
+                currentTarget.addClass(cronListClass);
+                if(fn){
+                  currentTarget.parent().addClass(cronListClass);
+                  currentTarget.parent().find('div.item-content').addClass(cronListClass);
+                }
+                else{
+                  currentTarget.find('div.item-content').addClass(cronListClass);
+                }
+                modelArrayToInsert.push(rowData);
+              } 
+              else{
+                currentTarget.removeClass(cronListClass);
+                 if(fn){
+                  currentTarget.parent().removeClass(cronListClass);
+                  currentTarget.parent().find('div.item-content').removeClass(cronListClass);
+                }
+                else{
+                  currentTarget.find('div.item-content').removeClass(cronListClass);
+                }
+                modelArrayToInsert.forEach((el, idx) => {
+                  if(dataSource.objectIsEquals(rowData, el)){
+                    modelArrayToInsert.splice(idx, 1);
+                  }
+                });
+              } 
+              modelSetter(scope, modelArrayToInsert);
+              event.stopPropagation();
+            }
+          }
+          else{
+            scope.setRowDataModel = function(idx, rowData, fn, event) {
+              if(optionsList.fieldType && optionsList.fieldType === "key"){
+                rowData = this.changeRowDataField(rowData);
+              }
+              modelSetter(scope, rowData);
+            }
+          }
+
+          scope.changeRowDataField = function(rowData){
+            rowData = dataSource.getKeyValues(rowData);
+            var keys = Object.keys(rowData);
+            if(keys.length === 1){
+              rowData = rowData[keys];
+            }
+            return rowData;
+          }
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
 
@@ -1178,7 +1261,7 @@ window.addEventListener('message', function(event) {
             };
 
             scope.$eval(fn, contextVars);
-
+            
             event.preventDefault();
             event.stopPropagation();
           }
@@ -1235,9 +1318,23 @@ window.addEventListener('message', function(event) {
         if (isNativeEdit) {
           ionItem.attr('ng-click', getEditCommand(dataSourceName));
         }
-
-        if(attrs.ngClick){
-          ionItem.attr('ng-click', "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event)");
+        
+        if(optionsList.allowMultiselect){
+          var ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
+          checkboxTemplate = addCheckbox(addedImage, optionsList.imageType)
+          if(attrs.ngClick){
+            checkboxTemplate = $(checkboxTemplate).attr('ng-click', ngClickAttrTemplateCheckbox)[0].outerHTML;
+          }
+          else{
+            ionItem.attr('ng-click', ngClickAttrTemplateCheckbox);
+          }
+        }
+        else{
+          var ngClickAttrTemplate = "setRowDataModel($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
+          if(attrs.ngClick){
+            ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
+          }
+          ionItem.attr('ng-click', ngClickAttrTemplate);
         }
 
         if(optionsList.icon){
@@ -1265,12 +1362,15 @@ window.addEventListener('message', function(event) {
             extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
         }
         content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
+
         if(image){
+          ionItem.append(checkboxTemplate);
           ionItem.append(image);
           ionItem.append(content);
           ionItem.append(buttons);
         }
         else{
+          ionItem.append(checkboxTemplate);
           ionItem.append(content);
           ionItem.append(buttons);
         }

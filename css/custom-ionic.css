@@ -29,3 +29,25 @@
 .image-to-right-avatar{
     margin-right: 39px;
 }
+
+.cron-list-multiselect-avatar{
+    float: left;
+    margin-top: 15px;
+    margin-left: 1%;
+}
+
+.cron-list-multiselect-thumbnail{
+    float: left;
+    margin-top: 30px;
+    margin-left: 1%;
+}
+
+.cron-list-multiselect-default{
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.cron-list-selected{
+    background-color: aliceblue !important;
+}
