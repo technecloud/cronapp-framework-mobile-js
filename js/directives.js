@@ -1051,7 +1051,7 @@ window.addEventListener('message', function(event) {
     }
 
     var addImageLink = function(column) {
-      return '<img style="background-image:url(\'{{rowData.' + column.field + '}}\')"></img>';
+      return '<img ng-src="{{rowData.' + column.field + '}}"></img>';
     }
 
     var addIcon = function(icon) {
