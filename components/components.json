@@ -272,7 +272,7 @@
         }
       },
       "controls": {
-        "ungroup": true,
+        "ungroup": false,
         "resizable": false,
         "additive": false,
         "duplicable": false,
