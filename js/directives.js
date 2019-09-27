@@ -1196,23 +1196,19 @@ window.addEventListener('message', function(event) {
                 let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');       
                 if($(currentCheckbox).is(':checked')){
                   currentTarget.addClass(cronListClass);
-                  if(fn){
+                  currentTarget.find('div.item-content').addClass(cronListClass);
+                  if($(event.target).is('input[type=checkbox]') && fn){
                     currentTarget.parent().addClass(cronListClass);
-                    currentTarget.parent().find('div.item-content').addClass(cronListClass);
-                  }
-                  else{
-                    currentTarget.find('div.item-content').addClass(cronListClass);
+                     currentTarget.parent().find('div.item-content').addClass(cronListClass);
                   }
                   modelArrayToInsert.push(rowData);
                 } 
                 else{
                   currentTarget.removeClass(cronListClass);
-                  if(fn){
+                  currentTarget.find('div.item-content').removeClass(cronListClass);
+                  if($(event.target).is('input[type=checkbox]') && fn){
                     currentTarget.parent().removeClass(cronListClass);
                     currentTarget.parent().find('div.item-content').removeClass(cronListClass);
-                  }
-                  else{
-                    currentTarget.find('div.item-content').removeClass(cronListClass);
                   }
                   modelArrayToInsert.forEach((el, idx) => {
                     if(dataSource.objectIsEquals(rowData, el)){
@@ -1313,30 +1309,31 @@ window.addEventListener('message', function(event) {
           templateDyn = $(TEMPLATE);
         }
         templateDyn.attr("type", optionsList.listType);
-        $(element).html(templateDyn);
+        $(element).replaceWith(templateDyn);
+        var $element = templateDyn;
 
-        var ionItem = $(element).find('ion-item');
+        var ionItem = $element.find('ion-item');
         ionItem.attr('ng-repeat', getExpression(dataSourceName));
 
         if (isNativeEdit) {
           ionItem.attr('ng-click', getEditCommand(dataSourceName));
         }
+
+        var ngClickAttrTemplate = "";
+        var ngClickAttrTemplateCheckbox = "";
         
         if(optionsList.allowMultiselect){
-          var ngClickAttrTemplateCheckbox = "";
           if(attrs['ngModel']){
             ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);"
           }
           checkboxTemplate = addCheckbox(addedImage, optionsList.imageType)
           if(attrs.ngClick){
-            checkboxTemplate = $(checkboxTemplate).attr('ng-click', ngClickAttrTemplateCheckbox)[0].outerHTML;
+            checkboxTemplate = $(checkboxTemplate).attr('ng-click', ngClickAttrTemplateCheckbox).get(0).outerHTML;
+            ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
           }
-          else{
-            ionItem.attr('ng-click', ngClickAttrTemplateCheckbox);
-          }
+          ionItem.attr('ng-click', ngClickAttrTemplateCheckbox + ngClickAttrTemplate);
         }
         else{
-          var ngClickAttrTemplate = "";
           if(attrs['ngModel']){
             ngClickAttrTemplate = "setRowDataModel($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
           }
@@ -1389,7 +1386,10 @@ window.addEventListener('message', function(event) {
           scope.$broadcast('scroll.infiniteScrollComplete');
         }
 
-        var infiniteScroll = $(element).find('ion-infinite-scroll');
+        var infiniteScroll =  $element.filter(function( index ) {
+          return $(this).is('ion-infinite-scroll');
+        });
+
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
 
