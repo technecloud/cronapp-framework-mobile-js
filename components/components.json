@@ -23,12 +23,20 @@
           "displayName_pt_BR": "Configurações",
           "displayName_en_US": "Configuration",
           "removable": false,
-          "global": true
+          "global": true,
+          "mandatory": true
         },
         "parameters": {
           "removable": false,
           "global": true,
           "order": 3
+        },
+        "auto-refresh": {
+          "displayName_pt_BR": "Atualizar Automaticamente (ms)",
+          "displayName_en_US": "Auto Refresh (ms)",
+          "removable": false,
+          "global": true,
+          "order": 8
         },
         "parameters-null-strategy": {
           "removable": false,
@@ -52,6 +60,33 @@
           ],
           "order": 3
         },
+        "load-data-strategy": {
+          "removable": false,
+          "type": "list",
+          "options": [
+            {
+              "key": "default",
+              "value_en_US": "Default",
+              "value_pt_BR": "Padrão"
+            },
+            {
+              "key": "all",
+              "value_en_US": "All Parameters Filled",
+              "value_pt_BR": "Todos os Filtros Preenchidos"
+            },
+            {
+              "key": "one",
+              "value_en_US": "At Least One Parameter Filled",
+              "value_pt_BR": "No mínimo um Filtro Preenchido"
+            },
+            {
+              "key": "button",
+              "value_en_US": "On Button Pressed",
+              "value_pt_BR": "Ao Pressionar Botão"
+            }
+          ],
+          "order": 4
+        },
         "checkrequired": {
           "removable": false,
           "type": "logic",
@@ -67,7 +102,8 @@
           "removable": false,
           "type": "datasourceKeys",
           "global": true,
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         "on-before-create": {
           "removable": true,
@@ -161,29 +197,6 @@
         "on-drag": {
            "removable": false,
             "type": "event"
-        },
-        "target": {
-          "removable": false,
-          "type": "list",
-          "options": [
-            {
-              "key": "_blank",
-              "value": "Nova janela"
-            },
-            {
-              "key": "_self",
-              "value": "Mesma janela"
-            },
-            {
-              "key": "_parent",
-              "value": "Janela pai"
-            },
-            {
-              "key": "_top",
-              "value": "Top"
-            }
-          ],
-          "order": 2
         },
         "href": {
           "removable": false,
@@ -1036,7 +1049,8 @@
           "name": "ng-model",
           "selector": "input",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -1153,7 +1167,7 @@
       "forcedGroup":true,
       "pallete": false,
       "class": "adjust-icon mdi mdi-view-sequential",
-      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item></div>",
+      "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" >Item 1</ion-item></div>",
       "properties": {
         "id": {
           "order": 3
@@ -1436,7 +1450,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type": "pageDatasource",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-repeat",
@@ -1669,7 +1684,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type": "pageDatasource",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-repeat",
@@ -1916,7 +1932,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type": "pageDatasource",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-repeat",
@@ -1993,6 +2010,8 @@
       "text_en_US": "Simple List",
       "class": "adjust-icon mdi mdi-view-headline",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
+      "forcedGroup": true,
+      "wrapper": false,
       "childrenProperties": [
         {
           "name": "crn-datasource",
@@ -2000,7 +2019,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type": "pageDatasource",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-click",
@@ -2048,7 +2068,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<ion-item  class=\"item\">Item 1</ion-item>",
+            "sourceHTML": "<ion-item data-component=\"crn-list-item\" class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
             "targetSelector": "div"
           }
         ]
@@ -2191,6 +2211,7 @@
       "text_en_US": "Combobox",
       "class": "adjust-icon mdi mdi-equal-box",
       "wrapper": false,
+      "forcedGroup": true,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
       "properties": {
         "id": {
@@ -2235,15 +2256,17 @@
           "selector": "select",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         }
       ],
       "handleRules": {
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<option value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
-            "targetSelector": "select"
+            "sourceHTML": "<option data-component=\"crn-item-select\" value=\"${RANDOM}\" class=\"\">Value ${RANDOM}</option>",
+            "targetSelector": "select",
+            "activeClass": "active"
           }
         ]
       },
@@ -2258,6 +2281,54 @@
           "selector": "label#{id} select",
           "text_pt_BR": "Dropdown",
           "text_en_US": "Dropdown"
+        }
+      ]
+    },
+    {
+      "name": "crn-item-select",
+      "text_pt_BR": "Item de caixa de seleção",
+      "text_en_US": "Combobox Item",
+      "class": "adjust-icon mdi mdi-equal-box",
+      "wrapper": false,
+      "pallete": false,
+      "template": "<option value=\"1\" class=\"\">Value 1</option>",
+      "properties": {
+        "id": {
+          "order": 1
+        },
+        "class": {
+          "order": 9999
+        },
+        "ng-click": {
+          "removable": false,
+          "type": "event"
+        },
+        "on-hold": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-double-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-tap": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-swipe": {
+           "removable": false,
+            "type": "event"
+        },
+        "on-drag": {
+           "removable": false,
+            "type": "event"
+        }
+      },
+      "childrenProperties": [
+        {
+          "name": "content",
+          "selector": "self",
+          "type": "content"
         }
       ]
     },
@@ -2325,7 +2396,8 @@
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "content",
@@ -2341,7 +2413,8 @@
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 3
+          "order": 3,
+          "mandatory": true
         },
         {
           "name": "xkey-field",
@@ -2349,7 +2422,8 @@
           "displayName_pt_BR": "Campo Chave",
           "displayName_en_US": "Key Field",
           "type": "datasourceFieldList",
-          "order": 4
+          "order": 4,
+          "mandatory": true
         },
         {
           "name": "xdisplay-field",
@@ -2357,7 +2431,8 @@
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
           "type": "datasourceFieldList",
-          "order": 5
+          "order": 5,
+          "mandatory": true
         }
       ],
       "styles": [
@@ -2420,7 +2495,8 @@
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "ng-model",
@@ -2429,21 +2505,24 @@
           "displayName_en_US": "Value",
           "type": "allDatasourceFields",
           "onSave": "javascript:function() {var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
         {
           "name": "xkey-field",
           "selector": "select",
           "displayName_pt_BR": "Campo Chave",
           "displayName_en_US": "Key Field",
-          "type": "datasourceFieldList"
+          "type": "datasourceFieldList",
+          "mandatory": true
         },
         {
           "name": "xdisplay-field",
           "selector": "select",
           "displayName_pt_BR": "Campo Texto",
           "displayName_en_US": "Display Field",
-          "type": "datasourceFieldList"
+          "type": "datasourceFieldList",
+          "mandatory": true
         }
       ],
       "groupedChildren": [
@@ -2492,7 +2571,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "placeholder": {
           "order": 3
@@ -2551,6 +2631,7 @@
       "text_en_US": "Filter",
       "class": "adjust-icon mdi mdi-magnify",
       "wrapper": false,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/search.template.html",
       "properties": {
         "id": {
@@ -2803,6 +2884,7 @@
       "text_en_US": "Filter Button",
       "class": "adjust-icon mdi mdi-stop",
       "wrapper": false,
+      "pallete": false,
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/filterbutton.template.html",
       "properties": {
         "id": {
@@ -3134,7 +3216,8 @@
         {
           "name": "ng-model",
           "selector": "input",
-          "type": "text"
+          "type": "text",
+          "mandatory": true
         },
         {
           "name": "max",
@@ -3230,7 +3313,8 @@
           "displayName_pt_BR": "Valor",
           "displayName_en_US": "Value",
           "type":"text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3383,7 +3467,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3541,7 +3626,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3704,7 +3790,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type": "text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -3845,7 +3932,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         }
       },
       "handleRules": {
@@ -4008,7 +4096,8 @@
           "name": "ng-model",
           "selector": "input",
           "type":"text",
-          "order": 2
+          "order": 2,
+          "mandatory": true
         },
         {
           "name": "ng-initial-value",
@@ -4097,7 +4186,7 @@
     {
       "name": "crn-video",
       "text": "Video",
-      "class": "adjust-icon mdi mdi-video-image",
+      "class": "adjust-icon mdi mdi-youtube",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
       "forceGroup" : true,
       "wrapper": false,
@@ -4139,6 +4228,7 @@
       "class": "adjust-icon mdi mdi-view-carousel",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.slider.template.html",
       "wrapper": false,
+      "pallete": false,
       "properties": {
         "id": {
           "order": 2
@@ -4203,9 +4293,8 @@
       "text_pt_BR": "Carrossel",
       "text_en_US": "Carousel",
       "class": "adjust-icon mdi mdi-view-carousel",
-      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/slider.template.html",
       "forcedGroup": true,
-      "wrapper": false,
+      "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/slider.template.html",
       "properties": {
         "id": {
           "order": 2
@@ -4219,7 +4308,7 @@
         "rules": [
           {
             "activeClass": "active",
-            "sourceHTML": "<ion-slide class=\"\" style = \" width:100%;height:100%;\" data-component=\"crn-slider-item\"><div class=\"text-center\" style=\"display: table; width:100%;height:100%;min-height:200px; margin: 0 auto;\"><img src=\"https://picsum.photos/id/141/400/220\" data-component=\"crn-image\" style=\"width:100%;height:100%; max-width: 100%; max-height: 100%; display: table-cell; vertical-align: middle;\" xattr-position=\"\"></div></ion-slide>",
+            "sourceHTML": "<ion-slide id=\"crn-slider-item-${RANDOM}\" class=\"dark-bg\" style= \"width:100%;height:200px; position:relative\" data-component=\"crn-slider-item\"><h2 data-component=\"crn-label\" style=\"text-align: center; color: white; font-weight: bold;  top: 50%; left: 50%; margin: 0; transform: translate(-50%, -50%); position: absolute;\" data-container=\"true\" data-replace=\"true\">SLIDE TITLE</h2></ion-slide>",
             "targetSelector": "ion-slide-box"
           }
         ]
@@ -4768,7 +4857,8 @@
           "displayName_pt_BR": "Fonte de dados",
           "displayName_en_US": "Datasource",
           "type":"pageDatasource",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         },
          {
           "name": "ng-click",
@@ -5825,7 +5915,8 @@
           "name": "ng-model",
           "selector": "input[ng-model]",
           "type":"text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "type",
@@ -5983,7 +6074,8 @@
         "ng-model": {
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         "cronapp-stars": {
           "order": 2
@@ -6135,7 +6227,8 @@
           "onSave": "javascript:function() { var result \u003d arguments[0]; if (result.indexOf(\u0027.\u0027) \u003d\u003d -1 \u0026\u0026 result.trim().length \u003e 0 ) { result \u003d \u0027vars.\u0027+result;  }  return result; }",
           "onDisplay": "javascript:function() { return arguments[0].replace(\u0027vars.\u0027,\u0027\u0027); }",
           "type": "text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         },
         {
           "name": "class",
@@ -6214,7 +6307,8 @@
       "properties": {
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         }
       },
       "childrenProperties": [
@@ -6222,11 +6316,6 @@
           "name": "content",
           "selector": "label",
           "type": "content"
-        },
-        {
-          "name": "ng-model",
-          "selector": "div[dynamic-image]",
-          "type": "text"
         },
         {
           "name": "max-file-size",
@@ -6298,7 +6387,8 @@
         },
         "ng-model": {
           "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
-          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }"
+          "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
+          "mandatory": true
         }
       },
       "groupedChildren": [
@@ -6397,7 +6487,8 @@
           "displayName_pt_BR": "Valor",
           "displayName_en_US": "Value",
           "type":"text",
-          "order": 1
+          "order": 1,
+          "mandatory": true
         }
       ]
     },
@@ -6441,6 +6532,8 @@
       "text_pt_BR": "Lista Avançada",
       "text_en_US": "Advanced List",
       "class": "adjust-icon mdi mdi-view-quilt",
+      "onDrop": "openEditor",
+      "onDoubleClick": "openEditor",
       "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
       "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
       "designTimeSelector": "cron-list",
@@ -6481,7 +6574,8 @@
           "name": "options",
           "selector": "cron-list",
           "displayName_pt_BR": "Configuração",
-          "displayName_en_US": "Configuration"
+          "displayName_en_US": "Configuration",
+          "mandatory": true
         },
         {
           "name": "ng-model",
