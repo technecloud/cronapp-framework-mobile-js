@@ -458,11 +458,22 @@
         "UploadService",
         function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading, $ionicPlatform, $controller, $timeout, UploadService) {
 
-            $ionicPlatform.registerBackButtonAction(function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                navigator.app.exitApp();
-            },101);
+          $ionicPlatform.registerBackButtonAction(function (event) {
+            // Reference current history set
+            let viewHistory = $ionicHistory.viewHistory();
+            if (viewHistory.histories) {
+              if (viewHistory.histories && Object.keys(viewHistory.histories).length) {
+                if (viewHistory.currentView.stateName === 'app.home') {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  navigator.app.exitApp();
+                } else {
+                  window.history.back();
+                }
+              }
+            }
+
+          }, 101);
 
             app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
 
