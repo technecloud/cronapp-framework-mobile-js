@@ -1171,19 +1171,24 @@ window.addEventListener('message', function(event) {
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
 
+         
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
 
             if(optionsList.allowMultiselect){
+
               modelSetter(scope, []);
+
               scope.checkboxButtonClick = function(idx, rowData, fn, event) {
                 const cronListClass = 'cron-list-selected';
                 let currentTarget = $(event.currentTarget);
                 let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
                 let modelArrayToInsert = modelGetter(scope);
+                let isKey = false;
                 if(optionsList.fieldType && optionsList.fieldType === "key"){
                   rowData = this.changeRowDataField(rowData);
+                  isKey = true;
                 }
                 if(!$(event.target).is('input[type=checkbox]') && !fn){
                   if(checkedSize > 0){
@@ -1195,13 +1200,30 @@ window.addEventListener('message', function(event) {
                 }
                 let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');       
                 if($(currentCheckbox).is(':checked')){
+                  let hasObject = false;
                   currentTarget.addClass(cronListClass);
                   currentTarget.find('div.item-content').addClass(cronListClass);
                   if($(event.target).is('input[type=checkbox]') && fn){
                     currentTarget.parent().addClass(cronListClass);
                      currentTarget.parent().find('div.item-content').addClass(cronListClass);
                   }
-                  modelArrayToInsert.push(rowData);
+                  if(isKey && typeof rowData !== "object"){
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(rowData === el){
+                        hasObject = true;
+                      }
+                    });
+                  }
+                  else{
+                    modelArrayToInsert.forEach((el, idx) => {
+                       if(dataSource.objectIsEquals(rowData, el)){
+                        hasObject = true;
+                      }
+                    });
+                  }
+                  if(!hasObject){
+                    modelArrayToInsert.push(rowData);
+                  }
                 } 
                 else{
                   currentTarget.removeClass(cronListClass);
@@ -1210,15 +1232,25 @@ window.addEventListener('message', function(event) {
                     currentTarget.parent().removeClass(cronListClass);
                     currentTarget.parent().find('div.item-content').removeClass(cronListClass);
                   }
-                  modelArrayToInsert.forEach((el, idx) => {
-                    if(dataSource.objectIsEquals(rowData, el)){
-                      modelArrayToInsert.splice(idx, 1);
-                    }
-                  });
+                  if(isKey && typeof rowData !== "object"){
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(rowData === el){
+                        modelArrayToInsert.splice(idx, 1);
+                      } 
+                    });
+                  }
+                  else{
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(dataSource.objectIsEquals(rowData, el)){
+                        modelArrayToInsert.splice(idx, 1);
+                      }
+                    });
+                  }
                 } 
                 modelSetter(scope, modelArrayToInsert);
                 event.stopPropagation();
               }
+
             }
             else{
               scope.setRowDataModel = function(idx, rowData, fn, event) {
