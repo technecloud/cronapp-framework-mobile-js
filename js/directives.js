@@ -1153,6 +1153,8 @@ window.addEventListener('message', function(event) {
     return {
       restrict: 'E',
       require: '?ngModel',
+      priority: 9999998,
+      terminal: true,
       link: function(scope, element, attrs, ngModelCtrl) {
 
         var optionsList = {};
@@ -1165,12 +1167,7 @@ window.addEventListener('message', function(event) {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
           var dataSource = eval(optionsList.dataSourceScreen.name);
-          var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
-          var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
-          var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
-
          
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
@@ -1300,9 +1297,26 @@ window.addEventListener('message', function(event) {
           var searchableField = null;
           var isNativeEdit = false;
           var addedImage = false;
+
+          scope.options = optionsList;
+          scope.options.fields = {};
+          if(!optionsList.imagePosition) scope.options.imagePosition = "left";
+          if(!optionsList.iconPosition) scope.options.iconPosition = "right";
+          if(!optionsList.imageType) scope.options.imageType = "avatar";
+          var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+          var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
+          var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
+          
           for (var i = 0; i < optionsList.columns.length; i++) {
             var column = optionsList.columns[i];
             if (column.visible) {
+              if (column.field && column.dataType == 'Database') {
+                scope.options.fields["field" + i] = column.field;
+              }
+              if (isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+              }
               if (column.field && column.dataType == 'Database') {
                 if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show") {
                   image = addImage(column, imageDirection, iconDirection, iconTemplate, bothDirection, optionsList.imageType);
@@ -1312,7 +1326,7 @@ window.addEventListener('message', function(event) {
                   addedImage = true;
                 }
                 else {
-                  content = content.concat(addDefaultColumn(column, (i == 0)));
+                  content = content.concat(addDefaultColumn(column, (i === 0)));
                   if (column.filterable) {
                     searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                   }
@@ -1334,12 +1348,27 @@ window.addEventListener('message', function(event) {
           console.log('CronList invalid configuration! ' + err);
         }
 
+        if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
+          scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition; 
+        }
+
+        if(scope.options.icon && scope.options.iconPosition && scope.options.imageType){
+          scope.options.iconClassPosition = "item-icon-" + scope.options.iconPosition;
+        }
+
+        if(bothDirection && scope.options.icon && scope.options.imagePosition && scope.options.imageType){
+          scope.options.imageToClassPosition = "image-to-" + scope.options.imagePosition + '-' + scope.options.imageType;
+          scope.options.textToClassPosition = "text-to-" + scope.options.iconPosition + '-' + scope.options.imageType;
+        }
+
         var templateDyn = null;
         if (searchableField) {
-          templateDyn = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE);
+          templateDyn = $(getSearchableList(dataSourceName, searchableField) + scope.options.advancedTemplate);
         } else {
-          templateDyn = $(TEMPLATE);
+          templateDyn = $(scope.options.advancedTemplate);
         }
+        scope.options.xattrTextPosition = attrs.xattrTextPosition; 
+
         templateDyn.attr("type", optionsList.listType);
         $(element).replaceWith(templateDyn);
         var $element = templateDyn;
@@ -1375,42 +1404,12 @@ window.addEventListener('message', function(event) {
           ionItem.attr('ng-click', ngClickAttrTemplate);
         }
 
-        if(optionsList.icon){
-          ionItem.addClass("item-icon-" + iconDirection);
-        }
-
-        if(addedImage && (!optionsList.imageType || optionsList.imageType === "avatar")){
-          ionItem.addClass("item-avatar-" + imageDirection);
-        }
-
-        if(addedImage && optionsList.imageType === "thumbnail"){
-          ionItem.addClass("item-thumbnail-" + imageDirection);
-        }
-
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
         const filteredItems = Object.values(attrs.$attr).filter(function(item) {
           return !attrsExcludeds.includes(item);
         })
         for( let o in filteredItems){
           ionItem.attr(filteredItems[o], attrs[o]);
-        }
-
-        let extraClassToAdd = ''
-        if(optionsList.imageType && bothDirection && addedImage && iconTemplate){
-            extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
-        }
-        content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
-
-        if(image){
-          ionItem.append(checkboxTemplate);
-          ionItem.append(image);
-          ionItem.append(content);
-          ionItem.append(buttons);
-        }
-        else{
-          ionItem.append(checkboxTemplate);
-          ionItem.append(content);
-          ionItem.append(buttons);
         }
 
         scope.nextPageInfinite = function() {
@@ -1424,8 +1423,8 @@ window.addEventListener('message', function(event) {
 
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
-
-        $compile(templateDyn)(scope);
+        
+        $compile(templateDyn, null, 9999998)(scope);
       }
     }
   }])
