@@ -456,7 +456,8 @@
         "$controller",
         "$timeout",
         "UploadService",
-        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading, $ionicPlatform, $controller, $timeout, UploadService) {
+        "$ionicHistory",
+        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading, $ionicPlatform, $controller, $timeout, UploadService, $ionicHistory) {
 
           $ionicPlatform.registerBackButtonAction(function (event) {
             // Reference current history set
@@ -472,7 +473,6 @@
                 }
               }
             }
-
           }, 101);
 
             app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
