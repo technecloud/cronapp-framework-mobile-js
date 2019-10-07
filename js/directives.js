@@ -992,7 +992,7 @@ window.addEventListener('message', function(event) {
 
     let TEMPLATE = '\
                <ion-list type="" can-swipe="listCanSwipe"> \
-            	   <ion-item class="item" ng-repeat="rowData in datasource"> \
+            	   <ion-item ng-class="{\'cron-list-selected\' : isChecked(rowData)}" class="item" ng-repeat="rowData in datasource"> \
               	 </ion-item> \
                </ion-list> \
                <ion-infinite-scroll></ion-infinite-scroll> \
@@ -1064,8 +1064,9 @@ window.addEventListener('message', function(event) {
         imageType = "default";
       }
       template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
-                      imageType +
-                      '" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>';                
+          imageType +
+          '"data-component="crn-checkbox"><label class="checkbox">' +
+          '<input ng-checked="isChecked(rowData);" type="checkbox"></label></ul>';
       return template;
     }
 
@@ -1143,10 +1144,15 @@ window.addEventListener('message', function(event) {
 
     var getSearchableList = function(dataSourceName, fieldName) {
       return '\
-              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i> \
+              <div class="item item-input-inset">\
+              <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i> \
                 <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
                 crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
               </label>\
+              <button ng-if="options.allowMultiselect" ng-disabled="modelArrayToInsert.length == 0" ng-click="limparSelecao()" \
+                class="button-small cron-list-button-clean button button-inline button-positive component-holder">\
+              <span>Limpar Seleção<\span></button> \
+              </div>\
              ';
     }
 
@@ -1170,8 +1176,12 @@ window.addEventListener('message', function(event) {
           var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
+          var modelArrayToInsert = [];
+          var isKey = false;
+          const cronListClass = 'cron-list-selected';
+          scope.options = optionsList;
+          scope.modelArrayToInsert = modelArrayToInsert;
 
-         
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
@@ -1180,16 +1190,53 @@ window.addEventListener('message', function(event) {
 
               modelSetter(scope, []);
 
-              scope.checkboxButtonClick = function(idx, rowData, fn, event) {
-                const cronListClass = 'cron-list-selected';
-                let currentTarget = $(event.currentTarget);
-                let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
-                let modelArrayToInsert = modelGetter(scope);
-                let isKey = false;
+              scope.verifyIsKey = function(rowData){
+                isKey = false;
                 if(optionsList.fieldType && optionsList.fieldType === "key"){
                   rowData = this.changeRowDataField(rowData);
                   isKey = true;
                 }
+                return rowData;
+              }
+
+              scope.limparSelecao = function(){
+                scope.modelArrayToInsert = [];
+                modelSetter(scope, []);
+              }
+
+              scope.isChecked = function(rowData) {
+                let hasObject = false;
+                modelArrayToInsert = modelGetter(scope);
+                rowData = scope.verifyIsKey(rowData);
+                hasObject = scope.addBackgroundChecked(isKey, cronListClass, rowData, null, event);
+                scope.isSelected = hasObject;
+                return hasObject;
+              }
+
+              scope.addBackgroundChecked = function(isKey, cronListClass, rowData, fn, event){
+                let hasObject = false;
+                if(isKey && typeof rowData !== "object"){
+                  modelArrayToInsert.forEach((el, idx) => {
+                    if(rowData === el){
+                      hasObject = true;
+                    }
+                  });
+                }
+                else{
+                  modelArrayToInsert.forEach((el, idx) => {
+                    if(dataSource.objectIsEquals(rowData, el)){
+                      hasObject = true;
+                    }
+                  });
+                }
+                return hasObject;
+              }
+
+              scope.checkboxButtonClick = function(idx, rowData, fn, event) {
+                let hasObject = false;
+                let currentTarget = $(event.currentTarget);
+                let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
+                modelArrayToInsert = modelGetter(scope);
                 if(!$(event.target).is('input[type=checkbox]') && !fn){
                   if(checkedSize > 0){
                     currentTarget.find("input[type=checkbox]").prop('checked', false);
@@ -1198,45 +1245,20 @@ window.addEventListener('message', function(event) {
                     currentTarget.find("input[type=checkbox]").prop('checked', true);
                   }
                 }
-                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');       
+                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
+                rowData = scope.verifyIsKey(rowData);
                 if($(currentCheckbox).is(':checked')){
-                  let hasObject = false;
-                  currentTarget.addClass(cronListClass);
-                  currentTarget.find('div.item-content').addClass(cronListClass);
-                  if($(event.target).is('input[type=checkbox]') && fn){
-                    currentTarget.parent().addClass(cronListClass);
-                     currentTarget.parent().find('div.item-content').addClass(cronListClass);
-                  }
-                  if(isKey && typeof rowData !== "object"){
-                    modelArrayToInsert.forEach((el, idx) => {
-                      if(rowData === el){
-                        hasObject = true;
-                      }
-                    });
-                  }
-                  else{
-                    modelArrayToInsert.forEach((el, idx) => {
-                       if(dataSource.objectIsEquals(rowData, el)){
-                        hasObject = true;
-                      }
-                    });
-                  }
+                  hasObject = scope.addBackgroundChecked(isKey, cronListClass, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
-                } 
+                }
                 else{
-                  currentTarget.removeClass(cronListClass);
-                  currentTarget.find('div.item-content').removeClass(cronListClass);
-                  if($(event.target).is('input[type=checkbox]') && fn){
-                    currentTarget.parent().removeClass(cronListClass);
-                    currentTarget.parent().find('div.item-content').removeClass(cronListClass);
-                  }
                   if(isKey && typeof rowData !== "object"){
                     modelArrayToInsert.forEach((el, idx) => {
                       if(rowData === el){
                         modelArrayToInsert.splice(idx, 1);
-                      } 
+                      }
                     });
                   }
                   else{
@@ -1246,11 +1268,11 @@ window.addEventListener('message', function(event) {
                       }
                     });
                   }
-                } 
+                }
+                scope.modelArrayToInsert = modelArrayToInsert;
                 modelSetter(scope, modelArrayToInsert);
                 event.stopPropagation();
               }
-
             }
             else{
               scope.setRowDataModel = function(idx, rowData, fn, event) {
@@ -1292,7 +1314,7 @@ window.addEventListener('message', function(event) {
             };
 
             scope.$eval(fn, contextVars);
-            
+
             event.preventDefault();
             event.stopPropagation();
           }
@@ -1336,7 +1358,8 @@ window.addEventListener('message', function(event) {
 
         var templateDyn = null;
         if (searchableField) {
-          templateDyn = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE);
+          let templateWithSearch = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE)
+          templateDyn = $(templateWithSearch);
         } else {
           templateDyn = $(TEMPLATE);
         }
@@ -1353,7 +1376,7 @@ window.addEventListener('message', function(event) {
 
         var ngClickAttrTemplate = "";
         var ngClickAttrTemplateCheckbox = "";
-        
+
         if(optionsList.allowMultiselect){
           if(attrs['ngModel']){
             ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);"
@@ -1397,7 +1420,7 @@ window.addEventListener('message', function(event) {
 
         let extraClassToAdd = ''
         if(optionsList.imageType && bothDirection && addedImage && iconTemplate){
-            extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
+          extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
         }
         content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
 
