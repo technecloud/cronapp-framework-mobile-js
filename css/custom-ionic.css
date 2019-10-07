@@ -48,6 +48,11 @@
     margin-left: 15px;
 }
 
-.cron-list-selected{
-    background-color: aliceblue !important;
+.cron-list-selected, .cron-list-selected > div.item-content{
+    background-color: aliceblue;
+}
+
+.cron-list-button-clean{
+    min-height: 28px;
+    line-height: 24px;
 }
