@@ -6653,14 +6653,39 @@
           "text_en_US": "Icon"
         },
         {
-          "selector": "div#{id} .item-input",
-          "text_pt_BR": "Pesquisar",
-          "text_en_US": "Search"
-        },
-        {
           "selector": "div#{id} .item-content",
           "text_pt_BR": "Lista",
           "text_en_US": "List"
+        },
+        {
+          "selector": "div#{id} .item-input-inset",
+          "text_pt_BR": "Caixa de Pesquisa",
+          "text_en_US": "Search Box"
+        },
+        {
+          "selector": "div#{id} .item-input-wrapper",
+          "text_pt_BR": "Barra de Pesquisar",
+          "text_en_US": "Search Bar"
+        },
+        {
+          "selector": "div#{id} .item-input-wrapper > input",
+          "text_pt_BR": "Input de Pesquisa",
+          "text_en_US": "Search Input"
+        },
+        {
+          "selector": "div#{id} label.checkbox",
+          "text_pt_BR": "Checkbox",
+          "text_en_US": "Checkbox"
+        },
+        {
+          "selector": "div#{id} .cron-list-selected, div#{id} .cron-list-selected > div.item-content",
+          "text_pt_BR": "Item Selecionado",
+          "text_en_US": "Selected Item"
+        },
+        {
+          "selector": "div#{id} button.cron-list-button-clean",
+          "text_pt_BR": "Botão de Limpar",
+          "text_en_US": "Clean Button"
         }
       ]
     },
