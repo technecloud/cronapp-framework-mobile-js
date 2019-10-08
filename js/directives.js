@@ -1149,9 +1149,9 @@ window.addEventListener('message', function(event) {
                 <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
                 crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
               </label>\
-              <button ng-if="options.allowMultiselect" ng-disabled="modelArrayToInsert.length == 0" ng-click="limparSelecao()" \
+              <button ng-if="showButton()" ng-click="limparSelecao()" \
                 class="button-small cron-list-button-clean button button-inline button-positive component-holder">\
-              <span>Limpar Seleção<\span></button> \
+              <span  cron-list-button-text>Limpar Seleção<\span></button> \
               </div>\
              ';
     }
@@ -1180,15 +1180,12 @@ window.addEventListener('message', function(event) {
           var isKey = false;
           const cronListClass = 'cron-list-selected';
           scope.options = optionsList;
-          scope.modelArrayToInsert = modelArrayToInsert;
 
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
 
             if(optionsList.allowMultiselect){
-
-              modelSetter(scope, []);
 
               scope.verifyIsKey = function(rowData){
                 isKey = false;
@@ -1200,7 +1197,6 @@ window.addEventListener('message', function(event) {
               }
 
               scope.limparSelecao = function(){
-                scope.modelArrayToInsert = [];
                 modelSetter(scope, []);
               }
 
@@ -1208,26 +1204,28 @@ window.addEventListener('message', function(event) {
                 let hasObject = false;
                 modelArrayToInsert = modelGetter(scope);
                 rowData = scope.verifyIsKey(rowData);
-                hasObject = scope.addBackgroundChecked(isKey, cronListClass, rowData, null, event);
+                hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, null, event);
                 scope.isSelected = hasObject;
                 return hasObject;
               }
 
-              scope.addBackgroundChecked = function(isKey, cronListClass, rowData, fn, event){
+              scope.hasObjectChecked = function(isKey, cronListClass, rowData, fn, event){
                 let hasObject = false;
-                if(isKey && typeof rowData !== "object"){
-                  modelArrayToInsert.forEach((el, idx) => {
-                    if(rowData === el){
-                      hasObject = true;
-                    }
-                  });
-                }
-                else{
-                  modelArrayToInsert.forEach((el, idx) => {
-                    if(dataSource.objectIsEquals(rowData, el)){
-                      hasObject = true;
-                    }
-                  });
+                if(Array.isArray(modelArrayToInsert)){
+                  if(isKey && typeof rowData !== "object"){
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(rowData === el){
+                        hasObject = true;
+                      }
+                    });
+                  }
+                  else{
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(dataSource.objectIsEquals(rowData, el)){
+                        hasObject = true;
+                      }
+                    });
+                  }
                 }
                 return hasObject;
               }
@@ -1237,6 +1235,9 @@ window.addEventListener('message', function(event) {
                 let currentTarget = $(event.currentTarget);
                 let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
                 modelArrayToInsert = modelGetter(scope);
+                if(!Array.isArray(modelArrayToInsert)){
+                  modelArrayToInsert = [];
+                }
                 if(!$(event.target).is('input[type=checkbox]') && !fn){
                   if(checkedSize > 0){
                     currentTarget.find("input[type=checkbox]").prop('checked', false);
@@ -1248,7 +1249,7 @@ window.addEventListener('message', function(event) {
                 let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
                 rowData = scope.verifyIsKey(rowData);
                 if($(currentCheckbox).is(':checked')){
-                  hasObject = scope.addBackgroundChecked(isKey, cronListClass, rowData, fn, event);
+                  hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
@@ -1269,7 +1270,6 @@ window.addEventListener('message', function(event) {
                     });
                   }
                 }
-                scope.modelArrayToInsert = modelArrayToInsert;
                 modelSetter(scope, modelArrayToInsert);
                 event.stopPropagation();
               }
@@ -1447,6 +1447,16 @@ window.addEventListener('message', function(event) {
 
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
+
+        scope.showButton = function() {
+          if (optionsList.allowMultiselect) {
+            var model = modelGetter(scope);
+            if (model !== null && model !== undefined) {
+              return model.length > 0;
+            }
+          }
+          return false;
+        }
 
         $compile(templateDyn)(scope);
       }
