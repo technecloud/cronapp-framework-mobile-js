@@ -990,14 +990,6 @@ window.addEventListener('message', function(event) {
   .directive('cronList', ['$compile', '$parse', function($compile, $parse){
     'use strict';
 
-    let TEMPLATE = '\
-               <ion-list type="" can-swipe="listCanSwipe"> \
-            	   <ion-item class="item" ng-repeat="rowData in datasource"> \
-              	 </ion-item> \
-               </ion-list> \
-               <ion-infinite-scroll></ion-infinite-scroll> \
-               ';
-
     var getExpression = function(dataSourceName) {
       return 'rowData in '.concat(dataSourceName).concat('.data');
     }
@@ -1008,18 +1000,6 @@ window.addEventListener('message', function(event) {
       result = ' | mask: "' + column.type + '"';
       if(column.format){
         result = ' | mask: "' + column.format + '":"'+column.type+'"';
-      }
-
-      return result;
-    }
-
-    var addDefaultColumn = function(column, first) {
-      var result = null;
-
-      if (first) {
-        result = '<h2>{{rowData.' + column.field + buildFormat(column) + '}}</h2>';
-      } else {
-        result = '<h3 class="dark">{{rowData.' + column.field + buildFormat(column) + '}}</h3>';
       }
 
       return result;
@@ -1064,8 +1044,8 @@ window.addEventListener('message', function(event) {
         imageType = "default";
       }
       template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
-                      imageType +
-                      '" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>';                
+          imageType +
+          '" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>';
       return template;
     }
 
@@ -1153,6 +1133,7 @@ window.addEventListener('message', function(event) {
     return {
       restrict: 'E',
       require: '?ngModel',
+      scope: true,
       priority: 9999998,
       terminal: true,
       link: function(scope, element, attrs, ngModelCtrl) {
@@ -1168,7 +1149,7 @@ window.addEventListener('message', function(event) {
           dataSourceName = optionsList.dataSourceScreen.name;
           var dataSource = eval(optionsList.dataSourceScreen.name);
           var checkboxTemplate = '';
-         
+
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
@@ -1195,14 +1176,14 @@ window.addEventListener('message', function(event) {
                     currentTarget.find("input[type=checkbox]").prop('checked', true);
                   }
                 }
-                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');       
+                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
                 if($(currentCheckbox).is(':checked')){
                   let hasObject = false;
                   currentTarget.addClass(cronListClass);
                   currentTarget.find('div.item-content').addClass(cronListClass);
                   if($(event.target).is('input[type=checkbox]') && fn){
                     currentTarget.parent().addClass(cronListClass);
-                     currentTarget.parent().find('div.item-content').addClass(cronListClass);
+                    currentTarget.parent().find('div.item-content').addClass(cronListClass);
                   }
                   if(isKey && typeof rowData !== "object"){
                     modelArrayToInsert.forEach((el, idx) => {
@@ -1213,7 +1194,7 @@ window.addEventListener('message', function(event) {
                   }
                   else{
                     modelArrayToInsert.forEach((el, idx) => {
-                       if(dataSource.objectIsEquals(rowData, el)){
+                      if(dataSource.objectIsEquals(rowData, el)){
                         hasObject = true;
                       }
                     });
@@ -1221,7 +1202,7 @@ window.addEventListener('message', function(event) {
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
-                } 
+                }
                 else{
                   currentTarget.removeClass(cronListClass);
                   currentTarget.find('div.item-content').removeClass(cronListClass);
@@ -1233,7 +1214,7 @@ window.addEventListener('message', function(event) {
                     modelArrayToInsert.forEach((el, idx) => {
                       if(rowData === el){
                         modelArrayToInsert.splice(idx, 1);
-                      } 
+                      }
                     });
                   }
                   else{
@@ -1243,7 +1224,7 @@ window.addEventListener('message', function(event) {
                       }
                     });
                   }
-                } 
+                }
                 modelSetter(scope, modelArrayToInsert);
                 event.stopPropagation();
               }
@@ -1289,7 +1270,7 @@ window.addEventListener('message', function(event) {
             };
 
             scope.$eval(fn, contextVars);
-            
+
             event.preventDefault();
             event.stopPropagation();
           }
@@ -1300,47 +1281,51 @@ window.addEventListener('message', function(event) {
 
           scope.options = optionsList;
           scope.options.fields = {};
+          scope.options.isImageFromDropbox = false;
+          scope.options.editableButtonClass = "";
           if(!optionsList.imagePosition) scope.options.imagePosition = "left";
           if(!optionsList.iconPosition) scope.options.iconPosition = "right";
           if(!optionsList.imageType) scope.options.imageType = "avatar";
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
-          
+
           for (var i = 0; i < optionsList.columns.length; i++) {
             var column = optionsList.columns[i];
             if (column.visible) {
               if (column.field && column.dataType == 'Database') {
                 scope.options.fields["field" + i] = column.field;
-              }
-              if (isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
-                scope.options.fields["image"] = column.field;
-                delete scope.options.fields["field" + i];
-              }
-              if (column.field && column.dataType == 'Database') {
-                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show") {
-                  image = addImage(column, imageDirection, iconDirection, iconTemplate, bothDirection, optionsList.imageType);
+                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
+                  scope.options.fields["image"] = column.field;
+                  delete scope.options.fields["field" + i];
                   addedImage = true;
-                } else if (!addedImage && (column.type == 'image')) {
-                  image = addImageLink(column);
-                  addedImage = true;
+                  scope.options.isImageFromDropbox = false;
                 }
-                else {
-                  content = content.concat(addDefaultColumn(column, (i === 0)));
+                else if(!addedImage && (column.type == 'image')){
+                  scope.options.fields["image"] = column.field;
+                  delete scope.options.fields["field" + i];
+                  addedImage = true;
+                  scope.options.isImageFromDropbox = true;
+                }
+                else{
                   if (column.filterable) {
                     searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                   }
                 }
-              } else if (column.dataType == 'Command') {
-                buttons = buttons.concat(addDefaultButton(dataSourceName, column));
-                if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
-                  isNativeEdit = true;
+              }
+              else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
+                scope.options.editableButtonClass = "item-complex item-right-editable";
+                if(column.dataType == 'Command'){
+                  scope.options.fields["field" + i] = column.field;
+                  buttons = buttons.concat(addDefaultButton(dataSourceName, column));
+                  if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
+                    isNativeEdit = true;
+                  }
+                } else if (column.dataType == 'Blockly') {
+                  buttons = buttons.concat(addBlockly(column));
+                } else if (column.dataType == 'Customized') {
+                  buttons = buttons.concat(addCustomButton(column));
                 }
-              } else if (column.dataType == 'Blockly') {
-                buttons = buttons.concat(addBlockly(column));
-              } else if (column.dataType == 'Customized') {
-
-                buttons = buttons.concat(addCustomButton(column));
               }
             }
           }
@@ -1349,7 +1334,7 @@ window.addEventListener('message', function(event) {
         }
 
         if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
-          scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition; 
+          scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition;
         }
 
         if(scope.options.icon && scope.options.iconPosition && scope.options.imageType){
@@ -1367,7 +1352,7 @@ window.addEventListener('message', function(event) {
         } else {
           templateDyn = $(scope.options.advancedTemplate);
         }
-        scope.options.xattrTextPosition = attrs.xattrTextPosition; 
+        scope.options.xattrTextPosition = attrs.xattrTextPosition;
 
         templateDyn.attr("type", optionsList.listType);
         $(element).replaceWith(templateDyn);
@@ -1382,12 +1367,12 @@ window.addEventListener('message', function(event) {
 
         var ngClickAttrTemplate = "";
         var ngClickAttrTemplateCheckbox = "";
-        
+
         if(optionsList.allowMultiselect){
           if(attrs['ngModel']){
             ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);"
           }
-          checkboxTemplate = addCheckbox(addedImage, optionsList.imageType)
+          checkboxTemplate = $element.find('ul');
           if(attrs.ngClick){
             checkboxTemplate = $(checkboxTemplate).attr('ng-click', ngClickAttrTemplateCheckbox).get(0).outerHTML;
             ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
@@ -1412,6 +1397,8 @@ window.addEventListener('message', function(event) {
           ionItem.attr(filteredItems[o], attrs[o]);
         }
 
+        ionItem.append(buttons);
+
         scope.nextPageInfinite = function() {
           dataSource.nextPage();
           scope.$broadcast('scroll.infiniteScrollComplete');
@@ -1423,7 +1410,7 @@ window.addEventListener('message', function(event) {
 
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
-        
+
         $compile(templateDyn, null, 9999998)(scope);
       }
     }
