@@ -1022,33 +1022,6 @@ window.addEventListener('message', function(event) {
       }
     }
 
-    var addImage = function(column, imageDirection, iconDirection, iconTemplate, bothDirection, imageType) {
-      let extraClassToAdd = ''
-      if(iconTemplate && imageType && bothDirection){
-        extraClassToAdd = 'image-to-' + bothDirection + '-' + imageType;
-      }
-      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}" class="' + extraClassToAdd + '" ></img>';
-    }
-
-    var addImageLink = function(column) {
-      return '<img ng-src="{{rowData.' + column.field + '}}"></img>';
-    }
-
-    var addIcon = function(icon) {
-      return '<i class="' + icon + '" xattr-theme="dark"></i>';
-    }
-
-    var addCheckbox = function(addedImage, imageType){
-      var template = '';
-      if(!addedImage || !imageType){
-        imageType = "default";
-      }
-      template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
-          imageType +
-          '" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>';
-      return template;
-    }
-
     var encodeHTML = function(value) {
       return value.replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -1282,7 +1255,9 @@ window.addEventListener('message', function(event) {
           scope.options = optionsList;
           scope.options.fields = {};
           scope.options.isImageFromDropbox = false;
-          scope.options.editableButtonClass = "";
+          scope.options.editableButtonClass = ""; 
+          scope.options.itemContentClass = "";
+          scope.options.itemSimple = "";
           if(!optionsList.imagePosition) scope.options.imagePosition = "left";
           if(!optionsList.iconPosition) scope.options.iconPosition = "right";
           if(!optionsList.imageType) scope.options.imageType = "avatar";
@@ -1333,8 +1308,22 @@ window.addEventListener('message', function(event) {
           console.log('CronList invalid configuration! ' + err);
         }
 
+        if(!scope.options.editableButtonClass && !addedImage){
+          scope.options.itemContentClass = "item-content"
+          scope.options.itemSimple = "item-simple"
+        }
+        else if(!scope.options.editableButtonClass && addedImage){
+          scope.options.itemContentClass = "item-content"
+          scope.options.editableButtonClass = "item-complex";
+          scope.options.itemSimple = ""
+        }
+
         if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
           scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition;
+        }
+
+        if(!addedImage){
+          scope.options.imageType = "do-not-show"
         }
 
         if(scope.options.icon && scope.options.iconPosition && scope.options.imageType){
