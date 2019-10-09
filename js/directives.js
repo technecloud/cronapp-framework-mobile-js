@@ -1093,9 +1093,7 @@ window.addEventListener('message', function(event) {
 
         var optionsList = {};
         var dataSourceName = '';
-        var content = '';
         var buttons = '';
-        var image = '';
 
         try {
           optionsList = JSON.parse(attrs.options);
@@ -1103,7 +1101,6 @@ window.addEventListener('message', function(event) {
           var dataSource = eval(optionsList.dataSourceScreen.name);
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
           var modelArrayToInsert = [];
