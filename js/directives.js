@@ -1101,7 +1101,15 @@ window.addEventListener('message', function(event) {
           optionsList = JSON.parse(attrs.options);
           dataSourceName = optionsList.dataSourceScreen.name;
           var dataSource = eval(optionsList.dataSourceScreen.name);
+          var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+          var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
+          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
+          var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
+          var modelArrayToInsert = [];
+          var isKey = false;
+          const cronListClass = 'cron-list-selected';
+          scope.options = optionsList;
 
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
@@ -1109,35 +1117,31 @@ window.addEventListener('message', function(event) {
 
             if(optionsList.allowMultiselect){
 
-              modelSetter(scope, []);
-
-              scope.checkboxButtonClick = function(idx, rowData, fn, event) {
-                const cronListClass = 'cron-list-selected';
-                let currentTarget = $(event.currentTarget);
-                let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
-                let modelArrayToInsert = modelGetter(scope);
-                let isKey = false;
+              scope.verifyIsKey = function(rowData){
+                isKey = false;
                 if(optionsList.fieldType && optionsList.fieldType === "key"){
                   rowData = this.changeRowDataField(rowData);
                   isKey = true;
                 }
-                if(!$(event.target).is('input[type=checkbox]') && !fn){
-                  if(checkedSize > 0){
-                    currentTarget.find("input[type=checkbox]").prop('checked', false);
-                  }
-                  else{
-                    currentTarget.find("input[type=checkbox]").prop('checked', true);
-                  }
-                }
-                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
-                if($(currentCheckbox).is(':checked')){
-                  let hasObject = false;
-                  currentTarget.addClass(cronListClass);
-                  currentTarget.find('div.item-content').addClass(cronListClass);
-                  if($(event.target).is('input[type=checkbox]') && fn){
-                    currentTarget.parent().addClass(cronListClass);
-                    currentTarget.parent().find('div.item-content').addClass(cronListClass);
-                  }
+                return rowData;
+              }
+
+              scope.limparSelecao = function(){
+                modelSetter(scope, []);
+              }
+
+              scope.isChecked = function(rowData) {
+                let hasObject = false;
+                modelArrayToInsert = modelGetter(scope);
+                rowData = scope.verifyIsKey(rowData);
+                hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, null, event);
+                scope.isSelected = hasObject;
+                return hasObject;
+              }
+
+              scope.hasObjectChecked = function(isKey, cronListClass, rowData, fn, event){
+                let hasObject = false;
+                if(Array.isArray(modelArrayToInsert)){
                   if(isKey && typeof rowData !== "object"){
                     modelArrayToInsert.forEach((el, idx) => {
                       if(rowData === el){
@@ -1152,17 +1156,35 @@ window.addEventListener('message', function(event) {
                       }
                     });
                   }
+                }
+                return hasObject;
+              }
+
+              scope.checkboxButtonClick = function(idx, rowData, fn, event) {
+                let hasObject = false;
+                let currentTarget = $(event.currentTarget);
+                let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
+                modelArrayToInsert = modelGetter(scope);
+                if(!Array.isArray(modelArrayToInsert)){
+                  modelArrayToInsert = [];
+                }
+                if(!$(event.target).is('input[type=checkbox]') && !fn){
+                  if(checkedSize > 0){
+                    currentTarget.find("input[type=checkbox]").prop('checked', false);
+                  }
+                  else{
+                    currentTarget.find("input[type=checkbox]").prop('checked', true);
+                  }
+                }
+                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
+                rowData = scope.verifyIsKey(rowData);
+                if($(currentCheckbox).is(':checked')){
+                  hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
                 }
                 else{
-                  currentTarget.removeClass(cronListClass);
-                  currentTarget.find('div.item-content').removeClass(cronListClass);
-                  if($(event.target).is('input[type=checkbox]') && fn){
-                    currentTarget.parent().removeClass(cronListClass);
-                    currentTarget.parent().find('div.item-content').removeClass(cronListClass);
-                  }
                   if(isKey && typeof rowData !== "object"){
                     modelArrayToInsert.forEach((el, idx) => {
                       if(rowData === el){
@@ -1181,7 +1203,6 @@ window.addEventListener('message', function(event) {
                 modelSetter(scope, modelArrayToInsert);
                 event.stopPropagation();
               }
-
             }
             else{
               scope.setRowDataModel = function(idx, rowData, fn, event) {
@@ -1382,6 +1403,16 @@ window.addEventListener('message', function(event) {
 
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
+
+        scope.showButton = function() {
+          if (optionsList.allowMultiselect) {
+            var model = modelGetter(scope);
+            if (model !== null && model !== undefined) {
+              return model.length > 0;
+            }
+          }
+          return false;
+        }
 
         $compile(templateDyn, null, 9999998)(scope);
       }
