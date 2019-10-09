@@ -1083,26 +1083,6 @@ window.addEventListener('message', function(event) {
       return `<ion-option-button class="button-dark ${column.iconClass}" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)">${column.label}</ion-option-button> `
     }
 
-    var isImage = function(fieldName, schemaFields) {
-      for (var i = 0; i < schemaFields.length; i++) {
-        var field = schemaFields[i];
-        if (fieldName == field.name) {
-          return (field.type == 'Binary');
-        }
-      }
-
-      return false;
-    }
-
-    var getSearchableList = function(dataSourceName, fieldName) {
-      return '\
-              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i> \
-                <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
-                crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
-              </label>\
-             ';
-    }
-
     return {
       restrict: 'E',
       require: '?ngModel',
@@ -1258,6 +1238,8 @@ window.addEventListener('message', function(event) {
           scope.options.editableButtonClass = ""; 
           scope.options.itemContentClass = "";
           scope.options.itemSimple = "";
+          scope.options.filterFields = "";
+          scope.options.randomModel = Math.floor(Math.random() * (9000)) + 1000;
           if(!optionsList.imagePosition) scope.options.imagePosition = "left";
           if(!optionsList.iconPosition) scope.options.iconPosition = "right";
           if(!optionsList.imageType) scope.options.imageType = "avatar";
@@ -1337,7 +1319,8 @@ window.addEventListener('message', function(event) {
 
         var templateDyn = null;
         if (searchableField) {
-          templateDyn = $(getSearchableList(dataSourceName, searchableField) + scope.options.advancedTemplate);
+          scope.options.filterFields = searchableField;
+          templateDyn = $(scope.options.searchTemplate + scope.options.advancedTemplate);
         } else {
           templateDyn = $(scope.options.advancedTemplate);
         }
