@@ -1105,7 +1105,6 @@ window.addEventListener('message', function(event) {
           var checkboxTemplate = '';
           var modelArrayToInsert = [];
           var isKey = false;
-          const cronListClass = 'cron-list-selected';
           scope.options = optionsList;
 
           if(attrs['ngModel']){
@@ -1131,12 +1130,12 @@ window.addEventListener('message', function(event) {
                 let hasObject = false;
                 modelArrayToInsert = modelGetter(scope);
                 rowData = scope.verifyIsKey(rowData);
-                hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, null, event);
+                hasObject = scope.hasObjectChecked(isKey, rowData, null, event);
                 scope.isSelected = hasObject;
                 return hasObject;
               }
 
-              scope.hasObjectChecked = function(isKey, cronListClass, rowData, fn, event){
+              scope.hasObjectChecked = function(isKey, rowData, fn, event){
                 let hasObject = false;
                 if(Array.isArray(modelArrayToInsert)){
                   if(isKey && typeof rowData !== "object"){
@@ -1176,7 +1175,7 @@ window.addEventListener('message', function(event) {
                 let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
                 rowData = scope.verifyIsKey(rowData);
                 if($(currentCheckbox).is(':checked')){
-                  hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, fn, event);
+                  hasObject = scope.hasObjectChecked(isKey, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
@@ -1264,43 +1263,49 @@ window.addEventListener('message', function(event) {
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
+          var visibleColumns = [];
 
           for (var i = 0; i < optionsList.columns.length; i++) {
             var column = optionsList.columns[i];
             if (column.visible) {
-              if (column.field && column.dataType == 'Database') {
-                scope.options.fields["field" + i] = column.field;
-                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
-                  scope.options.fields["image"] = column.field;
-                  delete scope.options.fields["field" + i];
-                  addedImage = true;
-                  scope.options.isImageFromDropbox = false;
-                }
-                else if(!addedImage && (column.type == 'image')){
-                  scope.options.fields["image"] = column.field;
-                  delete scope.options.fields["field" + i];
-                  addedImage = true;
-                  scope.options.isImageFromDropbox = true;
-                }
-                else{
-                  if (column.filterable) {
-                    searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
-                  }
+              visibleColumns.push(optionsList.columns[i]);
+            }
+          }
+
+          for (var i = 0; i < visibleColumns.length; i++) {
+            var column = visibleColumns[i];
+            if (column.field && column.dataType == 'Database') {
+              scope.options.fields["field" + i] = column.field;
+              if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+                addedImage = true;
+                scope.options.isImageFromDropbox = false;
+              }
+              else if(!addedImage && (column.type == 'image')){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+                addedImage = true;
+                scope.options.isImageFromDropbox = true;
+              }
+              else{
+                if (column.filterable) {
+                  searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                 }
               }
-              else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
-                scope.options.editableButtonClass = "item-complex item-right-editable";
-                if(column.dataType == 'Command'){
-                  scope.options.fields["field" + i] = column.field;
-                  buttons = buttons.concat(addDefaultButton(dataSourceName, column));
-                  if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
-                    isNativeEdit = true;
-                  }
-                } else if (column.dataType == 'Blockly') {
-                  buttons = buttons.concat(addBlockly(column));
-                } else if (column.dataType == 'Customized') {
-                  buttons = buttons.concat(addCustomButton(column));
+            }
+            else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
+              scope.options.editableButtonClass = "item-complex item-right-editable";
+              if(column.dataType == 'Command'){
+                scope.options.fields["field" + i] = column.field;
+                buttons = buttons.concat(addDefaultButton(dataSourceName, column));
+                if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
+                  isNativeEdit = true;
                 }
+              } else if (column.dataType == 'Blockly') {
+                buttons = buttons.concat(addBlockly(column));
+              } else if (column.dataType == 'Customized') {
+                buttons = buttons.concat(addCustomButton(column));
               }
             }
           }
