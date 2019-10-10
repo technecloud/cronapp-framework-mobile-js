@@ -1153,6 +1153,7 @@ window.addEventListener('message', function(event) {
     return {
       restrict: 'E',
       require: '?ngModel',
+      scope: true,
       link: function(scope, element, attrs, ngModelCtrl) {
 
         var optionsList = {};
