@@ -1393,7 +1393,9 @@ window.addEventListener('message', function(event) {
         var $element = templateDyn;
 
         var ionItem = $element.find('ion-item');
-        ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        if($(ionItem).attr('ng-repeat') === "rowData in datasource"){
+          ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        }
 
         if (isNativeEdit) {
           ionItem.attr('ng-click', getEditCommand(dataSourceName));
