@@ -990,6 +990,37 @@ window.addEventListener('message', function(event) {
   .directive('cronList', ['$compile', '$parse', function($compile, $parse){
     'use strict';
 
+    const defaultAdvancedTemplate =
+    "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n" +
+    "   <ion-item ng-class=\"{'cron-list-selected' : isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n" +
+    "     <ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n" +
+    "	    <img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n" +
+    "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
+    "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
+    "			<h2 ng-if=\"options.fields.field0\">{{rowData[options.fields.field0]}}</h2>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field1\">{{rowData[options.fields.field1]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field2\">{{rowData[options.fields.field2]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field3\">{{rowData[options.fields.field3]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field4\">{{rowData[options.fields.field4]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field5\">{{rowData[options.fields.field5]}}</h3>\n" +
+    "			<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n" +
+    "		</div>\n" +
+    "   </ion-item>\n" +
+    "</ion-list>\n" +
+    "<ion-infinite-scroll></ion-infinite-scroll>\n";
+
+    const defaultSearchTemplate = 
+      "<div class=\"item item-input-inset\">\n" +
+      "   <label class=\"item-input-wrapper\">\n" +
+      "   <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+      "   <input type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
+      "   cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{\'template.crud.search\' | translate}}\">\n" +
+      "   </label>\n" +
+      "   <button ng-if=\"showButton()\" ng-click=\"limparSelecao()\"\n" +
+      "   class=\"button-small cron-list-button-clean button button-inline button-positive component-holder\">\n" +
+      "   <span cron-list-button-text>Limpar Seleção</span></button>\n" +
+    "</div>";
+
     var getExpression = function(dataSourceName) {
       return 'rowData in '.concat(dataSourceName).concat('.data');
     }
@@ -1338,6 +1369,14 @@ window.addEventListener('message', function(event) {
         if(bothDirection && scope.options.icon && scope.options.imagePosition && scope.options.imageType){
           scope.options.imageToClassPosition = "image-to-" + scope.options.imagePosition + '-' + scope.options.imageType;
           scope.options.textToClassPosition = "text-to-" + scope.options.iconPosition + '-' + scope.options.imageType;
+        }
+
+        if(!scope.options.advancedTemplate){
+          scope.options.advancedTemplate = defaultAdvancedTemplate;
+        }
+
+         if(!scope.options.searchTemplate){
+          scope.options.searchTemplate = defaultSearchTemplate
         }
 
         var templateDyn = null;
