@@ -990,13 +990,36 @@ window.addEventListener('message', function(event) {
   .directive('cronList', ['$compile', '$parse', function($compile, $parse){
     'use strict';
 
-    let TEMPLATE = '\
-               <ion-list type="" can-swipe="listCanSwipe"> \
-            	   <ion-item ng-class="{\'cron-list-selected\' : isChecked(rowData)}" class="item" ng-repeat="rowData in datasource"> \
-              	 </ion-item> \
-               </ion-list> \
-               <ion-infinite-scroll></ion-infinite-scroll> \
-               ';
+    const defaultAdvancedTemplate =
+    "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n" +
+    "   <ion-item ng-class=\"{'cron-list-selected' : isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n" +
+    "     <ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n" +
+    "	    <img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n" +
+    "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
+    "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
+    "			<h2 ng-if=\"options.fields.field0\">{{rowData[options.fields.field0]}}</h2>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field1\">{{rowData[options.fields.field1]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field2\">{{rowData[options.fields.field2]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field3\">{{rowData[options.fields.field3]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field4\">{{rowData[options.fields.field4]}}</h3>\n" +
+    "			<h3 class=\"dark\" ng-if=\"options.fields.field5\">{{rowData[options.fields.field5]}}</h3>\n" +
+    "			<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n" +
+    "		</div>\n" +
+    "   </ion-item>\n" +
+    "</ion-list>\n" +
+    "<ion-infinite-scroll></ion-infinite-scroll>\n";
+
+    const defaultSearchTemplate =
+      "<div class=\"item item-input-inset\">\n" +
+      "   <label class=\"item-input-wrapper\">\n" +
+      "   <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+      "   <input type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
+      "   cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{\'template.crud.search\' | translate}}\">\n" +
+      "   </label>\n" +
+      "   <button ng-if=\"showButton()\" ng-click=\"limparSelecao()\"\n" +
+      "   class=\"button-small cron-list-button-clean button button-inline button-positive component-holder\">\n" +
+      "   <span cron-list-button-text>Limpar Seleção</span></button>\n" +
+    "</div>";
 
     var getExpression = function(dataSourceName) {
       return 'rowData in '.concat(dataSourceName).concat('.data');
@@ -1008,18 +1031,6 @@ window.addEventListener('message', function(event) {
       result = ' | mask: "' + column.type + '"';
       if(column.format){
         result = ' | mask: "' + column.format + '":"'+column.type+'"';
-      }
-
-      return result;
-    }
-
-    var addDefaultColumn = function(column, first) {
-      var result = null;
-
-      if (first) {
-        result = '<h2>{{rowData.' + column.field + buildFormat(column) + '}}</h2>';
-      } else {
-        result = '<h3 class="dark">{{rowData.' + column.field + buildFormat(column) + '}}</h3>';
       }
 
       return result;
@@ -1040,34 +1051,6 @@ window.addEventListener('message', function(event) {
       } else if (column.command == 'destroy') {
         return DELETE_TEMPLATE;
       }
-    }
-
-    var addImage = function(column, imageDirection, iconDirection, iconTemplate, bothDirection, imageType) {
-      let extraClassToAdd = ''
-      if(iconTemplate && imageType && bothDirection){
-        extraClassToAdd = 'image-to-' + bothDirection + '-' + imageType;
-      }
-      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}" class="' + extraClassToAdd + '" ></img>';
-    }
-
-    var addImageLink = function(column) {
-      return '<img ng-src="{{rowData.' + column.field + '}}"></img>';
-    }
-
-    var addIcon = function(icon) {
-      return '<i class="' + icon + '" xattr-theme="dark"></i>';
-    }
-
-    var addCheckbox = function(addedImage, imageType){
-      var template = '';
-      if(!addedImage || !imageType){
-        imageType = "default";
-      }
-      template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
-          imageType +
-          '"data-component="crn-checkbox"><label class="checkbox">' +
-          '<input ng-checked="isChecked(rowData);" type="checkbox"></label></ul>';
-      return template;
     }
 
     var encodeHTML = function(value) {
@@ -1131,42 +1114,17 @@ window.addEventListener('message', function(event) {
       return `<ion-option-button class="button-dark ${column.iconClass}" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)">${column.label}</ion-option-button> `
     }
 
-    var isImage = function(fieldName, schemaFields) {
-      for (var i = 0; i < schemaFields.length; i++) {
-        var field = schemaFields[i];
-        if (fieldName == field.name) {
-          return (field.type == 'Binary');
-        }
-      }
-
-      return false;
-    }
-
-    var getSearchableList = function(dataSourceName, fieldName) {
-      return '\
-              <div class="item item-input-inset">\
-              <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i> \
-                <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
-                crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
-              </label>\
-              <button ng-if="showButton()" ng-click="limparSelecao()" \
-                class="button-small cron-list-button-clean button button-inline button-positive component-holder">\
-              <span  cron-list-button-text>Limpar Seleção<\span></button> \
-              </div>\
-             ';
-    }
-
     return {
       restrict: 'E',
       require: '?ngModel',
       scope: true,
+      priority: 9999998,
+      terminal: true,
       link: function(scope, element, attrs, ngModelCtrl) {
 
         var optionsList = {};
         var dataSourceName = '';
-        var content = '';
         var buttons = '';
-        var image = '';
 
         try {
           optionsList = JSON.parse(attrs.options);
@@ -1174,12 +1132,10 @@ window.addEventListener('message', function(event) {
           var dataSource = eval(optionsList.dataSourceScreen.name);
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
           var modelArrayToInsert = [];
           var isKey = false;
-          const cronListClass = 'cron-list-selected';
           scope.options = optionsList;
 
           if(attrs['ngModel']){
@@ -1205,12 +1161,12 @@ window.addEventListener('message', function(event) {
                 let hasObject = false;
                 modelArrayToInsert = modelGetter(scope);
                 rowData = scope.verifyIsKey(rowData);
-                hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, null, event);
+                hasObject = scope.hasObjectChecked(isKey, rowData, null, event);
                 scope.isSelected = hasObject;
                 return hasObject;
               }
 
-              scope.hasObjectChecked = function(isKey, cronListClass, rowData, fn, event){
+              scope.hasObjectChecked = function(isKey, rowData, fn, event){
                 let hasObject = false;
                 if(Array.isArray(modelArrayToInsert)){
                   if(isKey && typeof rowData !== "object"){
@@ -1250,7 +1206,7 @@ window.addEventListener('message', function(event) {
                 let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
                 rowData = scope.verifyIsKey(rowData);
                 if($(currentCheckbox).is(':checked')){
-                  hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, fn, event);
+                  hasObject = scope.hasObjectChecked(isKey, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
@@ -1323,24 +1279,56 @@ window.addEventListener('message', function(event) {
           var searchableField = null;
           var isNativeEdit = false;
           var addedImage = false;
+
+          scope.options = optionsList;
+          scope.options.fields = {};
+          scope.options.isImageFromDropbox = false;
+          scope.options.editableButtonClass = "";
+          scope.options.itemContentClass = "";
+          scope.options.itemSimple = "";
+          scope.options.filterFields = "";
+          scope.options.randomModel = Math.floor(Math.random() * (9000)) + 1000;
+          if(!optionsList.imagePosition) scope.options.imagePosition = "left";
+          if(!optionsList.iconPosition) scope.options.iconPosition = "right";
+          if(!optionsList.imageType) scope.options.imageType = "avatar";
+          var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+          var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
+          var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
+          var visibleColumns = [];
+
           for (var i = 0; i < optionsList.columns.length; i++) {
             var column = optionsList.columns[i];
             if (column.visible) {
-              if (column.field && column.dataType == 'Database') {
-                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show") {
-                  image = addImage(column, imageDirection, iconDirection, iconTemplate, bothDirection, optionsList.imageType);
-                  addedImage = true;
-                } else if (!addedImage && (column.type == 'image')) {
-                  image = addImageLink(column);
-                  addedImage = true;
+              visibleColumns.push(optionsList.columns[i]);
+            }
+          }
+
+          for (var i = 0; i < visibleColumns.length; i++) {
+            var column = visibleColumns[i];
+            if (column.field && column.dataType == 'Database') {
+              scope.options.fields["field" + i] = column.field;
+              if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+                addedImage = true;
+                scope.options.isImageFromDropbox = false;
+              }
+              else if(!addedImage && (column.type == 'image')){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+                addedImage = true;
+                scope.options.isImageFromDropbox = true;
+              }
+              else{
+                if (column.filterable) {
+                  searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                 }
-                else {
-                  content = content.concat(addDefaultColumn(column, (i == 0)));
-                  if (column.filterable) {
-                    searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
-                  }
-                }
-              } else if (column.dataType == 'Command') {
+              }
+            }
+            else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
+              scope.options.editableButtonClass = "item-complex item-right-editable";
+              if(column.dataType == 'Command'){
+                scope.options.fields["field" + i] = column.field;
                 buttons = buttons.concat(addDefaultButton(dataSourceName, column));
                 if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
                   isNativeEdit = true;
@@ -1348,7 +1336,6 @@ window.addEventListener('message', function(event) {
               } else if (column.dataType == 'Blockly') {
                 buttons = buttons.concat(addBlockly(column));
               } else if (column.dataType == 'Customized') {
-
                 buttons = buttons.concat(addCustomButton(column));
               }
             }
@@ -1357,19 +1344,58 @@ window.addEventListener('message', function(event) {
           console.log('CronList invalid configuration! ' + err);
         }
 
+        if(!scope.options.editableButtonClass && !addedImage){
+          scope.options.itemContentClass = "item-content"
+          scope.options.itemSimple = "item-simple"
+        }
+        else if(!scope.options.editableButtonClass && addedImage){
+          scope.options.itemContentClass = "item-content"
+          scope.options.editableButtonClass = "item-complex";
+          scope.options.itemSimple = ""
+        }
+
+        if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
+          scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition;
+        }
+
+        if(!addedImage){
+          scope.options.imageType = "do-not-show"
+        }
+
+        if(scope.options.icon && scope.options.iconPosition && scope.options.imageType){
+          scope.options.iconClassPosition = "item-icon-" + scope.options.iconPosition;
+        }
+
+        if(bothDirection && scope.options.icon && scope.options.imagePosition && scope.options.imageType){
+          scope.options.imageToClassPosition = "image-to-" + scope.options.imagePosition + '-' + scope.options.imageType;
+          scope.options.textToClassPosition = "text-to-" + scope.options.iconPosition + '-' + scope.options.imageType;
+        }
+
+        if(!scope.options.advancedTemplate){
+          scope.options.advancedTemplate = defaultAdvancedTemplate;
+        }
+
+         if(!scope.options.searchTemplate){
+          scope.options.searchTemplate = defaultSearchTemplate
+        }
+
         var templateDyn = null;
         if (searchableField) {
-          let templateWithSearch = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE)
-          templateDyn = $(templateWithSearch);
+          scope.options.filterFields = searchableField;
+          templateDyn = $(scope.options.searchTemplate + scope.options.advancedTemplate);
         } else {
-          templateDyn = $(TEMPLATE);
+          templateDyn = $(scope.options.advancedTemplate);
         }
+        scope.options.xattrTextPosition = attrs.xattrTextPosition;
+
         templateDyn.attr("type", optionsList.listType);
         $(element).replaceWith(templateDyn);
         var $element = templateDyn;
 
         var ionItem = $element.find('ion-item');
-        ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        if($(ionItem).attr('ng-repeat') === "rowData in datasource"){
+          ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        }
 
         if (isNativeEdit) {
           ionItem.attr('ng-click', getEditCommand(dataSourceName));
@@ -1382,7 +1408,7 @@ window.addEventListener('message', function(event) {
           if(attrs['ngModel']){
             ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);"
           }
-          checkboxTemplate = addCheckbox(addedImage, optionsList.imageType)
+          checkboxTemplate = $element.find('ul');
           if(attrs.ngClick){
             checkboxTemplate = $(checkboxTemplate).attr('ng-click', ngClickAttrTemplateCheckbox).get(0).outerHTML;
             ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
@@ -1399,18 +1425,6 @@ window.addEventListener('message', function(event) {
           ionItem.attr('ng-click', ngClickAttrTemplate);
         }
 
-        if(optionsList.icon){
-          ionItem.addClass("item-icon-" + iconDirection);
-        }
-
-        if(addedImage && (!optionsList.imageType || optionsList.imageType === "avatar")){
-          ionItem.addClass("item-avatar-" + imageDirection);
-        }
-
-        if(addedImage && optionsList.imageType === "thumbnail"){
-          ionItem.addClass("item-thumbnail-" + imageDirection);
-        }
-
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
         const filteredItems = Object.values(attrs.$attr).filter(function(item) {
           return !attrsExcludeds.includes(item);
@@ -1419,23 +1433,7 @@ window.addEventListener('message', function(event) {
           ionItem.attr(filteredItems[o], attrs[o]);
         }
 
-        let extraClassToAdd = ''
-        if(optionsList.imageType && bothDirection && addedImage && iconTemplate){
-          extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
-        }
-        content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
-
-        if(image){
-          ionItem.append(checkboxTemplate);
-          ionItem.append(image);
-          ionItem.append(content);
-          ionItem.append(buttons);
-        }
-        else{
-          ionItem.append(checkboxTemplate);
-          ionItem.append(content);
-          ionItem.append(buttons);
-        }
+        ionItem.append(buttons);
 
         scope.nextPageInfinite = function() {
           dataSource.nextPage();
@@ -1459,7 +1457,7 @@ window.addEventListener('message', function(event) {
           return false;
         }
 
-        $compile(templateDyn)(scope);
+        $compile(templateDyn, null, 9999998)(scope);
       }
     }
   }])

@@ -30,22 +30,37 @@
     margin-right: 39px;
 }
 
-.cron-list-multiselect-avatar{
+.item-complex .cron-list-multiselect-avatar{
     float: left;
     margin-top: 15px;
-    margin-left: 1%;
+    margin-left: 17px;
 }
 
-.cron-list-multiselect-thumbnail{
+.item-complex .cron-list-multiselect-thumbnail{
     float: left;
     margin-top: 30px;
-    margin-left: 1%;
+    margin-left: 10px;
 }
 
-.cron-list-multiselect-default{
+.item-complex .cron-list-multiselect-do-not-show{
     float: left;
     margin-top: 15px;
-    margin-left: 15px;
+    margin-left: 17px;
+}
+
+.item-simple .cron-list-multiselect-avatar{
+    float: left;
+    margin-right: 15px;
+}
+
+.item-simple  .cron-list-multiselect-thumbnail{
+    float: left;
+    margin-right: 15px;
+}
+
+.item-simple .cron-list-multiselect-do-not-show{
+    float: left;
+    margin-right: 15px;
 }
 
 .cron-list-selected, .cron-list-selected > div.item-content{
