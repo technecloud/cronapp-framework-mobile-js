@@ -992,7 +992,7 @@ window.addEventListener('message', function(event) {
 
     let TEMPLATE = '\
                <ion-list type="" can-swipe="listCanSwipe"> \
-            	   <ion-item class="item" ng-repeat="rowData in datasource"> \
+            	   <ion-item ng-class="{\'cron-list-selected\' : isChecked(rowData)}" class="item" ng-repeat="rowData in datasource"> \
               	 </ion-item> \
                </ion-list> \
                <ion-infinite-scroll></ion-infinite-scroll> \
@@ -1064,8 +1064,9 @@ window.addEventListener('message', function(event) {
         imageType = "default";
       }
       template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
-                      imageType +
-                      '" data-component="crn-checkbox"><label class="checkbox"><input type="checkbox"></label></ul>';                
+          imageType +
+          '"data-component="crn-checkbox"><label class="checkbox">' +
+          '<input ng-checked="isChecked(rowData);" type="checkbox"></label></ul>';
       return template;
     }
 
@@ -1143,10 +1144,15 @@ window.addEventListener('message', function(event) {
 
     var getSearchableList = function(dataSourceName, fieldName) {
       return '\
-              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i> \
+              <div class="item item-input-inset">\
+              <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i> \
                 <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
                 crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
               </label>\
+              <button ng-if="showButton()" ng-click="limparSelecao()" \
+                class="button-small cron-list-button-clean button button-inline button-positive component-holder">\
+              <span  cron-list-button-text>Limpar Seleção<\span></button> \
+              </div>\
              ';
     }
 
@@ -1171,25 +1177,67 @@ window.addEventListener('message', function(event) {
           var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
+          var modelArrayToInsert = [];
+          var isKey = false;
+          const cronListClass = 'cron-list-selected';
+          scope.options = optionsList;
 
-         
           if(attrs['ngModel']){
             var modelGetter = $parse(attrs['ngModel']);
             var modelSetter = modelGetter.assign;
 
             if(optionsList.allowMultiselect){
 
-              modelSetter(scope, []);
-
-              scope.checkboxButtonClick = function(idx, rowData, fn, event) {
-                const cronListClass = 'cron-list-selected';
-                let currentTarget = $(event.currentTarget);
-                let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
-                let modelArrayToInsert = modelGetter(scope);
-                let isKey = false;
+              scope.verifyIsKey = function(rowData){
+                isKey = false;
                 if(optionsList.fieldType && optionsList.fieldType === "key"){
                   rowData = this.changeRowDataField(rowData);
                   isKey = true;
+                }
+                return rowData;
+              }
+
+              scope.limparSelecao = function(){
+                modelSetter(scope, []);
+              }
+
+              scope.isChecked = function(rowData) {
+                let hasObject = false;
+                modelArrayToInsert = modelGetter(scope);
+                rowData = scope.verifyIsKey(rowData);
+                hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, null, event);
+                scope.isSelected = hasObject;
+                return hasObject;
+              }
+
+              scope.hasObjectChecked = function(isKey, cronListClass, rowData, fn, event){
+                let hasObject = false;
+                if(Array.isArray(modelArrayToInsert)){
+                  if(isKey && typeof rowData !== "object"){
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(rowData === el){
+                        hasObject = true;
+                      }
+                    });
+                  }
+                  else{
+                    modelArrayToInsert.forEach((el, idx) => {
+                      if(dataSource.objectIsEquals(rowData, el)){
+                        hasObject = true;
+                      }
+                    });
+                  }
+                }
+                return hasObject;
+              }
+
+              scope.checkboxButtonClick = function(idx, rowData, fn, event) {
+                let hasObject = false;
+                let currentTarget = $(event.currentTarget);
+                let checkedSize = currentTarget.find('input[type=checkbox]:checked').length;
+                modelArrayToInsert = modelGetter(scope);
+                if(!Array.isArray(modelArrayToInsert)){
+                  modelArrayToInsert = [];
                 }
                 if(!$(event.target).is('input[type=checkbox]') && !fn){
                   if(checkedSize > 0){
@@ -1199,45 +1247,20 @@ window.addEventListener('message', function(event) {
                     currentTarget.find("input[type=checkbox]").prop('checked', true);
                   }
                 }
-                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');       
+                let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
+                rowData = scope.verifyIsKey(rowData);
                 if($(currentCheckbox).is(':checked')){
-                  let hasObject = false;
-                  currentTarget.addClass(cronListClass);
-                  currentTarget.find('div.item-content').addClass(cronListClass);
-                  if($(event.target).is('input[type=checkbox]') && fn){
-                    currentTarget.parent().addClass(cronListClass);
-                     currentTarget.parent().find('div.item-content').addClass(cronListClass);
-                  }
-                  if(isKey && typeof rowData !== "object"){
-                    modelArrayToInsert.forEach((el, idx) => {
-                      if(rowData === el){
-                        hasObject = true;
-                      }
-                    });
-                  }
-                  else{
-                    modelArrayToInsert.forEach((el, idx) => {
-                       if(dataSource.objectIsEquals(rowData, el)){
-                        hasObject = true;
-                      }
-                    });
-                  }
+                  hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
-                } 
+                }
                 else{
-                  currentTarget.removeClass(cronListClass);
-                  currentTarget.find('div.item-content').removeClass(cronListClass);
-                  if($(event.target).is('input[type=checkbox]') && fn){
-                    currentTarget.parent().removeClass(cronListClass);
-                    currentTarget.parent().find('div.item-content').removeClass(cronListClass);
-                  }
                   if(isKey && typeof rowData !== "object"){
                     modelArrayToInsert.forEach((el, idx) => {
                       if(rowData === el){
                         modelArrayToInsert.splice(idx, 1);
-                      } 
+                      }
                     });
                   }
                   else{
@@ -1247,11 +1270,10 @@ window.addEventListener('message', function(event) {
                       }
                     });
                   }
-                } 
+                }
                 modelSetter(scope, modelArrayToInsert);
                 event.stopPropagation();
               }
-
             }
             else{
               scope.setRowDataModel = function(idx, rowData, fn, event) {
@@ -1293,7 +1315,7 @@ window.addEventListener('message', function(event) {
             };
 
             scope.$eval(fn, contextVars);
-            
+
             event.preventDefault();
             event.stopPropagation();
           }
@@ -1337,7 +1359,8 @@ window.addEventListener('message', function(event) {
 
         var templateDyn = null;
         if (searchableField) {
-          templateDyn = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE);
+          let templateWithSearch = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE)
+          templateDyn = $(templateWithSearch);
         } else {
           templateDyn = $(TEMPLATE);
         }
@@ -1354,7 +1377,7 @@ window.addEventListener('message', function(event) {
 
         var ngClickAttrTemplate = "";
         var ngClickAttrTemplateCheckbox = "";
-        
+
         if(optionsList.allowMultiselect){
           if(attrs['ngModel']){
             ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);"
@@ -1380,12 +1403,12 @@ window.addEventListener('message', function(event) {
           ionItem.addClass("item-icon-" + iconDirection);
         }
 
-        if(optionsList.imageType === "thumbnail"){
-          ionItem.addClass("item-thumbnail-" + imageDirection);
-        }
-
         if(addedImage && (!optionsList.imageType || optionsList.imageType === "avatar")){
           ionItem.addClass("item-avatar-" + imageDirection);
+        }
+
+        if(addedImage && optionsList.imageType === "thumbnail"){
+          ionItem.addClass("item-thumbnail-" + imageDirection);
         }
 
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
@@ -1398,7 +1421,7 @@ window.addEventListener('message', function(event) {
 
         let extraClassToAdd = ''
         if(optionsList.imageType && bothDirection && addedImage && iconTemplate){
-            extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
+          extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
         }
         content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
 
@@ -1425,6 +1448,16 @@ window.addEventListener('message', function(event) {
 
         infiniteScroll.attr('on-infinite', 'nextPageInfinite()');
         infiniteScroll.attr('distance', '1%');
+
+        scope.showButton = function() {
+          if (optionsList.allowMultiselect) {
+            var model = modelGetter(scope);
+            if (model !== null && model !== undefined) {
+              return model.length > 0;
+            }
+          }
+          return false;
+        }
 
         $compile(templateDyn)(scope);
       }
@@ -1761,43 +1794,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
         $(element).inputmask(inputmaskType, ipOptions);
 
-        //Forçando um set no model no evento de keyup.
-        var unmaskedvalue = function(event) {
-          var rawValue = $(this).inputmask('unmaskedvalue');
-          $(this).data('rawvalue',rawValue);
-          element._ignoreFormatter = true;
-          scope.safeApply(function(){
-            modelSetter(scope, rawValue);
-          });
-        };
-
-        $(element).off('keypress');
-        $(element).on('keyup', unmaskedvalue);
-
-        $element = $(element);
-
-        if (ngModelCtrl) {
-          ngModelCtrl.$formatters.push(function (value) {
-            //Ignorar a formatação pela máscara na primeira vez
-            if (element._ignoreFormatter) {
-              element._ignoreFormatter = false;
-              return $(element).val();
-            }
-            element._ignoreFormatter = false;
-            if (value != undefined && value != null && value !== '') {
-              return format(mask, value);
-            }
-            return null;
-          });
-          ngModelCtrl.$parsers.push(function (value) {
-            if (value != undefined && value != null && value !== '') {
-              var unmaskedvalue = $element.inputmask('unmaskedvalue');
-              if (unmaskedvalue !== '')
-                return unmaskedvalue;
-            }
-            return null;
-          });
-        }
+        useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter);
       }
       else if (type == 'text' || type == 'tel') {
 
@@ -1807,36 +1804,20 @@ function maskDirective($compile, $translate, attrName, $parse) {
           }
         }
 
-        var options = {};
-        if (attrs.maskPlaceholder) {
-          options.placeholder = attrs.maskPlaceholder
+        if(!attrs.maskPlaceholder){
+          $element.mask(mask);
+          useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask);
+        }
+        else{
+          options = {};
+          options['placeholder'] = attrs.maskPlaceholder
+          $(element).inputmask(mask, options);
+          $(element).off('keypress');
+          if(removeMask){
+            useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter);
+          }
         }
 
-        $element.mask(mask, options);
-
-        var unmaskedvalue = function() {
-          if (removeMask)
-            $(this).data('rawvalue',$(this).cleanVal());
-        }
-        $(element).on('keydown', unmaskedvalue).on('keyup', unmaskedvalue);
-
-        if (removeMask && ngModelCtrl) {
-          ngModelCtrl.$formatters.push(function (value) {
-            if (value) {
-              return $element.masked(value);
-            }
-
-            return null;
-          });
-
-          ngModelCtrl.$parsers.push(function (value) {
-            if (value) {
-              return $element.cleanVal();
-            }
-
-            return null;
-          });
-        }
       }
       else if(type == 'email' || type == 'password' || type == 'search'){
         if (!keyboard) {
@@ -1848,6 +1829,73 @@ function maskDirective($compile, $translate, attrName, $parse) {
         parseKeyboardType(keyboard, keyboardDecimalChar, $element)
       }
     }
+  }
+}
+
+function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter){
+  //Forçando um set no model no evento de keyup.
+  var $element = $(element);
+  var unmaskedvalue = function(event) {
+  var rawValue = $(this).inputmask('unmaskedvalue');
+    $(this).data('rawvalue',rawValue);
+    element._ignoreFormatter = true;
+    scope.safeApply(function(){
+      modelSetter(scope, rawValue);
+    });
+  };
+
+  $(element).off('keypress');
+  $(element).on('keyup', unmaskedvalue);
+
+  if (ngModelCtrl) {
+    ngModelCtrl.$formatters.push(function (value) {
+      //Ignorar a formatação pela máscara na primeira vez
+      if (element._ignoreFormatter) {
+        element._ignoreFormatter = false;
+        return $(element).val();
+      }
+      element._ignoreFormatter = false;
+      if (value != undefined && value != null && value !== '') {
+        return format(mask, value);
+      }
+      return null;
+    });
+    ngModelCtrl.$parsers.push(function (value) {
+      if (value != undefined && value != null && value !== '') {
+        var unmaskedvalue = $element.inputmask('unmaskedvalue');
+        if (unmaskedvalue !== '')
+          return unmaskedvalue;
+      }
+      return null;
+    });
+  }
+}
+
+function useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask){
+  var $element = $(element);
+  var unmaskedvalue = function() {
+    if (removeMask)
+      $(this).data('rawvalue',$(this).cleanVal());
+  }
+
+  $(element).on('keydown', unmaskedvalue).on('keyup', unmaskedvalue);
+
+  if (removeMask && ngModelCtrl) {
+    ngModelCtrl.$formatters.push(function (value) {
+      if (value) {
+        return $element.masked(value);
+      }
+
+      return null;
+    });
+
+    ngModelCtrl.$parsers.push(function (value) {
+      if (value) {
+        return $element.cleanVal();
+      }
+
+      return null;
+    });
   }
 }
 
@@ -1910,7 +1958,7 @@ function parseMaskType(type, $translate) {
   }
 
   else if (type == "tel") {
-    type = '(00) 00000-0000;0';
+    type = '(99) 99999-9999;0';
   }
 
   else if (type == "text") {

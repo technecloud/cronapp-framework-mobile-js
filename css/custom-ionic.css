@@ -48,6 +48,33 @@
     margin-left: 15px;
 }
 
-.cron-list-selected{
-    background-color: aliceblue !important;
+.cron-list-selected, .cron-list-selected > div.item-content{
+    background-color: aliceblue;
+}
+
+.cron-list-button-clean{
+    min-height: 28px;
+    line-height: 24px;
+    min-width: 0px;
+    overflow: hidden;
+}
+
+.cron-list-button-clean.ng-enter {
+    transition: 0.2s linear all;
+    line-height: 0px;
+    width: 0px;
+}
+
+.cron-list-button-clean.ng-enter.ng-enter-active {
+    width: 93.39px;
+}
+
+.cron-list-button-clean.ng-leave {
+    transition: 0.2s linear all;
+    width: 93.39px;
+}
+
+.cron-list-button-clean.ng-leave.ng-leave-active {
+    line-height: 0px;
+    width: 0px;
 }

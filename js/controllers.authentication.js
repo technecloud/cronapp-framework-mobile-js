@@ -160,11 +160,13 @@
         '$stateParams',
         '$location',
         '$controller',
-        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location, $controller) {
+        'UploadService',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location, $controller, UploadService) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
-            $scope.Notification = Notification;
+            $rootScope.Notification = Notification;
+            $rootScope.UploadService = UploadService;
 
             // save state params into scope
             $scope.params = $stateParams;
@@ -363,25 +365,28 @@
 
     // General controller
     app.controller('PageController', [
-        "$scope",
-        "$stateParams",
-        "Notification",
-        "$location",
-        "$http",
-        "$rootScope",
-        "$translate",
-        "$ionicModal",
-        "$ionicLoading",
-        "$timeout",
-        function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading, $timeout) {
+        '$scope',
+        '$stateParams',
+        'Notification',
+        '$location',
+        '$http',
+        '$rootScope',
+        '$translate',
+        '$ionicModal',
+        '$ionicLoading',
+        '$timeout',
+        'UploadService',
+        function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading, $timeout, UploadService) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
+
             $rootScope.http = $http;
-            $scope.Notification = Notification;
+            $rootScope.Notification = Notification;
 
             // save state params into scope
             $scope.params = $stateParams;
-            $scope.$http = $http;
+            $rootScope.$http = $http;
+            $rootScope.UploadService = UploadService;
             $scope.listCanSwipe = true;
 
             // Query string params
@@ -450,17 +455,31 @@
         "$ionicPlatform",
         "$controller",
         "$timeout",
-        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading, $ionicPlatform, $controller, $timeout) {
+        "UploadService",
+        "$ionicHistory",
+        function($scope, $stateParams, $http, Notification, $location, $rootScope, $translate, $ionicModal, $ionicLoading, $ionicPlatform, $controller, $timeout, UploadService, $ionicHistory) {
 
-            $ionicPlatform.registerBackButtonAction(function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                navigator.app.exitApp();
-            },101);
+          $ionicPlatform.registerBackButtonAction(function (event) {
+            // Reference current history set
+            let viewHistory = $ionicHistory.viewHistory();
+            if (viewHistory.histories) {
+              if (viewHistory.histories && Object.keys(viewHistory.histories).length) {
+                if (viewHistory.currentView.stateName === 'app.home') {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  navigator.app.exitApp();
+                } else {
+                  window.history.back();
+                }
+              }
+            }
+          }, 101);
 
             app.registerEventsCronapi($scope, $translate, $ionicModal, $ionicLoading);
+
             $rootScope.http = $http;
-            $scope.Notification = Notification;
+            $rootScope.Notification = Notification;
+            $rootScope.UploadService = UploadService;
 
             // save state params into scope
             $scope.params = $stateParams;
