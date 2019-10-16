@@ -87,7 +87,7 @@ var app = (function() {
                                     let $state = $injector.get('$state');
                                     let $http = $injector.get('$http');
                                     let Notification = $injector.get('Notification');
-                                    $rootScope.refreshToken(Notification, $http, ()=>{}, ()=>{
+                                    window.refreshToken(Notification, $http, ()=>{}, ()=>{
                                         localStorage.removeItem("_u")
                                         $state.go("login");
                                     });
@@ -325,7 +325,6 @@ var app = (function() {
             });
             $rootScope.$on('$stateChangeSuccess', function() {
                 setTimeout(function() {
-
                     $($('.icon.ion-plus-round').parent()).off('click');
                     $($('.icon.ion-plus-round').parent()).on('click',function() {
                         $('[required]').removeClass('input-validation-error');
@@ -501,4 +500,29 @@ window.safeApply = function(fn) {
     } else {
         this.$apply(fn);
     }
+};
+
+
+// refresh token
+window.refreshToken = function(Notification, $http, success, err) {
+  if(window.hostApp) {
+    $http({
+      method: 'GET',
+      url: window.hostApp + 'auth/refresh'
+    }).success(function (data, status, headers, config) {
+      // Store data response on local storage
+      console.log('revive :', new Date(data.expires));
+      localStorage.setItem("_u", JSON.stringify(data));
+      // Recussive
+      setTimeout(function () {
+        window.refreshToken(Notification, $http, success, err);
+        // refresh time
+      }, (1800 * 1000));
+      success();
+    }).error(function () {
+      err();
+    });
+  }else{
+    Notification.error("HostApp is required to refresh token!");
+  }
 };
