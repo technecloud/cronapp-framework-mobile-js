@@ -309,7 +309,14 @@ var app = (function() {
             }
         ])
 
-        .run(function($rootScope, $state) {
+        .run(function($rootScope, $state, $stateParams, $timeout) {
+          // It's very handy to add references to $state and $stateParams to the $rootScope
+          // so that you can access them from any scope within your applications.For example,
+          // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+          // to active whenever 'contacts.list' or one of its decendents is active.
+          $rootScope.$state = $state;
+          $rootScope.$stateParams = $stateParams;
+
             $rootScope.$on('$stateChangeError', function() {
                 if (arguments.length >= 6) {
                     var requestObj = arguments[5];
@@ -323,7 +330,16 @@ var app = (function() {
                     $state.go('404');
                 }
             });
-            $rootScope.$on('$stateChangeSuccess', function() {
+            $rootScope.$on('$stateChangeSuccess', function(event, currentRoute, previousRoute) {
+
+              $timeout(() => {
+                let ionViewTitle = $('ion-view ion-header-bar .title').last().text();
+                let splitedHash = window.location.hash ? window.location.hash.split('\/') : null;
+                let pageName = splitedHash?splitedHash[splitedHash.length-1]:null;
+                let prettyPageName = window.camelCaseToSentenceCase(window.toCamelCase(pageName));
+                $rootScope.ionViewTitle = ionViewTitle || prettyPageName || currentRoute.name;
+              });
+
                 setTimeout(function() {
                     $($('.icon.ion-plus-round').parent()).off('click');
                     $($('.icon.ion-plus-round').parent()).on('click',function() {
@@ -502,6 +518,24 @@ window.safeApply = function(fn) {
     }
 };
 
+window.toCamelCase = function(str) {
+  // Lower cases the string
+  return str.toLowerCase()
+  // Replaces any - or _ or . characters with a space
+    .replace( /[-_\.]+/g, ' ')
+    // Removes any non alphanumeric characters
+    .replace( /[^\w\s]/g, '')
+    // Uppercases the first character in each group immediately following a space
+    // (delimited by spaces)
+    .replace( / (.)/g, function($1) { return $1.toUpperCase(); })
+    // Removes spaces
+    .replace( / /g, '' );
+};
+
+window.camelCaseToSentenceCase = function(str){
+  let result = str.replace( /([A-Z])/g, " $1" );
+  return result.charAt(0).toUpperCase() + result.slice(1); // capitalize the first letter - as an example.
+};
 
 // refresh token
 window.refreshToken = function(Notification, $http, success, err) {
