@@ -61,16 +61,14 @@ window.addEventListener('message', function(event) {
     return result;
   }
 
-  app.directive('updateLanguage', function($rootScope) {
+  app.directive('updateLanguage', function ($rootScope) {
     return {
-      link: function( scope, element ) {
-        var listener = function( event, translationResp ) {
-          var defaultLang = "en",
-            currentlang = translationResp.language;
-
-          element.attr("lang", currentlang || defaultLang );
+      link: function (scope, element) {
+        let listener = function (event, translationResp) {
+          let defaultLang = "en";
+          let currentLang = translationResp.language ? translationResp.language.split('_')[0] : null;
+          element.attr("lang", currentLang || defaultLang);
         };
-
         $rootScope.$on('$translateChangeSuccess', listener);
       }
     };
