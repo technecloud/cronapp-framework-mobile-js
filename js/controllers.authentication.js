@@ -112,10 +112,6 @@
                 // Redirect to home page
                 $state.go("app.home");
 
-                $timeout(function() {
-                    $ionicLoading.hide();
-                },500);
-
               // Verify if the 'onLogin' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
               if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.onLogin && $scope.blockly.events.onLogin instanceof Function) {
                 $scope.blockly.events.onLogin();
@@ -127,8 +123,6 @@
                 if (!error) {
                     error = $translate.instant('General.ErrorNotSpecified');
                 }
-                console.log(error);
-                $ionicLoading.hide();
                 Notification.error(error);
             }
 
