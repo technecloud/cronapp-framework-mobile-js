@@ -18,6 +18,15 @@ if (window.customModules) {
     cronappModules = cronappModules.concat(window.customModules);
 }
 
+window.paceOptions = {
+  document: true,
+  eventLag: true,
+  restartOnPushState: true,
+  restartOnRequestAfter: true,
+  ajax: {
+    trackMethods: [ "PUT", "POST" , "GET"]
+  }
+};
 
 var app = (function() {
 
