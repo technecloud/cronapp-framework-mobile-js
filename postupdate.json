@@ -131,6 +131,11 @@
     },
     {
       "file": "index.html",
+      "script": "plugins/pace/pace.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
       "script": "plugins/font-awesome/css/font-awesome.min.css",
       "type": "style"
     }
