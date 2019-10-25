@@ -1792,7 +1792,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
         $(element).inputmask(inputmaskType, ipOptions);
 
-        useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter);
+        useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask);
       }
       else if (type == 'text' || type == 'tel') {
 
@@ -1812,7 +1812,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
           $(element).inputmask(mask, options);
           $(element).off('keypress');
           if(removeMask){
-            useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter);
+            useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask);
           }
         }
 
@@ -1830,7 +1830,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
   }
 }
 
-function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter){
+function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask){
   //Forçando um set no model no evento de keyup.
   var $element = $(element); 
   var unmaskedvalue = function(event) {
