@@ -1304,3 +1304,11 @@ div.nav > a.item-avatar-left > div.item-content {
     background: #ddd;
     border-color: #ddd;
 }
+
+/*
+ * Thi class was intended to be used only for Screen Readers
+ * Please, search for .sr-only on Bootstrap docs
+ */
+.sr-only{
+    display: none;
+}
