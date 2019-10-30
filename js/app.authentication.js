@@ -265,6 +265,9 @@ var app = (function() {
 
             tmhDynamicLocaleProvider.localeLocationPattern('plugins/angular-i18n/angular-locale_{{locale}}.js');
         })
+        .config(function($sceProvider) {
+          $sceProvider.enabled(false);
+        })
 
         .directive('crnValue', ['$parse', function($parse) {
             return {
