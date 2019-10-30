@@ -1309,5 +1309,5 @@ div.nav > a.item-avatar-left > div.item-content {
  * Please, search for .sr-only on Bootstrap docs
  */
 .sr-only{
-    display: none;
+    display: none !important;
 }
