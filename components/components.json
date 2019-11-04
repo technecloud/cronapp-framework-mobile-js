@@ -4465,7 +4465,7 @@
         },
         {
           "name": "content",
-          "displayName_pt_BR": "Titúlo",
+          "displayName_pt_BR": "Título",
           "displayName_en_US": "Title",
           "selector": "div > h2",
           "type": "content"
