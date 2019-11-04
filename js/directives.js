@@ -276,7 +276,7 @@ window.addEventListener('message', function(event) {
     return {
       restrict: 'EA',
       require: '^ngModel',
-      template: '<canvas ng-hide="image"></canvas><img ng-if="image" ng-src="{{canvasImage}}"/>',
+      template: '<canvas ng-hide="image"></canvas><img alt="qr-code" ng-if="image" ng-src="{{canvasImage}}"/>',
       link: function postlink(scope, element, attrs, ngModel){
         if (scope.size === undefined  && attrs.size) {
           scope.text = attrs.size;
@@ -1067,11 +1067,11 @@ window.addEventListener('message', function(event) {
       if(iconTemplate && imageType && bothDirection){
         extraClassToAdd = 'image-to-' + bothDirection + '-' + imageType;
       }
-      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}" class="' + extraClassToAdd + '" ></img>';
+      return '<img alt="column.field" ng-src="data:image/png;base64,{{rowData.' + column.field + '}}" class="' + extraClassToAdd + '" ></img>';
     }
 
     var addImageLink = function(column) {
-      return '<img ng-src="{{rowData.' + column.field + '}}"></img>';
+      return '<img alt="column.field" ng-src="{{rowData.' + column.field + '}}"></img>';
     }
 
     var addIcon = function(icon) {
