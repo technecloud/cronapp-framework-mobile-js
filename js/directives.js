@@ -1085,8 +1085,8 @@ window.addEventListener('message', function(event) {
       }
       template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
           imageType +
-          '"data-component="crn-checkbox"><label class="checkbox">' +
-          '<input ng-checked="isChecked(rowData);" type="checkbox"></label></ul>';
+          '"data-component="crn-checkbox"><div class="checkbox">' +
+          '<input aria-label="Checkbox" ng-checked="isChecked(rowData);" type="checkbox"></div></ul>';
       return template;
     }
 
@@ -1165,10 +1165,10 @@ window.addEventListener('message', function(event) {
     var getSearchableList = function(dataSourceName, fieldName) {
       return '\
               <div class="item item-input-inset">\
-              <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i> \
+              <div class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i> \
                 <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
                 crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
-              </label>\
+              </div>\
               <button ng-if="showButton()" ng-click="limparSelecao()" \
                 class="button-small cron-list-button-clean button button-inline button-positive component-holder">\
               <span  cron-list-button-text>Limpar Seleção<\span></button> \

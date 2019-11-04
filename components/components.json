@@ -3940,7 +3940,7 @@
         "canIncrement": true,
         "rules": [
           {
-            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"><input type=\"radio\" name=\"group\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
+            "sourceHTML": "<div data-component=\"crn-radioOption\"><label class=\"item item-radio\" crn-value=\"\" value=\"${RANDOM}\"><input aria-label\"Aria Label Text\" type=\"radio\" name=\"group\"><div class=\"radio-content\"><div class=\"item-content\"> Choose Other </div><i class=\"radio-icon ion-checkmark\"></i></div></label><div>",
             "targetSelector": ":self"
           }
         ]
