@@ -4458,9 +4458,22 @@
       },
       "childrenProperties":[
         {
-          "name":"content",
-          "selector":"div",
-          "type":"content"
+          "name": "src",
+          "selector": "div > img",
+          "type": "projectResource",
+          "resourceType": "image/jpeg,image/gif,image/png"
+        },
+        {
+          "name": "content",
+          "displayName_pt_BR": "Título",
+          "displayName_en_US": "Title",
+          "selector": "div > h2",
+          "type": "content"
+        },
+        {
+          "name": "content",
+          "selector": "div > p",
+          "type": "content"
         },
         {
           "name":"ng-click",
