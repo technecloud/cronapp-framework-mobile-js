@@ -61,6 +61,19 @@ window.addEventListener('message', function(event) {
     return result;
   }
 
+  app.directive('updateLanguage', function ($rootScope) {
+    return {
+      link: function (scope, element) {
+        let listener = function (event, translationResp) {
+          let defaultLang = "en";
+          let currentLang = translationResp.language ? translationResp.language.split('_')[0] : null;
+          element.attr("lang", currentLang || defaultLang);
+        };
+        $rootScope.$on('$translateChangeSuccess', listener);
+      }
+    };
+  });
+
   app.directive('asDate', maskDirectiveAsDate);
 
   app.directive('input', transformText);
@@ -141,7 +154,7 @@ window.addEventListener('message', function(event) {
 
   .directive('mask', maskDirectiveMask)
 
-  .directive('dynamicImage', function($compile) {
+  .directive('dynamicImage', function($compile, $translate) {
     var template = '';
     return {
       restrict: 'A',
@@ -150,16 +163,19 @@ window.addEventListener('message', function(event) {
       link: function(scope, element, attr) {
         var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
         var content = element.html();
+        var altText = attr.alt ? attr.alt : $translate.instant('Users.view.Picture');
+        var closeAriaText = $translate.instant('Home.view.Close');
+        var videocamAriaText = $translate.instant('OpenCamera');
         var templateDyn    =
             '<div ngf-drop="" ngf-drag-over-class="dragover">\
-               <img style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
+               <img role="img" alt="$altText$" style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
                <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
                  $userHtml$\
                </div>\
-               <div class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
+               <div aria-label="$closeAriaText$" class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
                  <span class="icon ion-android-close"></span>\
                </div>\
-               <div class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
+               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
                  <span class="icon ion-ios-videocam"></span>\
                </div>\
              </div>';
@@ -172,6 +188,9 @@ window.addEventListener('message', function(event) {
             .split('$required$').join(required)
             .split('$userHtml$').join(content)
             .split('$maxFileSize$').join(maxFileSize)
+            .split('$altText$').join(altText)
+            .split('$closeAriaText$').join(closeAriaText)
+            .split('$videocamAriaText$').join(videocamAriaText)
         );
 
         $(element).html(templateDyn);
@@ -179,7 +198,7 @@ window.addEventListener('message', function(event) {
       }
     }
   })
-  .directive('dynamicFile', function($compile) {
+  .directive('dynamicFile', function($compile, $translate) {
     var template = '';
     return {
       restrict: 'A',
@@ -188,7 +207,7 @@ window.addEventListener('message', function(event) {
       link: function(scope, element, attr) {
         var s = scope;
         var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
-
+        var closeAriaText = $translate.instant('Home.view.Close');
         var splitedNgModel = attr.ngModel.split('.');
         var datasource = splitedNgModel[0];
         var field = splitedNgModel[splitedNgModel.length-1];
@@ -211,12 +230,12 @@ window.addEventListener('message', function(event) {
                                   </div>\
                                 </div> \
                                 <div ng-show="$ngModel$" class="upload-image-component-attribute"> \
-                                  <div class="button button-assertive" style="float:right;" ng-if="$ngModel$" ng-click="$ngModel$=null"> \
-                                    <span class="icon ion-android-close"></span> \
+                                  <div aria-label="$closeAriaText$" class="button button-assertive" style="float:right;" ng-if="$ngModel$" ng-click="$ngModel$=null"> \
+                                    <span role="img" alt="$closeAriaText$" class="icon ion-android-close"></span> \
                                   </div> \
                                   <div> \
                                     <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$)"></div> \
-                                    <a href="javascript:void(0)" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">download</a> \
+                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">download</div> \
                                   </div> \
                                 </div> \
                                 ';
@@ -228,6 +247,7 @@ window.addEventListener('message', function(event) {
             .split('$required$').join(required)
             .split('$userHtml$').join(content)
             .split('$maxFileSize$').join(maxFileSize)
+            .split('$closeAriaText$').join(closeAriaText)
 
         );
 
@@ -256,7 +276,7 @@ window.addEventListener('message', function(event) {
     return {
       restrict: 'EA',
       require: '^ngModel',
-      template: '<canvas ng-hide="image"></canvas><img ng-if="image" ng-src="{{canvasImage}}"/>',
+      template: '<canvas ng-hide="image"></canvas><img alt="qr-code" ng-if="image" ng-src="{{canvasImage}}"/>',
       link: function postlink(scope, element, attrs, ngModel){
         if (scope.size === undefined  && attrs.size) {
           scope.text = attrs.size;
