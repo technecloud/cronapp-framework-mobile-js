@@ -12,6 +12,7 @@ var cronappModules = [
     'ngFileUpload',
     'angularMoment',
     'upload.services',
+    'ngAria'
 ];
 
 if (window.customModules) {
