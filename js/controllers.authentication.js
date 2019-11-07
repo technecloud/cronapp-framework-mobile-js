@@ -78,7 +78,6 @@
                 $scope.message.error = undefined;
 
                 if(window.hostApp) {
-                    this.cronapi.screen.showLoading();
                     $http({
                         method : 'POST',
                         url : window.hostApp + 'auth',
