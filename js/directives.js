@@ -1033,7 +1033,7 @@ window.addEventListener('message', function(event) {
       "<div class=\"item item-input-inset\">\n" +
       "   <label class=\"item-input-wrapper\">\n" +
       "   <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-      "   <input aria-label='{{\"template.crud.search\" | translate}}' type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
+      "   <input aria-label=\"{{'template.crud.search' | translate}}\" type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
       "   cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{\'template.crud.search\' | translate}}\">\n" +
       "   </label>\n" +
       "   <button ng-if=\"showButton()\" ng-click=\"limparSelecao()\"\n" +
