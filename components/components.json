@@ -4380,7 +4380,7 @@
       "text_en_US": "Image",
       "class": " adjust-icon mdi mdi-image",
       "wrapper": false,
-      "template": "<img \"Avatar\" src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
+      "template": "<img alt='Avatar' src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
       "properties": {
         "src": {
           "type": "projectResource",
