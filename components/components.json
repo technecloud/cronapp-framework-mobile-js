@@ -6556,7 +6556,7 @@
           "attribute": "advancedTemplate"
         }, 
         {
-          "template": "<div class=\"item item-input-inset\">\n\t<label class=\"item-input-wrapper\"><i class=\"icon ion-search placeholder-icon\"></i>\n\t\t<input aria-label=\"{{'template.crud.search' | translate}}\" type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\" cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{'template.crud.search' | translate}}\">\n\t</label>\n\t<button ng-if=\"showButton()\" ng-click=\"limparSelecao()\" class=\"button-small cron-list-button-clean button button-inline button-positive component-holder\">\n\t<span cron-list-button-text>Limpar Seleção</span>\n\t</button>\n</div>",
+          "template": "<div class=\"item item-input-inset\">\n\t<div class=\"item-input-wrapper\"><i class=\"icon ion-search placeholder-icon\"></i>\n\t\t<input aria-label=\"{{'template.crud.search' | translate}}\" type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\" cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{'template.crud.search' | translate}}\">\n\t</div>\n\t<button ng-if=\"showButton()\" ng-click=\"limparSelecao()\" class=\"button-small cron-list-button-clean button button-inline button-positive component-holder\">\n\t<span cron-list-button-text>Limpar Seleção</span>\n\t</button>\n</div>",
           "attribute": "searchTemplate"
         }
       ],
