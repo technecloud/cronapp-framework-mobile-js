@@ -1017,12 +1017,12 @@ window.addEventListener('message', function(event) {
     "	    <img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n" +
     "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
     "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
-    "			<h2 ng-if=\"options.fields.field0\">{{rowData[options.fields.field0]}}</h2>\n" +
-    "			<h3 class=\"dark\" ng-if=\"options.fields.field1\">{{rowData[options.fields.field1]}}</h3>\n" +
-    "			<h3 class=\"dark\" ng-if=\"options.fields.field2\">{{rowData[options.fields.field2]}}</h3>\n" +
-    "			<h3 class=\"dark\" ng-if=\"options.fields.field3\">{{rowData[options.fields.field3]}}</h3>\n" +
-    "			<h3 class=\"dark\" ng-if=\"options.fields.field4\">{{rowData[options.fields.field4]}}</h3>\n" +
-    "			<h3 class=\"dark\" ng-if=\"options.fields.field5\">{{rowData[options.fields.field5]}}</h3>\n" +
+    "			<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]}}</h2>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field1]\">{{rowData[options.fields.field1]}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field2]\">{{rowData[options.fields.field2]}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field3]\">{{rowData[options.fields.field3]}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field4]\">{{rowData[options.fields.field4]}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field5\">{{rowData[options.fields.field5]}}</p>\n" +
     "			<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n" +
     "		</div>\n" +
     "   </ion-item>\n" +

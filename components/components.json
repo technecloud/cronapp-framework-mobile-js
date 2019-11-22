@@ -2551,7 +2551,7 @@
       "text_en_US": "Textarea",
       "class": "adjust-icon mdi mdi-textbox",
       "wrapper":false,
-      "template": "<textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
+      "template": "<textarea aria-label='Textarea component' id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
       "properties": {
         "class": {
           "order": 9999
@@ -4380,7 +4380,7 @@
       "text_en_US": "Image",
       "class": " adjust-icon mdi mdi-image",
       "wrapper": false,
-      "template": "<img \"Avatar\" src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
+      "template": "<img alt='Avatar' src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
       "properties": {
         "src": {
           "type": "projectResource",
@@ -6552,7 +6552,7 @@
       "designTimeSelector": "cron-list",
       "templateInitializers": [
         {
-          "template": "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n\t<ion-item ng-class=\"{'cron-list-selected' :isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n\t\t<ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n\t\t<img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n\t\t ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n\t\t<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n\t\t\t<h2 ng-if=\"options.fields.field0\">{{rowData[options.fields.field0]}}</h2>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field1\">{{rowData[options.fields.field1]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field2\">{{rowData[options.fields.field2]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field3\">{{rowData[options.fields.field3]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field4\">{{rowData[options.fields.field4]}}</h3>\n\t\t\t<h3 class=\"dark\" ng-if=\"options.fields.field5\">{{rowData[options.fields.field5]}}</h3>\n\t\t\t<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n\t\t</div>\n\t</ion-item>\n</ion-list>\n<ion-infinite-scroll></ion-infinite-scroll>\n",
+          "template": "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n\t<ion-item ng-class=\"{'cron-list-selected' :isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n\t\t<ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n\t\t<img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n\t\t ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n\t\t<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n\t\t\t<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]}}</h2>\n\t\t\t<p class=\"dark\" ng-if=\"rowData[options.fields.field1]\">{{rowData[options.fields.field1]}}</p>\n\t\t\t<p class=\"dark\" ng-if=\"rowData[options.fields.field2]\">{{rowData[options.fields.field2]}}</p>\n\t\t\t<p class=\"dark\" ng-if=\"rowData[options.fields.field3]\">{{rowData[options.fields.field3]}}</p>\n\t\t\t<p class=\"dark\" ng-if=\"rowData[options.fields.field4]\">{{rowData[options.fields.field4]}}</p>\n\t\t\t<p class=\"dark\" ng-if=\"rowData[options.fields.field5]\">{{rowData[options.fields.field5]}}</p>\n\t\t\t<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n\t\t</div>\n\t</ion-item>\n</ion-list>\n<ion-infinite-scroll></ion-infinite-scroll>\n",
           "attribute": "advancedTemplate"
         }, 
         {
