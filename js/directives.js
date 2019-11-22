@@ -1014,7 +1014,7 @@ window.addEventListener('message', function(event) {
     "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n" +
     "   <ion-item ng-class=\"{'cron-list-selected' : isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n" +
     "     <ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n" +
-    "	    <img ng-if=\"options.imageType != 'do-not-show' && options.fields.image\" \n" +
+    "	    <img alt='Thumbnail' ng-if=\"options.imageType !== 'do-not-show' && rowData[options.fields.image]\" \n" +
     "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
     "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
     "			<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]}}</h2>\n" +
@@ -1033,7 +1033,7 @@ window.addEventListener('message', function(event) {
       "<div class=\"item item-input-inset\">\n" +
       "   <label class=\"item-input-wrapper\">\n" +
       "   <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-      "   <input type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
+      "   <input aria-label='{{\"template.crud.search\" | translate}}' type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
       "   cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{\'template.crud.search\' | translate}}\">\n" +
       "   </label>\n" +
       "   <button ng-if=\"showButton()\" ng-click=\"limparSelecao()\"\n" +
