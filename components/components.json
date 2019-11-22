@@ -2551,7 +2551,7 @@
       "text_en_US": "Textarea",
       "class": "adjust-icon mdi mdi-textbox",
       "wrapper":false,
-      "template": "<textarea id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
+      "template": "<textarea aria-label='Textarea component' id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
       "properties": {
         "class": {
           "order": 9999
