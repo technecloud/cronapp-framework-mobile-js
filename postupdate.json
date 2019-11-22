@@ -70,6 +70,11 @@
       "script": "plugins/ng-file-upload/ng-file-upload.min.js",
       "type": "script"
     },
+    {
+      "file": "index.html",
+      "script": "plugins/angular-aria/angular-aria.min.js",
+      "type": "script"
+    },
 	{
       "file": "index.html",
       "script": "plugins/angular-moment/angular-moment.js",
@@ -79,12 +84,6 @@
       "file": "index.html",
       "script": "js/dataSourceMap.js",
       "type": "script"
-    },
-    {
-      "file": "index.html",
-      "script": "plugins/angular-aria/angular-aria.min.js",
-      "type": "script",
-      "onTop": true
     },
     {
       "file": "index.html",
