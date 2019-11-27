@@ -14,7 +14,8 @@
         '$timeout',
         '$stateParams',
         '$ionicModal',
-        function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal) {
+        '$cookies',
+        function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal, $cookies) {
 
             // Make refreshToken method available on $rootScope
             $rootScope.refreshToken = window.refreshToken;
@@ -37,7 +38,7 @@
                 $scope[x]= app.userEvents[x].bind($scope);
 
             $scope.autoLogin = function(){
-                if(localStorage.getItem('_u')){
+                if(localStorage.getItem('_u') && JSON.parse(localStorage.getItem('_u')).token){
                     window.refreshToken(Notification, $http, function(){
                         $state.go('app.home');
                     }, function(){
@@ -46,7 +47,13 @@
                 }
             };
             $scope.autoLogin();
-
+            if ($cookies.get('_u')) {
+                if (!localStorage.getItem('_u')) {
+                    var decodedUser = decodeURIComponent($cookies.get('_u'));
+                    localStorage.setItem("_u", decodedUser);
+                }
+                $state.go('app.home');
+            }
             $scope.user = { username : "" , password : "" };
             $scope.message = {};
 
