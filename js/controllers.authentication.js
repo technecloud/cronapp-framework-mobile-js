@@ -37,6 +37,11 @@
             for(let x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
 
+            $scope.redirectToLogin = function() {
+                localStorage.setItem('redir_mob', true);
+                $window.location.href = '/login';
+            };
+
             $scope.autoLogin = function(){
                 if(localStorage.getItem('_u') && JSON.parse(localStorage.getItem('_u')).token){
                     window.refreshToken(Notification, $http, function(){
@@ -211,7 +216,8 @@
         '$ionicHistory',
         '$ionicModal',
         '$ionicLoading',
-        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
+        '$cookies',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $cookies) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
@@ -251,6 +257,7 @@
                 $scope.logout = function logout() {
                     $rootScope.session = null;
                     localStorage.removeItem("_u");
+                    $cookies.remove('_u', {path: '/'});
                     $state.go("login");
                 }
             }
