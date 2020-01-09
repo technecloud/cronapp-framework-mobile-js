@@ -114,5 +114,6 @@
   "Upload.multipleFile": "Selecione ou arraste um ou mais arquivos",
   "Upload.errorValidation": "Seleção inválida: Tamanho máximo %s e Tipos permitidos: %s",
   "Cancel": "Cancelar",
-  "OpenCamera": "Abrir a câmera"
+  "OpenCamera": "Abrir a câmera",
+  "download": "Baixar"
 }

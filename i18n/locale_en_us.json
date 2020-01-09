@@ -114,5 +114,6 @@
   "Upload.multipleFile": "Select or drop files",
   "Upload.errorValidation": "Invalid selection: Max size %s and Allowed types: %s",
   "Cancel": "Cancel",
-  "OpenCamera": "Open the camera"
+  "OpenCamera": "Open the camera",
+  "download": "Download"
 }
