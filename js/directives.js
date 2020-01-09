@@ -235,7 +235,7 @@ window.addEventListener('message', function(event) {
                                   </div> \
                                   <div> \
                                     <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$)"></div> \
-                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">download</div> \
+                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">$lblDownload$</div> \
                                   </div> \
                                 </div> \
                                 ';
@@ -248,6 +248,7 @@ window.addEventListener('message', function(event) {
             .split('$userHtml$').join(content)
             .split('$maxFileSize$').join(maxFileSize)
             .split('$closeAriaText$').join(closeAriaText)
+            .split('$lblDownload$').join($translate.instant('download'))
 
         );
 
