@@ -1457,8 +1457,16 @@ window.addEventListener('message', function(event) {
         ionItem.append(buttons);
 
         scope.nextPageInfinite = function() {
-          dataSource.nextPage();
-          scope.$broadcast('scroll.infiniteScrollComplete');
+          if ($element.find('ion-item').length < dataSource.data.length || dataSource.data.length == 0) {
+            scope.$broadcast('scroll.infiniteScrollComplete');
+            return;
+          }
+
+          if ($element.find('ion-item').length == dataSource.data.length) {
+            dataSource.nextPage(function() {
+              scope.$broadcast('scroll.infiniteScrollComplete');
+            });
+          }
         }
 
         var infiniteScroll =  $element.filter(function( index ) {
