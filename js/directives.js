@@ -1456,6 +1456,7 @@ window.addEventListener('message', function(event) {
 
         ionItem.append(buttons);
 
+        var firstScroll = true;
         scope.nextPageInfinite = function() {
           if ($element.find('ion-item').length < dataSource.data.length || dataSource.data.length == 0) {
             scope.$broadcast('scroll.infiniteScrollComplete');
@@ -1463,9 +1464,14 @@ window.addEventListener('message', function(event) {
           }
 
           if ($element.find('ion-item').length == dataSource.data.length) {
-            dataSource.nextPage(function() {
+            if (!firstScroll) {
+              dataSource.nextPage(function() {
+                scope.$broadcast('scroll.infiniteScrollComplete');
+              });
+            } else {
               scope.$broadcast('scroll.infiniteScrollComplete');
-            });
+              firstScroll = false;
+            }
           }
         }
 

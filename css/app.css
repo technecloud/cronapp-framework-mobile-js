@@ -33,7 +33,6 @@
 
 .platform-ios.platform-cordova:not(.fullscreen) .has-header,
 .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
-    top: calc(64px + var(--safe-area-inset-top));
     padding-left: calc(0px + var(--safe-area-inset-left));
     padding-right: calc(0px + var(--safe-area-inset-right));
     padding-bottom: calc(0px + var(--safe-area-inset-bottom));
