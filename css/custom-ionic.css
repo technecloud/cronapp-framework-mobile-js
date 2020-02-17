@@ -182,3 +182,10 @@
 .item:last-child {
     border-width: 1px 1px 1px 1px;
 }
+
+.item-avatar-right > img:first-child,
+.item-avatar-right .item-image,
+.item-avatar-right .item-content > img:first-child,
+.item-avatar-right .item-content .item-image {
+    object-fit: cover;
+}
