@@ -1346,9 +1346,6 @@ window.addEventListener('message', function(event) {
                 if (column.filterable) {
                   searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                 }
-
-
-
               }
             }
             else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
