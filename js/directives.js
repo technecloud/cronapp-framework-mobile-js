@@ -1018,12 +1018,12 @@ window.addEventListener('message', function(event) {
     "	    <img alt='Thumbnail' ng-if=\"options.imageType !== 'do-not-show' && rowData[options.fields.image]\" \n" +
     "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
     "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
-    "			<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]}}</h2>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field1]\">{{rowData[options.fields.field1]}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field2]\">{{rowData[options.fields.field2]}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field3]\">{{rowData[options.fields.field3]}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field4]\">{{rowData[options.fields.field4]}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field5\">{{rowData[options.fields.field5]}}</p>\n" +
+    "			<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]|mask:options.fields.mask0:options.fields.type0}}</h2>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field1]\">{{rowData[options.fields.field1]|mask:options.fields.mask1:options.fields.type1}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field2]\">{{rowData[options.fields.field2]|mask:options.fields.mask2:options.fields.type2}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field3]\">{{rowData[options.fields.field3]|mask:options.fields.mask3:options.fields.type3}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field4]\">{{rowData[options.fields.field4]|mask:options.fields.mask4:options.fields.type4}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field5]\">{{rowData[options.fields.field5]|mask:options.fields.mask5:options.fields.type5}}</p>\n" +
     "			<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n" +
     "		</div>\n" +
     "   </ion-item>\n" +
@@ -1328,6 +1328,8 @@ window.addEventListener('message', function(event) {
             var column = visibleColumns[i];
             if (column.field && column.dataType == 'Database') {
               scope.options.fields["field" + i] = column.field;
+              scope.options.fields["type" + i] = column.type;
+              scope.options.fields["mask" + i] = column.format;
               if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
                 scope.options.fields["image"] = column.field;
                 delete scope.options.fields["field" + i];
@@ -1344,6 +1346,9 @@ window.addEventListener('message', function(event) {
                 if (column.filterable) {
                   searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                 }
+
+
+
               }
             }
             else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
