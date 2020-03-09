@@ -5,6 +5,8 @@
     {
       "name": "crn-datasource",
       "wrapper": false,
+      "onDoubleClick": "openEditor:entity",
+      "onDrop": "openEditor:entity",
       "autoWrapper": true,
       "order": 0,
       "text_pt_BR": "Fonte de dados",
