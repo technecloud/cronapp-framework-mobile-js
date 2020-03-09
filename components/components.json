@@ -4159,6 +4159,20 @@
           "name": "on-swipe",
           "selector": "ul",
           "type": "event"
+        },
+        {
+          "name": "ng-false-value",
+          "selector": "input",
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\'';  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
+          "type": "text"
+        },
+        {
+          "name": "ng-true-value",
+          "selector": "input",
+          "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\'';  }  return result; }",
+          "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
+          "type": "text"
         }
       ],
       "styles": [
