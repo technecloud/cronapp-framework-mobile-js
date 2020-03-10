@@ -1,0 +1,14 @@
+{
+  "name": "crn-option-button",
+  "text": "Option Button",
+  "pallete": false,
+  "class": "adjust-icon mdi mdi-stop",
+  "template": "<ion-option-button class=\"button-positive button\"><i class=\"icon ion-home\">home</i></ion-option-button>",
+  "groupedChildren": [
+    {
+      "text_pt_BR": "Ícone",
+      "text_en_US": "Icon",
+      "selector": "i"
+    }
+  ]
+}
