@@ -82,9 +82,9 @@
 }
 
 .modal-upload {
-    min-height: 100px;
+    min-height: 70px;
     width: 100%;
-    line-height: 100px;
+    line-height: 70px;
     text-align: center;
     cursor: pointer;
 }

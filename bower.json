@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "angular": "1.5.9",
+    "angular-aria": "1.5.9",
     "angular-cookies": "1.5.8",
     "angular-dynamic-locale": "0.1.32",
     "angular-i18n": "1.4.5",

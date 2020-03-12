@@ -1,30 +1,6 @@
 (function($app) {
     angular.module('custom.controllers', []);
 
-    // refresh token
-    let refreshToken = function(Notification, $http, success, err) {
-        if(window.hostApp) {
-            $http({
-                method: 'GET',
-                url: window.hostApp + 'auth/refresh'
-            }).success(function (data, status, headers, config) {
-                // Store data response on local storage
-                console.log('revive :', new Date(data.expires));
-                localStorage.setItem("_u", JSON.stringify(data));
-                // Recussive
-                setTimeout(function () {
-                    refreshToken(Notification, $http, success, err);
-                    // refres time
-                }, (1800 * 1000));
-                success();
-            }).error(function () {
-                err();
-            });
-        }else{
-            Notification.error("HostApp is required to refresh token!");
-        }
-    };
-
     app.controller('LoginController', [
         '$scope',
         '$http',
@@ -38,10 +14,11 @@
         '$timeout',
         '$stateParams',
         '$ionicModal',
-        function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal) {
+        '$cookies',
+        function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal, $cookies) {
 
             // Make refreshToken method available on $rootScope
-            $rootScope.refreshToken = refreshToken;
+            $rootScope.refreshToken = window.refreshToken;
 
             app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
             $rootScope.http = $http;
@@ -60,9 +37,14 @@
             for(let x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
 
+            $scope.redirectToLogin = function() {
+                localStorage.setItem('redir_mob', true);
+                $window.location.href = '/login';
+            };
+
             $scope.autoLogin = function(){
-                if(localStorage.getItem('_u')){
-                    refreshToken(Notification, $http, function(){
+                if(localStorage.getItem('_u') && JSON.parse(localStorage.getItem('_u')).token){
+                    window.refreshToken(Notification, $http, function(){
                         $state.go('app.home');
                     }, function(){
                         localStorage.removeItem('_u');
@@ -70,7 +52,13 @@
                 }
             };
             $scope.autoLogin();
-
+            if ($cookies.get('_u')) {
+                if (!localStorage.getItem('_u')) {
+                    var decodedUser = decodeURIComponent($cookies.get('_u'));
+                    localStorage.setItem("_u", decodedUser);
+                }
+                $state.go('app.home');
+            }
             $scope.user = { username : "" , password : "" };
             $scope.message = {};
 
@@ -193,7 +181,7 @@
                 // we must send back to login page
                 // TODO - REVISAR login oauth2
             }else {
-                if ($rootScope.session.token) refreshToken(Notification, $http, function(){},  $rootScope.logout);
+                if ($rootScope.session.token) window.refreshToken(Notification, $http, function(){},  $rootScope.logout);
             }
 
           try {
@@ -228,7 +216,8 @@
         '$ionicHistory',
         '$ionicModal',
         '$ionicLoading',
-        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading) {
+        '$cookies',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $cookies) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
@@ -268,6 +257,7 @@
                 $scope.logout = function logout() {
                     $rootScope.session = null;
                     localStorage.removeItem("_u");
+                    $cookies.remove('_u', {path: '/'});
                     $state.go("login");
                 }
             }

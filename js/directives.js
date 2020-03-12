@@ -61,6 +61,19 @@ window.addEventListener('message', function(event) {
     return result;
   }
 
+  app.directive('updateLanguage', function ($rootScope) {
+    return {
+      link: function (scope, element) {
+        let listener = function (event, translationResp) {
+          let defaultLang = "en";
+          let currentLang = translationResp.language ? translationResp.language.split('_')[0] : null;
+          element.attr("lang", currentLang || defaultLang);
+        };
+        $rootScope.$on('$translateChangeSuccess', listener);
+      }
+    };
+  });
+
   app.directive('asDate', maskDirectiveAsDate);
 
   app.directive('input', transformText);
@@ -141,7 +154,7 @@ window.addEventListener('message', function(event) {
 
   .directive('mask', maskDirectiveMask)
 
-  .directive('dynamicImage', function($compile) {
+  .directive('dynamicImage', function($compile, $translate) {
     var template = '';
     return {
       restrict: 'A',
@@ -150,16 +163,19 @@ window.addEventListener('message', function(event) {
       link: function(scope, element, attr) {
         var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
         var content = element.html();
+        var altText = attr.alt ? attr.alt : $translate.instant('Users.view.Picture');
+        var closeAriaText = $translate.instant('Home.view.Close');
+        var videocamAriaText = $translate.instant('OpenCamera');
         var templateDyn    =
             '<div ngf-drop="" ngf-drag-over-class="dragover">\
-               <img style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
+               <img role="img" alt="$altText$" style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
                <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
                  $userHtml$\
                </div>\
-               <div class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
+               <div aria-label="$closeAriaText$" class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
                  <span class="icon ion-android-close"></span>\
                </div>\
-               <div class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
+               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
                  <span class="icon ion-ios-videocam"></span>\
                </div>\
              </div>';
@@ -172,6 +188,9 @@ window.addEventListener('message', function(event) {
             .split('$required$').join(required)
             .split('$userHtml$').join(content)
             .split('$maxFileSize$').join(maxFileSize)
+            .split('$altText$').join(altText)
+            .split('$closeAriaText$').join(closeAriaText)
+            .split('$videocamAriaText$').join(videocamAriaText)
         );
 
         $(element).html(templateDyn);
@@ -179,7 +198,7 @@ window.addEventListener('message', function(event) {
       }
     }
   })
-  .directive('dynamicFile', function($compile) {
+  .directive('dynamicFile', function($compile, $translate) {
     var template = '';
     return {
       restrict: 'A',
@@ -188,7 +207,7 @@ window.addEventListener('message', function(event) {
       link: function(scope, element, attr) {
         var s = scope;
         var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
-
+        var closeAriaText = $translate.instant('Home.view.Close');
         var splitedNgModel = attr.ngModel.split('.');
         var datasource = splitedNgModel[0];
         var field = splitedNgModel[splitedNgModel.length-1];
@@ -211,12 +230,12 @@ window.addEventListener('message', function(event) {
                                   </div>\
                                 </div> \
                                 <div ng-show="$ngModel$" class="upload-image-component-attribute"> \
-                                  <div class="button button-assertive" style="float:right;" ng-if="$ngModel$" ng-click="$ngModel$=null"> \
-                                    <span class="icon ion-android-close"></span> \
+                                  <div aria-label="$closeAriaText$" class="button button-assertive" style="float:right;" ng-if="$ngModel$" ng-click="$ngModel$=null"> \
+                                    <span role="img" alt="$closeAriaText$" class="icon ion-android-close"></span> \
                                   </div> \
                                   <div> \
                                     <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$)"></div> \
-                                    <a href="javascript:void(0)" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">download</a> \
+                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">$lblDownload$</div> \
                                   </div> \
                                 </div> \
                                 ';
@@ -228,6 +247,8 @@ window.addEventListener('message', function(event) {
             .split('$required$').join(required)
             .split('$userHtml$').join(content)
             .split('$maxFileSize$').join(maxFileSize)
+            .split('$closeAriaText$').join(closeAriaText)
+            .split('$lblDownload$').join($translate.instant('download'))
 
         );
 
@@ -256,7 +277,7 @@ window.addEventListener('message', function(event) {
     return {
       restrict: 'EA',
       require: '^ngModel',
-      template: '<canvas ng-hide="image"></canvas><img ng-if="image" ng-src="{{canvasImage}}"/>',
+      template: '<canvas ng-hide="image"></canvas><img alt="qr-code" ng-if="image" ng-src="{{canvasImage}}"/>',
       link: function postlink(scope, element, attrs, ngModel){
         if (scope.size === undefined  && attrs.size) {
           scope.text = attrs.size;
@@ -572,78 +593,83 @@ window.addEventListener('message', function(event) {
   })
 
   .directive('crnAllowNullValues', [function () {
-      return {
-          restrict: 'A',
-          require: '?ngModel',
-          link: function (scope, el, attrs, ctrl) {
-              ctrl.$formatters = [];
-              ctrl.$parsers = [];
-              if (attrs.crnAllowNullValues === 'true') {
-                  ctrl.$render = function () {
-                      var viewValue = ctrl.$viewValue;
-                      el.data('checked', viewValue);
-                      switch (viewValue) {
-                          case true:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', true);
-                              break;
-                          case false:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', false);
-                              break;
-                          default:
-                              el.attr('indeterminate', true);
-                      }
-                  };
-                  el.bind('click', function () {
-                      var checked;
-                      switch (el.data('checked')) {
-                          case false:
-                              checked = true;
-                              break;
-                          case true:
-                              checked = null;
-                              break;
-                          default:
-                              checked = false;
-                      }
-                      ctrl.$setViewValue(checked);
-                      scope.$apply(ctrl.$render);
-                  });
-              } else if (attrs.crnAllowNullValues === 'false'){
-                  ctrl.$render = function () {
-                      var viewValue = ctrl.$viewValue;
-                      if(viewValue === undefined || viewValue === null){
-                          ctrl.$setViewValue(false);
-                          viewValue = false;
-                      }
-                      el.data('checked', viewValue);
-                      switch (viewValue) {
-                          case true:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', true);
-                              break;
-                          default:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', false);
-                              break;
-                      }
-                  };
-                  el.bind('click', function () {
-                      var checked;
-                      switch (el.data('checked')) {
-                          case false:
-                              checked = true;
-                              break;
-                          default:
-                              checked = false;
-                      }
-                      ctrl.$setViewValue(checked);
-                      scope.$apply(ctrl.$render);
-                  });
-              }
-          }
-      };
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      link: function (scope, el, attrs, ctrl) {
+        ctrl.$formatters = [];
+        ctrl.$parsers = [];
+        let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : null;
+        let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : null;
+
+        if (attrs.crnAllowNullValues == 'true') {
+          ctrl.$render = function () {
+            let viewValue = ctrl.$viewValue;
+            el.data('checked', viewValue);
+            switch (viewValue) {
+              case true:
+              case trueValue:
+                el.prop('indeterminate', false);
+                el.prop('checked', true);
+                break;
+              case false:
+              case falseValue:
+                el.prop('indeterminate', false);
+                el.prop('checked', false);
+                break;
+              default:
+                el.prop('indeterminate', true);
+            }
+          };
+          el.bind('click', function () {
+            let checked;
+            switch (el.data('checked')) {
+              case false:
+              case falseValue:
+                checked = attrs.ngTrueValue ? trueValue : true;
+                break;
+              default:
+                checked = attrs.ngFalseValue ? falseValue : false;
+            }
+            ctrl.$setViewValue(checked);
+            scope.$apply(ctrl.$render);
+          });
+        } else if (attrs.crnAllowNullValues == 'false'){
+          ctrl.$render = function () {
+            let viewValue = ctrl.$viewValue;
+            if(viewValue === undefined || viewValue === null){
+              ctrl.$setViewValue(false);
+              viewValue = false;
+            }
+            el.data('checked', viewValue);
+            switch (viewValue) {
+              case true:
+              case trueValue:
+                el.prop('indeterminate', false);
+                el.prop('checked', true);
+                break;
+              default:
+                el.prop('indeterminate', false);
+                el.prop('checked', false);
+                break;
+            }
+          };
+          el.bind('click', function () {
+            let checked;
+            switch (el.data('checked')) {
+              case false:
+              case falseValue:
+                checked = attrs.ngTrueValue ? trueValue : true;
+                break;
+              default:
+                checked = attrs.ngFalseValue ? falseValue : false;
+            }
+            ctrl.$setViewValue(checked);
+            scope.$apply(ctrl.$render);
+          });
+        }
+      }
+    };
   }])
 
       .directive('cronappFilter', function($compile) {
@@ -990,13 +1016,36 @@ window.addEventListener('message', function(event) {
   .directive('cronList', ['$compile', '$parse', function($compile, $parse){
     'use strict';
 
-    let TEMPLATE = '\
-               <ion-list type="" can-swipe="listCanSwipe"> \
-            	   <ion-item ng-class="{\'cron-list-selected\' : isChecked(rowData)}" class="item" ng-repeat="rowData in datasource"> \
-              	 </ion-item> \
-               </ion-list> \
-               <ion-infinite-scroll></ion-infinite-scroll> \
-               ';
+    const defaultAdvancedTemplate =
+    "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n" +
+    "   <ion-item ng-class=\"{'cron-list-selected' : isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n" +
+    "     <ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n" +
+    "	    <img alt='Thumbnail' ng-if=\"options.imageType !== 'do-not-show' && rowData[options.fields.image]\" \n" +
+    "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
+    "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
+    "			<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]|mask:options.fields.mask0:options.fields.type0}}</h2>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field1]\">{{rowData[options.fields.field1]|mask:options.fields.mask1:options.fields.type1}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field2]\">{{rowData[options.fields.field2]|mask:options.fields.mask2:options.fields.type2}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field3]\">{{rowData[options.fields.field3]|mask:options.fields.mask3:options.fields.type3}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field4]\">{{rowData[options.fields.field4]|mask:options.fields.mask4:options.fields.type4}}</p>\n" +
+    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field5]\">{{rowData[options.fields.field5]|mask:options.fields.mask5:options.fields.type5}}</p>\n" +
+    "			<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n" +
+    "		</div>\n" +
+    "   </ion-item>\n" +
+    "</ion-list>\n" +
+    "<ion-infinite-scroll></ion-infinite-scroll>\n";
+
+    const defaultSearchTemplate =
+      "<div class=\"item item-input-inset\">\n" +
+      "   <div class=\"item-input-wrapper\">\n" +
+      "   <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+      "   <input aria-label=\"{{'template.crud.search' | translate}}\" type=\"text\" ng-model=\"vars.searchableList[options.randomModel]\" cronapp-filter=\"{{options.filterFields}}\" cronapp-filter-operator=\"\" cronapp-filter-caseinsensitive=\"false\"\n" +
+      "   cronapp-filter-autopost=\"true\" crn-datasource=\"{{options.dataSourceScreen.name}}\" placeholder=\"{{\'template.crud.search\' | translate}}\">\n" +
+      "   </div>\n" +
+      "   <button ng-if=\"showButton()\" ng-click=\"limparSelecao()\"\n" +
+      "   class=\"button-small cron-list-button-clean button button-inline button-positive component-holder\">\n" +
+      "   <span cron-list-button-text>Limpar Seleção</span></button>\n" +
+    "</div>";
 
     var getExpression = function(dataSourceName) {
       return 'rowData in '.concat(dataSourceName).concat('.data');
@@ -1013,25 +1062,13 @@ window.addEventListener('message', function(event) {
       return result;
     }
 
-    var addDefaultColumn = function(column, first) {
-      var result = null;
-
-      if (first) {
-        result = '<h2>{{rowData.' + column.field + buildFormat(column) + '}}</h2>';
-      } else {
-        result = '<h3 class="dark">{{rowData.' + column.field + buildFormat(column) + '}}</h3>';
-      }
-
-      return result;
-    }
-
     var getEditCommand = function(dataSourceName) {
       return dataSourceName + '.startEditing(rowData)';
     }
 
     var addDefaultButton = function(dataSourceName, column) {
-      const EDIT_TEMPLATE = '<ion-option-button class="button-positive ion-edit" ng-click="' + getEditCommand(dataSourceName) + '"><span>edit</span></ion-option-button>';
-      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive ion-trash-a" ng-click="' + dataSourceName + '.remove(rowData)"><span>delete</span></ion-option-button>';
+      const EDIT_TEMPLATE = '<ion-option-button class="button-positive ion-edit" ng-click="' + getEditCommand(dataSourceName) + '"><span>&nbsp;{{"Permission.view.Edit" | translate}}</span></ion-option-button>';
+      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive ion-trash-a" ng-click="' + dataSourceName + '.remove(rowData)"><span>&nbsp;{{"Permission.view.Remove" | translate}}</span></ion-option-button>';
 
       if (column.command == 'edit|destroy') {
         return EDIT_TEMPLATE.concat(DELETE_TEMPLATE);
@@ -1040,34 +1077,6 @@ window.addEventListener('message', function(event) {
       } else if (column.command == 'destroy') {
         return DELETE_TEMPLATE;
       }
-    }
-
-    var addImage = function(column, imageDirection, iconDirection, iconTemplate, bothDirection, imageType) {
-      let extraClassToAdd = ''
-      if(iconTemplate && imageType && bothDirection){
-        extraClassToAdd = 'image-to-' + bothDirection + '-' + imageType;
-      }
-      return '<img ng-src="data:image/png;base64,{{rowData.' + column.field + '}}" class="' + extraClassToAdd + '" ></img>';
-    }
-
-    var addImageLink = function(column) {
-      return '<img ng-src="{{rowData.' + column.field + '}}"></img>';
-    }
-
-    var addIcon = function(icon) {
-      return '<i class="' + icon + '" xattr-theme="dark"></i>';
-    }
-
-    var addCheckbox = function(addedImage, imageType){
-      var template = '';
-      if(!addedImage || !imageType){
-        imageType = "default";
-      }
-      template = '<ul class="checkbox-group component-holder cron-list-multiselect-' +
-          imageType +
-          '"data-component="crn-checkbox"><label class="checkbox">' +
-          '<input ng-checked="isChecked(rowData);" type="checkbox"></label></ul>';
-      return template;
     }
 
     var encodeHTML = function(value) {
@@ -1131,42 +1140,17 @@ window.addEventListener('message', function(event) {
       return `<ion-option-button class="button-dark ${column.iconClass}" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)">${column.label}</ion-option-button> `
     }
 
-    var isImage = function(fieldName, schemaFields) {
-      for (var i = 0; i < schemaFields.length; i++) {
-        var field = schemaFields[i];
-        if (fieldName == field.name) {
-          return (field.type == 'Binary');
-        }
-      }
-
-      return false;
-    }
-
-    var getSearchableList = function(dataSourceName, fieldName) {
-      return '\
-              <div class="item item-input-inset">\
-              <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i> \
-                <input type="text" ng-model="vars.__searchableList__" cronapp-filter="'+ fieldName +';" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" \
-                crn-datasource="' + dataSourceName + '" placeholder="{{\'template.crud.search\' | translate}}"> \
-              </label>\
-              <button ng-if="showButton()" ng-click="limparSelecao()" \
-                class="button-small cron-list-button-clean button button-inline button-positive component-holder">\
-              <span  cron-list-button-text>Limpar Seleção<\span></button> \
-              </div>\
-             ';
-    }
-
     return {
       restrict: 'E',
       require: '?ngModel',
       scope: true,
+      priority: 9999998,
+      terminal: true,
       link: function(scope, element, attrs, ngModelCtrl) {
 
         var optionsList = {};
         var dataSourceName = '';
-        var content = '';
         var buttons = '';
-        var image = '';
 
         try {
           optionsList = JSON.parse(attrs.options);
@@ -1174,12 +1158,10 @@ window.addEventListener('message', function(event) {
           var dataSource = eval(optionsList.dataSourceScreen.name);
           var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
           var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
-          var iconTemplate  = optionsList.icon ? addIcon(optionsList.icon) : '';
           var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
           var checkboxTemplate = '';
           var modelArrayToInsert = [];
           var isKey = false;
-          const cronListClass = 'cron-list-selected';
           scope.options = optionsList;
 
           if(attrs['ngModel']){
@@ -1205,12 +1187,12 @@ window.addEventListener('message', function(event) {
                 let hasObject = false;
                 modelArrayToInsert = modelGetter(scope);
                 rowData = scope.verifyIsKey(rowData);
-                hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, null, event);
+                hasObject = scope.hasObjectChecked(isKey, rowData, null, event);
                 scope.isSelected = hasObject;
                 return hasObject;
               }
 
-              scope.hasObjectChecked = function(isKey, cronListClass, rowData, fn, event){
+              scope.hasObjectChecked = function(isKey, rowData, fn, event){
                 let hasObject = false;
                 if(Array.isArray(modelArrayToInsert)){
                   if(isKey && typeof rowData !== "object"){
@@ -1250,7 +1232,7 @@ window.addEventListener('message', function(event) {
                 let currentCheckbox = $(event.currentTarget).find('input[type=checkbox]');
                 rowData = scope.verifyIsKey(rowData);
                 if($(currentCheckbox).is(':checked')){
-                  hasObject = scope.hasObjectChecked(isKey, cronListClass, rowData, fn, event);
+                  hasObject = scope.hasObjectChecked(isKey, rowData, fn, event);
                   if(!hasObject){
                     modelArrayToInsert.push(rowData);
                   }
@@ -1295,6 +1277,9 @@ window.addEventListener('message', function(event) {
           }
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
+            if (event.target.tagName == 'INPUT') {
+              return;
+            }
 
             dataSource.goTo(rowData);
 
@@ -1323,24 +1308,58 @@ window.addEventListener('message', function(event) {
           var searchableField = null;
           var isNativeEdit = false;
           var addedImage = false;
+
+          scope.options = optionsList;
+          scope.options.fields = {};
+          scope.options.isImageFromDropbox = false;
+          scope.options.editableButtonClass = "";
+          scope.options.itemContentClass = "";
+          scope.options.itemSimple = "";
+          scope.options.filterFields = "";
+          scope.options.randomModel = Math.floor(Math.random() * (9000)) + 1000;
+          if(!optionsList.imagePosition) scope.options.imagePosition = "left";
+          if(!optionsList.iconPosition) scope.options.iconPosition = "right";
+          if(!optionsList.imageType) scope.options.imageType = "avatar";
+          var imageDirection = optionsList.imagePosition ? optionsList.imagePosition : "left";
+          var iconDirection = optionsList.iconPosition ? optionsList.iconPosition : "right";
+          var bothDirection = imageDirection === 'left' && iconDirection === 'left' ? 'left' : (imageDirection === 'right' && iconDirection === 'right' ? 'right' : '');
+          var visibleColumns = [];
+
           for (var i = 0; i < optionsList.columns.length; i++) {
             var column = optionsList.columns[i];
             if (column.visible) {
-              if (column.field && column.dataType == 'Database') {
-                if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show") {
-                  image = addImage(column, imageDirection, iconDirection, iconTemplate, bothDirection, optionsList.imageType);
-                  addedImage = true;
-                } else if (!addedImage && (column.type == 'image')) {
-                  image = addImageLink(column);
-                  addedImage = true;
+              visibleColumns.push(optionsList.columns[i]);
+            }
+          }
+
+          for (var i = 0; i < visibleColumns.length; i++) {
+            var column = visibleColumns[i];
+            if (column.field && column.dataType == 'Database') {
+              scope.options.fields["field" + i] = column.field;
+              scope.options.fields["type" + i] = column.type;
+              scope.options.fields["mask" + i] = column.format;
+              if (!addedImage && isImage(column.field, optionsList.dataSourceScreen.entityDataSource.schemaFields) && optionsList.imageType !== "do-not-show"){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+                addedImage = true;
+                scope.options.isImageFromDropbox = false;
+              }
+              else if(!addedImage && (column.type == 'image')){
+                scope.options.fields["image"] = column.field;
+                delete scope.options.fields["field" + i];
+                addedImage = true;
+                scope.options.isImageFromDropbox = true;
+              }
+              else{
+                if (column.filterable) {
+                  searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
                 }
-                else {
-                  content = content.concat(addDefaultColumn(column, (i == 0)));
-                  if (column.filterable) {
-                    searchableField = (searchableField != null) ? searchableField + ';' + column.field : column.field;
-                  }
-                }
-              } else if (column.dataType == 'Command') {
+              }
+            }
+            else if (column.dataType == 'Command' || column.dataType == 'Blockly' || column.dataType == 'Customized'){
+              scope.options.editableButtonClass = "item-complex item-right-editable";
+              if(column.dataType == 'Command'){
+                scope.options.fields["field" + i] = column.field;
                 buttons = buttons.concat(addDefaultButton(dataSourceName, column));
                 if ((column.command == 'edit') || (column.command == 'edit|destroy')) {
                   isNativeEdit = true;
@@ -1348,7 +1367,6 @@ window.addEventListener('message', function(event) {
               } else if (column.dataType == 'Blockly') {
                 buttons = buttons.concat(addBlockly(column));
               } else if (column.dataType == 'Customized') {
-
                 buttons = buttons.concat(addCustomButton(column));
               }
             }
@@ -1357,19 +1375,58 @@ window.addEventListener('message', function(event) {
           console.log('CronList invalid configuration! ' + err);
         }
 
+        if(!scope.options.editableButtonClass && !addedImage){
+          scope.options.itemContentClass = "item-content"
+          scope.options.itemSimple = "item-simple"
+        }
+        else if(!scope.options.editableButtonClass && addedImage){
+          scope.options.itemContentClass = "item-content"
+          scope.options.editableButtonClass = "item-complex";
+          scope.options.itemSimple = ""
+        }
+
+        if(scope.options.fields.image && scope.options.imageType != 'do-not-show'){
+          scope.options.imageClassPosition = "item-" + scope.options.imageType + '-' + scope.options.imagePosition;
+        }
+
+        if(!addedImage){
+          scope.options.imageType = "do-not-show"
+        }
+
+        if(scope.options.icon && scope.options.iconPosition && scope.options.imageType){
+          scope.options.iconClassPosition = "item-icon-" + scope.options.iconPosition;
+        }
+
+        if(bothDirection && scope.options.icon && scope.options.imagePosition && scope.options.imageType){
+          scope.options.imageToClassPosition = "image-to-" + scope.options.imagePosition + '-' + scope.options.imageType;
+          scope.options.textToClassPosition = "text-to-" + scope.options.iconPosition + '-' + scope.options.imageType;
+        }
+
+        if(!scope.options.advancedTemplate){
+          scope.options.advancedTemplate = defaultAdvancedTemplate;
+        }
+
+         if(!scope.options.searchTemplate){
+          scope.options.searchTemplate = defaultSearchTemplate
+        }
+
         var templateDyn = null;
         if (searchableField) {
-          let templateWithSearch = $(getSearchableList(dataSourceName, searchableField) + TEMPLATE)
-          templateDyn = $(templateWithSearch);
+          scope.options.filterFields = searchableField;
+          templateDyn = $(scope.options.searchTemplate + scope.options.advancedTemplate);
         } else {
-          templateDyn = $(TEMPLATE);
+          templateDyn = $(scope.options.advancedTemplate);
         }
+        scope.options.xattrTextPosition = attrs.xattrTextPosition;
+
         templateDyn.attr("type", optionsList.listType);
         $(element).replaceWith(templateDyn);
         var $element = templateDyn;
 
         var ionItem = $element.find('ion-item');
-        ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        if($(ionItem).attr('ng-repeat') === "rowData in datasource"){
+          ionItem.attr('ng-repeat', getExpression(dataSourceName));
+        }
 
         if (isNativeEdit) {
           ionItem.attr('ng-click', getEditCommand(dataSourceName));
@@ -1382,7 +1439,7 @@ window.addEventListener('message', function(event) {
           if(attrs['ngModel']){
             ngClickAttrTemplateCheckbox = "checkboxButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);"
           }
-          checkboxTemplate = addCheckbox(addedImage, optionsList.imageType)
+          checkboxTemplate = $element.find('ul');
           if(attrs.ngClick){
             checkboxTemplate = $(checkboxTemplate).attr('ng-click', ngClickAttrTemplateCheckbox).get(0).outerHTML;
             ngClickAttrTemplate = ngClickAttrTemplate + "listButtonClick($index, rowData, \'"+window.stringToJs(attrs.ngClick)+"\', $event);";
@@ -1399,18 +1456,6 @@ window.addEventListener('message', function(event) {
           ionItem.attr('ng-click', ngClickAttrTemplate);
         }
 
-        if(optionsList.icon){
-          ionItem.addClass("item-icon-" + iconDirection);
-        }
-
-        if(addedImage && (!optionsList.imageType || optionsList.imageType === "avatar")){
-          ionItem.addClass("item-avatar-" + imageDirection);
-        }
-
-        if(addedImage && optionsList.imageType === "thumbnail"){
-          ionItem.addClass("item-thumbnail-" + imageDirection);
-        }
-
         const attrsExcludeds = ['options','ng-repeat','ng-click'];
         const filteredItems = Object.values(attrs.$attr).filter(function(item) {
           return !attrsExcludeds.includes(item);
@@ -1419,27 +1464,25 @@ window.addEventListener('message', function(event) {
           ionItem.attr(filteredItems[o], attrs[o]);
         }
 
-        let extraClassToAdd = ''
-        if(optionsList.imageType && bothDirection && addedImage && iconTemplate){
-          extraClassToAdd = 'text-to-' + bothDirection + '-' + optionsList.imageType;
-        }
-        content = '<div class="' + attrs.xattrTextPosition + ' ' + extraClassToAdd + '">' + content + iconTemplate + '<\div>';
+        ionItem.append(buttons);
 
-        if(image){
-          ionItem.append(checkboxTemplate);
-          ionItem.append(image);
-          ionItem.append(content);
-          ionItem.append(buttons);
-        }
-        else{
-          ionItem.append(checkboxTemplate);
-          ionItem.append(content);
-          ionItem.append(buttons);
-        }
-
+        var firstScroll = true;
         scope.nextPageInfinite = function() {
-          dataSource.nextPage();
-          scope.$broadcast('scroll.infiniteScrollComplete');
+          if ($element.find('ion-item').length < dataSource.data.length || dataSource.data.length == 0) {
+            scope.$broadcast('scroll.infiniteScrollComplete');
+            return;
+          }
+
+          if ($element.find('ion-item').length == dataSource.data.length) {
+            if (!firstScroll) {
+              dataSource.nextPage(function() {
+                scope.$broadcast('scroll.infiniteScrollComplete');
+              });
+            } else {
+              scope.$broadcast('scroll.infiniteScrollComplete');
+              firstScroll = false;
+            }
+          }
         }
 
         var infiniteScroll =  $element.filter(function( index ) {
@@ -1459,7 +1502,7 @@ window.addEventListener('message', function(event) {
           return false;
         }
 
-        $compile(templateDyn)(scope);
+        $compile(templateDyn, null, 9999998)(scope);
       }
     }
   }])
@@ -1594,8 +1637,159 @@ window.addEventListener('message', function(event) {
       }
   }])
 
+  .directive('srcLazy', function($compile){
+    'use strict';
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        var $element = $(element);
+
+        if ($element.is(':appeared')) {
+          element.attr('src', attrs.srcLazy);
+          return;
+        }
+
+        if (!attrs.srcLazyPreview) {
+          $element.css('visibility', 'hidden');
+        } else {
+          $element.attr('src', attrs.srcLazyPreview);
+        }
+
+        $element.appear();
+
+        $element.on('appear', function(event, $all_appeared_elements) {
+          if (!$element.attr('src-lazy')) {
+            return;
+          }
+          if (!attrs.srcLazyPreview) {
+            $element.css('visibility', 'visible');
+          }
+          console.log(attrs.srcLazy);
+          $element.attr('src', attrs.srcLazy);
+          $element.attr('src-lazy', '');
+        });
+      }
+    }
+  })
+
 }(app));
 
+(function ($) {
+  var selectors = [];
+
+  var checkBinded = false;
+  var checkLock = false;
+  var defaults = {
+    interval: 250,
+    force_process: false
+  };
+  var $window = $(window);
+
+  var $priorAppeared = [];
+
+  function isAppeared() {
+    return $(this).is(':appeared');
+  }
+
+  function isNotTriggered() {
+    return !$(this).data('_appear_triggered');
+  }
+
+  function process() {
+    checkLock = false;
+
+    for (var index = 0, selectorsLength = selectors.length; index < selectorsLength; index++) {
+      var $appeared = $(selectors[index]).filter(isAppeared);
+
+      $appeared
+        .filter(isNotTriggered)
+        .data('_appear_triggered', true)
+        .trigger('appear', [$appeared]);
+
+      if ($priorAppeared[index]) {
+        var $disappeared = $priorAppeared[index].not($appeared);
+        $disappeared
+          .data('_appear_triggered', false)
+          .trigger('disappear', [$disappeared]);
+      }
+      $priorAppeared[index] = $appeared;
+    }
+  }
+
+  function addSelector(selector) {
+    selectors.push(selector);
+    $priorAppeared.push();
+  }
+
+  // ":appeared" custom filter
+  $.expr.pseudos.appeared = $.expr.createPseudo(function (_arg) {
+    return function (element) {
+      var $element = $(element);
+
+      var windowLeft = $window.scrollLeft();
+      var windowTop = $window.scrollTop();
+      var offset = $element.offset();
+      var left = offset.left;
+      var top = offset.top;
+
+      if (top + $element.height() >= windowTop &&
+          top - ($element.data('appear-top-offset') || 0) <= windowTop + $window.height() &&
+          left + $element.width() >= windowLeft &&
+          left - ($element.data('appear-left-offset') || 0) <= windowLeft + $window.width()) {
+        return true;
+      }
+      return false;
+    };
+  });
+
+  $.fn.extend({
+    // watching for element's appearance in browser viewport
+    appear: function (selector, options) {
+      $.appear(this, options);
+      return this;
+    }
+  });
+
+  $.extend({
+    appear: function (selector, options) {
+      var opts = $.extend({}, defaults, options || {});
+
+      if (!checkBinded) {
+        var onCheck = function () {
+          if (checkLock) {
+            return;
+          }
+          checkLock = true;
+
+          setTimeout(process, opts.interval);
+        };
+
+        $("ion-content").scroll(onCheck).resize(onCheck);
+        checkBinded = true;
+      }
+
+      if (opts.force_process) {
+        setTimeout(process, opts.interval);
+      }
+
+      addSelector(selector);
+    },
+    // force elements's appearance check
+    force_appear: function () {
+      if (checkBinded) {
+        process();
+        return true;
+      }
+      return false;
+    }
+  });
+}(function () {
+  if (typeof module !== 'undefined') {
+    // Node
+    return require('jquery');
+  }
+  return jQuery;
+}()));
 
 function maskDirectiveAsDate($compile, $translate, $parse) {
   return maskDirective($compile, $translate, 'as-date', $parse);
