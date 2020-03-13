@@ -1644,40 +1644,44 @@ window.addEventListener('message', function(event) {
       link: function(scope, element, attrs) {
         var $element = $(element);
 
-        if ($element.is(':appeared')) {
-          element.attr('src', attrs.srcLazy);
-          return;
-        }
-
-        if (!attrs.srcLazyPreview) {
-          $element.css('visibility', 'hidden');
-        } else {
-          $element.attr('src', attrs.srcLazyPreview);
-        }
-
-        $element.appear();
-
-        $element.on('appear', function(event, $all_appeared_elements) {
-          if (!$element.attr('src-lazy')) {
+        setTimeout(function() {
+          if ($element.is(':appeared')) {
+            element.attr('src', attrs.srcLazy);
             return;
           }
+
           if (!attrs.srcLazyPreview) {
-            $element.css('visibility', 'visible');
+            $element.css('visibility', 'hidden');
+          } else {
+            $element.attr('src', attrs.srcLazyPreview);
           }
-          console.log(attrs.srcLazy);
-          $element.attr('src', attrs.srcLazy);
-          $element.attr('src-lazy', '');
+
+          $element.appear();
+
+          $element.on('appear', function(event, $all_appeared_elements) {
+            if (!$element.attr('src-lazy')) {
+              return;
+            }
+            if (!attrs.srcLazyPreview) {
+              $element.css('visibility', 'visible');
+            }
+            console.log(attrs.srcLazy);
+            $element.attr('src', attrs.srcLazy);
+            $element.attr('src-lazy', '');
+          });
+        },100);
+
+        scope.$on('$destroy', function() {
+          $element.appearStop();
         });
       }
     }
   })
-
 }(app));
 
 (function ($) {
   var selectors = [];
 
-  var checkBinded = false;
   var checkLock = false;
   var defaults = {
     interval: 250,
@@ -1721,7 +1725,6 @@ window.addEventListener('message', function(event) {
     $priorAppeared.push();
   }
 
-  // ":appeared" custom filter
   $.expr.pseudos.appeared = $.expr.createPseudo(function (_arg) {
     return function (element) {
       var $element = $(element);
@@ -1743,18 +1746,41 @@ window.addEventListener('message', function(event) {
   });
 
   $.fn.extend({
-    // watching for element's appearance in browser viewport
     appear: function (selector, options) {
       $.appear(this, options);
       return this;
     }
   });
 
+  $.fn.extend({
+    appearStop: function (selector, options) {
+      $.appearStop(this, options);
+      return this;
+    }
+  });
+
   $.extend({
+    appearStop: function (selector, options) {
+      var idx = -1;
+      for (i = 0;i<selectors.length;i++) {
+        if (selectors[i].get(0) == selector.get(0)) {
+          idx = i;
+          break;
+        }
+      }
+      if (idx != -1) {
+        selectors.splice(idx);
+      }
+    },
     appear: function (selector, options) {
       var opts = $.extend({}, defaults, options || {});
+      var $ionContent = $("ion-content");
 
-      if (!checkBinded) {
+      if (!$ionContent.length) {
+        return;
+      }
+
+      if (!$ionContent.get(0).checkBinded) {
         var onCheck = function () {
           if (checkLock) {
             return;
@@ -1764,8 +1790,8 @@ window.addEventListener('message', function(event) {
           setTimeout(process, opts.interval);
         };
 
-        $("ion-content").scroll(onCheck).resize(onCheck);
-        checkBinded = true;
+        $ionContent.scroll(onCheck).resize(onCheck);
+        $ionContent.get(0).checkBinded = true;
       }
 
       if (opts.force_process) {
@@ -1773,14 +1799,6 @@ window.addEventListener('message', function(event) {
       }
 
       addSelector(selector);
-    },
-    // force elements's appearance check
-    force_appear: function () {
-      if (checkBinded) {
-        process();
-        return true;
-      }
-      return false;
     }
   });
 }(function () {
@@ -2002,7 +2020,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
           $element.mask(mask);
           useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask);
         }
-        else{  
+        else{
           options = {};
           options['placeholder'] = attrs.maskPlaceholder
           $(element).inputmask(mask, options);
@@ -2028,7 +2046,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
 function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask){
   //Forçando um set no model no evento de keyup.
-  var $element = $(element); 
+  var $element = $(element);
   var unmaskedvalue = function(event) {
   var rawValue = $(this).inputmask('unmaskedvalue');
     $(this).data('rawvalue',rawValue);
@@ -2066,7 +2084,7 @@ function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask){
 }
 
 function useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask){
-  var $element = $(element); 
+  var $element = $(element);
   var unmaskedvalue = function() {
     if (removeMask)
       $(this).data('rawvalue',$(this).cleanVal());
