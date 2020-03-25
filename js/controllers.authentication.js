@@ -106,11 +106,16 @@
             }
 
             function handleError(data, status, headers, config) {
-                let error = status === 401 ? $translate.instant('Login.view.invalidPassword') : data;
-                if (!error) {
-                    error = $translate.instant('General.ErrorNotSpecified');
-                }
-                Notification.error(error);
+              let error;
+              if (data !== null && data.message) {
+                let message = JSON.parse(data.message);
+                error = message.exception
+              } else if (typeof data === 'string') {
+                error = data;
+              } else {
+                error = $translate.instant('General.ErrorNotSpecified');
+              }
+              Notification.error(error);
             }
 
             try {
