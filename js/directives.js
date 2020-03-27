@@ -155,18 +155,12 @@ window.addEventListener('message', function(event) {
   .directive('mask', maskDirectiveMask)
 
   .directive('dynamicImage', function($compile, $translate) {
-    var template = '';
     return {
       restrict: 'A',
       scope: true,
       require: 'ngModel',
       link: function(scope, element, attr) {
-        var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
-        var content = element.html();
-        var altText = attr.alt ? attr.alt : $translate.instant('Users.view.Picture');
-        var closeAriaText = $translate.instant('Home.view.Close');
-        var videocamAriaText = $translate.instant('OpenCamera');
-        var templateDyn    =
+        let templateDyn =
             '<div ngf-drop="" ngf-drag-over-class="dragover">\
                <img role="img" alt="$altText$" style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
                <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
@@ -175,22 +169,37 @@ window.addEventListener('message', function(event) {
                <div aria-label="$closeAriaText$" class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
                  <span class="icon ion-android-close"></span>\
                </div>\
-               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
+               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\',\'$quality$\',\'$allowEdit$\',\'$targetWidth$\',\'$targetHeight$\')">\
                  <span class="icon ion-ios-videocam"></span>\
                </div>\
              </div>';
-        var maxFileSize = "";
-        if (attr.maxFileSize)
-          maxFileSize = attr.maxFileSize;
+
+        const attributes = {
+          ngModel: attr.ngModel,
+          required: (attr.ngRequired && attr.ngRequired == "true")?"required":"",
+          content: element.html(),
+          altText: attr.alt ? attr.alt : $translate.instant('Users.view.Picture'),
+          closeAriaText: $translate.instant('Home.view.Close'),
+          videocamAriaText: $translate.instant('OpenCamera'),
+          maxFileSize: attr.maxFileSize ? attr.maxFileSize : "",
+          quality: attr.quality ? attr.quality : "60",
+          allowEdit: attr.allowEdit ? attr.allowEdit : "false",
+          targetWidth: attr.targetWidth ? attr.targetWidth : "640",
+          targetHeight: attr.targetHeight ? attr.targetHeight : "640"
+        };
 
         templateDyn = $(templateDyn
-            .split('$ngModel$').join(attr.ngModel)
-            .split('$required$').join(required)
-            .split('$userHtml$').join(content)
-            .split('$maxFileSize$').join(maxFileSize)
-            .split('$altText$').join(altText)
-            .split('$closeAriaText$').join(closeAriaText)
-            .split('$videocamAriaText$').join(videocamAriaText)
+            .split('$ngModel$').join(attributes.ngModel)
+            .split('$required$').join(attributes.required)
+            .split('$userHtml$').join(attributes.content)
+            .split('$maxFileSize$').join(attributes.maxFileSize)
+            .split('$altText$').join(attributes.altText)
+            .split('$closeAriaText$').join(attributes.closeAriaText)
+            .split('$videocamAriaText$').join(attributes.videocamAriaText)
+            .split('$quality$').join(attributes.quality)
+            .split('$allowEdit$').join(attributes.allowEdit)
+            .split('$targetWidth$').join(attributes.targetWidth)
+            .split('$targetHeight$').join(attributes.targetHeight)
         );
 
         $(element).html(templateDyn);

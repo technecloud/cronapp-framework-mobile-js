@@ -24,6 +24,26 @@
       "type": "text"
     },
     {
+      "name": "quality",
+      "selector": "div[dynamic-image]",
+      "type": "text"
+    },
+    {
+      "name": "allow-edit",
+      "selector": "div[dynamic-image]",
+      "type": "text"
+    },
+    {
+      "name": "target-width",
+      "selector": "div[dynamic-image]",
+      "type": "text"
+    },
+    {
+      "name": "target-height",
+      "selector": "div[dynamic-image]",
+      "type": "text"
+    },
+    {
       "name": "ng-click",
       "selector": "div[dynamic-image]",
       "type": "event"
