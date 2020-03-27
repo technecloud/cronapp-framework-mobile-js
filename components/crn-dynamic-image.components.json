@@ -26,30 +26,22 @@
     {
       "name": "quality",
       "selector": "div[dynamic-image]",
-      "type": "text",
-      "text_pt_BR": "Qualidade",
-      "text_en_US": "Quality"
+      "type": "text"
     },
     {
       "name": "allow-edit",
       "selector": "div[dynamic-image]",
-      "type": "text",
-      "text_pt_BR": "Permitir Edição",
-      "text_en_US": "Allow Edit"
+      "type": "text"
     },
     {
       "name": "target-width",
       "selector": "div[dynamic-image]",
-      "type": "text",
-      "text_pt_BR": "Largura desejada",
-      "text_en_US": "Target Width"
+      "type": "text"
     },
     {
       "name": "target-height",
       "selector": "div[dynamic-image]",
-      "type": "text",
-      "text_pt_BR": "Altura desejada",
-      "text_en_US": "Target Height"
+      "type": "text"
     },
     {
       "name": "ng-click",
