@@ -627,7 +627,7 @@ window.addEventListener('message', function(event) {
                 el.prop('checked', false);
                 break;
               default:
-                el.prop('indeterminate', true);
+                el.attr('indeterminate', true);
             }
           };
           el.bind('click', function () {
