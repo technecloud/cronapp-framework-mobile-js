@@ -155,18 +155,12 @@ window.addEventListener('message', function(event) {
   .directive('mask', maskDirectiveMask)
 
   .directive('dynamicImage', function($compile, $translate) {
-    var template = '';
     return {
       restrict: 'A',
       scope: true,
       require: 'ngModel',
       link: function(scope, element, attr) {
-        var required = (attr.ngRequired && attr.ngRequired == "true"?"required":"");
-        var content = element.html();
-        var altText = attr.alt ? attr.alt : $translate.instant('Users.view.Picture');
-        var closeAriaText = $translate.instant('Home.view.Close');
-        var videocamAriaText = $translate.instant('OpenCamera');
-        var templateDyn    =
+        let templateDyn =
             '<div ngf-drop="" ngf-drag-over-class="dragover">\
                <img role="img" alt="$altText$" style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
                <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
@@ -175,22 +169,37 @@ window.addEventListener('message', function(event) {
                <div aria-label="$closeAriaText$" class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
                  <span class="icon ion-android-close"></span>\
                </div>\
-               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\')">\
+               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\',\'$quality$\',\'$allowEdit$\',\'$targetWidth$\',\'$targetHeight$\')">\
                  <span class="icon ion-ios-videocam"></span>\
                </div>\
              </div>';
-        var maxFileSize = "";
-        if (attr.maxFileSize)
-          maxFileSize = attr.maxFileSize;
+
+        const attributes = {
+          ngModel: attr.ngModel,
+          required: (attr.ngRequired && attr.ngRequired == "true")?"required":"",
+          content: element.html(),
+          altText: attr.alt ? attr.alt : $translate.instant('Users.view.Picture'),
+          closeAriaText: $translate.instant('Home.view.Close'),
+          videocamAriaText: $translate.instant('OpenCamera'),
+          maxFileSize: attr.maxFileSize ? attr.maxFileSize : "",
+          quality: attr.quality ? attr.quality : "60",
+          allowEdit: attr.allowEdit ? attr.allowEdit : "false",
+          targetWidth: attr.targetWidth ? attr.targetWidth : "640",
+          targetHeight: attr.targetHeight ? attr.targetHeight : "640"
+        };
 
         templateDyn = $(templateDyn
-            .split('$ngModel$').join(attr.ngModel)
-            .split('$required$').join(required)
-            .split('$userHtml$').join(content)
-            .split('$maxFileSize$').join(maxFileSize)
-            .split('$altText$').join(altText)
-            .split('$closeAriaText$').join(closeAriaText)
-            .split('$videocamAriaText$').join(videocamAriaText)
+            .split('$ngModel$').join(attributes.ngModel)
+            .split('$required$').join(attributes.required)
+            .split('$userHtml$').join(attributes.content)
+            .split('$maxFileSize$').join(attributes.maxFileSize)
+            .split('$altText$').join(attributes.altText)
+            .split('$closeAriaText$').join(attributes.closeAriaText)
+            .split('$videocamAriaText$').join(attributes.videocamAriaText)
+            .split('$quality$').join(attributes.quality)
+            .split('$allowEdit$').join(attributes.allowEdit)
+            .split('$targetWidth$').join(attributes.targetWidth)
+            .split('$targetHeight$').join(attributes.targetHeight)
         );
 
         $(element).html(templateDyn);
@@ -593,78 +602,83 @@ window.addEventListener('message', function(event) {
   })
 
   .directive('crnAllowNullValues', [function () {
-      return {
-          restrict: 'A',
-          require: '?ngModel',
-          link: function (scope, el, attrs, ctrl) {
-              ctrl.$formatters = [];
-              ctrl.$parsers = [];
-              if (attrs.crnAllowNullValues === 'true') {
-                  ctrl.$render = function () {
-                      var viewValue = ctrl.$viewValue;
-                      el.data('checked', viewValue);
-                      switch (viewValue) {
-                          case true:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', true);
-                              break;
-                          case false:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', false);
-                              break;
-                          default:
-                              el.attr('indeterminate', true);
-                      }
-                  };
-                  el.bind('click', function () {
-                      var checked;
-                      switch (el.data('checked')) {
-                          case false:
-                              checked = true;
-                              break;
-                          case true:
-                              checked = null;
-                              break;
-                          default:
-                              checked = false;
-                      }
-                      ctrl.$setViewValue(checked);
-                      scope.$apply(ctrl.$render);
-                  });
-              } else if (attrs.crnAllowNullValues === 'false'){
-                  ctrl.$render = function () {
-                      var viewValue = ctrl.$viewValue;
-                      if(viewValue === undefined || viewValue === null){
-                          ctrl.$setViewValue(false);
-                          viewValue = false;
-                      }
-                      el.data('checked', viewValue);
-                      switch (viewValue) {
-                          case true:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', true);
-                              break;
-                          default:
-                              el.attr('indeterminate', false);
-                              el.prop('checked', false);
-                              break;
-                      }
-                  };
-                  el.bind('click', function () {
-                      var checked;
-                      switch (el.data('checked')) {
-                          case false:
-                              checked = true;
-                              break;
-                          default:
-                              checked = false;
-                      }
-                      ctrl.$setViewValue(checked);
-                      scope.$apply(ctrl.$render);
-                  });
-              }
-          }
-      };
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      link: function (scope, el, attrs, ctrl) {
+        ctrl.$formatters = [];
+        ctrl.$parsers = [];
+        let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : null;
+        let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : null;
+
+        if (attrs.crnAllowNullValues == 'true') {
+          ctrl.$render = function () {
+            let viewValue = ctrl.$viewValue;
+            el.data('checked', viewValue);
+            switch (viewValue) {
+              case true:
+              case trueValue:
+                el.prop('indeterminate', false);
+                el.prop('checked', true);
+                break;
+              case false:
+              case falseValue:
+                el.prop('indeterminate', false);
+                el.prop('checked', false);
+                break;
+              default:
+                el.prop('indeterminate', true);
+            }
+          };
+          el.bind('click', function () {
+            let checked;
+            switch (el.data('checked')) {
+              case false:
+              case falseValue:
+                checked = attrs.ngTrueValue ? trueValue : true;
+                break;
+              default:
+                checked = attrs.ngFalseValue ? falseValue : false;
+            }
+            ctrl.$setViewValue(checked);
+            scope.$apply(ctrl.$render);
+          });
+        } else if (attrs.crnAllowNullValues == 'false'){
+          ctrl.$render = function () {
+            let viewValue = ctrl.$viewValue;
+            if(viewValue === undefined || viewValue === null){
+              ctrl.$setViewValue(false);
+              viewValue = false;
+            }
+            el.data('checked', viewValue);
+            switch (viewValue) {
+              case true:
+              case trueValue:
+                el.prop('indeterminate', false);
+                el.prop('checked', true);
+                break;
+              default:
+                el.prop('indeterminate', false);
+                el.prop('checked', false);
+                break;
+            }
+          };
+          el.bind('click', function () {
+            let checked;
+            switch (el.data('checked')) {
+              case false:
+              case falseValue:
+                checked = attrs.ngTrueValue ? trueValue : true;
+                break;
+              default:
+                checked = attrs.ngFalseValue ? falseValue : false;
+            }
+            ctrl.$setViewValue(checked);
+            scope.$apply(ctrl.$render);
+          });
+        }
+      }
+    };
   }])
 
       .directive('cronappFilter', function($compile) {
@@ -1272,6 +1286,9 @@ window.addEventListener('message', function(event) {
           }
 
           scope.listButtonClick = function(idx, rowData, fn, event) {
+            if (event.target.tagName == 'INPUT') {
+              return;
+            }
 
             dataSource.goTo(rowData);
 
@@ -1629,8 +1646,177 @@ window.addEventListener('message', function(event) {
       }
   }])
 
+  .directive('srcLazy', function($compile){
+    'use strict';
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        var $element = $(element);
+
+        setTimeout(function() {
+          if ($element.is(':appeared')) {
+            element.attr('src', attrs.srcLazy);
+            return;
+          }
+
+          if (!attrs.srcLazyPreview) {
+            $element.css('visibility', 'hidden');
+          } else {
+            $element.attr('src', attrs.srcLazyPreview);
+          }
+
+          $element.appear();
+
+          $element.on('appear', function(event, $all_appeared_elements) {
+            if (!$element.attr('src-lazy')) {
+              return;
+            }
+            if (!attrs.srcLazyPreview) {
+              $element.css('visibility', 'visible');
+            }
+            console.log(attrs.srcLazy);
+            $element.attr('src', attrs.srcLazy);
+            $element.attr('src-lazy', '');
+          });
+        },100);
+
+        scope.$on('$destroy', function() {
+          $element.appearStop();
+        });
+      }
+    }
+  })
 }(app));
 
+(function ($) {
+  var selectors = [];
+
+  var checkLock = false;
+  var defaults = {
+    interval: 250,
+    force_process: false
+  };
+  var $window = $(window);
+
+  var $priorAppeared = [];
+
+  function isAppeared() {
+    return $(this).is(':appeared');
+  }
+
+  function isNotTriggered() {
+    return !$(this).data('_appear_triggered');
+  }
+
+  function process() {
+    checkLock = false;
+
+    for (var index = 0, selectorsLength = selectors.length; index < selectorsLength; index++) {
+      var $appeared = $(selectors[index]).filter(isAppeared);
+
+      $appeared
+        .filter(isNotTriggered)
+        .data('_appear_triggered', true)
+        .trigger('appear', [$appeared]);
+
+      if ($priorAppeared[index]) {
+        var $disappeared = $priorAppeared[index].not($appeared);
+        $disappeared
+          .data('_appear_triggered', false)
+          .trigger('disappear', [$disappeared]);
+      }
+      $priorAppeared[index] = $appeared;
+    }
+  }
+
+  function addSelector(selector) {
+    selectors.push(selector);
+    $priorAppeared.push();
+  }
+
+  $.expr.pseudos.appeared = $.expr.createPseudo(function (_arg) {
+    return function (element) {
+      var $element = $(element);
+
+      var windowLeft = $window.scrollLeft();
+      var windowTop = $window.scrollTop();
+      var offset = $element.offset();
+      var left = offset.left;
+      var top = offset.top;
+
+      if (top + $element.height() >= windowTop &&
+          top - ($element.data('appear-top-offset') || 0) <= windowTop + $window.height() &&
+          left + $element.width() >= windowLeft &&
+          left - ($element.data('appear-left-offset') || 0) <= windowLeft + $window.width()) {
+        return true;
+      }
+      return false;
+    };
+  });
+
+  $.fn.extend({
+    appear: function (selector, options) {
+      $.appear(this, options);
+      return this;
+    }
+  });
+
+  $.fn.extend({
+    appearStop: function (selector, options) {
+      $.appearStop(this, options);
+      return this;
+    }
+  });
+
+  $.extend({
+    appearStop: function (selector, options) {
+      var idx = -1;
+      for (i = 0;i<selectors.length;i++) {
+        if (selectors[i].get(0) == selector.get(0)) {
+          idx = i;
+          break;
+        }
+      }
+      if (idx != -1) {
+        selectors.splice(idx);
+      }
+    },
+    appear: function (selector, options) {
+      var opts = $.extend({}, defaults, options || {});
+      var $ionContent = $("ion-content");
+
+      if (!$ionContent.length) {
+        return;
+      }
+
+      if (!$ionContent.get(0).checkBinded) {
+        var onCheck = function () {
+          if (checkLock) {
+            return;
+          }
+          checkLock = true;
+
+          setTimeout(process, opts.interval);
+        };
+
+        $ionContent.scroll(onCheck).resize(onCheck);
+        $ionContent.get(0).checkBinded = true;
+      }
+
+      if (opts.force_process) {
+        setTimeout(process, opts.interval);
+      }
+
+      addSelector(selector);
+    }
+  });
+}(function () {
+  if (typeof module !== 'undefined') {
+    // Node
+    return require('jquery');
+  }
+  return jQuery;
+}()));
 
 function maskDirectiveAsDate($compile, $translate, $parse) {
   return maskDirective($compile, $translate, 'as-date', $parse);
@@ -1843,7 +2029,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
           $element.mask(mask);
           useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask);
         }
-        else{  
+        else{
           options = {};
           options['placeholder'] = attrs.maskPlaceholder
           $(element).inputmask(mask, options);
@@ -1869,7 +2055,7 @@ function maskDirective($compile, $translate, attrName, $parse) {
 
 function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask){
   //Forçando um set no model no evento de keyup.
-  var $element = $(element); 
+  var $element = $(element);
   var unmaskedvalue = function(event) {
   var rawValue = $(this).inputmask('unmaskedvalue');
     $(this).data('rawvalue',rawValue);
@@ -1907,7 +2093,7 @@ function useInputMaskPlugin(element, ngModelCtrl, scope, modelSetter, mask){
 }
 
 function useMaskPlugin(element, ngModelCtrl, scope, modelSetter, removeMask){
-  var $element = $(element); 
+  var $element = $(element);
   var unmaskedvalue = function() {
     if (removeMask)
       $(this).data('rawvalue',$(this).cleanVal());
