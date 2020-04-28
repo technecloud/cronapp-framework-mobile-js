@@ -608,8 +608,8 @@ window.addEventListener('message', function(event) {
       link: function (scope, el, attrs, ctrl) {
         ctrl.$formatters = [];
         ctrl.$parsers = [];
-        let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : null;
-        let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : null;
+        let falseValue = attrs.ngFalseValue ? attrs.ngFalseValue.split("'").join("") : undefined;
+        let trueValue = attrs.ngTrueValue ? attrs.ngTrueValue.split("'").join("") : undefined;
 
         if (attrs.crnAllowNullValues == 'true') {
           ctrl.$render = function () {
@@ -618,12 +618,12 @@ window.addEventListener('message', function(event) {
             switch (viewValue) {
               case true:
               case trueValue:
-                el.prop('indeterminate', false);
+                el.removeAttr('indeterminate');
                 el.prop('checked', true);
                 break;
               case false:
               case falseValue:
-                el.prop('indeterminate', false);
+                el.removeAttr('indeterminate');
                 el.prop('checked', false);
                 break;
               default:
@@ -654,11 +654,11 @@ window.addEventListener('message', function(event) {
             switch (viewValue) {
               case true:
               case trueValue:
-                el.prop('indeterminate', false);
+                el.removeAttr('indeterminate');
                 el.prop('checked', true);
                 break;
               default:
-                el.prop('indeterminate', false);
+                el.removeAttr('indeterminate');
                 el.prop('checked', false);
                 break;
             }
