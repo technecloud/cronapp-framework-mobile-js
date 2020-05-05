@@ -261,6 +261,7 @@ var app = (function() {
             });
 
             var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
+            locale = locale === 'pt_br' || locale === 'en_us' ? locale : 'pt_br';
 
             $translateProvider.use(locale.toLowerCase());
             $translateProvider.useSanitizeValueStrategy('escaped');
