@@ -2193,16 +2193,16 @@ function transformText() {
     require: '?ngModel',
     link: function(scope, elem, attrs, ngModelCtrl) {
 
-      var textTransform = function(element, value) {
-        if (element && value) {
+      let textTransform = function(element, value) {
+        if (element && value && (typeof value === 'string' || value instanceof String)) {
           if(element.css('text-transform') === 'uppercase'){
             return value.toUpperCase();
           } else if(element.css('text-transform') === 'lowercase'){
             return value.toLowerCase();
           }
-          return value
         }
-      }
+        return value
+      };
 
       if (ngModelCtrl) {
         ngModelCtrl.$formatters.push(function (result) {

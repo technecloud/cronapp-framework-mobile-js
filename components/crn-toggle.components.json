@@ -118,7 +118,7 @@
     },
     {
       "selector": "label#{id} .track",
-      "text_pt_BR": "Fundo do Botão de AlternÂncia",
+      "text_pt_BR": "Fundo do Botão de Alternância",
       "text_en_US": "Toggle Button Background"
     },
     {
