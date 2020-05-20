@@ -156,6 +156,14 @@
     },
     "condition": {
       "order": 2
+    },
+    "fetch-on-visible": {
+      "type": "logic",
+      "displayName_pt_BR": "Carregar quando Visível",
+      "displayName_en_US": "Fetch on Visible",
+      "removable": false,
+      "global": true,
+      "order": 8
     }
   }
 }
