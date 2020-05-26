@@ -35,8 +35,8 @@
     "gulp-uglifycss": "1.0.8"
   },
   "dependencies": {
-    "@bower_components/angular-ui-router": "angular-ui/ui-router#0.2.15",
-    "@bower_components/pace": "HubSpot/pace#v0.7.2",
+    "angular-ui-router": "angular-ui/ui-router#0.2.15",
+    "pace": "HubSpot/pace#v0.7.2",
     "angular": "1.5.9",
     "angular-aria": "1.5.9",
     "angular-cookies": "1.5.8",
