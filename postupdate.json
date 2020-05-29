@@ -72,7 +72,7 @@
     },
 	{
       "file": "index.html",
-      "script": "plugins/ng-file-upload/ng-file-upload.min.js",
+      "script": "plugins/ng-file-upload/dist/ng-file-upload.min.js",
       "type": "script"
     },
     {
@@ -162,8 +162,7 @@
     {
       "file": "index.html",
       "script": "plugins/angular-translate/dist/angular-translate.min.js",
-      "type": "script",
-      "onTop": true
+      "type": "script"
     }
   ],
   "removes": [
