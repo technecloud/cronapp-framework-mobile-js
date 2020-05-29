@@ -162,7 +162,8 @@
     {
       "file": "index.html",
       "script": "plugins/angular-translate/dist/angular-translate.min.js",
-      "type": "script"
+      "type": "script",
+      "onTop": true
     }
   ],
   "removes": [
