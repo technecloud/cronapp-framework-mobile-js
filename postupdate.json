@@ -148,6 +148,16 @@
       "file": "index.html",
       "script": "plugins/font-awesome/css/font-awesome.min.css",
       "type": "style"
+    },
+    {
+      "file": "index.html",
+      "script": "plugins/ng-file-upload/dist/ng-file-upload.min.js",
+      "type": "style"
+    },
+    {
+      "file": "index.html",
+      "script": "plugins/angular-dynamic-locale/dist/tmhDynamicLocale.js",
+      "type": "style"
     }
   ],
   "removes": [
@@ -170,6 +180,16 @@
       "file": "index.html",
       "script": "js/index/js",
       "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "plugins/ng-file-upload/ng-file-upload.min.js",
+      "type": "style"
+    },
+    {
+      "file": "index.html",
+      "script": "plugins/angular-dynamic-locale/tmhDynamicLocale.js",
+      "type": "style"
     }
   ]
 }
