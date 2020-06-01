@@ -54,6 +54,11 @@
           "key": "ignore",
           "value_en_US": "Remove Clause",
           "value_pt_BR": "Remover Cláusula"
+        },
+        {
+          "key": "wait",
+          "value_en_US": "Wait Fill",
+          "value_pt_BR": "Aguardar Preenchimento"
         }
       ],
       "order": 3
