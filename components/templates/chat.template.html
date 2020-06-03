@@ -1,5 +1,5 @@
 <div id="starter" ng-init="" ng-destroy=""  class="homeView" cache-view="false" ng-controller="chatController">
-<link href="plugins/cronapp-framework-mobile-js/dist/components/css/chatStyle.css" rel="stylesheet"> 
+<link href="node_modules/cronapp-framework-mobile-js/dist/components/css/chatStyle.css" rel="stylesheet">
   <ion-content overflow-scroll="false" has-bouncing="true" class="has-header has-footer" delegate-handle="userMessageScroll" on-scroll="checkScroll()"> 
     <div ng-model="vars.chatMessages"  ng-repeat="message in vars.chatMessages" class="message-wrapper" ng-init="$last &amp;&amp; refreshScroll(user.id === message.userId)" data-component="crn-item-options"> 
       <div ng-if="vars.user !== message.from"> 

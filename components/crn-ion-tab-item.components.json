@@ -6,7 +6,7 @@
   "wrapper": false,
   "designTimeDynamic": true,
   "pallete": false,
-  "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-tab-item.designtime.html",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-tab-item.designtime.html",
   "designTimeSelector": ":self",
   "template": "<ion-tab title=\"\" icon-on=\"ion-ios-filing\" icon-off=\"ion-ios-filing-outline\" id=\"ion-tab-${RANDOM}\" href=\"\" badge=\"\"></ion-tab>",
   "properties": {

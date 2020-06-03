@@ -5,7 +5,7 @@
   "class": "adjust-icon mdi mdi-tab",
   "wrapper": true,
   "pallete": false,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/nav.bar.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/nav.bar.template.html",
   "classForPreview": {
     "targetSelector": ".crn-ion-nav-buttons",
     "condition": [

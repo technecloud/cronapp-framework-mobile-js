@@ -4,7 +4,7 @@
   "text_en_US": "Footer",
   "class": "adjust-icon mdi mdi-page-layout-footer",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-footer-bar.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-footer-bar.template.html",
   "properties": {
     "id": {
       "order": 9998

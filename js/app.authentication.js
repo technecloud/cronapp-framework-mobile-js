@@ -169,7 +169,7 @@ var app = (function() {
                         url: "/app/public",
                         cache: false,
                         controller: 'PublicMenuController',
-                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/publicMenu.template.html'
+                        templateUrl: 'node_modules/cronapp-framework-mobile-js/components/templates/publicMenu.template.html'
                     })
 
                     .state('public.pages', {
@@ -189,7 +189,7 @@ var app = (function() {
                         url: "/app/logged",
                         cache: false,
                         controller: 'MenuController',
-                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/menu.template.html'
+                        templateUrl: 'node_modules/cronapp-framework-mobile-js/components/templates/menu.template.html'
                     })
 
                     .state('app.home', {
@@ -254,7 +254,7 @@ var app = (function() {
                       suffix: '.json'
                     },
                     {
-                        prefix: 'plugins/cronapp-framework-mobile-js/i18n/locale_',
+                        prefix: 'node_modules/cronapp-framework-mobile-js/i18n/locale_',
                         suffix: '.json'
                     }
                 ]
@@ -265,7 +265,7 @@ var app = (function() {
             $translateProvider.use(locale.toLowerCase());
             $translateProvider.useSanitizeValueStrategy('escaped');
 
-            tmhDynamicLocaleProvider.localeLocationPattern('plugins/angular-i18n/angular-locale_{{locale}}.js');
+            tmhDynamicLocaleProvider.localeLocationPattern('node_modules/angular-i18n/angular-locale_{{locale}}.js');
         })
         .config(function($sceProvider) {
           $sceProvider.enabled(false);

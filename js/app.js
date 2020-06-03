@@ -164,7 +164,7 @@ var app = (function() {
       $translateProvider.use(locale.toLowerCase());
       $translateProvider.useSanitizeValueStrategy('escaped');
 
-      tmhDynamicLocaleProvider.localeLocationPattern('plugins/angular-i18n/angular-locale_{{locale}}.js');
+      tmhDynamicLocaleProvider.localeLocationPattern('node_modules/angular-i18n/angular-locale_{{locale}}.js');
     })
 
     .directive('crnValue', ['$parse', function($parse) {
