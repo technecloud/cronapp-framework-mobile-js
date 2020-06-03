@@ -4,7 +4,7 @@
   "text_en_US": "Header",
   "class": "adjust-icon mdi mdi-page-layout-header",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
   "properties": {
     "class": {
       "order": 9999

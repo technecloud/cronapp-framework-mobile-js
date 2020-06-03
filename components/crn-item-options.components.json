@@ -2,7 +2,7 @@
   "name": "crn-item-options",
   "text": "Item Options",
   "class": "adjust-icon mdi mdi-microsoft",
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.options.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.options.template.html",
   "pallete": false,
   "classForPreview": {
     "targetSelector": ".crn-item-options",

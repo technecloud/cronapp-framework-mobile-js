@@ -5,9 +5,9 @@
   "class": "adjust-icon mdi mdi-star-outline",
   "wrapper": false,
   "pallete": false,
-  "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.designtime.html",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/evaluation.designtime.html",
   "designTimeSelector": ":self",
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/evaluation.template.html",
   "properties": {
     "ng-model": {
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",

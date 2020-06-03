@@ -7,7 +7,7 @@
   "wrapper": false,
   "pallete": false,
   "designTimeDynamic": true,
-  "designTimeHTMLURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/cron-mobile-menu.designtime.html",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/cron-mobile-menu.designtime.html",
   "designTimeSelector": ":self",
   "properties": {
     "class": {
