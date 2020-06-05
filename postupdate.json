@@ -104,6 +104,11 @@
     },
     {
       "file": "index.html",
+      "script": "node_modules/cronapp-framework-mobile-js/lib/kendo/kendo.default-v2.min.css",
+      "type": "style"
+    },
+    {
+      "file": "index.html",
       "script": "node_modules/cronapp-common-js/dist/js/parser.js",
       "type": "script"
     },
@@ -162,6 +167,11 @@
     {
       "file": "index.html",
       "script": "node_modules/angular-translate/dist/angular-translate.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/cronapp-framework-mobile-js/lib/kendo/kendo.all.min.js",
       "type": "script"
     }
   ],
