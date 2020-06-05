@@ -1772,7 +1772,17 @@ window.addEventListener('message', function(event) {
           }
         });
 
-        element.append(chatElement);
+        element.empty().append(chatElement);
+        
+        function fitChatHeightToWindow(){
+          $('.k-chat').height($(window).height() - $('.k-chat').offset().top);
+        }
+
+        $(window).resize(() => {
+            fitChatHeightToWindow();
+        });
+
+        $timeout(()=>{fitChatHeightToWindow();});
       },
     };
   });
