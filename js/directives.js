@@ -1690,17 +1690,19 @@ window.addEventListener('message', function(event) {
         let onTypingEnd = attrs.onTypingEnd;
         let onTypingStart = attrs.onTypingStart;
         let onActionClick = attrs.onActionClick;
+        let chatUsername = attrs.chatUsername;
+        let chatUserImage = attrs.chatUserImage;
+        let chatPlaceholder = attrs.chatPlaceholder;
 
         let chatElement = $("<div></div>");
 
         chatElement.kendoChat({
           messages: {
-            placeholder: "Digite uma mensagem",
+            placeholder: chatPlaceholder,
           },
           user: {
-            name: "Lincoln",
-            iconUrl:
-                "https://f0.pngfuel.com/png/348/800/man-wearing-blue-shirt-illustration-png-clip-art-thumbnail.png",
+            name: chatUsername || 'User',
+            iconUrl: chatUserImage,
           },
         });
 
