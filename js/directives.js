@@ -1679,7 +1679,104 @@ window.addEventListener('message', function(event) {
         });
       }
     }
-  })
+  });
+
+  app.directive("kendoChat", function ($compile, $timeout) {
+    return {
+      restrict: "E",
+      link: function (scope, element, attrs) {
+        let onPostMessage = attrs.onPostMessage;
+        let onSendMessage = attrs.onSendMessage;
+        let onTypingEnd = attrs.onTypingEnd;
+        let onTypingStart = attrs.onTypingStart;
+        let onActionClick = attrs.onActionClick;
+
+        let chatElement = $("<div></div>");
+
+        chatElement.kendoChat({
+          messages: {
+            placeholder: "Digite uma mensagem",
+          },
+          user: {
+            name: "Lincoln",
+            iconUrl:
+                "https://f0.pngfuel.com/png/348/800/man-wearing-blue-shirt-illustration-png-clip-art-thumbnail.png",
+          },
+        });
+
+        chat = chatElement.data("kendoChat");
+
+        //Binding Chat Events
+        chat.bind("post", (msg) => {
+          if (onPostMessage) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onPostMessage, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("sendMessage", (msg) => {
+          if (onSendMessage) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onSendMessage, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("typingStart", (msg) => {
+          if (onTypingStart) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onTypingStart, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("typingEnd", (msg) => {
+          if (onTypingEnd) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onTypingEnd, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("actionClick", (msg) => {
+          if (onActionClick) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onActionClick, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        element.append(chatElement);
+      },
+    };
+  });
+
 }(app));
 
 (function ($) {
@@ -2216,4 +2313,5 @@ function transformText() {
     }
   }
 }
+
 
