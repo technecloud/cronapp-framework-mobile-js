@@ -7,7 +7,7 @@
   "class": "adjust-icon mdi mdi-wechat",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/kendo-chat.template.html",
   "properties": {
-    "on-post-message": {
+    "ng-on-post-message": {
       "selector": "kendo-chat",
       "order": 1,
       "displayName_pt_BR": "Ao postar mensagem",
@@ -16,7 +16,7 @@
       "global": false,
       "type": "event"
     },
-    "on-send-message": {
+    "ng-on-send-message": {
       "selector": "kendo-chat",
       "order": 2,
       "displayName_pt_BR": "Ao enviar mensagem",
@@ -25,7 +25,7 @@
       "global": false,
       "type": "event"
     },
-    "on-typing-start":{
+    "ng-on-typing-start":{
       "selector": "kendo-chat",
       "order": 3,
       "displayName_pt_BR": "Ao iniciar digitação",
@@ -34,7 +34,7 @@
       "global": true,
       "type": "event"
     },
-    "on-typing-end":{
+    "ng-on-typing-end":{
       "selector": "kendo-chat",
       "order": 4,
       "displayName_pt_BR": "Ao terminar digitação",
