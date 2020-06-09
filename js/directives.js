@@ -222,14 +222,16 @@ window.addEventListener('message', function(event) {
         var field = splitedNgModel[splitedNgModel.length-1];
         var number = Math.floor((Math.random() * 1000) + 20);
         var content = element.html();
-
+      
         var maxFileSize = "";
         if (attr.maxFileSize)
           maxFileSize = attr.maxFileSize;
-
+      
+        var fileInfo = attr.fileInfo ? `'${attr.fileInfo}'`: 'undefined';
+        
         var templateDyn    = '\
                                 <div ng-show="!$ngModel$" ngf-drop="" ngf-drag-over-class="dragover">\
-                                  <div class="btn" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\')" ngf-max-size="$maxFileSize$">\
+                                  <div class="btn" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\', $fileInfo$)" ngf-max-size="$maxFileSize$">\
                                     $userHtml$\
                                   </div>\
                                   <div class="progress" data-type="bootstrapProgress" id="uploadprogress$number$" style="display:none">\
@@ -243,8 +245,8 @@ window.addEventListener('message', function(event) {
                                     <span role="img" alt="$closeAriaText$" class="icon ion-android-close"></span> \
                                   </div> \
                                   <div> \
-                                    <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$)"></div> \
-                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">$lblDownload$</div> \
+                                    <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$, $fileInfo$)"></div> \
+                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\', undefined, $fileInfo$)">$lblDownload$</div> \
                                   </div> \
                                 </div> \
                                 ';
@@ -258,9 +260,9 @@ window.addEventListener('message', function(event) {
             .split('$maxFileSize$').join(maxFileSize)
             .split('$closeAriaText$').join(closeAriaText)
             .split('$lblDownload$').join($translate.instant('download'))
-
+            .split('$fileInfo$').join(fileInfo)
         );
-
+        
         $(element).html(templateDyn);
         $compile(templateDyn)(element.scope());
       }
