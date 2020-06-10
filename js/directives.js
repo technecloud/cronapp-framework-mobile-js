@@ -1687,11 +1687,11 @@ window.addEventListener('message', function(event) {
     return {
       restrict: "E",
       link: function (scope, element, attrs) {
-        let onPostMessage = attrs.onPostMessage;
-        let onSendMessage = attrs.onSendMessage;
-        let onTypingEnd = attrs.onTypingEnd;
-        let onTypingStart = attrs.onTypingStart;
-        let onActionClick = attrs.onActionClick;
+        let onPostMessage = attrs.ngOnPostMessage;
+        let onSendMessage = attrs.ngOnSendMessage;
+        let onTypingEnd = attrs.ngOnTypingEnd;
+        let onTypingStart = attrs.ngOnTypingStart;
+        let onActionClick = attrs.ngOnActionClick;
         let chatUsername = attrs.chatUsername;
         let chatUserImage = attrs.chatUserImage;
         let chatPlaceholder = attrs.chatPlaceholder;
