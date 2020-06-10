@@ -480,8 +480,7 @@
                     $scope.params[key] = queryStringParams[key];
                 }
             }
-            //Removido a chamada ao bloco, pois esta no template, e não refletirá as alterações
-            $scope.cronapi.screen.changeView("#/app/login",[  ]);
+            $scope.blockly.js.blockly.auth.Home.change();
 
             // Due to HomeController is not being used anymore in mobile project inject AfterHomeController here
             try {
