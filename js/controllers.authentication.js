@@ -480,7 +480,6 @@
                     $scope.params[key] = queryStringParams[key];
                 }
             }
-            
             $scope.blockly.js.blockly.auth.Home.change();
 
             // Due to HomeController is not being used anymore in mobile project inject AfterHomeController here
