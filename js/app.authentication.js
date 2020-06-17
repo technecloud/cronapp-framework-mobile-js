@@ -324,7 +324,7 @@ var app = (function() {
             }
         ])
 
-        .run(function($rootScope, $state, $stateParams, $timeout) {
+        .run(function($rootScope, $state, $stateParams, $timeout, $injector) {
           // It's very handy to add references to $state and $stateParams to the $rootScope
           // so that you can access them from any scope within your applications.For example,
           // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
@@ -353,6 +353,14 @@ var app = (function() {
                 let pageName = splitedHash?splitedHash[splitedHash.length-1]:null;
                 let prettyPageName = window.camelCaseToSentenceCase(window.toCamelCase(pageName));
                 $rootScope.ionViewTitle = ionViewTitle || prettyPageName || currentRoute.name;
+  
+                let $state = $injector.get('$state');
+                let $http = $injector.get('$http');
+                let Notification = $injector.get('Notification');
+                window.refreshToken(Notification, $http, ()=>{}, ()=>{
+                  localStorage.removeItem("_u");
+                  $state.go("login");
+                });
               });
 
                 setTimeout(function() {
