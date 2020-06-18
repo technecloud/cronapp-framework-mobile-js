@@ -37,7 +37,7 @@
   "dependencies": {
     "angular-ui-router": "angular-ui/ui-router#0.2.15",
     "pace": "HubSpot/pace#v0.7.2",
-    "angular": "1.5.9",
+    "angular": "1.8.0",
     "angular-aria": "1.5.9",
     "angular-cookies": "1.5.8",
     "angular-dynamic-locale": "0.1.32",
