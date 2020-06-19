@@ -1314,3 +1314,10 @@ div.nav > a.item-avatar-left > div.item-content {
 kendo-chat .k-chat {
     max-width: 100%;
 }
+
+kendo-chat .k-bubble {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}

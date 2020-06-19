@@ -43,9 +43,18 @@
       "global": true,
       "type": "event"
     },
-    "chat-username": {
+    "chat-user-id": {
       "selector": "kendo-chat",
       "order": 1,
+      "displayName_pt_BR": "Id do usuário do chat",
+      "displayName_en_US": "Chat User Id",
+      "removable": true,
+      "global": false,
+      "type": "text"
+    },
+    "chat-username": {
+      "selector": "kendo-chat",
+      "order": 2,
       "displayName_pt_BR": "Nome de usuário do chat",
       "displayName_en_US": "Chat username",
       "removable": true,
@@ -54,7 +63,7 @@
     },
     "chat-user-image":{
       "selector": "kendo-chat",
-      "order": 2,
+      "order": 3,
       "displayName_pt_BR": "Imagem do usuário do chat",
       "displayName_en_US": "Chat user image",
       "removable": true,
@@ -63,7 +72,7 @@
     },
     "chat-placeholder":{
       "selector": "kendo-chat",
-      "order": 3,
+      "order": 4,
       "displayName_pt_BR": "Placeholder do chat",
       "displayName_en_US": "Chat placeholder",
       "removable": true,

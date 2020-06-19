@@ -1692,9 +1692,19 @@ window.addEventListener('message', function(event) {
         let onTypingEnd = attrs.ngOnTypingEnd;
         let onTypingStart = attrs.ngOnTypingStart;
         let onActionClick = attrs.ngOnActionClick;
+        let chatUserId = attrs.chatUserId;
         let chatUsername = attrs.chatUsername;
         let chatUserImage = attrs.chatUserImage;
         let chatPlaceholder = attrs.chatPlaceholder;
+
+        let loggedUserInfo = (localStorage.getItem('_u') !== undefined) ? JSON.parse(localStorage.getItem('_u')) : null;
+
+        let defaultUserId = window.navigator.userAgent;
+        let defaultUserName = '';
+
+        if (loggedUserInfo && loggedUserInfo.user) {
+          defaultUserName = loggedUserInfo.user.name;
+        }
 
         let chatElement = $("<div></div>");
 
@@ -1703,7 +1713,8 @@ window.addEventListener('message', function(event) {
             placeholder: chatPlaceholder,
           },
           user: {
-            name: chatUsername || 'User',
+            id: chatUserId || defaultUserId,
+            name: chatUsername || defaultUserName,
             iconUrl: chatUserImage,
           },
         });
@@ -1777,16 +1788,19 @@ window.addEventListener('message', function(event) {
         });
 
         element.empty().append(chatElement);
-        
-        function fitChatHeightToWindow(){
-          $('.k-chat').height($(window).height() - $('.k-chat').offset().top);
+
+        function fitChatHeightToWindow() {
+          let chatElement = $('.k-chat');
+          chatElement.height($(window).height() - chatElement.offset().top);
         }
 
         $(window).resize(() => {
             fitChatHeightToWindow();
         });
 
-        $timeout(()=>{fitChatHeightToWindow();});
+        $timeout(() => {
+          fitChatHeightToWindow();
+        });
       },
     };
   });
