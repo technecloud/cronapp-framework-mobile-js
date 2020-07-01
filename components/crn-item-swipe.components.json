@@ -5,7 +5,7 @@
   "class": "adjust-icon mdi mdi-ray-end-arrow",
   "wrapper": false,
   "forcedGroup": true,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
   "properties": {
     "onclick": {
       "type": "event"

@@ -72,7 +72,7 @@
     },
 	{
       "file": "index.html",
-      "script": "node_modules/ng-file-upload/ng-file-upload.min.js",
+      "script": "node_modules/ng-file-upload/dist/ng-file-upload.min.js",
       "type": "script"
     },
     {
@@ -101,6 +101,11 @@
       "script": "node_modules/cronapp-framework-mobile-js/lib/ionic/css/ionic.css",
       "type": "style",
 	  "onTop": true
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/cronapp-framework-mobile-js/lib/kendo/kendo.default-v2.min.css",
+      "type": "style"
     },
     {
       "file": "index.html",
@@ -148,6 +153,26 @@
       "file": "index.html",
       "script": "node_modules/font-awesome/css/font-awesome.min.css",
       "type": "style"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/ng-file-upload/dist/ng-file-upload.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-dynamic-locale/dist/tmhDynamicLocale.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-translate/dist/angular-translate.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/cronapp-framework-mobile-js/lib/kendo/kendo.all.min.js",
+      "type": "script"
     }
   ],
   "removes": [
@@ -170,6 +195,43 @@
       "file": "index.html",
       "script": "js/index/js",
       "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/ng-file-upload/ng-file-upload.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-dynamic-locale/tmhDynamicLocale.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-translate/angular-translate.min.js",
+      "type": "script"
+    }
+  ],
+  "replaces": [
+    {
+      "old": "node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
+      "new": "node_modules/angular-translate/dist/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"
+    },
+    {
+      "old": "node_modules/angular-translate/angular-translate.min.js",
+      "new": "node_modules/angular-translate/dist/angular-translate.min.js"
+    },
+    {
+      "old": "node_modules/angular-dynamic-locale/tmhDynamicLocale.js",
+      "new": "node_modules/angular-dynamic-locale/dist/tmhDynamicLocale.js"
+    },
+    {
+      "old": "node_modules/ng-file-upload/ng-file-upload.min.js",
+      "new": "node_modules/ng-file-upload/dist/ng-file-upload.min.js"
+    },
+    {
+      "old": "node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js",
+      "new": "node_modules/angular-translate/dist/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"
     }
   ]
 }

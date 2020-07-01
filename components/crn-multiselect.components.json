@@ -4,7 +4,7 @@
   "text_en_US": "Multiselect",
   "class": "adjust-icon mdi mdi-equal-box",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
   "properties": {
     "id": {
       "order": 1

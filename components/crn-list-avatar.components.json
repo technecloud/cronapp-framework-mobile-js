@@ -4,7 +4,7 @@
   "text_en_US": "Avatar List",
   "class": "adjust-icon mdi mdi-view-list",
   "wrapper": true,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
   "forcedGroup": true,
   "properties": {
     "id": {
