@@ -4,7 +4,7 @@
   "text_en_US": "Checkbox",
   "class": "adjust-icon mdi mdi-checkbox-marked-outline",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/checkbox.template.html",
   "properties": {
     "class": {
       "order": 9999

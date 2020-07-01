@@ -222,14 +222,16 @@ window.addEventListener('message', function(event) {
         var field = splitedNgModel[splitedNgModel.length-1];
         var number = Math.floor((Math.random() * 1000) + 20);
         var content = element.html();
-
+      
         var maxFileSize = "";
         if (attr.maxFileSize)
           maxFileSize = attr.maxFileSize;
-
+      
+        var fileInfo = attr.fileInfo ? `'${attr.fileInfo}'`: 'undefined';
+        
         var templateDyn    = '\
                                 <div ng-show="!$ngModel$" ngf-drop="" ngf-drag-over-class="dragover">\
-                                  <div class="btn" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\')" ngf-max-size="$maxFileSize$">\
+                                  <div class="btn" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\', $fileInfo$)" ngf-max-size="$maxFileSize$">\
                                     $userHtml$\
                                   </div>\
                                   <div class="progress" data-type="bootstrapProgress" id="uploadprogress$number$" style="display:none">\
@@ -243,8 +245,8 @@ window.addEventListener('message', function(event) {
                                     <span role="img" alt="$closeAriaText$" class="icon ion-android-close"></span> \
                                   </div> \
                                   <div> \
-                                    <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$)"></div> \
-                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\')">$lblDownload$</div> \
+                                    <div ng-bind-html="cronapi.internal.generatePreviewDescriptionByte($ngModel$, $fileInfo$)"></div> \
+                                    <div aria-label="Download" class="button button-positive" ng-click="cronapi.internal.downloadFileEntityMobile($datasource$,\'$field$\', undefined, $fileInfo$)">$lblDownload$</div> \
                                   </div> \
                                 </div> \
                                 ';
@@ -258,9 +260,9 @@ window.addEventListener('message', function(event) {
             .split('$maxFileSize$').join(maxFileSize)
             .split('$closeAriaText$').join(closeAriaText)
             .split('$lblDownload$').join($translate.instant('download'))
-
+            .split('$fileInfo$').join(fileInfo)
         );
-
+        
         $(element).html(templateDyn);
         $compile(templateDyn)(element.scope());
       }
@@ -1679,7 +1681,130 @@ window.addEventListener('message', function(event) {
         });
       }
     }
-  })
+  });
+
+  app.directive("kendoChat", function ($compile, $timeout) {
+    return {
+      restrict: "E",
+      link: function (scope, element, attrs) {
+        let onPostMessage = attrs.ngOnPostMessage;
+        let onSendMessage = attrs.ngOnSendMessage;
+        let onTypingEnd = attrs.ngOnTypingEnd;
+        let onTypingStart = attrs.ngOnTypingStart;
+        let onActionClick = attrs.ngOnActionClick;
+        let chatUserId = attrs.chatUserId;
+        let chatUsername = attrs.chatUsername;
+        let chatUserImage = attrs.chatUserImage;
+        let chatPlaceholder = attrs.chatPlaceholder;
+
+        let loggedUserInfo = (localStorage.getItem('_u') !== undefined) ? JSON.parse(localStorage.getItem('_u')) : null;
+
+        let defaultUserId = window.navigator.userAgent;
+        let defaultUserName = '';
+
+        if (loggedUserInfo && loggedUserInfo.user) {
+          defaultUserName = loggedUserInfo.user.name;
+        }
+
+        let chatElement = $("<div></div>");
+
+        chatElement.kendoChat({
+          messages: {
+            placeholder: chatPlaceholder,
+          },
+          user: {
+            id: chatUserId || defaultUserId,
+            name: chatUsername || defaultUserName,
+            iconUrl: chatUserImage,
+          },
+        });
+
+        chat = chatElement.data("kendoChat");
+
+        //Binding Chat Events
+        chat.bind("post", (msg) => {
+          if (onPostMessage) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onPostMessage, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("sendMessage", (msg) => {
+          if (onSendMessage) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onSendMessage, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("typingStart", (msg) => {
+          if (onTypingStart) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onTypingStart, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("typingEnd", (msg) => {
+          if (onTypingEnd) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onTypingEnd, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        chat.bind("actionClick", (msg) => {
+          if (onActionClick) {
+            try {
+              let contextVars = {
+                chatMessage: msg,
+              };
+              scope.$eval(onActionClick, contextVars);
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        });
+
+        element.empty().append(chatElement);
+
+        function fitChatHeightToWindow() {
+          let chatElement = $('.k-chat');
+          chatElement.height($(window).height() - chatElement.offset().top);
+        }
+
+        $(window).resize(() => {
+            fitChatHeightToWindow();
+        });
+
+        $timeout(() => {
+          fitChatHeightToWindow();
+        });
+      },
+    };
+  });
+
 }(app));
 
 (function ($) {
@@ -2216,4 +2341,5 @@ function transformText() {
     }
   }
 }
+
 

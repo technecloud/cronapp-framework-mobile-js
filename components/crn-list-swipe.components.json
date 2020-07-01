@@ -4,7 +4,7 @@
   "text_en_US": "List Swipe",
   "class": "adjust-icon mdi mdi-ray-end-arrow",
   "forcedGroup": true,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
   "childrenProperties": [
     {
       "name": "crn-datasource",

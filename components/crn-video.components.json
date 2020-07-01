@@ -2,7 +2,7 @@
   "name": "crn-video",
   "text": "Video",
   "class": "adjust-icon mdi mdi-youtube",
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
   "forceGroup": true,
   "wrapper": false,
   "properties": {

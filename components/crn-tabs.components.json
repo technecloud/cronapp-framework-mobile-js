@@ -32,5 +32,5 @@
       }
     ]
   },
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/tabs.template.html"
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/tabs.template.html"
 }

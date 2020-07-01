@@ -1304,9 +1304,20 @@ div.nav > a.item-avatar-left > div.item-content {
 }
 
 /*
- * Thi class was intended to be used only for Screen Readers
+ * This class was intended to be used only for Screen Readers
  * Please, search for .sr-only on Bootstrap docs
  */
 .sr-only{
     display: none !important;
+}
+
+kendo-chat .k-chat {
+    max-width: 100%;
+}
+
+kendo-chat .k-bubble {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
 }

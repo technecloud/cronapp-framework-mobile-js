@@ -4,7 +4,7 @@
   "text_en_US": "Button",
   "class": "adjust-icon mdi mdi-stop",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/plugins/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
   "properties": {
     "id": {
       "order": 7

@@ -7,7 +7,7 @@
     this.upload = function (data) {
       $scope.data = data;
 
-      $ionicModal.fromTemplateUrl('plugins/cronapp-framework-mobile-js/components/upload/upload.html', {
+      $ionicModal.fromTemplateUrl('node_modules/cronapp-framework-mobile-js/components/upload/upload.html', {
         scope: $scope,
         animation: 'slide-in-up',
         resolve: {
