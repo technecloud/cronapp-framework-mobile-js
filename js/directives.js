@@ -185,7 +185,7 @@ window.addEventListener('message', function(event) {
           quality: attr.quality ? attr.quality : "60",
           allowEdit: attr.allowEdit ? attr.allowEdit : "false",
           targetWidth: attr.targetWidth ? attr.targetWidth : "640",
-          targetHeight: attr.targetHeight ? attr.targetHeight : "640"
+          targetHeight: attr.targetHeight ? attr.targetHeight : "480"
         };
 
         templateDyn = $(templateDyn
