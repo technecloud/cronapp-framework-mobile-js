@@ -5,6 +5,7 @@ var cronappModules = [
   'ngSanitize',
   'custom.controllers',
   'custom.services',
+  'report.services',
   'datasourcejs',
   'pascalprecht.translate',
   'tmh.dynamicLocale',

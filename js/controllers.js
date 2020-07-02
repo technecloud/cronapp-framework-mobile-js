@@ -1,20 +1,27 @@
 (function ($app) {
     angular.module('custom.controllers', []);
     
-    app.controller('HomeController', ['$scope', '$http', '$rootScope', '$state', '$translate', 'Notification','$ionicModal', function ($scope, $http, $rootScope, $state, $translate, Notification, $ionicModal) {
+    app.controller('HomeController', ['$scope', '$http', '$rootScope', '$state', '$translate', 'Notification','ReportService','$ionicModal', function ($scope, $http, $rootScope, $state, $translate, Notification, ReportService,$ionicModal) {
       $rootScope.http = $http;
 	    app.registerEventsCronapi($scope, $translate,$ionicModal);
       $scope.Notification = Notification;
 
-      for(var x in app.userEvents)
-          $scope[x]= app.userEvents[x].bind($scope);
-        $scope.message = {};
+      $rootScope.getReport = function(reportName, params) {
+        ReportService.openReport(reportName, params);
+      };
 
-		try {
-			var contextAfterHomeController = $controller('AfterHomeController', { $scope: $scope });
-			app.copyContext(contextAfterHomeController, this, 'AfterHomeController');
-		} catch(e) {};
-		try { if ($scope.blockly.events.afterHomeRender) $scope.blockly.events.afterHomeRender(); } catch(e) {};
+      for(var x in app.userEvents) {
+        if (app.userEvents.hasOwnProperty(x)) {
+          $scope[x] = app.userEvents[x].bind($scope);
+        }
+      }
+      $scope.message = {};
+
+      try {
+        var contextAfterHomeController = $controller('AfterHomeController', { $scope: $scope });
+        app.copyContext(contextAfterHomeController, this, 'AfterHomeController');
+      } catch(e) {}
+      try { if ($scope.blockly.events.afterHomeRender) $scope.blockly.events.afterHomeRender(); } catch(e) {}
 
     }]);
 	
@@ -35,10 +42,12 @@ app.controller('chatController', [
     app.registerEventsCronapi($scope, $translate);
     $rootScope.http = $http;
     $scope.Notification = Notification;
-    for(var x in app.userEvents)
-      $scope[x]= app.userEvents[x].bind($scope);
+    for(var x in app.userEvents) {
+      if (app.userEvents.hasOwnProperty(x)) {
+        $scope[x] = app.userEvents[x].bind($scope);
+      }
+    }
 
-		var user = JSON.parse(sessionStorage._u).user.username;
 		var viewScroll = $ionicScrollDelegate.$getByHandle('userMessageScroll');
 		var footerBar; // gets set in $ionicView.enter
 		var scroller;
@@ -51,11 +60,11 @@ app.controller('chatController', [
 			}, 0);
 		};
 	  $scope.isEnter = function(e){
-	    (e.keyCode == 13) ?  $timeout(function(){
+	    (e.keyCode === 13) ?  $timeout(function(){
 	      e.stopPropagation();
 	      $('#sendButton').trigger('click') 
 	      },0): null;
-	  }
+	  };
 		$scope.refreshScroll = function (scrollBottom, timeout) {
 			$timeout(function () {
 				scrollBottom = scrollBottom || $scope.scrollDown;
