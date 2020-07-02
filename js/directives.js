@@ -9,6 +9,18 @@ window.addEventListener('message', function(event) {
 
 (function($app) {
 
+  app.common = {
+    generateId: function() {
+      var numbersOnly = '0123456789';
+      var result = Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      if (numbersOnly.indexOf(result.substr(0,1)) > -1)
+        return this.generateId();
+      return result;
+    }
+  };
+
   var isoDate = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
 
   /**
@@ -22,7 +34,7 @@ window.addEventListener('message', function(event) {
       return $(element).attr('format') || 'DD/MM/YYYY';
     }
     return 'DD/MM/YYYY';
-  }
+  };
 
   var parsePermission = function(perm) {
     var result = {
