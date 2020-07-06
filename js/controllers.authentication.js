@@ -10,12 +10,13 @@
         '$state',
         '$translate',
         'Notification',
+        'ReportService',
         '$ionicLoading',
         '$timeout',
         '$stateParams',
         '$ionicModal',
         '$cookies',
-        function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, $ionicLoading, $timeout, $stateParams, $ionicModal, $cookies) {
+        function($scope, $http, $location, $rootScope, $window, $state, $translate, Notification, ReportService, $ionicLoading, $timeout, $stateParams, $ionicModal, $cookies) {
 
             // Make refreshToken method available on $rootScope
             $rootScope.refreshToken = window.refreshToken;
@@ -26,6 +27,10 @@
             // save state params into scope
             $scope.params = $stateParams;
 
+            $rootScope.getReport = function(reportName, params, config) {
+              ReportService.openReport(reportName, params, config);
+            };
+
             // Query string params
             let queryStringParams = $location.search();
             for (let key in queryStringParams) {
@@ -34,8 +39,11 @@
               }
             }
 
-            for(let x in app.userEvents)
-                $scope[x]= app.userEvents[x].bind($scope);
+            for(let x in app.userEvents) {
+              if (app.userEvents.hasOwnProperty(x)) {
+                $scope[x] = app.userEvents[x].bind($scope);
+              }
+            }
 
             $scope.redirectToLogin = function() {
                 localStorage.setItem('redir_mob', true);
@@ -147,7 +155,8 @@
         '$location',
         '$controller',
         'UploadService',
-        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location, $controller, UploadService) {
+        'ReportService',
+        function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $stateParams, $location, $controller, UploadService, ReportService) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
@@ -157,6 +166,10 @@
             // save state params into scope
             $scope.params = $stateParams;
 
+            $rootScope.getReport = function(reportName, params, config) {
+              ReportService.openReport(reportName, params, config);
+            };
+
             // Query string params
             let queryStringParams = $location.search();
             for (let key in queryStringParams) {
@@ -165,8 +178,11 @@
                 }
               }
 
-            for(let x in app.userEvents)
-                $scope[x]= app.userEvents[x].bind($scope);
+            for(let x in app.userEvents) {
+              if (app.userEvents.hasOwnProperty(x)) {
+                $scope[x] = app.userEvents[x].bind($scope);
+              }
+            }
 
             // When access home page we have to check
             // if the user is authenticated and the userData
@@ -356,7 +372,8 @@
         '$ionicLoading',
         '$timeout',
         'UploadService',
-        function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading, $timeout, UploadService) {
+        'ReportService',
+        function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading, $timeout, UploadService, ReportService) {
 
             app.registerEventsCronapi($scope, $translate,$ionicModal, $ionicLoading);
 
@@ -368,6 +385,10 @@
             $rootScope.$http = $http;
             $rootScope.UploadService = UploadService;
             $scope.listCanSwipe = true;
+
+          $rootScope.getReport = function(reportName, params, config) {
+            ReportService.openReport(reportName, params, config);
+          };
 
             // Query string params
             let queryStringParams = $location.search();
