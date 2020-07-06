@@ -245,7 +245,8 @@ var app = (function() {
         })
 
         .config(function($translateProvider, tmhDynamicLocaleProvider) {
-
+            $translateProvider.uniformLanguageTag('bcp47');
+            $translateProvider.preferredLanguage('pt_br');
             $translateProvider.useMissingTranslationHandlerLog();
 
             $translateProvider.useLoader('customTranslateLoader', {
@@ -261,9 +262,20 @@ var app = (function() {
                 ]
             });
 
-            var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
+            $translateProvider
+                .translations('pt', { /* ... */ })
+                .translations('en', { /* ... */ })
+                .registerAvailableLanguageKeys(
+                    ['pt_br', 'en_us'], {
+                        'en*': 'en_us',
+                        'pt*': 'pt_br',
+                        '*': 'pt_br'
+                    })
+                .determinePreferredLanguage();
 
-            $translateProvider.use(locale.toLowerCase());
+            window.navigator.languages.map(lang => lang.toLowerCase().replace('-', '_'));
+            var locale = (window.navigator.userLanguage || window.navigator.language).replace('-', '_');
+            $translateProvider.use(locale);
             $translateProvider.useSanitizeValueStrategy('escaped');
 
             tmhDynamicLocaleProvider.localeLocationPattern('node_modules/angular-i18n/angular-locale_{{locale}}.js');
