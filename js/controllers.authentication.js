@@ -249,14 +249,6 @@
                 $scope[x]= app.userEvents[x].bind($scope);
 
             if(!$scope.ignoreAuth){
-
-                $ionicModal.fromTemplateUrl('views/logged/_changepassword.view.html', {
-                    scope: $scope,
-                    animation: 'slide-in-up'
-                }).then(function(modal) {
-                    $scope.modal = modal;
-                });
-
                 $scope.openChangePassword = function() {
                     if($scope.modal.modelEl){
                         $scope.modal.show();
