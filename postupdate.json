@@ -173,6 +173,32 @@
       "file": "index.html",
       "script": "node_modules/cronapp-framework-mobile-js/lib/kendo/kendo.all.min.js",
       "type": "script"
+    },
+
+    {
+      "file": "index.html",
+      "script": "node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-ui-bootstrap/ui-bootstrap.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/cronapp-framework-mobile-js/js/reports/parameters.controller.js",
+      "type": "script"
+    },
+    {
+      "file": "index.html",
+      "script": "node_modules/cronapp-framework-mobile-js/js/reports/reports.service.js",
+      "type": "script"
     }
   ],
   "removes": [
