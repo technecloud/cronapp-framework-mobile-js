@@ -100,9 +100,11 @@ var app = (function() {
                                     let $state = $injector.get('$state');
                                     let $http = $injector.get('$http');
                                     let Notification = $injector.get('Notification');
-                                    window.refreshToken(Notification, $http, ()=>{}, ()=>{
+                                    window.refreshToken(Notification, $http, ()=>{}, (e)=>{
+                                      if (e.status !== 404) {
                                         localStorage.removeItem("_u")
                                         $state.go("login");
+                                      }
                                     });
                                 }
                                 return $q.reject(error);
@@ -370,9 +372,11 @@ var app = (function() {
                 let $state = $injector.get('$state');
                 let $http = $injector.get('$http');
                 let Notification = $injector.get('Notification');
-                window.refreshToken(Notification, $http, ()=>{}, ()=>{
-                  localStorage.removeItem("_u");
-                  $state.go("login");
+                window.refreshToken(Notification, $http, ()=>{}, (e)=>{
+                  if (e.status !== 404) {
+                    localStorage.removeItem("_u");
+                    $state.go("login");
+                  }
                 });
               });
 
@@ -589,8 +593,8 @@ window.refreshToken = function(Notification, $http, success, err) {
         // refresh time
       }, (1800 * 1000));
       success();
-    }).error(function () {
-      err();
+    }).error(function (e) {
+      err(e);
     });
   }else{
     Notification.error("HostApp is required to refresh token!");
