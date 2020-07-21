@@ -19,26 +19,6 @@
     {
       "from": "node_modules/cronapp-framework-mobile-js/components/templates/views/public/menu.view.html",
       "to": "views/public/menu.view.html"
-    },
-	{
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth",
-      "to": "js/blockly/auth/"
-    },
-	{
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/Login.blockly",
-      "to": "js/blockly/auth/Login.blockly"
-    },
-	{
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/Login.blockly.js",
-      "to": "js/blockly/auth/Login.blockly.js"
-    },
-    {
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/ChangePassword.blockly",
-      "to": "js/blockly/auth/ChangePassword.blockly"
-    },
-    {
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/ChangePassword.blockly.js",
-      "to": "js/blockly/auth/ChangePassword.blockly.js"
     }
   ],
   "includes": [
