@@ -24,14 +24,6 @@
       "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth",
       "to": "js/blockly/auth/"
     },
-    {
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/Home.blockly",
-      "to": "js/blockly/auth/Home.blockly"
-    },
-    {
-      "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/Home.blockly.js",
-      "to": "js/blockly/auth/Home.blockly.js"
-    },
 	{
       "from": "node_modules/cronapp-framework-mobile-js/components/templates/blockly/auth/Login.blockly",
       "to": "js/blockly/auth/Login.blockly"
