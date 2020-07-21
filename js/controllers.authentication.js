@@ -243,7 +243,8 @@
             app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
             $rootScope.http = $http;
             $scope.Notification = Notification;
-            $scope.folder= 'logged';
+            if (!$scope.isExtendedFromPublic)
+              $scope.folder= 'logged';
 
             for(let x in app.userEvents)
                 $scope[x]= app.userEvents[x].bind($scope);
@@ -293,6 +294,7 @@
 
     app.controller('PublicMenuController', function($controller, $scope) {
         $scope.folder = 'public';
+        $scope.isExtendedFromPublic = true;
         angular.extend(this, $controller('MenuController', {
             $scope: $scope
         }));
