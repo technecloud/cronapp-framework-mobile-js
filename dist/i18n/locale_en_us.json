@@ -116,5 +116,6 @@
   "Cancel": "Cancel",
   "OpenCamera": "Open the camera",
   "download": "Download",
-  "Admin.server.out": "Error contacting the server"
+  "Admin.server.out": "Error contacting the server",
+  "ParamForReport": "Parameter(s) for the report"
 }
