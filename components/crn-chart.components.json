@@ -20,8 +20,8 @@
       "name": "id",
       "selector": "canvas",
       "type": "text",
-      "displayName_pt_BR": "Identificador do gráfico",
-      "displayName_en_US": "Chart Id"
+      "displayName_pt_BR": "Referência do Canvas",
+      "displayName_en_US": "Canvas Id"
     }
   ]
 }
