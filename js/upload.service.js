@@ -144,10 +144,11 @@
                 });
               }.bind(this)
             }).success(function (data, status, headers, config) {
-              let result = pageScope.cronapi.evalInContext(JSON.stringify(data));
-              $scope.uploaded = true;
-              $scope.uploading = false;
-              $scope.close();
+              pageScope.cronapi.evalInContext(JSON.stringify(data)).then((result) => {
+                $scope.uploaded = true;
+                $scope.uploading = false;
+                $scope.close();
+              });
             }.bind(this)).error(function (data, status, errorThrown) {
               this.Notification.error(data.error);
               $scope.uploading = false;
