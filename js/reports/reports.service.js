@@ -33,7 +33,7 @@
     // bytes[]
     this.getPDF = function(report) {
       var req = {
-        url : 'api/rest/report/pdf',
+        url : window.hostApp + 'api/rest/report/pdf',
         method : 'POST',
         responseType : 'arraybuffer',
         data : angular.toJson(report)
