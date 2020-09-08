@@ -361,23 +361,22 @@ var app = (function() {
                 }
             });
             $rootScope.$on('$stateChangeSuccess', function(event, currentRoute, previousRoute) {
-
+  
+              let $http = $injector.get('$http');
+              let Notification = $injector.get('Notification');
+              app.isPublicRoute(currentRoute) || window.refreshToken(Notification, $http, ()=>{}, (e)=>{
+                if (e.status !== 404) {
+                  localStorage.removeItem("_u");
+                  $state.go("login");
+                }
+              });
+              
               $timeout(() => {
                 let ionViewTitle = $('ion-view ion-header-bar .title').last().text();
                 let splitedHash = window.location.hash ? window.location.hash.split('\/') : null;
                 let pageName = splitedHash?splitedHash[splitedHash.length-1]:null;
                 let prettyPageName = window.camelCaseToSentenceCase(window.toCamelCase(pageName));
                 $rootScope.ionViewTitle = ionViewTitle || prettyPageName || currentRoute.name;
-  
-                let $state = $injector.get('$state');
-                let $http = $injector.get('$http');
-                let Notification = $injector.get('Notification');
-                window.refreshToken(Notification, $http, ()=>{}, (e)=>{
-                  if (e.status !== 404) {
-                    localStorage.removeItem("_u");
-                    $state.go("login");
-                  }
-                });
               });
 
                 setTimeout(function() {
@@ -412,6 +411,9 @@ app.userEvents = {};
 app.config = {};
 app.config.datasourceApiVersion = 2;
 app.config.defaultRoute = "/app";
+
+app.publicRoutes = ["publicRoot", "public", "public.pages", "main"];
+app.isPublicRoute = route => { return app.publicRoutes.includes(route.name); };
 
 app.bindScope = function($scope, obj) {
     var newObj = {};
