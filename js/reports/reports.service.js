@@ -30,6 +30,17 @@
       return $http(req);
     };
     
+    // bytes[]
+    this.getPDF = function(report) {
+      var req = {
+        url : window.hostApp + 'api/rest/report/pdf',
+        method : 'POST',
+        responseType : 'arraybuffer',
+        data : angular.toJson(report)
+      };
+      return $http(req);
+    };
+
     this.getContentAsString = function(report) {
       var req = {
         url : window.hostApp + 'api/rest/report/contentasstring',
@@ -141,14 +152,9 @@
         }
       }
       
-      
-      var pdfSettings = new Stimulsoft.Report.Export.StiPdfExportSettings();
-      var pdfService = new Stimulsoft.Report.Export.StiPdfExportService();
-      var stream = new Stimulsoft.System.IO.MemoryStream();
-      report.renderAsync(function () {
-        pdfService.exportToAsync(function () {
-          var data = stream.toArray();
-          var blob = new Blob([new Uint8Array(data)], { type: "application/pdf" });
+      if (!json.reportConfig || json.reportConfig.renderType === "PDFSERVER" ) {
+        this.getPDF({ 'reportName': json.reportName , 'parameters' : parameters}).then(function(reportData) {
+          var blob = new Blob([new Uint8Array(reportData.data)], { type: "application/pdf" });
           if (window.resolveLocalFileSystemURL) {
             writePDFToFile(json.ReportAlias + ".pdf", blob);
           }
@@ -156,10 +162,28 @@
             callback && callback();
             window.open(URL.createObjectURL(blob));
           }
-        }, report, stream, pdfSettings);
-      }, false);
-      
-      
+        }.bind(this));
+      } else {
+
+        var pdfSettings = new Stimulsoft.Report.Export.StiPdfExportSettings();
+        var pdfService = new Stimulsoft.Report.Export.StiPdfExportService();
+        var stream = new Stimulsoft.System.IO.MemoryStream();
+        report.renderAsync(function () {
+          pdfService.exportToAsync(function () {
+            var data = stream.toArray();
+            var blob = new Blob([new Uint8Array(data)], { type: "application/pdf" });
+            if (window.resolveLocalFileSystemURL) {
+              writePDFToFile(json.ReportAlias + ".pdf", blob);
+            }
+            else {
+              callback && callback();
+              window.open(URL.createObjectURL(blob));
+            }
+          }, report, stream, pdfSettings);
+        }, false);
+
+      }
+
     };
     
     this.showParameters = function(report) {
