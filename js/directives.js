@@ -557,7 +557,9 @@ window.addEventListener('message', function(event) {
           clonned.attr("idx", i);
           clonned.click(function() {
             scope.$apply(function() {
-              ngModelCtrl.$viewValue = parseInt($(this).attr("idx")); //set new view value
+              let idx = parseInt($(this).attr("idx"));
+              //set new view value or reset the value
+              ngModelCtrl.$viewValue = ( ngModelCtrl.$viewValue !== idx ) ? idx : 0;
               ngModelCtrl.$commitViewValue();
 
             }.bind(this));
