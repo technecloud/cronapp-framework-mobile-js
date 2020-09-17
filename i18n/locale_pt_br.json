@@ -1,4 +1,6 @@
 {
+  "Accessibility.Button.Aria.Label.NavIcon": "",
+  "Accessibility.Login.Logo.Alt": "",
   "directives.language-select.Language": "Idioma",
   "Login.view.Login": "Entrar",
   "Home.view.Admin": "Admin",
