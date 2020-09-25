@@ -1,4 +1,6 @@
 {
+  "Accessibility.Button.Aria.Label.NavIcon": "",
+  "Accessibility.Login.Logo.Alt": "",
   "directives.language-select.Language": "Idioma",
   "Login.view.Login": "Entrar",
   "Home.view.Admin": "Admin",
@@ -115,5 +117,7 @@
   "Upload.errorValidation": "Seleção inválida: Tamanho máximo %s e Tipos permitidos: %s",
   "Cancel": "Cancelar",
   "OpenCamera": "Abrir a câmera",
-  "download": "Baixar"
+  "download": "Baixar",
+  "Admin.server.out": "Erro ao contactar o servidor",
+  "ParamForReport": "Parâmetro(s) para o relatório"
 }

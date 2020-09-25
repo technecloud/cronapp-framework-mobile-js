@@ -5,6 +5,8 @@ var cronappModules = [
     'ngSanitize',
     'custom.controllers',
     'custom.services',
+    'ui.bootstrap',
+    'report.services',
     'datasourcejs',
     'pascalprecht.translate',
     'tmh.dynamicLocale',
@@ -98,9 +100,11 @@ var app = (function() {
                                     let $state = $injector.get('$state');
                                     let $http = $injector.get('$http');
                                     let Notification = $injector.get('Notification');
-                                    window.refreshToken(Notification, $http, ()=>{}, ()=>{
+                                    window.refreshToken(Notification, $http, ()=>{}, (e)=>{
+                                      if (e.status !== 404) {
                                         localStorage.removeItem("_u")
                                         $state.go("login");
+                                      }
                                     });
                                 }
                                 return $q.reject(error);
@@ -244,7 +248,9 @@ var app = (function() {
         })
 
         .config(function($translateProvider, tmhDynamicLocaleProvider) {
-
+            $translateProvider.uniformLanguageTag('bcp47');
+            $translateProvider.fallbackLanguage('pt_br');
+            $translateProvider.preferredLanguage('pt_br');
             $translateProvider.useMissingTranslationHandlerLog();
 
             $translateProvider.useLoader('customTranslateLoader', {
@@ -260,9 +266,19 @@ var app = (function() {
                 ]
             });
 
-            var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
+            $translateProvider
+                .translations('pt', { /* ... */ })
+                .translations('en', { /* ... */ })
+                .registerAvailableLanguageKeys(
+                    ['pt_br', 'en_us'], {
+                        'en*': 'en_us',
+                        'pt*': 'pt_br',
+                        '*': 'pt_br'
+                    })
+                .determinePreferredLanguage();
 
-            $translateProvider.use(locale.toLowerCase());
+            var locale = (window.navigator.userLanguage || window.navigator.language).replace('-', '_').toLowerCase();
+            $translateProvider.use(locale);
             $translateProvider.useSanitizeValueStrategy('escaped');
 
             tmhDynamicLocaleProvider.localeLocationPattern('node_modules/angular-i18n/angular-locale_{{locale}}.js');
@@ -345,21 +361,22 @@ var app = (function() {
                 }
             });
             $rootScope.$on('$stateChangeSuccess', function(event, currentRoute, previousRoute) {
-
+  
+              let $http = $injector.get('$http');
+              let Notification = $injector.get('Notification');
+              app.isPublicRoute(currentRoute) || window.refreshToken(Notification, $http, ()=>{}, (e)=>{
+                if (e.status !== 404) {
+                  localStorage.removeItem("_u");
+                  $state.go("login");
+                }
+              });
+              
               $timeout(() => {
                 let ionViewTitle = $('ion-view ion-header-bar .title').last().text();
                 let splitedHash = window.location.hash ? window.location.hash.split('\/') : null;
                 let pageName = splitedHash?splitedHash[splitedHash.length-1]:null;
                 let prettyPageName = window.camelCaseToSentenceCase(window.toCamelCase(pageName));
                 $rootScope.ionViewTitle = ionViewTitle || prettyPageName || currentRoute.name;
-  
-                let $state = $injector.get('$state');
-                let $http = $injector.get('$http');
-                let Notification = $injector.get('Notification');
-                window.refreshToken(Notification, $http, ()=>{}, ()=>{
-                  localStorage.removeItem("_u");
-                  $state.go("login");
-                });
               });
 
                 setTimeout(function() {
@@ -394,6 +411,9 @@ app.userEvents = {};
 app.config = {};
 app.config.datasourceApiVersion = 2;
 app.config.defaultRoute = "/app";
+
+app.publicRoutes = ["publicRoot", "public", "public.pages", "main"];
+app.isPublicRoute = route => { return app.publicRoutes.includes(route.name); };
 
 app.bindScope = function($scope, obj) {
     var newObj = {};
@@ -575,8 +595,8 @@ window.refreshToken = function(Notification, $http, success, err) {
         // refresh time
       }, (1800 * 1000));
       success();
-    }).error(function () {
-      err();
+    }).error(function (e) {
+      err(e);
     });
   }else{
     Notification.error("HostApp is required to refresh token!");

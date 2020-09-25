@@ -9,6 +9,18 @@ window.addEventListener('message', function(event) {
 
 (function($app) {
 
+  app.common = {
+    generateId: function() {
+      var numbersOnly = '0123456789';
+      var result = Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      if (numbersOnly.indexOf(result.substr(0,1)) > -1)
+        return this.generateId();
+      return result;
+    }
+  };
+
   var isoDate = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
 
   /**
@@ -22,7 +34,7 @@ window.addEventListener('message', function(event) {
       return $(element).attr('format') || 'DD/MM/YYYY';
     }
     return 'DD/MM/YYYY';
-  }
+  };
 
   var parsePermission = function(perm) {
     var result = {
@@ -185,7 +197,7 @@ window.addEventListener('message', function(event) {
           quality: attr.quality ? attr.quality : "60",
           allowEdit: attr.allowEdit ? attr.allowEdit : "false",
           targetWidth: attr.targetWidth ? attr.targetWidth : "640",
-          targetHeight: attr.targetHeight ? attr.targetHeight : "640"
+          targetHeight: attr.targetHeight ? attr.targetHeight : "480"
         };
 
         templateDyn = $(templateDyn
@@ -545,7 +557,9 @@ window.addEventListener('message', function(event) {
           clonned.attr("idx", i);
           clonned.click(function() {
             scope.$apply(function() {
-              ngModelCtrl.$viewValue = parseInt($(this).attr("idx")); //set new view value
+              let idx = parseInt($(this).attr("idx"));
+              //set new view value or reset the value
+              ngModelCtrl.$viewValue = ( ngModelCtrl.$viewValue !== idx ) ? idx : 0;
               ngModelCtrl.$commitViewValue();
 
             }.bind(this));

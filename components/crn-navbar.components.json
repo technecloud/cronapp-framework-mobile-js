@@ -1,5 +1,7 @@
 {
   "name": "crn-navbar",
+  "onDrop": "openEditor",
+  "onDoubleClick": "openEditor",
   "text_pt_BR": "Barra de navegação",
   "text_en_US": "Navbar",
   "class": "adjust-icon mdi mdi-navigation",
