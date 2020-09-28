@@ -57,6 +57,7 @@
     "ng-file-upload": "12.2.13",
     "angular-moment": "1.2.0",
     "pace": "HubSpot/pace#v1.0.2",
-    "moment": "2.24.0"
+    "moment": "2.24.0",
+    "cronapp-ion-tab-badge": "1.0.0"
   }
 }
