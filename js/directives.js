@@ -1042,23 +1042,23 @@ window.addEventListener('message', function(event) {
     'use strict';
 
     const defaultAdvancedTemplate =
-    "<ion-list type=\"\" can-swipe=\"listCanSwipe\">\n" +
-    "   <ion-item ng-class=\"{'cron-list-selected' : isChecked(rowData)}\" class=\"item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}\" ng-repeat=\"rowData in datasource\">\n" +
-    "     <ul ng-if=\"options.allowMultiselect\" class=\"checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}\" data-component=\"crn-checkbox\"><label class=\"checkbox\"><input ng-checked=\"isChecked(rowData);\" type=\"checkbox\"></label></ul>\n" +
-    "	    <img alt='Thumbnail' ng-if=\"options.imageType !== 'do-not-show' && rowData[options.fields.image]\" \n" +
-    "          ng-src=\"{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}\" class=\"{{options.imageToClassPosition}}\">\n" +
-    "		<div class=\"{{options.xattrTextPosition}} {{options.textToClassPosition}}\">\n" +
-    "			<h2 ng-if=\"rowData[options.fields.field0]\">{{rowData[options.fields.field0]|mask:options.fields.mask0:options.fields.type0}}</h2>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field1]\">{{rowData[options.fields.field1]|mask:options.fields.mask1:options.fields.type1}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field2]\">{{rowData[options.fields.field2]|mask:options.fields.mask2:options.fields.type2}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field3]\">{{rowData[options.fields.field3]|mask:options.fields.mask3:options.fields.type3}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field4]\">{{rowData[options.fields.field4]|mask:options.fields.mask4:options.fields.type4}}</p>\n" +
-    "			<p class=\"dark\" ng-if=\"rowData[options.fields.field5]\">{{rowData[options.fields.field5]|mask:options.fields.mask5:options.fields.type5}}</p>\n" +
-    "			<i ng-if=\"options.icon\" class=\"{{options.icon}}\" xattr-theme=\"dark\"></i>\n" +
-    "		</div>\n" +
-    "   </ion-item>\n" +
-    "</ion-list>\n" +
-    "<ion-infinite-scroll></ion-infinite-scroll>\n";
+    `<ion-list type="" can-swipe="listCanSwipe">
+       <ion-item ng-class="{'cron-list-selected' : isChecked(rowData)}" class="item {{options.editableButtonClass}} {{options.iconClassPosition}} {{options.imageClassPosition}}" ng-repeat="rowData in datasource">
+         <ul ng-if="options.allowMultiselect" class="checkbox-group component-holder {{'cron-list-multiselect-' + options.imageType}}" data-component="crn-checkbox"><label class="checkbox"><input ng-checked="isChecked(rowData);" type="checkbox"></label></ul>
+    	    <img alt='Thumbnail' ng-if="options.imageType !== 'do-not-show' && rowData[options.fields.image]" 
+              ng-src="{{options.isImageFromDropbox ? '' : 'data:image/png;base64,'}}{{rowData[options.fields.image]}}" class="{{options.imageToClassPosition}}">
+    		<div class="{{options.xattrTextPosition}} {{options.textToClassPosition}}">
+    			<h2 ng-if="rowData[options.fields.field0]">{{rowData[options.fields.field0]|mask:options.fields.mask0:options.fields.type0}}</h2>
+    			<p class="dark" ng-if="hasValue(rowData[options.fields.field1])">{{rowData[options.fields.field1]|mask:options.fields.mask1:options.fields.type1}}</p>
+    			<p class="dark" ng-if="hasValue(rowData[options.fields.field2])">{{rowData[options.fields.field2]|mask:options.fields.mask2:options.fields.type2}}</p>
+    			<p class="dark" ng-if="hasValue(rowData[options.fields.field3])">{{rowData[options.fields.field3]|mask:options.fields.mask3:options.fields.type3}}</p>
+    			<p class="dark" ng-if="hasValue(rowData[options.fields.field4])">{{rowData[options.fields.field4]|mask:options.fields.mask4:options.fields.type4}}</p>
+    			<p class="dark" ng-if="hasValue(rowData[options.fields.field5])">{{rowData[options.fields.field5]|mask:options.fields.mask5:options.fields.type5}}</p>
+    			<i ng-if="options.icon" class="{{options.icon}}" xattr-theme="dark"></i>
+    		</div>
+       </ion-item>
+    </ion-list>
+    <ion-infinite-scroll></ion-infinite-scroll>`;
 
     const defaultSearchTemplate =
       "<div class=\"item item-input-inset\">\n" +
@@ -1173,6 +1173,7 @@ window.addEventListener('message', function(event) {
       terminal: true,
       link: function(scope, element, attrs, ngModelCtrl) {
 
+        scope.hasValue = value => value !== null && value !== undefined;
         var optionsList = {};
         var dataSourceName = '';
         var buttons = '';
