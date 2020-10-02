@@ -50,7 +50,31 @@
     
     // open report
     this.openURLContent = function(url) {
-      openReportOnMobile(url)
+      var include = function() {
+        var frame = $('<iframe/>');
+        frame.attr('frameborder', 0);
+        var h = parseInt($(window).height());
+        
+        frame.attr('height', h - 200);
+        frame.attr('width', '100%');
+        frame.attr('src', url + "?download=false");
+        var m = $('#reportView .modal-body');
+        if(m.get(0)) {
+          m.html(frame);
+          $('#reportViewContext .modal-dialog').css('width', '95%');
+          setTimeout(function() {
+            console.log('open[#reportViewContext]');
+            $('body').append(context);
+            $('#reportView').modal();
+          }, 100);
+        }
+        else {
+          console.log('wait[#reportViewContext]');
+          setTimeout(include, 200);
+        }
+      }
+      
+      setTimeout(include, 200);
     };
     
     this.initializeStimulsoft = function(language) {
@@ -430,10 +454,6 @@
         }
       }.bind(this));
     };
-
-    function openReportOnMobile(url) {
-      window.open(url, '_system');
-    }
-
+    
   });
 }(app));
