@@ -8,7 +8,7 @@
   "properties": {
     "src": {
       "type": "projectResource",
-      "resourceType": "image/jpeg,image/gif,image/png",
+      "resourceType": "image/jpeg,image/gif,image/png,image/svg+xml",
       "order": 1
     },
     "xattr-position": {
