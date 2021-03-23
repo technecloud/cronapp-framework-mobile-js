@@ -91,7 +91,14 @@
               directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
                   fileEntry.createWriter(function (fileWriter) {
                       fileWriter.onwriteend = function (e) {
-                        window.open(cordova.file.externalApplicationStorageDirectory + fileName, '_system', 'location=yes');
+                        cordova.plugins.fileOpener2.open(
+                            cordova.file.externalApplicationStorageDirectory + fileName,
+                            'application/pdf', {
+                              error: function (e) {
+                                scope.Notification.error($translate.instant('General.ErrorNotSpecified'), e.message);
+                                console.log('Error status: ' + e.status + ' - Error message: ' + e.message);
+                              }
+                            });
                       };
                       fileWriter.onerror = function (e) {
                         alert(e);
