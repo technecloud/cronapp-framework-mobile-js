@@ -1091,9 +1091,15 @@ window.addEventListener('message', function(event) {
       return dataSourceName + '.startEditing(rowData)';
     }
 
+    var getCronappSecurity = function(column) {
+      if (column.security)
+        return `cronapp-security="${column.security}"`;
+      return "";
+    }
+
     var addDefaultButton = function(dataSourceName, column) {
-      const EDIT_TEMPLATE = '<ion-option-button class="button-positive ion-edit" ng-click="' + getEditCommand(dataSourceName) + '"><span>&nbsp;{{"Permission.view.Edit" | translate}}</span></ion-option-button>';
-      const DELETE_TEMPLATE = '<ion-option-button class="button-assertive ion-trash-a" ng-click="' + dataSourceName + '.remove(rowData)"><span>&nbsp;{{"Permission.view.Remove" | translate}}</span></ion-option-button>';
+      const EDIT_TEMPLATE = '<ion-option-button ' + getCronappSecurity(column) + ' class="button-positive ion-edit" ng-click="' + getEditCommand(dataSourceName) + '"><span>&nbsp;{{"Permission.view.Edit" | translate}}</span></ion-option-button>';
+      const DELETE_TEMPLATE = '<ion-option-button ' + getCronappSecurity(column) + ' class="button-assertive ion-trash-a" ng-click="' + dataSourceName + '.remove(rowData)"><span>&nbsp;{{"Permission.view.Remove" | translate}}</span></ion-option-button>';
 
       if (column.command == 'edit|destroy') {
         return EDIT_TEMPLATE.concat(DELETE_TEMPLATE);
@@ -1145,7 +1151,7 @@ window.addEventListener('message', function(event) {
     }
 
     var addBlockly = function(column) {
-      return '<ion-option-button class="button-dark ion-navigate" ng-click="'
+      return '<ion-option-button class="button-dark ' + getCronappSecurity(column) + ' ion-navigate" ng-click="'
           + generateBlocklyCall(column.blocklyInfo)
           + '"></ion-option-button>';
     }
@@ -1162,7 +1168,7 @@ window.addEventListener('message', function(event) {
     }
 
     var addCustomButton = function(column) {
-      return `<ion-option-button class="button-dark ${column.iconClass}" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)">${column.label}</ion-option-button> `
+      return `<ion-option-button ${getCronappSecurity(column)} class="button-dark ${column.iconClass}" ng-click="listButtonClick($index, rowData, '${window.stringToJs(column.execute)}', $event)">${column.label}</ion-option-button> `
     }
 
     return {
@@ -1360,6 +1366,7 @@ window.addEventListener('message', function(event) {
           for (var i = 0; i < visibleColumns.length; i++) {
             var column = visibleColumns[i];
             if (column.field && column.dataType == 'Database') {
+              scope.options.fields["security" + i] = column.security;
               scope.options.fields["field" + i] = column.field;
               scope.options.fields["type" + i] = column.type;
               scope.options.fields["mask" + i] = column.format;
@@ -1438,10 +1445,21 @@ window.addEventListener('message', function(event) {
         var templateDyn = null;
         if (searchableField) {
           scope.options.filterFields = searchableField;
-          templateDyn = $(scope.options.searchTemplate + scope.options.advancedTemplate);
+          templateDyn = scope.options.searchTemplate + scope.options.advancedTemplate;
         } else {
-          templateDyn = $(scope.options.advancedTemplate);
+          templateDyn = scope.options.advancedTemplate;
         }
+
+        for (let index = 0; index < visibleColumns.length; index++) {
+          let column = visibleColumns[index];
+          if (column.field && column.dataType === 'Database' && scope.options.fields[`security${index}`]) {
+            let find = `ng-if="rowData[options.fields.field${index}]"`;
+            let toReplace = `${find} cronapp-security="${scope.options.fields['security' + index]}"`;
+            templateDyn = templateDyn.replace(find, toReplace);
+          }
+        }
+        templateDyn = $(templateDyn);
+
         scope.options.xattrTextPosition = attrs.xattrTextPosition;
 
         templateDyn.attr("type", optionsList.listType);
