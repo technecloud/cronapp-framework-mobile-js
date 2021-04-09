@@ -120,5 +120,12 @@
   "OpenCamera": "Abrir a câmera",
   "download": "Baixar",
   "Admin.server.out": "Erro ao contactar o servidor",
-  "ParamForReport": "Parâmetro(s) para o relatório"
+  "ParamForReport": "Parâmetro(s) para o relatório",
+  "UserSuccessfullyRegistered": "Usuário registrado com sucesso!",
+  "EmailCanNotBeEmpty": "O e-mail não pode estar vazio",
+  "EmailInvalid": "O e-mail não é válido",
+  "UsernameCanNotBeEmpty": "O usuário não pode estar vazio",
+  "PasswordCanNotBeEmpty": "A senha não pode estar vazia",
+  "PasswordConfirmationCanNotBeEmpty": "A confirmação da senha não pode estar vazia",
+  "PasswordDoesNotMatch": "A senha e a confirmação da senha não conferem"
 }

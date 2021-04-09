@@ -1321,3 +1321,5 @@ kendo-chat .k-bubble {
     -ms-user-select: auto;
     user-select: auto;
 }
+
+@import url("signup.css");

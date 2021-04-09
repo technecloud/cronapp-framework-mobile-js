@@ -226,6 +226,24 @@
         }));
     });
 
+    app.controller('SignupController' , [
+      '$scope',
+      '$translate',
+      '$ionicModal',
+      '$ionicLoading',
+
+      function($scope, $translate, $ionicModal, $ionicLoading) {
+
+          app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
+          $scope.Notification = Notification;
+
+          $scope.cronapi.screen.changeValueOfField('vars.signupEmail','');
+          $scope.cronapi.screen.changeValueOfField('vars.signupUsername','');
+          $scope.cronapi.screen.changeValueOfField('vars.signupPassword','');
+          $scope.cronapi.screen.changeValueOfField('vars.signupConfirmPassword','');
+
+    }]);
+
     app.controller('MenuController', [
         '$scope',
         '$http',
