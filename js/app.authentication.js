@@ -178,6 +178,7 @@ var app = (function() {
 
                     .state('signup', {
                       url: "/app/public/signup",
+                      cache: false,
                       controller: 'SignupController',
                       templateUrl: 'views/public/signup.view.html'
                     })
