@@ -176,6 +176,12 @@ var app = (function() {
                         templateUrl: 'node_modules/cronapp-framework-mobile-js/components/templates/publicMenu.template.html'
                     })
 
+                    .state('signup', {
+                      url: "/app/public/signup",
+                      controller: 'SignupController',
+                      templateUrl: 'views/public/signup.view.html'
+                    })
+
                     .state('public.pages', {
                         url: "/{name:.*}",
                         cache: false,
@@ -412,7 +418,7 @@ app.config = {};
 app.config.datasourceApiVersion = 2;
 app.config.defaultRoute = "/app";
 
-app.publicRoutes = ["publicRoot", "public", "public.pages", "main"];
+app.publicRoutes = ["publicRoot", "public", "public.pages", "signup", "main"];
 app.isPublicRoute = route => { return app.publicRoutes.includes(route.name); };
 
 app.bindScope = function($scope, obj) {

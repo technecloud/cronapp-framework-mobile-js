@@ -120,5 +120,12 @@
   "OpenCamera": "Open the camera",
   "download": "Download",
   "Admin.server.out": "Error contacting the server",
-  "ParamForReport": "Parameter(s) for the report"
+  "ParamForReport": "Parameter(s) for the report",
+  "UserSuccessfullyRegistered": "User successfully registered!",
+  "EmailCanNotBeEmpty": "The e-mail address cannot be empty",
+  "EmailInvalid": "Invalid e-mail address",
+  "UsernameCanNotBeEmpty": "The username cannot be empty",
+  "PasswordCanNotBeEmpty": "The new password cannot be empty",
+  "PasswordConfirmationCanNotBeEmpty": "The confirm password cannot be empty",
+  "PasswordDoesNotMatch": "The new password and confirm password doesn't match"
 }

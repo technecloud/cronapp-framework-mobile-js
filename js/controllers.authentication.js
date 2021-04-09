@@ -226,6 +226,87 @@
         }));
     });
 
+    app.controller('SignupController' , [
+      '$scope',
+      '$http',
+      '$rootScope',
+      '$state',
+      '$timeout',
+      '$translate',
+      'Notification',
+      '$ionicHistory',
+      '$ionicModal',
+      '$ionicLoading',
+      '$cookies',
+
+      function($scope, $http, $rootScope, $state, $timeout, $translate, Notification, $ionicHistory, $ionicModal, $ionicLoading, $cookies) {
+
+          app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
+
+          $scope.cronapi.screen.changeValueOfField('vars.signupEmail','');
+          $scope.cronapi.screen.changeValueOfField('vars.signupUsername','');
+          $scope.cronapi.screen.changeValueOfField('vars.signupPassword','');
+          $scope.cronapi.screen.changeValueOfField('vars.signupConfirmPassword','');
+
+          $scope.signup = function () {
+
+              $scope.Notification = Notification;
+              
+              if (signupEmail.value === '') {
+                  Notification.error($translate.instant('EmailCanNotBeEmpty'));
+                  return;
+              }
+
+              if (!signupEmail.validity.valid) {
+                  Notification.error($translate.instant('EmailInvalid'));
+                  return;
+              }
+
+              if (signupUsername.value === '') {
+                  Notification.error($translate.instant('UsernameCanNotBeEmpty'));
+                  return;
+              }
+
+              if (signupPassword.value === '') {
+                  Notification.error($translate.instant('PasswordCanNotBeEmpty'));
+                  return;
+              }
+
+              if (signupConfirmPassword.value === '') {
+                  Notification.error($translate.instant('PasswordConfirmationCanNotBeEmpty'));
+                  return;
+              }
+
+              if (signupPassword.value !== signupConfirmPassword.value) {
+                  Notification.error($translate.instant('PasswordDoesNotMatch'));
+                  return;
+              }
+      
+              $http({
+                  method: 'POST',
+                  url: `${window.hostApp}auth/signup`,
+                  data: JSON.stringify(
+                      {
+                          username: signupUsername.value,
+                          email: signupEmail.value,
+                          password: signupPassword.value
+                      }
+                  ),
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              }).success(data => {
+                  if (data.code === 200) {
+                      Notification.info($translate.instant('UserSuccessfullyRegistered'));
+                      $state.go("login");
+                  }
+              }).error(data => {
+                  Notification.error(data.message ? data.message : $translate.instant('UserNotRegistered'));
+              });
+  
+          }
+    }]);
+
     app.controller('MenuController', [
         '$scope',
         '$http',
