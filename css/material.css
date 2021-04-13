@@ -1,9 +1,14 @@
 /* ajustes toogle - mobile */
 
+.item-toggle .toggle {
+    top: 16px;
+}
+
 .toggle .track {
-    height: 22px;
+    height: 18px;
     background-color: #C4C4C4;
     border: none;
+    margin-top: 2px;
 }
 
 .toggle .handle {
@@ -12,5 +17,10 @@
 }
 
 .toggle.toggle-balanced input:checked+.track {
+    background-color: #8F95C8;
+}
+
+.toggle input:checked+.track .handle {
+    left: 11px;
     background-color: #3B448E;
 }
