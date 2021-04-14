@@ -1,4 +1,5 @@
 @import 'custom-ionic.css';
+@import 'signup.css';
 
 /* Empty. Add your own CSS if you like */
 
@@ -1320,18 +1321,4 @@ kendo-chat .k-bubble {
     -moz-user-select: auto;
     -ms-user-select: auto;
     user-select: auto;
-}
-
-.containerMobile{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    flex-direction: column;
-}
-
-.buttonFooter{
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none;
 }
