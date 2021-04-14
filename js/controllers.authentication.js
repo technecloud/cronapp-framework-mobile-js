@@ -244,6 +244,38 @@
 
     }]);
 
+    app.controller('SignupController' , [
+      '$scope',
+      '$stateParams',
+      'Notification',
+      '$location',
+      '$http',
+      '$rootScope',
+      '$translate',
+      '$ionicModal',
+      '$ionicLoading',
+      '$timeout',
+      'UploadService',
+      'ReportService',
+      function($scope, $stateParams, Notification, $location, $http, $rootScope, $translate, $ionicModal, $ionicLoading, $timeout, UploadService, ReportService) {
+        app.registerEventsCronapi($scope, $translate,$ionicModal,$ionicLoading);
+        $rootScope.http = $http;
+        $rootScope.Notification = Notification;
+
+        $scope.params = $stateParams;
+        $rootScope.$http = $http;
+        $rootScope.UploadService = UploadService;
+        $scope.listCanSwipe = true;
+
+        for (let x in app.userEvents)
+          $scope[x]= app.userEvents[x].bind($scope);
+
+        $scope.cronapi.screen.changeValueOfField('vars.signupEmail','');
+        $scope.cronapi.screen.changeValueOfField('vars.signupUsername','');
+        $scope.cronapi.screen.changeValueOfField('vars.signupPassword','');
+        $scope.cronapi.screen.changeValueOfField('vars.signupConfirmPassword','');
+    }]);
+
     app.controller('MenuController', [
         '$scope',
         '$http',
