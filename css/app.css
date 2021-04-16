@@ -1,4 +1,6 @@
 @import 'custom-ionic.css';
+@import 'signup.css';
+@import 'material.css';
 
 /* Empty. Add your own CSS if you like */
 
@@ -1420,5 +1422,4 @@ kendo-chat .k-bubble {
     user-select: auto;
 }
 
-@import url("./signup.css");
-@import url("./material.css");
+
