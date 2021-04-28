@@ -53,7 +53,12 @@
             $scope.autoLogin = function(){
                 if(localStorage.getItem('_u') && JSON.parse(localStorage.getItem('_u')).token){
                     window.refreshToken(Notification, $http, function(){
-                        $state.go('app.home');
+                        try {
+                          $scope.blockly.js.blockly.auth.Home.change();
+                        } catch (error) {
+                          // Redirect to home page
+                          $state.go("app.home");
+                        }
                     }, function(){
                         localStorage.removeItem('_u');
                     })
@@ -65,7 +70,12 @@
                     var decodedUser = decodeURIComponent($cookies.get('_u'));
                     localStorage.setItem("_u", decodedUser);
                 }
-                $state.go('app.home');
+                try {
+                  $scope.blockly.js.blockly.auth.Home.change();
+                } catch (error) {
+                  // Redirect to home page
+                  $state.go("app.home");
+                }
             }
             $scope.user = { username : "" , password : "" };
             $scope.message = {};
@@ -116,8 +126,13 @@
                     // The home page may not work if it depends
                     // on the logged user data
                 }
+
+              try {
+                $scope.blockly.js.blockly.auth.Home.change();
+              } catch (error) {
                 // Redirect to home page
                 $state.go("app.home");
+              }
 
               // Verify if the 'onLogin' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
               if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.onLogin && $scope.blockly.events.onLogin instanceof Function) {
