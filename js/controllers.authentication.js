@@ -70,22 +70,34 @@
             $scope.user = { username : "" , password : "" };
             $scope.message = {};
 
-            $scope.login = function() {
+            $scope.login = function(username, password, token) {
                 $scope.message.error = undefined;
+
+                let user = {
+                  username : username?username:$scope.user.username,
+                  password : password?password:$scope.user.password
+                };
+
+                let headerValues = {
+                  'Content-Type' : 'application/x-www-form-urlencoded'
+                };
+
+                if (token) {
+                  headerValues["X-AUTH-TOKEN"] = token;
+                }
 
                 if(window.hostApp) {
                     $http({
                         method : 'POST',
                         url : window.hostApp + 'auth',
-                        data: $.param($scope.user),
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                        data: $.param(user),
+                        headers: headerValues
                     }).success(handleSuccess).error(handleError);
 
                 }
                 else {
                     Notification.error("HostApp is required!");
                 }
-
             };
 
             $rootScope.infiniteReached = function() {
