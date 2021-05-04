@@ -112,3 +112,7 @@
   border-radius: 20px;
   background-color: #33cd5f;
 }
+
+.col.item.item-input.component-holder {
+    white-space: pre-wrap;
+}
