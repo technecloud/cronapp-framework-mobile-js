@@ -1,0 +1,75 @@
+
+
+.checkbox input[indeterminate="true"]:after, .checkbox-icon:after{
+    -webkit-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(0deg);
+    position: absolute;
+    top: 33%;
+    left: 25%;
+    display: table;
+    width: 14px;
+    height: 6px;
+    border: 1px solid #fff;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    content: ' ';
+    opacity: 1;
+}
+
+.checkbox input[indeterminate="true"]:not(:checked):before{
+    background: #387ef5;
+    border-color: #387ef5;
+}
+
+.checkbox-light input[indeterminate="true"]:not(:checked):before{
+    background: #ddd;
+    border-color: #ddd;
+}
+
+.checkbox-stable input[indeterminate="true"]:not(:checked):before{
+    background: #b2b2b2;
+    border-color: #b2b2b2;
+}
+
+.checkbox-positive input[indeterminate="true"]:not(:checked):before{
+    background: #387ef5;
+    border-color: #387ef5;
+}
+
+.checkbox-calm input[indeterminate="true"]:not(:checked):before{
+    background: #11c1f3;
+    border-color: #11c1f3;
+}
+
+.checkbox-assertive input[indeterminate="true"]:not(:checked):before{
+    background: #ef473a;
+    border-color: #ef473a;
+}
+
+.checkbox-balanced input[indeterminate="true"]:not(:checked):before{
+    background: #33cd5f;
+    border-color: #33cd5f;
+}
+
+.checkbox-energized input[indeterminate="true"]:not(:checked):before{
+    background: #ffc900;
+    border-color: #ffc900;
+}
+
+.checkbox-royal input[indeterminate="true"]:not(:checked):before{
+    background: #886aea;
+    border-color: #886aea;
+}
+
+.checkbox-dark input[indeterminate="true"]:not(:checked):before{
+    background: #444;
+    border-color: #444;
+}
+
+.checkbox-dark input[indeterminate="true"]:disabled:not(:checked):before{
+    background: #ddd;
+    border-color: #ddd;
+}

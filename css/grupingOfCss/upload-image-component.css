@@ -1,0 +1,18 @@
+
+.upload-image-component {
+    padding: 8px;
+}
+.upload-image-component {
+    max-height: 128px;
+    max-width: 128px;
+    background-color: #ccc;
+    display: table;
+}
+.upload-image-component .remove {
+    position: absolute;
+    margin-top: -8px;
+    margin-left: -18px;
+}
+.upload-image-component .remove span {
+    margin-top: 3px;
+}
