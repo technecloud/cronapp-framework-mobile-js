@@ -54,6 +54,15 @@
 .dynamic-image-container {
     border-style: dashed;
     min-height: 58px;
+    display: flex;
+    width: 96%;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button-border{
+    white-space: initial;
+    text-align: center;
 }
 
 .camera-container {
@@ -62,3 +71,5 @@
     top: 50%; 
     left: 50%;
 }
+
+
