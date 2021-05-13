@@ -121,5 +121,6 @@
   "download": "Baixar",
   "Admin.server.out": "Erro ao contactar o servidor",
   "ParamForReport": "Parâmetro(s) para o relatório",
-  "template.crud.clickToAddFile": "Clique para adicionar um arquivo"
+  "template.crud.clickToAddFile": "Clique para adicionar um arquivo",
+  "template.crud.clickToAddImage": "Clique para adicionar uma imagem"
 }
