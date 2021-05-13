@@ -165,6 +165,10 @@ div.nav > a.item-avatar-left > div.item-content {
     font-size: 16px;
 }
 
+.login-bg .item{
+    display: -webkit-box;
+}
+
 .login-bg input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #c4ebff5e inset!important;
 }
