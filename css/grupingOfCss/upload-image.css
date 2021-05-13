@@ -52,10 +52,9 @@
 }
 
 .dynamic-image-container {
-    border-style: dashed;
+    border: 2px dashed;
     min-height: 58px;
     display: flex;
-    width: 96%;
     align-items: center;
     justify-content: center;
 }
