@@ -173,7 +173,7 @@ window.addEventListener('message', function(event) {
       require: 'ngModel',
       link: function(scope, element, attr) {
         let templateDyn =
-            '<div ngf-drop="" ngf-drag-over-class="dragover">\
+            '<div ngf-drop="" ngf-drag-over-class="dragover" class="action-button-border">\
                <img role="img" alt="$altText$" style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
                <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
                  $userHtml$\
