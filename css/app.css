@@ -1,5 +1,6 @@
 @import 'custom-ionic.css';
 @import 'signup.css';
+@import 'adjustment.css';
 
 /* Empty. Add your own CSS if you like */
 
@@ -885,10 +886,10 @@ body {
     text-decoration: none;
 }
 
-.user-button:hover {
+/* .user-button:hover {
     transition: 400ms;
     border: 1px solid #1d4f9e;
-}
+} */
 
 .login-bg {
     background: -webkit-linear-gradient(45deg,#2767e6 0,#34b3f7 76%,#34b3f7 95%);
@@ -1155,7 +1156,7 @@ div.nav > a.item-avatar-left > div.item-content {
     transition: 400ms;
 }
 
-.login-mobile .button.button-positive:hover {
+/* .login-mobile .button.button-positive:hover {
     border-color: #0f1e55!important;
     background-color: #122153;
     color: #ffffff;
@@ -1169,7 +1170,7 @@ div.nav > a.item-avatar-left > div.item-content {
     color: #ffffff;
     border-radius: 2px;
     transition: 400ms;
-}
+} */
 
 .login-mobile .placeholder-icon:first-child {
     padding-right: 0;
