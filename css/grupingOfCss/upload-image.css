@@ -71,6 +71,9 @@
     left: 50%;
 }
 
+.generalDynamicImage{
+    white-space: initial;
+}
 
 .dynamicImage{
     display: flex;
