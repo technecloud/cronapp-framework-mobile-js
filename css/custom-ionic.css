@@ -182,7 +182,11 @@
 .item-avatar-left > img:first-child, 
 .item-avatar-left .item-image, 
 .item-avatar-left .item-content > img:first-child, 
-.item-avatar-left .item-content .item-image {
+.item-avatar-left .item-content .item-image,
+.item-thumbnail-left > img:first-child, 
+.item-thumbnail-left .item-image, 
+.item-thumbnail-left .item-content > img:first-child, 
+.item-thumbnail-left .item-content .item-image {
     object-fit: cover;
 }
 
