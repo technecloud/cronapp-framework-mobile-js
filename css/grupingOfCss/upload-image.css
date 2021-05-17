@@ -71,21 +71,6 @@
     left: 50%;
 }
 
-.generalDynamicImage{
-    white-space: initial;
-}
 
-.dynamicImage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.dynamicImage .buttomImage{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
 
 

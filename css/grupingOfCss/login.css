@@ -84,7 +84,6 @@ div.nav > a.item-avatar-left > div.item-content {
 }
 
 .menu-view label.item.item-input, .login-bg label.item.item-input  {
-    /* border: 0; */
     border-top: 0;
     display: block;
     border-left: 0;
@@ -97,15 +96,6 @@ div.nav > a.item-avatar-left > div.item-content {
     padding: 0.35em 0.625em 0.75em;
     border: 0px solid #c0c0c0;
 }
-
-
-/* .menu-view input[type="text"],input[type="email"],input[type="password"], .login-bg input[type="text"],input[type="email"],input[type="password"] {
-    border-bottom: 1px solid #aaaaaa;
-}
-
-.menu-view input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus, .login-bg input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus {
-    border-bottom: 1px solid #0083d8;
-} */
 
 .menu-view .bar-header button i, .login-bg .bar-header button i {
     font-size:10px;
@@ -224,7 +214,6 @@ div.nav > a.item-avatar-left > div.item-content {
 .login-mobile input:focus {
     border-bottom: 1px solid #2b71c0 !important;
     transition: 700ms;
-    /*color: #142354;*/
     background-color: transparent!important;
 }
 
@@ -244,22 +233,6 @@ div.nav > a.item-avatar-left > div.item-content {
     border-radius: 7px;
     transition: 400ms;
 }
-
-/* .login-mobile .button.button-positive:hover {
-    border-color: #0f1e55!important;
-    background-color: #122153;
-    color: #ffffff;
-    border-radius: 7px;
-    transition: 400ms;
-}
-
-.button.button-positive:hover {
-    border-color: #1d4f9e;
-    background-color: #122153;
-    color: #ffffff;
-    border-radius: 2px;
-    transition: 400ms;
-} */
 
 .login-mobile .placeholder-icon:first-child {
     padding-right: 0;
@@ -284,5 +257,4 @@ div.nav > a.item-avatar-left > div.item-content {
 
 .login-bg label.item.item-input {
     padding: 10px;
-    /*border: 1px solid #d7d7d7;*/
 }
