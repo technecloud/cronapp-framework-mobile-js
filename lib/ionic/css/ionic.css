@@ -7699,7 +7699,9 @@ textarea {
     opacity: 0;
     top: 10px;
     -webkit-transition: opacity 0.15s ease-in, top 0.2s linear;
-    transition: opacity 0.15s ease-in, top 0.2s linear; }
+    transition: opacity 0.15s ease-in, top 0.2s linear; 
+    display: contents;
+  }
     .item-floating-label .input-label.has-input {
       opacity: 1;
       top: 0;
