@@ -1,0 +1,260 @@
+
+.login-bg {
+    background: -webkit-linear-gradient(45deg,#2767e6 0,#34b3f7 76%,#34b3f7 95%);
+}
+
+
+.login-mobile input[type="email"]::-webkit-input-placeholder,.login-mobile input[type="text"]::-webkit-input-placeholder,.login-mobile input[type="password"]::-webkit-input-placeholder {
+    color: #c4ebff;
+    background-color: transparent;
+}
+
+
+.menu-view .bar.bar-positive, .login-bg .bar.bar-positive {
+    border-color: #1d4f9e;
+    background-color: #1d4f9e;
+    background-image: linear-gradient(0deg, #1d4f9e, #1d4f9e 50%, transparent 50%);
+    color: #fff;
+}
+
+.menu-view .item h2, .login-bg .item h2 {
+    margin: 0 0 2px 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+.menu-view .item h3, .login-bg .item h3 {
+    margin: 0 0 2px 0;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.menu-view .item-icon-left .icon, .login-bg .item-icon-left .icon {
+    left: 20px;
+    border-radius: 100%;
+    border: 1px solid ;
+    width: 35px;
+    height: 35px;
+    top: 6px;
+}
+
+.menu-view .item-icon-left, .login-bg .item-icon-left, ul.nav > a > div, ul.nav > li > a > div, div.nav > a > div {
+    padding-left: 26px;
+    margin-left: 20px;
+    min-height: auto;
+}
+
+div.nav > a.item-avatar-left > div.item-content {
+    padding: 16px;
+}
+
+.menu-view [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar, .login-bg [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+    color:#ffffff;
+}
+
+.menu-view .button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before, .login-bg .button .icon:before, .button.icon:before, .button.icon-left:before, .button.icon-right:before {
+    display: inline-block;
+    padding: 0 0 1px 0;
+    vertical-align: inherit;
+    font-size: 24px;
+    line-height: 41px;
+    pointer-events: none;
+    color: #fff;
+}
+
+.menu-view .bar .title, .login-bg .bar .title {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    margin: 0 10px;
+    min-width: 30px;
+    height: 43px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+    color: #ffffff;
+}
+
+.menu-view label.item.item-input, .login-bg label.item.item-input  {
+    border-top: 0;
+    display: block;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
+.menu-view fieldset, .login-bg fieldset {
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+    border: 0px solid #c0c0c0;
+}
+
+.menu-view .bar-header button i, .login-bg .bar-header button i {
+    font-size:10px;
+    color:#000;
+}
+
+.menu-view .bar-header .header-item .right-buttons .button i::before, .bar-header .header-item .left-buttons .button i::before , .login-bg .bar-header .header-item .right-buttons .button i::before, .bar-header .header-item .left-buttons .button i::before   {
+    font-size:20px;
+    color:#fff;
+}
+
+.menu-view .user-avatar, .login-bg .user-avatar {
+    float: left;
+    font-size: 52px;
+    color: #fff;
+    width: 45px;
+    height: auto;
+    padding: 0px;
+}
+
+.menu-view .input-default input, .login-bg .input-default input {
+    border-bottom: 1px solid #aaaaaa;
+    transition: 400ms;
+    color: #c4ebff;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.menu-view .input-default input:focus, .login-bg .input-default input:focus {
+    border-bottom: 1px solid #122153;
+    transition:400ms;
+    color: #122153;
+}
+
+.menu-view .input-default .item-input i , .login-bg .input-default .item-input i {
+    border-radius: 100%;
+    border: 1px solid #aaaaaa;
+    padding: 6px 7px 6px 7px;
+    font-size: 10px;
+}
+
+.menu-view .item-input, .login-bg .item-input {
+    padding: 6px 0 5px 0px;
+}
+
+.menu-view .item , .login-bg .item {
+    border-color: transparent;
+    background-color: transparent;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.login-bg .item{
+    display: -webkit-box;
+}
+
+.login-bg input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #c4ebff5e inset!important;
+}
+
+
+
+.login-mobile .button.button-positive {
+    border-color: #1d4f9e;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 2px;
+    transition: 400ms;
+    margin-top: 20px !important;
+    width: 94%;
+    margin: 0 auto;
+}
+
+.login-mobile .button.button-block, .button.button-full {
+    padding: 0;
+    border: 1px solid #ffffff!important;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.logo {
+    width: 250px;
+    margin-bottom: 0;
+    -webkit-filter: saturate(0) brightness(100);
+    filter: saturate(0) brightness(100);
+}
+
+.login-mobile {
+    padding: 19px 30px;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.login-mobile label {
+    background: transparent;
+}
+
+.login-mobile label input {
+    background: transparent;
+}
+
+.login-mobile input {
+    border-bottom: 1px solid #ffffff!important;
+    transition: 700ms;
+    color: #c4ebff;
+    background-color: transparent!important;
+}
+
+.login-mobile input:focus {
+    border-bottom: 1px solid #2b71c0 !important;
+    transition: 700ms;
+    background-color: transparent!important;
+}
+
+.login-mobile .item-input {
+    padding-bottom: 16px;
+    margin-bottom: 10px;
+}
+
+.login-mobile label {
+    border:0;
+}
+
+.menu-view .button.button-positive, .login-bg .button.button-positive {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #1d4f9e;
+    border-radius: 7px;
+    transition: 400ms;
+}
+
+.login-mobile .placeholder-icon:first-child {
+    padding-right: 0;
+}
+
+.login-mobile .placeholder-icon {
+    color: #fff;
+    font-size: 16px;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 11px 5px 0px 0px;
+    margin-right: 7px;
+    width: 40px;
+    height: 40px;
+}
+
+.login-mobile label.item.item-input {
+    padding: 10px;
+    border: 0px solid #d7d7d7;
+}
+
+.login-bg label.item.item-input {
+    padding: 10px;
+}
