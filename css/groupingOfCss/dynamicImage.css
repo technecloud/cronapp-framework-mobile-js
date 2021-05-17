@@ -1,3 +1,11 @@
+.dynamic-image-container {
+    border: 2px dashed;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .generalDynamicImage{
     white-space: initial;
 }

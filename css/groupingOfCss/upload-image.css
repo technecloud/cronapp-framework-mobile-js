@@ -51,14 +51,6 @@
     right: 0px;
 }
 
-.dynamic-image-container {
-    border: 2px dashed;
-    min-height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .action-button-border{
     white-space: initial;
     text-align: center;
