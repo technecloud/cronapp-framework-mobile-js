@@ -256,10 +256,6 @@ var app = (function() {
 
         .config(function($translateProvider, tmhDynamicLocaleProvider) {
             $translateProvider.uniformLanguageTag('bcp47');
-            $translateProvider.fallbackLanguage('pt_br');
-            $translateProvider.preferredLanguage('pt_br');
-            $translateProvider.useMissingTranslationHandlerLog();
-
             $translateProvider.useLoader('customTranslateLoader', {
                 files: [
                     {
@@ -274,16 +270,10 @@ var app = (function() {
             });
 
             $translateProvider
-                .translations('pt', { /* ... */ })
-                .translations('en', { /* ... */ })
-                .registerAvailableLanguageKeys(
-                    ['pt_br', 'en_us'], {
-                        'en*': 'en_us',
-                        'pt*': 'pt_br',
-                        '*': 'pt_br'
-                    })
-                .determinePreferredLanguage();
-
+            .registerAvailableLanguageKeys(
+                  window.translations.localesKeys,
+                  window.translations.localesRef
+            );
             var locale = (window.navigator.userLanguage || window.navigator.language).replace('-', '_').toLowerCase();
             $translateProvider.use(locale);
             $translateProvider.useSanitizeValueStrategy('escaped');
