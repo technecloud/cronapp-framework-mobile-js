@@ -173,15 +173,15 @@ window.addEventListener('message', function(event) {
       require: 'ngModel',
       link: function(scope, element, attr) {
         let templateDyn =
-            '<div ngf-drop="" ngf-drag-over-class="dragover">\
+            '<div ngf-drop="" ngf-drag-over-class="dragover" class="dynamicImage" >\
                <img role="img" alt="$altText$" style="width: 100%;" ng-if="$ngModel$" data-ng-src="{{$ngModel$.startsWith(\'http\') || ($ngModel$.startsWith(\'/\') && $ngModel$.length < 1000)? $ngModel$ : \'data:image/png;base64,\' + $ngModel$}}">\
-               <div class="btn" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
+               <div class="btn action-button-border" ng-if="!$ngModel$" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.setFile(\'$ngModel$\', $file)" ngf-pattern="\'image/*\'" ngf-max-size="$maxFileSize$">\
                  $userHtml$\
                </div>\
                <div aria-label="$closeAriaText$" class="remove-image-button button button-assertive" ng-if="$ngModel$" ng-click="$ngModel$=null">\
                  <span class="icon ion-android-close"></span>\
                </div>\
-               <div aria-label="$videocamAriaText$" class="button button-positive" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\',\'$quality$\',\'$allowEdit$\',\'$targetWidth$\',\'$targetHeight$\')">\
+               <div aria-label="$videocamAriaText$" class="button button-positive buttomImage" ng-if="!$ngModel$" ng-click="cronapi.internal.startCamera(\'$ngModel$\',\'$quality$\',\'$allowEdit$\',\'$targetWidth$\',\'$targetHeight$\')">\
                  <span class="icon ion-ios-videocam"></span>\
                </div>\
              </div>';
@@ -243,7 +243,7 @@ window.addEventListener('message', function(event) {
         
         var templateDyn    = '\
                                 <div ng-show="!$ngModel$" ngf-drop="" ngf-drag-over-class="dragover">\
-                                  <div class="btn" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\', $fileInfo$)" ngf-max-size="$maxFileSize$">\
+                                  <div class="btn action-button-border" ngf-drop="" ngf-select="" ngf-change="cronapi.internal.uploadFile(\'$ngModel$\', $file, \'uploadprogress$number$\', $fileInfo$)" ngf-max-size="$maxFileSize$">\
                                     $userHtml$\
                                   </div>\
                                   <div class="progress" data-type="bootstrapProgress" id="uploadprogress$number$" style="display:none">\

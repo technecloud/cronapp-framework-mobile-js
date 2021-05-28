@@ -120,5 +120,7 @@
   "OpenCamera": "Open the camera",
   "download": "Download",
   "Admin.server.out": "Error contacting the server",
-  "ParamForReport": "Parameter(s) for the report"
+  "ParamForReport": "Parameter(s) for the report",
+  "template.crud.clickToAddFile": "Click to add a file",
+  "template.crud.clickToAddImage": "Click to add an image"
 }
