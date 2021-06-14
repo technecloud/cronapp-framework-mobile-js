@@ -4,7 +4,7 @@
   "text_pt_BR": "Ícone",
   "text_en_US": "Icon",
   "class": "adjust-icon mdi mdi-star",
-  "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"font-size:300%\" xattr-size=\"font-size:300%\"/>",
+  "template": "<i class=\"ion ion-star\" id=\"crn-icon${RANDOM}\" style=\"font-size:300%;\" xattr-size=\"font-size:300%;\"/>",
   "wrapper": false,
   "properties": {
     "class": {
@@ -45,31 +45,31 @@
       "target": "style",
       "values": [
         {
-          "key": "font-size:100%",
+          "key": "font-size:100%;",
           "value": "100%"
         },
         {
-          "key": "font-size:200%",
+          "key": "font-size:200%;",
           "value": "200%"
         },
         {
-          "key": "font-size:300%",
+          "key": "font-size:300%;",
           "value": "300%"
         },
         {
-          "key": "font-size:400%",
+          "key": "font-size:400%;",
           "value": "400%"
         },
         {
-          "key": "font-size:500%",
+          "key": "font-size:500%;",
           "value": "500%"
         },
         {
-          "key": "font-size:600%",
+          "key": "font-size:600%;",
           "value": "600%"
         },
         {
-          "key": "font-size:700%",
+          "key": "font-size:700%;",
           "value": "700%"
         }
       ]
