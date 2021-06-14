@@ -13,31 +13,59 @@
     "id": {
       "order": 1
     },
-    "ng-click": {
-      "removable": false,
-      "type": "event"
-    },
-    "on-hold": {
-      "removable": false,
-      "type": "event"
-    },
-    "on-double-tap": {
-      "removable": false,
-      "type": "event"
-    },
-    "on-tap": {
-      "removable": false,
-      "type": "event"
-    },
-    "on-swipe": {
-      "removable": false,
-      "type": "event"
-    },
-    "on-drag": {
-      "removable": false,
-      "type": "event"
+    "xattr-size": {
+      "displayName_en_US": "Size",
+      "displayName_pt_BR": "Tamanho",
+      "order": 2
     }
   },
+  "styles": [
+    {
+      "selector": "i#{id}",
+      "text_pt_BR": "Ícone",
+      "text_en_US": "Icon"
+    }
+  ],
+  "childrenProperties": [
+    {
+      "name": "class",
+      "selector": "i",
+      "displayName_pt_BR": "Ícone",
+      "displayName_en_US": "Icon",
+      "type": "icon",
+      "order": 3
+    },
+    {
+      "name": "ng-click",
+      "selector": "i",
+      "type": "event"
+    },
+    {
+      "name": "on-tap",
+      "selector": "i",
+      "type": "event"
+    },
+    {
+      "name": "on-double-tap",
+      "selector": "i",
+      "type": "event"
+    },
+    {
+      "name": "on-hold",
+      "selector": "i",
+      "type": "event"
+    },
+    {
+      "name": "on-drag",
+      "selector": "i",
+      "type": "event"
+    },
+    {
+      "name": "on-swipe",
+      "selector": "i",
+      "type": "event"
+    }
+  ],
   "attributesForPreview": [
     {
       "name": "xattr-size",
