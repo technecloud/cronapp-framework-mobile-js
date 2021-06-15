@@ -44,7 +44,8 @@
       "order": 4
     },
     "xattr-theme": {
-      "displayName": "Theme",
+      "displayName_en_US": "Theme",
+      "displayName_pt_BR": "Tema",
       "order": 3
     },
     "xattr-type": {
@@ -53,7 +54,8 @@
       "order": 5
     },
     "xattr-size": {
-      "displayName": "Size",
+      "displayName_en_US": "Size",
+      "displayName_pt_BR": "Tamanho",
       "order": 2
     }
   },
@@ -66,15 +68,18 @@
       "values": [
         {
           "key": "",
-          "value": "Standard"
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Standard"
         },
         {
           "key": "button-large",
-          "value": "Large"
+          "value_pt_BR": "Grande",
+          "value_en_US": "Large"
         },
         {
           "key": "button-small",
-          "value": "Small"
+          "value_pt_BR": "Pequeno",
+          "value_en_US": "Small"
         }
       ]
     },
@@ -85,15 +90,18 @@
       "values": [
         {
           "key": "",
-          "value": "Default"
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
         },
         {
           "key": "button-clear",
-          "value": "Clear"
+          "value_pt_BR": "Claro",
+          "value_en_US": "Clear"
         },
         {
           "key": "button-outline",
-          "value": "Outline"
+          "value_pt_BR": "Contorno",
+          "value_en_US": "Outline"
         }
       ]
     },
@@ -104,15 +112,18 @@
       "values": [
         {
           "key": "button-block",
-          "value": "Block"
+          "value_pt_BR": "Bloco",
+          "value_en_US": "Block"
         },
         {
           "key": "",
-          "value": "Inline"
+          "value_pt_BR": "Embutido",
+          "value_en_US": "Inline"
         },
         {
           "key": "button-full",
-          "value": "Full Width"
+          "value_pt_BR": "Largura completa",
+          "value_en_US": "Full Width"
         }
       ]
     },
@@ -123,51 +134,61 @@
       "values": [
         {
           "key": "",
-          "value": "Default"
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
         },
         {
           "key": "button-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "button-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "button-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "button-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "button-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "button-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "button-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "button-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "button-dark",
-          "value": "Dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -179,51 +200,61 @@
       "values": [
         {
           "key": "",
-          "value": "Default"
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
         },
         {
           "key": "assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "dark",
-          "value": "Dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -248,7 +279,9 @@
     {
       "name": "content",
       "selector": "span",
-      "type": "content"
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text"
     }
   ],
   "styles": [
