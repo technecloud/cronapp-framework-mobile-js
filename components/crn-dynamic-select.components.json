@@ -51,7 +51,9 @@
     {
       "name": "content",
       "selector": "span",
-      "type": "content",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
       "order": 2
     },
     {
@@ -86,14 +88,19 @@
   ],
   "styles": [
     {
-      "selector": "label#{id} span",
-      "text_pt_BR": "Label",
-      "text_en_US": "Label"
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo do título",
+      "text_en_US": "Title background"
     },
     {
-      "selector": "label#{id} select",
-      "text_pt_BR": "Dropdown",
-      "text_en_US": "Dropdown"
+      "selector": "div#{id} .input-label",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} select",
+      "text_pt_BR": "Item selecionado/ Seta",
+      "text_en_US": "Selected Item/ Dropdown"
     }
   ]
 }
