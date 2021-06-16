@@ -15,6 +15,25 @@
     "id": {
       "order": 9996
     },
+    "ng-required":{
+      "removable": false,
+      "displayName_pt_BR": "Campo obrigátorio",
+      "displayName_en_US": "Required field",
+      "childrenProperty": true,
+      "type": "list",
+      "options": [
+          {
+              "key": "true",
+              "value_pt_BR": "Sim",
+              "value_en_US": "Yes"
+          },
+          {
+              "key": "false",
+              "value_pt_BR": "Não",
+              "value_en_US": "No"
+          }
+      ]
+    },
     "ng-show": {
       "order": 9997
     },
