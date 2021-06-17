@@ -116,7 +116,7 @@
       "text_en_US": "Icons"
     },
     {
-      "selector": "ion-tabs#{id} tab-title",
+      "selector": "ion-tabs#{id} .tab-title",
       "text_pt_BR": "Descrição",
       "text_en_US": "Description"
     },
