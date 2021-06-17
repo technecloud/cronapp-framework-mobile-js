@@ -12,9 +12,26 @@
     "class": {
       "order": 9999
     },
-    "xattr-theme": {
-      "displayName_pt_BR": "Tema do botão",
-      "displayName_en_US": "Button theme"
+    "ng-initial-value": {
+      "removable": false,
+      "displayName_pt_BR": "Valor Inicial",
+      "displayName_en_US": "Initial Value",
+      "type": "list",
+      "options": [
+        {
+          "key": "true",
+          "value_pt_BR": "Sim",
+          "value_en_US": "Yes"
+        },
+        {
+          "key": "false",
+          "value_pt_BR": "Não",
+          "value_en_US": "No"
+        }
+      ],
+      "selector": "input[ng-checked]",
+      "childrenProperty": true,
+      "order": 3
     }
   },
   "childrenProperties": [
@@ -34,28 +51,9 @@
       "order": 1
     },
     {
-      "name": "ng-initial-value",
-      "displayName_pt_BR": "Valor Inicial",
-      "displayName_en_US": "Initial Value",
-      "selector": "input",
-      "type": "list",
-      "options": [
-        {
-          "key": "true",
-          "value_pt_BR": "Sim",
-          "value_en_US": "Yes"
-        },
-        {
-          "key": "false",
-          "value_pt_BR": "Não",
-          "value_en_US": "No"
-        }
-      ],
-      "childrenProperty": true,
-      "order": 3
-    },
-    {
       "name": "xattr-theme",
+      "displayName_pt_BR": "Tema do botão",
+      "displayName_en_US": "Button theme",
       "selector": "div:first",
       "type": "options"
     },
@@ -140,17 +138,17 @@
   ],
   "styles": [
     {
-      "selector": "label#{id} span",
+      "selector": "div#{id}",
       "text_pt_BR": "Plano de fundo",
       "text_en_US": "Background"
     },
     {
-      "selector": "label#{id} span",
+      "selector": "div#{id} span",
       "text_pt_BR": "Descrição",
       "text_en_US": "Description"
     },
     {
-      "selector": "label#{id} .handle",
+      "selector": "div#{id} .handle",
       "text_pt_BR": "Botão de Alternância",
       "text_en_US": "Toggle Button"
     }
