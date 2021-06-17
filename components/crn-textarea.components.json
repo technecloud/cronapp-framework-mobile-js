@@ -4,7 +4,7 @@
   "text_en_US": "Textarea",
   "class": "adjust-icon mdi mdi-textbox",
   "wrapper": false,
-  "template": "<textarea aria-label='Textarea component' id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
+  "template": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textearea.template.html",
   "properties": {
     "class": {
       "order": 9999
@@ -31,9 +31,12 @@
       "order": 3
     },
     "rows": {
-      "order": 4
+      "displayName_pt_BR": "Quantidade de Linhas",
+      "displayName_en_US": "Number of Lines"
     },
     "maxlength": {
+      "displayName_pt_BR": "Máximo de caracteres",
+      "displayName_en_US": "Number of Lines",
       "order": 5
     },
     "ng-keydown": {
@@ -49,18 +52,18 @@
       "type": "event"
     }
   },
-  "rows": {
-    "displayName": "rows"
-  },
   "attributesForPreview": [
     {
       "name": "resize",
+      "displayName_pt_BR": "Redimensionável",
+      "displayName_en_US": "Resize",
       "type": "options",
       "target": "style",
       "values": [
         {
           "key": "resize:none;",
-          "value": "None"
+          "value_pt_BR": "Nenhum",
+          "value_en_US": "None"
         },
         {
           "key": "resize:horizontal;",
@@ -72,9 +75,27 @@
         },
         {
           "key": "resize:both;",
-          "value": "Both "
+          "value_pt_BR": "Ambos",
+          "value_en_US": "Both"
         }
       ]
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "div#{id} .item-select ",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} textarea",
+      "text_pt_BR": "Área de texto",
+      "text_en_US": "Textarea"
     }
   ]
 }
