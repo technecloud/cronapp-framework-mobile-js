@@ -6,6 +6,9 @@
   "wrapper": true,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
+  "designTimeDynamic": true,
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/combobox.designtime.html",
+  "designTimeSelector": "crn-select",
   "properties": {
     "id": {
       "order": 1
@@ -42,7 +45,9 @@
     {
       "name": "content",
       "selector": "div",
-      "type": "content"
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text"
     },
     {
       "name": "ng-model",
@@ -65,15 +70,19 @@
   },
   "styles": [
     {
-      "selector": "label#{id} div",
-      "order": 99999,
-      "text_pt_BR": "Item Selecionado",
-      "text_en_US": "Selected Item"
+      "selector": "div#{id} .item-select ",
+      "text_pt_BR": "Plano de fundo do Título",
+      "text_en_US": "Title background"
     },
     {
-      "selector": "label#{id} select",
-      "text_pt_BR": "Dropdown",
-      "text_en_US": "Dropdown"
+      "selector": "div#{id} .item-select ",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} .item-select select",
+      "text_pt_BR": "Item Selecionado/ Seta",
+      "text_en_US": "Selected Item/ Dropdown"
     }
   ]
 }

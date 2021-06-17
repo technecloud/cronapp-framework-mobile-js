@@ -57,47 +57,56 @@
       "values": [
         {
           "key": "bar-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "bar-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "bar-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "bar-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "bar-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "bar-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "bar-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "bar-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "bar-dark",
-          "value": "Dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -109,15 +118,18 @@
       "values": [
         {
           "key": "left",
-          "value": "left"
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left"
         },
         {
           "key": "center",
-          "value": "center"
+          "value_pt_BR": "Centro",
+          "value_en_US": "Center"
         },
         {
           "key": "right",
-          "value": "right"
+          "value_pt_BR": "Direita",
+          "value_en_US": "Right"
         }
       ]
     }
@@ -125,8 +137,10 @@
   "childrenProperties": [
     {
       "name": "content",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
       "selector": "h1[class='title']",
-      "type": "content"
+      "type": "text"
     },
     {
       "name": "ng-click",
@@ -145,9 +159,19 @@
   ],
   "styles": [
     {
-      "selector": "#{id} h1",
+      "selector": "#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "#{id} .title",
       "text_pt_BR": "Título",
-      "text_en_US": "Title"
+      "text_en_US": "title"
+    },
+    {
+      "selector": "#{id} .header-item button",
+      "text_pt_BR": "Ícone do menu",
+      "text_en_US": "Menu icon"
     }
   ]
 }

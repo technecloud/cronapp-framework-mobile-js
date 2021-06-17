@@ -5,8 +5,29 @@
   "class": "adjust-icon mdi mdi-equal-box",
   "wrapper": false,
   "pallete": false,
-  "template": "<option value=\"1\" class=\"\">Value 1</option>",
+  "template": "<option value=\"1\" class=\"\" ng-selected=\"\">Value 1</option>",
   "properties": {
+    "ng-selected": {
+      "removable": false,
+      "displayName_pt_BR": "Selecionado",
+      "displayName_en_US": "selected",
+      "type": "list",
+      "options": [
+        {
+          "key": "",
+          "value_pt_BR": "Não",
+          "value_en_US": "No"
+        },
+        {
+          "key": "true",
+          "value_pt_BR": "Sim",
+          "value_en_US": "Yes"
+        }
+      ],
+      "selector": "ng-selected",
+      "childrenProperty": true,
+      "order": 2
+    },
     "id": {
       "order": 1
     },
