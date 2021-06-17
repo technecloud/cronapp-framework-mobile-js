@@ -9,6 +9,8 @@
       "class": "tab-nav tabs"
     }
   ],
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-tab.designtime.html",
+  "designTimeSelector": "ion-tabs",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-tab.template.html",
   "forcedGroup": true,
