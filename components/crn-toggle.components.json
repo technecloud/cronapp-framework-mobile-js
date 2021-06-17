@@ -5,12 +5,19 @@
   "class": "adjust-icon mdi mdi-toggle-switch-off",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
+  "designTimeDynamic": true,
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/toggle.designtime.html",
+  "designTimeSelector": ":self",
   "properties": {
     "id": {
       "order": 1
     },
     "class": {
       "order": 9999
+    },
+    "xattr-theme": {      
+      "displayName_pt_BR": "Tema do botão",
+      "displayName_en_US": "Button theme"
     }
   },
   "childrenProperties": [
@@ -24,7 +31,9 @@
     {
       "name": "content",
       "selector": "span",
-      "type": "content",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
       "order": 1
     },
     {
@@ -64,47 +73,56 @@
       "values": [
         {
           "key": "toggle-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "toggle-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "toggle-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "toggle-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "toggle-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "toggle-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "toggle-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "toggle-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "toggle-dark",
-          "value": "Dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
