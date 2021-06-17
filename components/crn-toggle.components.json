@@ -11,27 +11,6 @@
     },
     "class": {
       "order": 9999
-    },
-    "ng-initial-value": {
-      "removable": false,
-      "displayName_pt_BR": "Valor Inicial",
-      "displayName_en_US": "Initial Value",
-      "type": "list",
-      "options": [
-        {
-          "key": "true",
-          "value_pt_BR": "Sim",
-          "value_en_US": "Yes"
-        },
-        {
-          "key": "false",
-          "value_pt_BR": "Não",
-          "value_en_US": "No"
-        }
-      ],
-      "selector": "input[ng-checked]",
-      "childrenProperty": true,
-      "order": 3
     }
   },
   "childrenProperties": [
@@ -41,6 +20,14 @@
       "type": "text",
       "order": 2,
       "mandatory": true
+    },
+    {
+      "name": "ng-initial-value",
+      "selector": "input",
+      "displayName_pt_BR": "Valor Inicial",
+      "displayName_en_US": "Initial Value",
+      "type": "logic",
+      "order": 3
     },
     {
       "name": "content",
