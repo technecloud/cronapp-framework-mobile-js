@@ -2,7 +2,7 @@
   "name": "crn-range",
   "text_pt_BR": "Alcance",
   "text_en_US": "Range",
-  "class": "adjust-icon mdi mdi-toggle-switch",
+  "class": "adjust-icon mdi mdi-ray-vertex",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/range.template.html",
   "properties": {
@@ -18,15 +18,17 @@
       "name": "class",
       "selector": "i:first",
       "type": "icon",
-      "displayName_pt_BR": "Ícone Inicial",
-      "displayName_en_US": "First Icon"
+      "displayName_pt_BR": "Ícone Inicial/Esquerda",
+      "displayName_en_US": "First/Left Icon",
+      "order": 1
     },
     {
       "name": "class",
       "selector": "i:last",
       "type": "icon",
-      "displayName_pt_BR": "Ícone Final",
-      "displayName_en_US": "Last Icon"
+      "displayName_pt_BR": "Ícone Final/Direita",
+      "displayName_en_US": "Last/Right Icon",
+      "order": 2
     },
     {
       "name": "ng-model",
@@ -37,11 +39,15 @@
     {
       "name": "max",
       "selector": "input",
+      "displayName_pt_BR": "Valor máximo",
+      "displayName_en_US": "Maximum value",
       "type": "text"
     },
     {
       "name": "min",
       "selector": "input",
+      "displayName_pt_BR": "Valor minímo",
+      "displayName_en_US": "Minimum value",
       "type": "text"
     },
     {
@@ -77,9 +83,9 @@
   ],
   "styles": [
     {
-      "selector": "div#{id} .item",
-      "text_pt_BR": "Geral",
-      "text_en_US": "General"
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
     },
     {
       "selector": "div#{id} input",
@@ -88,13 +94,13 @@
     },
     {
       "selector": "div#{id} i.left-icon",
-      "text_pt_BR": "Ícone Esquerdo",
-      "text_en_US": "Left Icon"
+      "text_pt_BR": "Ícone Inicial/ Esquerda",
+      "text_en_US": "First/Left Icon"
     },
     {
       "selector": "div#{id} i.right-icon",
-      "text_pt_BR": "Ícone Direito",
-      "text_en_US": "Right Icon"
+      "text_pt_BR": "Ícone Final/ Direita",
+      "text_en_US": "Last/Right Icon"
     }
   ]
 }
