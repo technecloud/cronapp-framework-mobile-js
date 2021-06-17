@@ -17,6 +17,30 @@
       "displayName_en_US": "Size",
       "displayName_pt_BR": "Tamanho",
       "order": 2
+    },
+    "ng-click": {
+      "removable": false,
+      "type": "event"
+    },
+    "on-hold": {
+      "removable": false,
+      "type": "event"
+    },
+    "on-double-tap": {
+      "removable": false,
+      "type": "event"
+    },
+    "on-tap": {
+      "removable": false,
+      "type": "event"
+    },
+    "on-swipe": {
+      "removable": false,
+      "type": "event"
+    },
+    "on-drag": {
+      "removable": false,
+      "type": "event"
     }
   },
   "styles": [
@@ -24,38 +48,6 @@
       "selector": "i#{id}",
       "text_pt_BR": "Ícone",
       "text_en_US": "Icon"
-    }
-  ],
-  "childrenProperties": [
-    {
-      "name": "ng-click",
-      "selector": "i",
-      "type": "event"
-    },
-    {
-      "name": "on-tap",
-      "selector": "i",
-      "type": "event"
-    },
-    {
-      "name": "on-double-tap",
-      "selector": "i",
-      "type": "event"
-    },
-    {
-      "name": "on-hold",
-      "selector": "i",
-      "type": "event"
-    },
-    {
-      "name": "on-drag",
-      "selector": "i",
-      "type": "event"
-    },
-    {
-      "name": "on-swipe",
-      "selector": "i",
-      "type": "event"
     }
   ],
   "attributesForPreview": [
