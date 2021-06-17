@@ -1,7 +1,7 @@
 {
   "name": "crn-ion-tab",
-  "text_pt_BR": "Aba",
-  "text_en_US": "Tab",
+  "text_pt_BR": "Abas",
+  "text_en_US": "Tabs",
   "class": "adjust-icon mdi mdi-window-maximize",
   "designTimeClass": [
     {
@@ -47,47 +47,56 @@
       "values": [
         {
           "key": "tabs-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "tabs-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "tabs-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "tabs-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "tabs-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "tabs-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "tabs-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "tabs-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "tabs-dark",
-          "value": "Dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -108,6 +117,11 @@
       "selector": "ion-tabs#{id} span",
       "text_pt_BR": "Descrição",
       "text_en_US": "Description"
+    },
+    {
+      "selector": "ion-tabs#{id} .tab-item .badge",
+      "text_pt_BR": "Badge",
+      "text_en_US": "Badge"
     }
   ]
 }
