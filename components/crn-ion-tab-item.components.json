@@ -14,24 +14,37 @@
       "displayName_pt_BR": "Ícone ativo",
       "displayName_en_US": "Active Icon",
       "type": "icon",
-      "order": 3
+      "order": 2
     },
     "icon-off": {
       "displayName_pt_BR": "Ícone Inativo",
       "displayName_en_US": "Inactive Icon",
       "type": "icon",
-      "order": 4
+      "order": 3
     },
     "href": {
       "removable": false,
       "type": "projectResource",
       "resourceType": "text/html",
-      "order": 2
+      "order": 1
+    },
+    "title": {
+      "removable": false,
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
+      "order": 4
+    },
+    "badge": {
+      "removable": false,
+      "displayName_pt_BR": "Badge",
+      "displayName_en_US": "Badge",
+      "type": "text",
+      "order": 5
     },
     "ng-click": {
       "removable": false,
-      "type": "event",
-      "order": 1
+      "type": "event"
     }
   }
 }

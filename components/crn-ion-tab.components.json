@@ -105,8 +105,8 @@
   "styles": [
     {
       "selector": "ion-tabs#{id}, ion-tabs#{id} .tabs",
-      "text_pt_BR": "Geral",
-      "text_en_US": "General"
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
     },
     {
       "selector": "ion-tabs#{id} i",
@@ -114,7 +114,7 @@
       "text_en_US": "Icons"
     },
     {
-      "selector": "ion-tabs#{id} span",
+      "selector": "ion-tabs#{id} tab-title",
       "text_pt_BR": "Descrição",
       "text_en_US": "Description"
     },
