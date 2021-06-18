@@ -84,5 +84,17 @@
       "selector": "div",
       "type": "event"
     }
-  ]  
+  ],  
+  "styles": [
+    {
+      "selector": "div#{id} .slider-pager .slider-pager-page.active ",
+      "text_pt_BR": "Navegação ativa",
+      "text_en_US": "Active slider dots"
+    },
+    {
+      "selector": "div#{id} .slider-pager .slider-pager-page ",
+      "text_pt_BR": "Navegação padrão",
+      "text_en_US": "Default slider dots"
+    }
+  ]
 }
