@@ -11,6 +11,30 @@
     },
     "id": {
       "order": 1
+    },
+    "ng-click": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-tap": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-double-tap": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-hold": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-drag": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-swipe": {
+      "removable": true,
+      "type": "event"
     }
   },
   "attributesForPreview": [
@@ -125,36 +149,6 @@
       "name": "ng-required",
       "selector": "input",
       "type": "logic"
-    },
-    {
-      "name": "ng-click",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-tap",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-double-tap",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-hold",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-drag",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-swipe",
-      "selector": "ul",
-      "type": "event"
     },
     {
       "name": "ng-false-value",
