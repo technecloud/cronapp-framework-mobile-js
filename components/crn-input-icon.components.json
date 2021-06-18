@@ -117,6 +117,11 @@
       "selector": "label#{id} i",
       "text_pt_BR": "Ícone",
       "text_en_US": "Icon"
+    },
+    {
+      "selector": "label#{id} i",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     }
   ],
   "attributesForPreview": [

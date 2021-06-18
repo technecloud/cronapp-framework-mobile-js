@@ -120,8 +120,8 @@
     },
     {
       "selector": "label#{id} span",
-      "text_pt_BR": "Label",
-      "text_en_US": "Label"
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     }
   ],
   "attributesForPreview": [
