@@ -15,7 +15,13 @@
     },
     "xattr-theme": {
       "displayName_en_US": "Slider theme",
-      "displayName_pt_BR": "Tema do slider"
+      "displayName_pt_BR": "Tema do slider",
+      "order": 3
+    },
+    "style": {
+      "displayName_en_US": "Customize the slider",
+      "displayName_pt_BR": "Personalize o item",
+      "order": 1
     }
   },
   "attributesForPreview": [
@@ -30,55 +36,55 @@
           "value_en_US": "Default"
         },
         {
-          "key": "assertive",
+          "key": "assertive-bg",
           "value_pt_BR": "Assertivo",
           "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
-          "key": "balanced",
+          "key": "balanced-bg",
           "value_pt_BR": "Equilibrado",
           "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
-          "key": "energized",
+          "key": "energized-bg",
           "value_pt_BR": "Energizado",
           "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
-          "key": "light",
+          "key": "light-bg",
           "value_pt_BR": "Claro",
           "value_en_US": "Light",
           "color": "#fff"
         },
         {
-          "key": "stable",
+          "key": "stable-bg",
           "value_pt_BR": "Estável",
           "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
-          "key": "calm",
+          "key": "calm-bg",
           "value_pt_BR": "Calmo",
           "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
-          "key": "positive",
+          "key": "positive-bg",
           "value_pt_BR": "Positivo",
           "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
-          "key": "royal",
+          "key": "royal-bg",
           "value_pt_BR": "Real",
           "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
-          "key": "dark",
+          "key": "dark-bg",
           "value_pt_BR": "Sombrio",
           "value_en_US": "Dark",
           "color": "#444"
@@ -87,14 +93,6 @@
     }
   ],
   "childrenProperties": [
-    {
-      "name": "src",
-      "selector": "img",
-      "removable": false,
-      "type": "projectResource",
-      "resourceType": "image/jpeg,image/gif,image/png",
-      "order": 1
-    },
     {
       "name": "ng-click",
       "selector": "div",
