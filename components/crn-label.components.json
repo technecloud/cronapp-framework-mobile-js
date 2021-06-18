@@ -12,9 +12,15 @@
     "class": {
       "order": 9999
     },
+    "content": {
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "order": 1
+    },
     "xattr-position": {
       "displayName_pt_BR": "Posição",
-      "displayName_en_US": "Position"
+      "displayName_en_US": "Position",
+      "order": 2
     },
     "ng-click": {
       "removable": false,
@@ -49,8 +55,8 @@
       "values": [
         {
           "key": "text-left",
-          "value_pt_BR": "Padrão",
-          "value_en_US": "Standard",
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left",
           "icon": "mdi mdi-ray-start"
         },
         {
@@ -61,7 +67,6 @@
         },
         {
           "key": "text-right",
-          "value": "Right",
           "value_pt_BR": "Direita",
           "value_en_US": "Right",
           "icon": "mdi mdi-ray-end"
