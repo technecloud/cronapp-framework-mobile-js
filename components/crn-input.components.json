@@ -105,14 +105,9 @@
   ],
   "styles": [
     {
-      "selector": "label#{id} input",
+      "selector": "div#{id} input",
       "text_pt_BR": "Entrada de texto",
       "text_en_US": "Input"
-    },
-    {
-      "selector": "label#{id} span",
-      "text_pt_BR": "Título",
-      "text_en_US": "Title"
     }
   ],
   "attributesForPreview": [

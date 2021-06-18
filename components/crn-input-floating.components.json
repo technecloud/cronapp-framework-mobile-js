@@ -109,7 +109,7 @@
   ],
   "styles": [
     {
-      "selector": "label#{id} input",
+      "selector": "div#{id} input",
       "text_pt_BR": "Entrada",
       "text_en_US": "Input"
     },

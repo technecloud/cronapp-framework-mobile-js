@@ -124,9 +124,9 @@
   ],
   "styles": [
     {
-      "selector": "div#{id} label",
+      "selector": "div#{id} div#{id}-input input",
       "text_pt_BR": "Entrada de Texto",
-      "text_en_US": "Text Input"
+      "text_en_US": "Input"
     },
     {
       "selector": "div#{id} .button",
