@@ -29,6 +29,10 @@
     },
     "on-drag": {
       "type": "event"
+    },
+    "xattr-theme": {
+      "displayName_pt_BR": "Tema do plano de fundo",
+      "displayName_en_US": "Background theme"
     }
   },
   "handleRules": {
@@ -36,7 +40,7 @@
     "designTimeRules": true,
     "rules": [
       {
-        "sourceHTML": "<ion-tab title=\"Title\" icon-on=\"ion-ios-filing\" icon-off=\"ion-ios-filing-outline\" id=\"ion-tab-${RANDOM}\" data-component=\"crn-ion-tab-item\" href=\"\" badge= \"0\"></ion-tab>",
+        "sourceHTML": "<ion-tab icon-on=\"ion-ios-filing\" icon-off=\"ion-ios-filing-outline\" id=\"ion-tab-${RANDOM}\" data-component=\"crn-ion-tab-item\" href=\"\" badge= \"0\"></ion-tab>",
         "targetSelector": ":self"
       }
     ]

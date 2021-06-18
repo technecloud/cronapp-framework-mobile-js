@@ -4,7 +4,7 @@
   "text_en_US": "Textarea",
   "class": "adjust-icon mdi mdi-textbox",
   "wrapper": false,
-  "template": "<textarea aria-label='Textarea component' id=\"textArea${RANDOM}\" ng-model=\"vars.textarea${RANDOM}\" maxlength=\"300\" style=\"resize:none;\" resize=\"none\"class=\"col item item-input\" rows=\"5\" placeholder=\"Textarea component\"></textarea>",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textarea.template.html",    
   "properties": {
     "class": {
       "order": 9999
@@ -31,9 +31,18 @@
       "order": 3
     },
     "rows": {
+      "displayName_pt_BR": "Quantidade de Linhas",
+      "displayName_en_US": "Number of Lines",
       "order": 4
     },
     "maxlength": {
+      "displayName_pt_BR": "Máximo de caracteres",
+      "displayName_en_US": "maximum characters",
+      "order": 5
+    },
+    "resize": {
+      "displayName_pt_BR": "Redimensionável",
+      "displayName_en_US": "Resize",
       "order": 5
     },
     "ng-keydown": {
