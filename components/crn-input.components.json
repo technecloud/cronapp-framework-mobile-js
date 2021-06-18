@@ -106,7 +106,7 @@
   "styles": [
     {
       "selector": "label#{id} input",
-      "text_pt_BR": "Entrada",
+      "text_pt_BR": "Entrada de texto",
       "text_en_US": "Input"
     }
   ],
@@ -118,31 +118,38 @@
       "values": [
         {
           "key": "",
-          "value": "Default"
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
         },
         {
           "key": "integer",
-          "value": "Numeric"
+          "value_pt_BR": "Numérico",
+          "value_en_US": "Numeric"
         },
         {
           "key": "number",
-          "value": "Decimal"
+          "value_pt_BR": "Decimal",
+          "value_en_US": "Decimal"
         },
         {
           "key": "tel",
-          "value": "Telephone"
+          "value_pt_BR": "Telefone",
+          "value_en_US": "Telephone"
         },
         {
           "key": "email",
-          "value": "Email"
+          "value_pt_BR": "E-mail",
+          "value_en_US": "Email"
         },
         {
           "key": "password",
-          "value": "Password"
+          "value_pt_BR": "Senha",
+          "value_en_US": "Password"
         },
         {
           "key": "search",
-          "value": "Search"
+          "value_pt_BR": "Pesquisa",
+          "value_en_US": "Search"
         }
       ]
     }
