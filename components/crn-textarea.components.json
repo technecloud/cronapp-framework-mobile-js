@@ -4,7 +4,7 @@
   "text_en_US": "Textarea",
   "class": "adjust-icon mdi mdi-textbox",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textarea.template.html",    
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textarea.template.html",
   "properties": {
     "class": {
       "order": 9999
@@ -86,6 +86,13 @@
           "value_en_US": "Both"
         }
       ]
+    }
+  ],
+  "styles": [
+    {
+      "selector": "textarea#{id}",
+      "text_pt_BR": "Área de texto",
+      "text_en_US": "Textarea"
     }
   ]
 }
