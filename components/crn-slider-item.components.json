@@ -12,8 +12,80 @@
     },
     "class": {
       "order": 9999
+    },
+    "xattr-theme": {
+      "displayName_en_US": "Slider theme",
+      "displayName_pt_BR": "Tema do slider"
     }
   },
+  "attributesForPreview": [
+    {
+      "name": "xattr-theme",
+      "type": "options",
+      "target": "class",
+      "values": [
+        {
+          "key": "",
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
+        },
+        {
+          "key": "assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
+          "color": "#ef473a"
+        },
+        {
+          "key": "balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
+          "color": "#33cd5f"
+        },
+        {
+          "key": "energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
+          "color": "#ffc900"
+        },
+        {
+          "key": "light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
+          "color": "#fff"
+        },
+        {
+          "key": "stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
+          "color": "#f8f8f8"
+        },
+        {
+          "key": "calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
+          "color": "#11c1f3"
+        },
+        {
+          "key": "positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
+          "color": "#387ef5"
+        },
+        {
+          "key": "royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
+          "color": "#886aea"
+        },
+        {
+          "key": "dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
+          "color": "#444"
+        }
+      ]
+    }
+  ],
   "childrenProperties": [
     {
       "name": "src",

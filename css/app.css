@@ -230,3 +230,10 @@ kendo-chat .k-bubble {
     -ms-user-select: auto;
     user-select: auto;
 }
+
+/* Carrossel */
+.crn-slider-item{
+    width:100%;
+    height:200px;
+    position: relative;
+}

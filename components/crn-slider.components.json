@@ -28,7 +28,8 @@
       "name": "auto-play",
       "selector": "ion-slide-box[auto-play]",
       "displayName_pt_BR": "Início automático",
-      "displayName_en_US": "Auto play"
+      "displayName_en_US": "Auto play",
+      "type": "logic"
     },
     {
       "name": "slide-interval",
@@ -40,7 +41,8 @@
       "name": "does-continue",
       "selector": "ion-slide-box[does-continue]",
       "displayName_pt_BR": "Reprodução contínua?",
-      "displayName_en_US": "Does continue?"
+      "displayName_en_US": "Does continue?",
+      "type": "logic"
     },
     {
       "name": "ng-click",
@@ -81,6 +83,13 @@
       "name": "on-swipe-right",
       "selector": "div",
       "type": "event"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "button#{id}",
+      "text_pt_BR": "Botão",
+      "text_en_US": "Button"
     }
   ]
 }
