@@ -4,11 +4,13 @@
   "text_en_US": "Image",
   "class": " adjust-icon mdi mdi-image",
   "wrapper": false,
-  "template": "<img alt='Avatar' src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
+  "template": "<img alt='Placehold' src=\"node_modules/cronapp-framework-mobile-js/img/placehold-900x500.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
   "properties": {
     "src": {
       "type": "projectResource",
       "resourceType": "image/jpeg,image/gif,image/png,image/svg+xml",
+      "displayName_pt_BR": "Imagem",
+      "displayName_en_US": "Image",
       "order": 1
     },
     "xattr-position": {
@@ -48,17 +50,20 @@
       "values": [
         {
           "key": "left-block",
-          "value": "Standard",
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left",
           "icon": "mdi mdi-ray-start"
         },
         {
           "key": "center-block",
-          "value": "Middle",
+          "value_pt_BR": "Centro",
+          "value_en_US": "Center",
           "icon": "mdi mdi-ray-vertex"
         },
         {
           "key": "right-block",
-          "value": "Right",
+          "value_pt_BR": "Direita",
+          "value_en_US": "Right",
           "icon": "mdi mdi-ray-end"
         }
       ]
