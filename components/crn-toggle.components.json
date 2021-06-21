@@ -24,8 +24,8 @@
     {
       "name": "ng-initial-value",
       "selector": "input",
-      "displayName_pt_BR": "Valor Inicial",
-      "displayName_en_US": "Initial Value",
+      "displayName_pt_BR": "Valor inicial",
+      "displayName_en_US": "Initial value",
       "type": "logic",
       "order": 3
     },
@@ -116,7 +116,7 @@
         },
         {
           "key": "toggle-dark",
-          "value_pt_BR": "Sombrio",
+          "value_pt_BR": "Escuro",
           "value_en_US": "Dark",
           "color": "#444"
         }
@@ -136,7 +136,7 @@
     },
     {
       "selector": "div#{id} .handle",
-      "text_pt_BR": "Botão de Alternância",
+      "text_pt_BR": "Botão de alternância",
       "text_en_US": "Toggle Button"
     }
   ]

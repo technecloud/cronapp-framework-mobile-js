@@ -31,13 +31,13 @@
       "order": 3
     },
     "rows": {
-      "displayName_pt_BR": "Quantidade de Linhas",
-      "displayName_en_US": "Number of Lines",
+      "displayName_pt_BR": "Quantidade de linhas",
+      "displayName_en_US": "Number of lines",
       "order": 4
     },
     "maxlength": {
       "displayName_pt_BR": "Máximo de caracteres",
-      "displayName_en_US": "maximum characters",
+      "displayName_en_US": "Maximum characters",
       "order": 5
     },
     "resize": {
