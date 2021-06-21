@@ -18,19 +18,26 @@
       "name": "src",
       "selector": "div > img",
       "type": "projectResource",
-      "resourceType": "image/jpeg,image/gif,image/png"
+      "resourceType": "image/jpeg,image/gif,image/png",
+      "displayName_pt_BR": "Imagem do avatar",
+      "displayName_en_US": "Avatar image",
+      "order": 1
     },
     {
       "name": "content",
       "displayName_pt_BR": "Título",
       "displayName_en_US": "Title",
       "selector": "div > h2",
-      "type": "content"
+      "type": "content",
+      "order": 1
     },
     {
       "name": "content",
+      "displayName_pt_BR": "Descrição",
+      "displayName_en_US": "Description",
       "selector": "div > p",
-      "type": "content"
+      "type": "content",
+      "order": 1
     },
     {
       "name": "ng-click",
@@ -66,8 +73,18 @@
   "styles": [
     {
       "selector": "div#{id} div",
-      "text_pt_BR": "Geral",
-      "text_en_US": "General"
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "div#{id} h2",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} p",
+      "text_pt_BR": "Descrição",
+      "text_en_US": "Description"
     }
   ]
 }
