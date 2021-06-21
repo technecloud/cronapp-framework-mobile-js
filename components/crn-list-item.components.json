@@ -4,7 +4,7 @@
   "text_en_US": "Item",
   "wrapper": false,
   "class": "adjust-icon mdi mdi-view-sequential",
-  "template": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.template.html",
   "properties": {
     "id": {
       "order": 1
@@ -151,7 +151,7 @@
       "text_en_US": "Background"
     },
     {
-      "selector": "ion-item#{id} h2",
+      "selector": "ion-item#{id} p",
       "text_pt_BR": "Título",
       "text_en_US": "Title"
     }
