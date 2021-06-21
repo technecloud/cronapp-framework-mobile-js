@@ -37,13 +37,13 @@
           "key": "item-avatar-left",
           "value_pt_BR": "Esquerda",
           "value_en_US": "Left",
-          "icon": "mdi mdi-ray-start"
+          "icon": "mdi mdi-arrow-collapse-left"
         },
         {
           "key": "item-avatar-right",
           "value_pt_BR": "Direita",
           "value_en_US": "Right",
-          "icon": "mdi mdi-ray-end"
+          "icon": "mdi mdi-arrow-collapse-right"
         }
       ]
     },
@@ -210,6 +210,16 @@
     }
   ],
   "styles": [
+    {
+      "selector": "a#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "a#{id} img",
+      "text_pt_BR": "Avatar",
+      "text_en_US": "Avatar"
+    },
     {
       "selector": "a#{id} h2",
       "text_pt_BR": "Título",
