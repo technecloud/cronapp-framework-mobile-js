@@ -1,0 +1,19 @@
+<ion-tabs class="tabs-icon-bottom tabs-standard tabs-positive component-holder tabs-bottom tabs-striped"
+    data-component="crn-ion-tab" xattr-theme="tabs-positive">
+    <div class="tab-nav tabs">
+        <a ng-class="{'has-badge':badge, 'tab-hidden':isHidden(), 'tab-item-active': isTabActive()}"
+            ng-disabled="disabled()" class="tab-item has-badge tab-item-active" icon-on="ion-ios-filing"
+            icon-off="ion ion-android-bar" badge="0">
+            <span class="badge " ng-if="badge">0</span>
+            <i class="icon ion-ios-filing" ng-if="getIcon()"></i>
+            <span class="tab-title ng-binding" ng-bind-html="title">Home</span>
+        </a>
+        <a ng-class="{'has-badge':badge, 'tab-hidden':isHidden(), 'tab-item-active': isTabActive()}"
+            ng-disabled="disabled()" class="tab-item has-badge" icon-on="ion-ios-person-outline"
+            icon-off="ion-ios-person" badge="0">
+            <span class="badge " ng-if="badge">0</span>
+            <i class="icon ion-ios-person" ng-if="getIcon()"></i>
+            <span class="tab-title ng-binding" ng-bind-html="title">About</span>
+        </a>
+    </div>
+</ion-tabs>
