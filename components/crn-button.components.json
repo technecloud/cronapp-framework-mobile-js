@@ -40,7 +40,8 @@
       "type": "event"
     },
     "xattr-fullsize": {
-      "displayName": "Width",
+      "displayName_en_US": "Width",
+      "displayName_pt_BR": "Largura",
       "order": 4
     },
     "xattr-theme": {
@@ -49,8 +50,8 @@
       "order": 3
     },
     "xattr-type": {
-      "displayName_pt_BR": "Tipo de Estilo",
-      "displayName_en_US": "Style Type",
+      "displayName_pt_BR": "Tipo de estilo",
+      "displayName_en_US": "Style type",
       "order": 5
     },
     "xattr-size": {
@@ -123,7 +124,7 @@
         {
           "key": "button-full",
           "value_pt_BR": "Largura completa",
-          "value_en_US": "Full Width"
+          "value_en_US": "Full width"
         }
       ]
     },
@@ -187,7 +188,7 @@
         },
         {
           "key": "button-dark",
-          "value_pt_BR": "Sombrio",
+          "value_pt_BR": "Escuro",
           "value_en_US": "Dark",
           "color": "#444"
         }
@@ -253,7 +254,7 @@
         },
         {
           "key": "dark",
-          "value_pt_BR": "Sombrio",
+          "value_pt_BR": "Escuro",
           "value_en_US": "Dark",
           "color": "#444"
         }
@@ -273,7 +274,7 @@
       "name": "xattr-icon-theme",
       "selector": "i",
       "displayName_pt_BR": "Tema do ícone",
-      "displayName_en_US": "Icon Theme",
+      "displayName_en_US": "Icon theme",
       "type": "text"
     },
     {

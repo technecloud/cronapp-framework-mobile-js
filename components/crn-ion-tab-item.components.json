@@ -1,7 +1,7 @@
 {
   "name": "crn-ion-tab-item",
-  "text_pt_BR": "Item de Aba",
-  "text_en_US": "Tab Item",
+  "text_pt_BR": "Item de aba",
+  "text_en_US": "Tab item",
   "class": "adjust-icon mdi mdi-window-maximize",
   "wrapper": false,
   "designTimeDynamic": true,
@@ -12,26 +12,39 @@
   "properties": {
     "icon-on": {
       "displayName_pt_BR": "Ícone ativo",
-      "displayName_en_US": "Active Icon",
+      "displayName_en_US": "Active icon",
       "type": "icon",
-      "order": 3
+      "order": 2
     },
     "icon-off": {
-      "displayName_pt_BR": "Ícone Inativo",
-      "displayName_en_US": "Inactive Icon",
+      "displayName_pt_BR": "Ícone inativo",
+      "displayName_en_US": "Inactive icon",
       "type": "icon",
-      "order": 4
+      "order": 3
     },
     "href": {
       "removable": false,
       "type": "projectResource",
       "resourceType": "text/html",
-      "order": 2
+      "order": 1
+    },
+    "title": {
+      "removable": false,
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
+      "order": 4
+    },
+    "badge": {
+      "removable": false,
+      "displayName_pt_BR": "Badge",
+      "displayName_en_US": "Badge",
+      "type": "text",
+      "order": 5
     },
     "ng-click": {
       "removable": false,
-      "type": "event",
-      "order": 1
+      "type": "event"
     }
   }
 }
