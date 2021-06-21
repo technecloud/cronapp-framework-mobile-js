@@ -11,6 +11,30 @@
     },
     "id": {
       "order": 1
+    },
+    "ng-click": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-tap": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-double-tap": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-hold": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-drag": {
+      "removable": true,
+      "type": "event"
+    },
+    "on-swipe": {
+      "removable": true,
+      "type": "event"
     }
   },
   "attributesForPreview": [
@@ -20,48 +44,62 @@
       "target": "class",
       "values": [
         {
+          "key": "",
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
+        },
+        {
           "key": "checkbox-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "checkbox-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "checkbox-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "checkbox-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "checkbox-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "checkbox-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "checkbox-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "checkbox-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "checkbox-dark",
-          "value": "Dark",
+          "value_pt_BR": "Sombrio",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -71,7 +109,9 @@
     {
       "name": "content",
       "selector": "span",
-      "type": "content",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
       "order": 1
     },
     {
@@ -92,8 +132,8 @@
     {
       "name": "xattr-theme",
       "selector": "li:first",
-      "displayName_pt_BR": "Tema",
-      "displayName_en_US": "Theme",
+      "displayName_pt_BR": "Tema da caixa de checagem",
+      "displayName_en_US": "Checkbox theme",
       "type": "options",
       "order": 3
     },
@@ -111,37 +151,9 @@
       "type": "logic"
     },
     {
-      "name": "ng-click",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-tap",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-double-tap",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-hold",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-drag",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
-      "name": "on-swipe",
-      "selector": "ul",
-      "type": "event"
-    },
-    {
       "name": "ng-false-value",
+      "displayName_pt_BR": "Se for falso",
+      "displayName_en_US": "If it's false",
       "selector": "input",
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\'';  }  return result; }",
       "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
@@ -149,6 +161,8 @@
     },
     {
       "name": "ng-true-value",
+      "displayName_pt_BR": "Se for verdadeiro",
+      "displayName_en_US": "If it's true",
       "selector": "input",
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\'';  }  return result; }",
       "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
@@ -157,9 +171,19 @@
   ],
   "styles": [
     {
-      "selector": "li#{id} span",
-      "text_pt_BR": "Legenda",
-      "text_en_US": "Caption"
+      "selector": "ul#{id} li",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "ul#{id} li .checkbox input",
+      "text_pt_BR": "Caixa de checagem",
+      "text_en_US": "Checkbox"
+    },
+    {
+      "selector": "ul#{id} li span",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     }
   ]
 }
