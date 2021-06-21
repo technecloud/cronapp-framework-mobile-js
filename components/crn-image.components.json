@@ -20,7 +20,22 @@
     "object-fit": {
       "displayName_pt_BR": "Preenchimento da imagem",
       "displayName_en_US": "Image filling",
+      "order": 3
+    },
+    "width": {
+      "displayName_pt_BR": "Largura",
+      "displayName_en_US": "Width",
+      "order": 4
+    },
+    "height": {
+      "displayName_pt_BR": "Altura",
+      "displayName_en_US": "Height",
       "order": 5
+    },
+    "alt": {
+      "displayName_pt_BR": "Valor alternativo",
+      "displayName_en_US": "Placeholder",
+      "order": 6
     },
     "ng-click": {
       "removable": false,
