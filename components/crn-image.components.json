@@ -17,6 +17,11 @@
       "removable": false,
       "order": 2
     },
+    "object-fit": {
+      "displayName_pt_BR": "Preenchimento da imagem",
+      "displayName_en_US": "Image filling",
+      "order": 5
+    },
     "ng-click": {
       "removable": false,
       "type": "event"
@@ -65,6 +70,33 @@
           "value_pt_BR": "Direita",
           "value_en_US": "Right",
           "icon": "mdi mdi-ray-end"
+        }
+      ]
+    },
+    {
+      "name": "object-fit",
+      "target": "style",
+      "type": "options",
+      "values": [
+        {
+          "key": "object-fit: cover;",
+          "value_pt_BR": "Proporcional",
+          "value_en_US": "Proportional"
+        },
+        {
+          "key": "object-fit: contain;",
+          "value_pt_BR": "Ajustado",
+          "value_en_US": "Adjusted"
+        },
+        {
+          "key": "object-fit: fill;",
+          "value_pt_BR": "Preencher (padrão)",
+          "value_en_US": "Fill (default)"
+        },
+        {
+          "key": "object-fit: none;",
+          "value_pt_BR": "Nenhum",
+          "value_en_US": "None"
         }
       ]
     }
