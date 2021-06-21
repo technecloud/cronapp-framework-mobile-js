@@ -98,7 +98,7 @@
         },
         {
           "key": "dark",
-          "value_pt_BR": "Sombrio",
+          "value_pt_BR": "Escuro",
           "value_en_US": "Dark",
           "color": "#444"
         }
@@ -118,16 +118,16 @@
     {
       "name": "class",
       "selector": "i",
-      "displayName_pt_BR": "Ícone Ativo",
-      "displayName_en_US": "Active Icon",
+      "displayName_pt_BR": "Ícone ativo",
+      "displayName_en_US": "Active icon",
       "type": "icon",
       "order": 2
     },
     {
       "name": "icon-off",
       "selector": "cronapp-rating",
-      "displayName_pt_BR": "Ícone Inativo",
-      "displayName_en_US": "Inactive Icon",
+      "displayName_pt_BR": "Ícone inativo",
+      "displayName_en_US": "Inactive icon",
       "type": "icon",
       "order": 2
     },
@@ -140,8 +140,8 @@
     {
       "name": "xattr-default-value",
       "selector": "cronapp-rating",
-      "displayName_pt_BR": "Valor Padrão",
-      "displayName_en_US": "Default Value",
+      "displayName_pt_BR": "Valor padrão",
+      "displayName_en_US": "Default value",
       "type": "text",
       "order": 4
     },

@@ -18,16 +18,16 @@
       "name": "class",
       "selector": "i:first",
       "type": "icon",
-      "displayName_pt_BR": "Ícone Inicial/Esquerda",
-      "displayName_en_US": "First/Left Icon",
+      "displayName_pt_BR": "Ícone inicial/esquerda",
+      "displayName_en_US": "First/left icon",
       "order": 1
     },
     {
       "name": "class",
       "selector": "i:last",
       "type": "icon",
-      "displayName_pt_BR": "Ícone Final/Direita",
-      "displayName_en_US": "Last/Right Icon",
+      "displayName_pt_BR": "Ícone final/direita",
+      "displayName_en_US": "Last/right icon",
       "order": 2
     },
     {
@@ -94,13 +94,13 @@
     },
     {
       "selector": "div#{id} i.left-icon",
-      "text_pt_BR": "Ícone Inicial/ Esquerda",
-      "text_en_US": "First/Left Icon"
+      "text_pt_BR": "Ícone inicial/esquerda",
+      "text_en_US": "First/left icon"
     },
     {
       "selector": "div#{id} i.right-icon",
-      "text_pt_BR": "Ícone Final/ Direita",
-      "text_en_US": "Last/Right Icon"
+      "text_pt_BR": "Ícone final/direita",
+      "text_en_US": "Last/right icon"
     }
   ]
 }
