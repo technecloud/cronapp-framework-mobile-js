@@ -4,21 +4,28 @@
   "text_en_US": "Item",
   "wrapper": false,
   "class": "adjust-icon mdi mdi-view-sequential",
-  "template": "<ion-item  class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
+  "template": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.template.html",
   "properties": {
     "id": {
-      "order": 2
+      "order": 1
     },
     "class": {
       "order": 9999
     },
+    "content": {
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "order": 2
+    },
     "xattr-theme": {
       "displayName_pt_BR": "Cor do texto",
-      "displayName_en_US": "Text color"
+      "displayName_en_US": "Text color",
+      "order": 3
     },
     "xattr-text-position": {
-      "displayName_pt_BR": "Posição",
-      "displayName_en_US": "Position"
+      "displayName_pt_BR": "Posição do texto",
+      "displayName_en_US": "Text position",
+      "order": 4
     },
     "ng-click": {
       "removable": false,
@@ -48,8 +55,6 @@
   "attributesForPreview": [
     {
       "name": "content",
-      "displayName_pt_BR": "Título",
-      "displayName_en_US": "Title",
       "type": "text"
     },
     {
@@ -137,6 +142,18 @@
           "icon": "mdi mdi-ray-end"
         }
       ]
+    }
+  ],
+  "styles": [
+    {
+      "selector": "ion-item#{id} .item-content",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "ion-item#{id} h2",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     }
   ]
 }
