@@ -12,21 +12,33 @@
     "class": {
       "order": 9999
     },
+    "content":{
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "order": 2
+    },
+    "max-file-size":{
+      "order": 2
+    },
+    "file-info":{
+      "order": 4
+    },
     "ng-model": {
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
       "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-      "mandatory": true
+      "mandatory": true,
+      "order": 1
     }
   },
   "groupedChildren": [
     {
-      "text_pt_BR": "Rótulo",
-      "text_en_US": "Label",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title",
       "selector": "label"
     },
     {
       "text_pt_BR": "Campo",
-      "text_en_US": "Field",
+      "text_en_US": "input",
       "selector": "dynamic-file|div[dynamic-file]"
     }
   ],
@@ -38,8 +50,8 @@
     },
     {
       "selector": "div#{id} label",
-      "text_pt_BR": "Label",
-      "text_en_US": "Label"
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     }
   ],
   "childrenProperties": [
