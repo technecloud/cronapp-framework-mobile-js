@@ -1,6 +1,6 @@
 {
   "name": "crn-list-item-thumbnail",
-  "text_pt_BR": "Item com Thumbnail",
+  "text_pt_BR": "Item com miniatura",
   "text_en_US": "Thumbnail Item",
   "class": "adjust-icon mdi mdi-view-list",
   "wrapper": false,
@@ -62,13 +62,13 @@
           "key": "item-thumbnail-left",
           "value_pt_BR": "Esquerda",
           "value_en_US": "Left",
-          "icon": "mdi mdi-ray-start"
+          "icon": "mdi mdi-arrow-collapse-left"
         },
         {
           "key": "item-thumbnail-right",
           "value_pt_BR": "Direita",
           "value_en_US": "Right",
-          "icon": "mdi mdi-ray-end"
+          "icon": "mdi mdi-arrow-collapse-right"
         }
       ]
     },
@@ -200,6 +200,16 @@
     }
   ],
   "styles": [
+    {
+      "selector": "a#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "a#{id} img",
+      "text_pt_BR": "Imagem",
+      "text_en_US": "Image"
+    },
     {
       "selector": "a#{id} h2",
       "text_pt_BR": "Título",
