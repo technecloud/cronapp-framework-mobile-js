@@ -18,8 +18,8 @@
       "name": "content",
       "selector": "span",
       "type": "content",
-      "displayName_pt_BR": "Conteúdo",
-      "displayName_en_US": "Label",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
       "order": 1
     },
     {
@@ -109,15 +109,15 @@
   ],
   "styles": [
     {
-      "selector": "label#{id} input",
-      "text_pt_BR": "Entrada",
-      "text_en_US": "Input"
+      "selector": "div#{id} .input-label",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     },
     {
-      "selector": "label#{id} span",
-      "text_pt_BR": "Label",
-      "text_en_US": "Label"
-    }
+      "selector": "div#{id} input",
+      "text_pt_BR": "Entrada de texto",
+      "text_en_US": "Input"
+    }    
   ],
   "attributesForPreview": [
     {
@@ -127,31 +127,38 @@
       "values": [
         {
           "key": "",
-          "value": "Default"
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
         },
         {
           "key": "integer",
-          "value": "Numeric"
+          "value_pt_BR": "Numérico",
+          "value_en_US": "Numeric"
         },
         {
           "key": "number",
-          "value": "Decimal"
+          "value_pt_BR": "Decimal",
+          "value_en_US": "Decimal"
         },
         {
           "key": "tel",
-          "value": "Telephone"
+          "value_pt_BR": "Telefone",
+          "value_en_US": "Telephone"
         },
         {
           "key": "email",
-          "value": "Email"
+          "value_pt_BR": "E-mail",
+          "value_en_US": "Email"
         },
         {
           "key": "password",
-          "value": "Password"
+          "value_pt_BR": "Senha",
+          "value_en_US": "Password"
         },
         {
           "key": "search",
-          "value": "Search"
+          "value_pt_BR": "Pesquisa",
+          "value_en_US": "Search"
         }
       ]
     }

@@ -1,7 +1,7 @@
 {
   "name": "crn-label",
-  "text_pt_BR": "Conteúdo",
-  "text_en_US": "Content",
+  "text_pt_BR": "Subtítulo",
+  "text_en_US": "Subtitle",
   "class": "adjust-icon mdi  mdi-format-header-2",
   "wrapper": false,
   "template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",
@@ -12,9 +12,15 @@
     "class": {
       "order": 9999
     },
+    "content": {
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "order": 1
+    },
     "xattr-position": {
       "displayName_pt_BR": "Posição",
-      "displayName_en_US": "Position"
+      "displayName_en_US": "Position",
+      "order": 2
     },
     "ng-click": {
       "removable": false,
@@ -49,17 +55,20 @@
       "values": [
         {
           "key": "text-left",
-          "value": "Standard",
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left",
           "icon": "mdi mdi-ray-start"
         },
         {
           "key": "text-center",
-          "value": "Middle",
+          "value_pt_BR": "Centro",
+          "value_en_US": "Center",
           "icon": "mdi mdi-ray-vertex"
         },
         {
           "key": "text-right",
-          "value": "Right",
+          "value_pt_BR": "Direita",
+          "value_en_US": "Right",
           "icon": "mdi mdi-ray-end"
         }
       ]
@@ -70,6 +79,13 @@
       "name": "ng-mouseover",
       "selector": "h2",
       "type": "event"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "h2#{id}",
+      "text_pt_BR": "Subtítulo",
+      "text_en_US": "Subtitle"
     }
   ]
 }
