@@ -10,8 +10,8 @@
       "order": 9999
     },
     "align-title": {
-      "displayName_pt_BR": "Alinhamento do Título",
-      "displayName_en_US": "Title Align"
+      "displayName_pt_BR": "Alinhamento do título",
+      "displayName_en_US": "Title align"
     },
     "on-tap": {
       "removable": true,
@@ -105,7 +105,7 @@
         },
         {
           "key": "bar-dark",
-          "value_pt_BR": "Sombrio",
+          "value_pt_BR": "Escuro",
           "value_en_US": "Dark",
           "color": "#444"
         }
@@ -146,15 +146,15 @@
       "name": "ng-click",
       "selector": "div.buttons-left",
       "type": "event",
-      "displayName_pt_BR": "Ao Clicar no Botão Esquerdo",
-      "displayName_en_US": "On Left Button Click"
+      "displayName_pt_BR": "Ao clicar no botão esquerdo",
+      "displayName_en_US": "On left button click"
     },
     {
       "name": "ng-click",
       "selector": "div.buttons-right",
       "type": "event",
-      "displayName_pt_BR": "Ao Clicar no Botão Direito",
-      "displayName_en_US": "On Right Button Click"
+      "displayName_pt_BR": "Ao clicar no botão direito",
+      "displayName_en_US": "On right button click"
     }
   ],
   "styles": [

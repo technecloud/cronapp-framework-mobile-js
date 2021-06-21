@@ -22,21 +22,25 @@
       "mandatory": true
     },
     {
-      "name": "content",
-      "selector": "span",
-      "type": "content",
-      "order": 1
-    },
-    {
       "name": "ng-initial-value",
       "selector": "input",
-      "displayName_pt_BR": "Valor Inicial",
-      "displayName_en_US": "Initial Value",
+      "displayName_pt_BR": "Valor inicial",
+      "displayName_en_US": "Initial value",
       "type": "logic",
       "order": 3
     },
     {
+      "name": "content",
+      "selector": "span",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
+      "order": 1
+    },
+    {
       "name": "xattr-theme",
+      "displayName_pt_BR": "Tema do botão",
+      "displayName_en_US": "Button theme",
       "selector": "div:first",
       "type": "options"
     },
@@ -64,47 +68,56 @@
       "values": [
         {
           "key": "toggle-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "toggle-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "toggle-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "toggle-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "toggle-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "toggle-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "toggle-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "toggle-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "toggle-dark",
-          "value": "Dark",
+          "value_pt_BR": "Escuro",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -112,18 +125,18 @@
   ],
   "styles": [
     {
-      "selector": "label#{id} span",
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "div#{id} span",
       "text_pt_BR": "Descrição",
       "text_en_US": "Description"
     },
     {
-      "selector": "label#{id} .track",
-      "text_pt_BR": "Fundo do Botão de Alternância",
-      "text_en_US": "Toggle Button Background"
-    },
-    {
-      "selector": "label#{id} .handle",
-      "text_pt_BR": "Botão de Alternância",
+      "selector": "div#{id} .handle",
+      "text_pt_BR": "Botão de alternância",
       "text_en_US": "Toggle Button"
     }
   ]
