@@ -3,7 +3,7 @@
   "text_pt_BR": "Item com deslizar",
   "text_en_US": "Swipe Item",
   "class": "adjust-icon mdi mdi-ray-end-arrow",
-  "wrapper": false,
+  "wrapper": true,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
   "properties": {
