@@ -35,13 +35,15 @@
       "values": [
         {
           "key": "item-avatar-left",
-          "value": "Left",
-          "icon": "mdi mdi-ray-start"
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left",
+          "icon": "mdi mdi-arrow-collapse-left"
         },
         {
           "key": "item-avatar-right",
-          "value": "Right",
-          "icon": "mdi mdi-ray-end"
+          "value_pt_BR": "Direita",
+          "value_en_US": "Right",
+          "icon": "mdi mdi-arrow-collapse-right"
         }
       ]
     },
@@ -52,17 +54,20 @@
       "values": [
         {
           "key": "text-left",
-          "value": "Left",
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left",
           "icon": "mdi mdi-ray-start"
         },
         {
           "key": "text-center",
-          "value": "Center",
+          "value_pt_BR": "Centro",
+          "value_en_US": "Center",
           "icon": "mdi mdi-ray-vertex"
         },
         {
           "key": "text-right",
-          "value": "Right",
+          "value_pt_BR": "Direita",
+          "value_en_US": "Right",
           "icon": "mdi mdi-ray-end"
         }
       ]
@@ -74,47 +79,56 @@
       "values": [
         {
           "key": "assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "dark",
-          "value": "Dark",
+          "value_pt_BR": "Escuro",
+          "value_en_US": "Dark",
           "color": "#444"
         }
       ]
@@ -144,7 +158,7 @@
     },
     {
       "name": "xattr-theme",
-      "displayName_pt_BR": "Tema do Tìtulo",
+      "displayName_pt_BR": "Tema do Título",
       "displayName_en_US": "Title theme",
       "selector": "h2",
       "type": "text"
@@ -196,6 +210,16 @@
     }
   ],
   "styles": [
+    {
+      "selector": "a#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "a#{id} img",
+      "text_pt_BR": "Avatar",
+      "text_en_US": "Avatar"
+    },
     {
       "selector": "a#{id} h2",
       "text_pt_BR": "Título",
