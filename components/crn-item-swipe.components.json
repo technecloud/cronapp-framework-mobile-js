@@ -6,6 +6,8 @@
   "wrapper": false,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.designtime.html",
+  "designTimeSelector": "ion-list",
   "properties": {
     "onclick": {
       "type": "event"
@@ -23,13 +25,6 @@
       }
     ]
   },
-  "groupedChildren": [
-    {
-      "text_pt_BR": "Button 1",
-      "text_en_US": "Button",
-      "selector": "button"
-    }
-  ],
   "childrenProperties": [
     {
       "name": "content",
@@ -41,27 +36,22 @@
   ],
   "styles": [
     {
-      "selector": "div#{id} .item-content",
-      "text_pt_BR": "Geral",
-      "text_en_US": "General"
-    },
-    {
-      "selector": "div#{id} .item",
+      "selector": "ion-list#{id} ion-item .item-content",
       "text_pt_BR": "Fundo do Swipe",
       "text_en_US": "Swipe Background"
     },
     {
-      "selector": "div#{id} .col",
+      "selector": "ion-listm#{id} .col",
       "text_pt_BR": "Item",
       "text_en_US": "Item"
     },
     {
-      "selector": "div#{id} .button-positive",
+      "selector": "ion-listm#{id} .button-positive",
       "text_pt_BR": "Botão de Editar",
       "text_en_US": "Edit Button"
     },
     {
-      "selector": "div#{id} .button-assertive",
+      "selector": "ion-listm#{id} .button-assertive",
       "text_pt_BR": "Botão de Excluir",
       "text_en_US": "Delete Button"
     }
