@@ -1,7 +1,7 @@
 {
   "name": "crn-list-swipe",
-  "text_pt_BR": "Lista com Swipe",
-  "text_en_US": "List Swipe",
+  "text_pt_BR": "Lista com deslizar",
+  "text_en_US": "Swipe list",
   "class": "adjust-icon mdi mdi-ray-end-arrow",
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
