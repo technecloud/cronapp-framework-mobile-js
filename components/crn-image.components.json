@@ -4,16 +4,38 @@
   "text_en_US": "Image",
   "class": " adjust-icon mdi mdi-image",
   "wrapper": false,
-  "template": "<img alt='Avatar' src=\"img/nophoto.png\" class=\"\" style=\"\"  xattr-position=\"\" >",
+  "template": "<img alt='Placehold' src=\"node_modules/cronapp-framework-mobile-js/img/placehold-900x500.png\" class=\"\" style=\"object-fit: cover;\"  xattr-position=\"\" width=\"100%\" height=\"\" object-fit=\"object-fit: cover;\" >",
   "properties": {
     "src": {
       "type": "projectResource",
       "resourceType": "image/jpeg,image/gif,image/png,image/svg+xml",
+      "displayName_pt_BR": "Imagem",
+      "displayName_en_US": "Image",
       "order": 1
     },
     "xattr-position": {
       "removable": false,
       "order": 2
+    },
+    "object-fit": {
+      "displayName_pt_BR": "Preenchimento da imagem",
+      "displayName_en_US": "Image filling",
+      "order": 3
+    },
+    "width": {
+      "displayName_pt_BR": "Largura",
+      "displayName_en_US": "Width",
+      "order": 4
+    },
+    "height": {
+      "displayName_pt_BR": "Altura",
+      "displayName_en_US": "Height",
+      "order": 5
+    },
+    "alt": {
+      "displayName_pt_BR": "Valor alternativo",
+      "displayName_en_US": "Placeholder",
+      "order": 6
     },
     "ng-click": {
       "removable": false,
@@ -48,18 +70,48 @@
       "values": [
         {
           "key": "left-block",
-          "value": "Standard",
+          "value_pt_BR": "Esquerda",
+          "value_en_US": "Left",
           "icon": "mdi mdi-ray-start"
         },
         {
           "key": "center-block",
-          "value": "Middle",
+          "value_pt_BR": "Centro",
+          "value_en_US": "Center",
           "icon": "mdi mdi-ray-vertex"
         },
         {
           "key": "right-block",
-          "value": "Right",
+          "value_pt_BR": "Direita",
+          "value_en_US": "Right",
           "icon": "mdi mdi-ray-end"
+        }
+      ]
+    },
+    {
+      "name": "object-fit",
+      "target": "style",
+      "type": "options",
+      "values": [
+        {
+          "key": "object-fit: cover;",
+          "value_pt_BR": "Proporcional",
+          "value_en_US": "Proportional"
+        },
+        {
+          "key": "object-fit: contain;",
+          "value_pt_BR": "Ajustado",
+          "value_en_US": "Adjusted"
+        },
+        {
+          "key": "object-fit: fill;",
+          "value_pt_BR": "Preencher (padrão)",
+          "value_en_US": "Fill (default)"
+        },
+        {
+          "key": "object-fit: none;",
+          "value_pt_BR": "Nenhum",
+          "value_en_US": "None"
         }
       ]
     }

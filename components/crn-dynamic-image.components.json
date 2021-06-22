@@ -6,40 +6,89 @@
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/dynamicimage.template.html",
   "properties": {
+    "id": {
+      "order": 1
+    },
     "ng-model": {
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
       "onDisplay": "javascript:function() { return arguments[0].replace('vars.',''); }",
-      "mandatory": true
+      "mandatory": true,
+      "order": 2
+    },
+    "quality": {
+      "displayName_pt_BR": "Resolução da imagem",
+      "displayName_en_US": "Image resolution",
+      "type": "list",
+      "options": [
+        {
+          "key": "100",
+          "value_pt_BR": "Super alta",
+          "value_en_US": "Super high"
+        },
+        {
+          "key": "80",
+          "value_pt_BR": "Alta",
+          "value_en_US": "High"
+        },
+        {
+          "key": "60",
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
+        },
+        {
+          "key": "50",
+          "value_pt_BR": "Média",
+          "value_en_US": "Medium"
+        },
+        {
+          "key": "30",
+          "value_pt_BR": "Baixa",
+          "value_en_US": "Low"
+        },
+        {
+          "key": "10",
+          "value_pt_BR": "Super baixa",
+          "value_en_US": "Super low"
+        }
+      ],
+      "order": 3
+    },
+    "alt": {
+      "order": 4
     }
   },
   "childrenProperties": [
     {
       "name": "content",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
       "selector": "label",
-      "type": "content"
+      "type": "text",
+      "order": 5
     },
     {
       "name": "max-file-size",
-      "selector": "div[dynamic-image]",
-      "type": "text"
-    },
-    {
-      "name": "quality",
+      "displayName_pt_BR": "Tamanho máximo da imagem",
+      "displayName_en_US": "Maximum image size",
       "selector": "div[dynamic-image]",
       "type": "text"
     },
     {
       "name": "allow-edit",
       "selector": "div[dynamic-image]",
-      "type": "text"
+      "type": "logic"
     },
     {
       "name": "target-width",
+      "displayName_pt_BR": "Largura desejada (em pixel)",
+      "displayName_en_US": "Desired width (in pixel)",
       "selector": "div[dynamic-image]",
       "type": "text"
     },
     {
       "name": "target-height",
+      "displayName_pt_BR": "Altura desejada (em pixel)",
+      "displayName_en_US": "Desired height (in pixel)",
       "selector": "div[dynamic-image]",
       "type": "text"
     },
