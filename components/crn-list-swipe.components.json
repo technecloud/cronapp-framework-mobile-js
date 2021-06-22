@@ -77,14 +77,9 @@
   },
   "styles": [
     {
-      "selector": "div#{id} .item-content",
-      "text_pt_BR": "Geral",
-      "text_en_US": "General"
-    },
-    {
       "selector": "div#{id} .item",
-      "text_pt_BR": "Fundo do Swipe",
-      "text_en_US": "Swipe Background"
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
     },
     {
       "selector": "div#{id} .col",
