@@ -15,12 +15,12 @@
     "xattr-icon-position": {
       "displayName_pt_BR": "Posição do Ícone",
       "displayName_en_US": "Icon Position",
-      "order": 5
+      "order": 4
     },
     "xattr-text-position": {
       "displayName_pt_BR": "Posição do Texto",
       "displayName_en_US": "Text Position",
-      "order": 4
+      "order": 5
     },
     "href": {
       "removable": false,
