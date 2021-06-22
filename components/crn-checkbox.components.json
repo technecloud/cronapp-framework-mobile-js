@@ -1,6 +1,6 @@
 {
   "name": "crn-checkbox",
-  "text_pt_BR": "Checkbox",
+  "text_pt_BR": "Caixa de checagem",
   "text_en_US": "Checkbox",
   "class": "adjust-icon mdi mdi-checkbox-marked-outline",
   "wrapper": false,
@@ -155,7 +155,7 @@
       "displayName_pt_BR": "Se for falso",
       "displayName_en_US": "If it's false",
       "selector": "input",
-      "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\'';  }  return result; }",
+      "onSave": "javascript:function() { var result = arguments[0]; if (result && result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\''; } return result;  }",
       "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
       "type": "text"
     },
@@ -164,7 +164,7 @@
       "displayName_pt_BR": "Se for verdadeiro",
       "displayName_en_US": "If it's true",
       "selector": "input",
-      "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\'';  }  return result; }",
+      "onSave": "javascript:function() { var result = arguments[0]; if (result && result.indexOf('.') == -1 && result.trim().length > 0 ) { result = '\\''+result+'\\''; } return result;  }",
       "onDisplay": "javascript:function() { return arguments[0].split('\\'').join('') }",
       "type": "text"
     }
