@@ -194,13 +194,11 @@ window.addEventListener('message', function(event) {
           closeAriaText: $translate.instant('Home.view.Close'),
           videocamAriaText: $translate.instant('OpenCamera'),
           maxFileSize: attr.maxFileSize ? attr.maxFileSize : "",
-          quality: attr.quality ? attr.quality : "60", // 1-100
+          quality: attr.quality ? attr.quality : "60",
           allowEdit: attr.allowEdit ? attr.allowEdit : "false",
-          targetWidth: attr.targetWidth ? attr.targetWidth : "640", //match_parent 
-          targetHeight: attr.targetHeight ? attr.targetHeight : "480"  //wrap_content
+          targetWidth: attr.targetWidth ? attr.targetWidth : "640",
+          targetHeight: attr.targetHeight ? attr.targetHeight : "480"
         };
-        // android:layout_width="match_parent"
-        // android:layout_height="wrap_content"
 
         templateDyn = $(templateDyn
             .split('$ngModel$').join(attributes.ngModel)
