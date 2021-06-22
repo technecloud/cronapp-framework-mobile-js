@@ -34,22 +34,22 @@
   ],
   "styles": [
     {
-      "selector": "ion-list#{id} ion-item .item-content",
-      "text_pt_BR": "Fundo do Swipe",
-      "text_en_US": "Swipe Background"
+      "selector": "div#{id} .item-content",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
     },
     {
-      "selector": "ion-listm#{id} .col",
-      "text_pt_BR": "Item",
-      "text_en_US": "Item"
+      "selector": "div#{id} h2",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
     },
     {
-      "selector": "ion-listm#{id} .button-positive",
+      "selector": "div#{id} .editButton",
       "text_pt_BR": "Botão de Editar",
       "text_en_US": "Edit Button"
     },
     {
-      "selector": "ion-listm#{id} .button-assertive",
+      "selector": "div#{id} .deleteButton",
       "text_pt_BR": "Botão de Excluir",
       "text_en_US": "Delete Button"
     }
