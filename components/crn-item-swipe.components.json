@@ -6,8 +6,6 @@
   "wrapper": false,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
-  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.designtime.html",
-  "designTimeSelector": "ion-list",
   "properties": {
     "onclick": {
       "type": "event"
