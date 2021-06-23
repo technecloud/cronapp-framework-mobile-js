@@ -159,7 +159,7 @@
       "displayName_pt_BR": "Tema do conteúdo",
       "displayName_en_US": "Content Theme",
       "type": "text",
-      "order": 5
+      "order": 7
     },
     {
       "name": "xattr-position",
@@ -167,14 +167,15 @@
       "displayName_pt_BR": "Posição do Ícone",
       "displayName_en_US": "Icon Position",
       "type": "text",
-      "order": 4
+      "order": 5
     },
     {
       "name": "xattr-text-position",
       "displayName_pt_BR": "Posição do Texto",
       "displayName_en_US": "Text Position",
       "selector": "a",
-      "type": "text"
+      "type": "text",
+      "order": 6
     },
     {
       "name": "class",
@@ -189,7 +190,8 @@
       "selector": "i",
       "displayName_pt_BR": "Tema do ícone",
       "displayName_en_US": "Icon theme",
-      "type": "text"
+      "type": "text",
+      "order": 8
     },
     {
       "name": "ng-click",

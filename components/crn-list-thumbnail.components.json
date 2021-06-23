@@ -182,14 +182,16 @@
       "displayName_pt_BR": "Posição da Imagem",
       "displayName_en_US": "Image Position",
       "selector": "a",
-      "type": "text"
+      "type": "text",
+      "order": 6
     },
     {
       "name": "xattr-text-position",
       "displayName_pt_BR": "Posição do Texto",
       "displayName_en_US": "Text Position",
       "selector": "a",
-      "type": "text"
+      "type": "text",
+      "order": 7
     },
     {
       "name": "content",
@@ -209,13 +211,27 @@
     },
     {
       "name": "xattr-theme",
-      "displayName_pt_BR": "Tema",
-      "displayName_en_US": "Text Theme",
+      "displayName_pt_BR": "Tema do título",
+      "displayName_en_US": "Title theme",
       "selector": "h2",
-      "type": "text"
+      "type": "text",
+      "order": 8
+    },
+    {
+      "name": "xattr-theme",
+      "displayName_pt_BR": "Tema do subtítulo",
+      "displayName_en_US": "Subtitle theme",
+      "selector": "h3",
+      "type": "text",
+      "order": 9
     }
   ],
   "styles": [
+    {
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
     {
       "selector": "div#{id} h2",
       "text_pt_BR": "Título",

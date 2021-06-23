@@ -5,6 +5,7 @@
   "class": "adjust-icon mdi mdi-radiobox-marked",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/radiogroup.template.html",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/radiogroup.designtime.html",
   "properties": {
     "id": {
       "order": 2
