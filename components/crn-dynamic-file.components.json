@@ -18,10 +18,7 @@
       "order": 2
     },
     "max-file-size":{
-      "order": 2
-    },
-    "file-info":{
-      "order": 4
+      "order": 3
     },
     "ng-model": {
       "onSave": "javascript:function() { var result = arguments[0]; if (result.indexOf('.') == -1 && result.trim().length > 0 ) { result = 'vars.'+result;  }  return result; }",
@@ -30,18 +27,6 @@
       "order": 1
     }
   },
-  "groupedChildren": [
-    {
-      "text_pt_BR": "Título",
-      "text_en_US": "Title",
-      "selector": "label"
-    },
-    {
-      "text_pt_BR": "Campo",
-      "text_en_US": "input",
-      "selector": "dynamic-file|div[dynamic-file]"
-    }
-  ],
   "styles": [
     {
       "selector": "div#{id} .form-group",
@@ -59,7 +44,7 @@
       "name": "file-info",
       "selector": "div[dynamic-file]",
       "type": "text",
-      "order": 1
+      "order": 4
     },
     {
       "name": "ng-click",
