@@ -148,6 +148,8 @@
     {
       "name": "content",
       "selector": "h2",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
       "type": "content",
       "order": 3
     },
@@ -156,14 +158,16 @@
       "selector": "h2",
       "displayName_pt_BR": "Tema do conteúdo",
       "displayName_en_US": "Content Theme",
-      "type": "text"
+      "type": "text",
+      "order": 5
     },
     {
       "name": "xattr-position",
       "selector": "a",
       "displayName_pt_BR": "Posição do Ícone",
       "displayName_en_US": "Icon Position",
-      "type": "text"
+      "type": "text",
+      "order": 4
     },
     {
       "name": "xattr-text-position",
