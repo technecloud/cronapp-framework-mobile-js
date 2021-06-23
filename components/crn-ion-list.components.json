@@ -130,7 +130,7 @@
       "text_en_US": "Subtitle"
     },
     {
-      "selector": "div#{id} .item-content > div > i.icon",
+      "selector": "div#{id} .item-content i.icon",
       "text_pt_BR": "Ícone",
       "text_en_US": "Icon"
     },
@@ -154,15 +154,15 @@
       "text_pt_BR": "Entrada de texto da pesquisa",
       "text_en_US": "Search text entry"
     },
-
-
-
-
-
     {
       "selector": "div#{id} label.checkbox",
-      "text_pt_BR": "Checkbox",
+      "text_pt_BR": "Caixa de checagem",
       "text_en_US": "Checkbox"
+    },
+    {
+      "selector": "div#{id} label.checkbox",
+      "text_pt_BR": "Cor da caixa de selecionada",
+      "text_en_US": "Selected checkbox color"
     },
     {
       "selector": "div#{id} .cron-list-selected, div#{id} .cron-list-selected > div.item-content",

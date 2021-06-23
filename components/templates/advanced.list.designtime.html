@@ -2,29 +2,20 @@
     <div class="item item-input-inset">
         <div class="item-input-wrapper">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" class="ng-pristine ng-untouched ng-valid ng-empty">
+            <input type="text" class="ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search">
         </div>
     </div>
     <ion-list can-swipe="listCanSwipe" class="disable-user-behavior">
         <div class="list">
-            <ion-item ng-class="{'cron-list-selected' :isChecked(rowData)}"
-                class="item item-complex item-right-editable item-thumbnail-left">
+            <ion-item class="item item-complex item-right-editable item-thumbnail-left">
                 <div class="item-content">
-                    <img alt="Thumbnail" src="node_modules/cronapp-framework-mobile-js/img/qr-code.png">
+                    <img alt="Thumbnail" src="node_modules/cronapp-framework-mobile-js/img/user.svg">
                     <div class="text-left ">
-                        <h2 class="ng-binding">Gustavo</h2>
-                        <p class="dark ng-binding">gustavo</p>
-                        <i class="icon icon ion-load-d" xattr-theme="dark"></i>
+                        <h2 class="ng-binding">Advanced List Title</h2>
+                        <p class="dark ng-binding">Advanced List Subtitle</p>
                     </div>
-                </div>
-                <div class="item-options invisible">
-                    <ion-option-button class="button-positive ion-edit button">
-                        <span class="ng-binding">&nbsp;Editar</span>
-                    </ion-option-button>
-                    <ion-option-button class="button-assertive ion-trash-a button">
-                        <span class="ng-binding">&nbsp;Remover</span>
-                    </ion-option-button>
-                </div>
+                    <i class="icon icon ion-alert icon-designtime-ion-list" xattr-theme="dark"></i>
+                </div>                
             </ion-item>
         </div>
     </ion-list>
