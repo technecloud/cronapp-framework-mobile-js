@@ -154,21 +154,7 @@
       "displayName_en_US": "Avatar",
       "type": "projectResource",
       "resourceType": "image/jpeg,image/gif,image/png",
-      "order": 5
-    },
-    {
-      "name": "xattr-position",
-      "displayName_pt_BR": "Posição da Imagem",
-      "displayName_en_US": "Image Position",
-      "selector": "a",
-      "type": "text"
-    },
-    {
-      "name": "xattr-text-position",
-      "displayName_pt_BR": "Posição do Texto",
-      "displayName_en_US": "Text Position",
-      "selector": "a",
-      "type": "text"
+      "order": 3
     },
     {
       "name": "content",
@@ -176,14 +162,7 @@
       "displayName_en_US": "Title",
       "selector": "h2",
       "type": "content",
-      "order": 3
-    },
-    {
-      "name": "xattr-theme",
-      "displayName_pt_BR": "Tema do Tìtulo",
-      "displayName_en_US": "Title theme",
-      "selector": "h2",
-      "type": "text"
+      "order": 4
     },
     {
       "name": "content",
@@ -191,14 +170,39 @@
       "displayName_en_US": "Subtitle",
       "selector": "h3",
       "type": "content",
-      "order": 4
+      "order": 5
+    },
+    {
+      "name": "xattr-theme",
+      "displayName_pt_BR": "Tema do Tìtulo",
+      "displayName_en_US": "Title theme",
+      "selector": "h2",
+      "type": "text",
+      "order": 6
     },
     {
       "name": "xattr-theme",
       "displayName_pt_BR": "Tema do Subtítulo",
       "displayName_en_US": "Subtitle theme",
       "selector": "h3",
-      "type": "text"
+      "type": "text",
+      "order": 7
+    },
+    {
+      "name": "xattr-position",
+      "displayName_pt_BR": "Posição da Imagem",
+      "displayName_en_US": "Image Position",
+      "selector": "a",
+      "type": "text",
+      "order": 8
+    },
+    {
+      "name": "xattr-text-position",
+      "displayName_pt_BR": "Posição do Texto",
+      "displayName_en_US": "Text Position",
+      "selector": "a",
+      "type": "text",
+      "order": 9
     },
     {
       "name": "ng-click",
