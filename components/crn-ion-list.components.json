@@ -4,6 +4,7 @@
   "text_en_US": "Advanced List",
   "class": "adjust-icon mdi mdi-view-quilt",
   "onDrop": "openEditor",
+  "wrapper": true,
   "onDoubleClick": "openEditor",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
   "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img alt=\"Thumbnail\" src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
@@ -124,7 +125,7 @@
       "text_en_US": "Title"
     },
     {
-      "selector": "div#{id} h3",
+      "selector": "div#{id} p",
       "text_pt_BR": "Subtítulo",
       "text_en_US": "Subtitle"
     },
@@ -134,25 +135,30 @@
       "text_en_US": "Icon"
     },
     {
-      "selector": "div#{id} .item-content",
+      "selector": "div#{id} .item-content , div#{id} .item-complex",
       "text_pt_BR": "Lista",
       "text_en_US": "List"
     },
     {
       "selector": "div#{id} .item-input-inset",
-      "text_pt_BR": "Caixa de Pesquisa",
+      "text_pt_BR": "Plano de fundo da pesquisa",
       "text_en_US": "Search Box"
     },
     {
       "selector": "div#{id} .item-input-wrapper",
       "text_pt_BR": "Barra de Pesquisar",
-      "text_en_US": "Search Bar"
+      "text_en_US": "Research Background"
     },
     {
       "selector": "div#{id} .item-input-wrapper > input",
-      "text_pt_BR": "Input de Pesquisa",
-      "text_en_US": "Search Input"
+      "text_pt_BR": "Entrada de texto da pesquisa",
+      "text_en_US": "Search text entry"
     },
+
+
+
+
+
     {
       "selector": "div#{id} label.checkbox",
       "text_pt_BR": "Checkbox",
