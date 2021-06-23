@@ -1,42 +1,31 @@
-<div class="component-holder ng-scope" data-component="crn-ion-list" id="crn-ion-list-404096">
+<div class="component-holder ng-scope" data-component="crn-ion-list">
     <div class="item item-input-inset">
-        <div class="item-input-wrapper"><i class="icon ion-search placeholder-icon"></i>
-            <input aria-label="Pesquisar" type="text" ng-model="vars.searchableList[options.randomModel]"
-                cronapp-filter="name;normalizedUserName;userName" cronapp-filter-operator=""
-                cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="User"
-                placeholder="Pesquisar" class="ng-pristine ng-untouched ng-valid ng-empty" aria-invalid="false">
+        <div class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" class="ng-pristine ng-untouched ng-valid ng-empty">
         </div>
     </div>
-    <ion-list type="" can-swipe="listCanSwipe" class="disable-user-behavior">
+    <ion-list can-swipe="listCanSwipe" class="disable-user-behavior">
         <div class="list">
             <ion-item ng-class="{'cron-list-selected' :isChecked(rowData)}"
-                class="item item-complex item-right-editable item-icon-right" ng-repeat="rowData in User.data"
-                ng-click="setRowDataModel($index, rowData, '', $event);" role="button" tabindex="0" style="">
+                class="item item-complex item-right-editable item-thumbnail-left">
                 <div class="item-content">
+                    <img alt="Thumbnail" src="node_modules/cronapp-framework-mobile-js/img/qr-code.png">
                     <div class="text-left ">
-                        <h2 ng-if="rowData[options.fields.field0]" class="ng-binding">Gustavo</h2>
-                        <p class="dark ng-binding" ng-if="rowData[options.fields.field1]">gustavo</p>
-                        <p class="dark ng-binding" ng-if="rowData[options.fields.field2]">Gustavo</p>
-                        <i ng-if="options.icon" class="icon ion-android-attach" xattr-theme="dark"></i>
+                        <h2 class="ng-binding">Gustavo</h2>
+                        <p class="dark ng-binding">gustavo</p>
+                        <i class="icon icon ion-load-d" xattr-theme="dark"></i>
                     </div>
                 </div>
                 <div class="item-options invisible">
-                    <ion-option-button class="button-positive ion-edit button" ng-click="User.startEditing(rowData)"
-                        role="button" tabindex="0"><span class="ng-binding">&nbsp;Editar</span></ion-option-button>
-                    <ion-option-button class="button-assertive ion-trash-a button" ng-click="User.remove(rowData)"
-                        role="button" tabindex="0"><span class="ng-binding">&nbsp;Remover</span></ion-option-button>
+                    <ion-option-button class="button-positive ion-edit button">
+                        <span class="ng-binding">&nbsp;Editar</span>
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive ion-trash-a button">
+                        <span class="ng-binding">&nbsp;Remover</span>
+                    </ion-option-button>
                 </div>
             </ion-item>
-
         </div>
     </ion-list>
-    <ion-infinite-scroll on-infinite="nextPageInfinite()" distance="1%" class="">
-        <ion-spinner icon="" class="spinner spinner-android"><svg viewBox="0 0 64 64">
-                <g transform="rotate(0,32,32)">
-                    <circle stroke-width="6" stroke-dasharray="175.987271137005" stroke-dashoffset="150.58074736094676"
-                        r="26" cx="32" cy="32" fill="none" transform="scale(-1,1) translate(-64,0) rotate(-191,32,32)">
-                    </circle>
-                </g>
-            </svg></ion-spinner>
-    </ion-infinite-scroll>
 </div>

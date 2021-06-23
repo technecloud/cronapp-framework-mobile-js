@@ -7,7 +7,7 @@
   "wrapper": true,
   "onDoubleClick": "openEditor",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/advanced.list.template.html",
-  "designTimeHTML": "<ion-list><ion-item class=\"item item-thumbnail-left\"><img alt=\"Thumbnail\" src=\"img/user.png\"><h2>Advanced List Title</h2><h3 class=\"dark\">Advanced List Subtitle</h3><i class=\"icon ion-edit\"></i><i class=\"icon ion-trash-a\"></i></ion-item></ion-list>",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/advanced.list.designtime.html",
   "designTimeSelector": "cron-list",
   "templateInitializers": [
     {
