@@ -1,4 +1,5 @@
 @import 'custom-ionic.css';
+@import 'signup.css';
 @import "groupingOfCss/import_groupingOfCss.css";
 
 /* Empty. Add your own CSS if you like */
@@ -227,4 +228,24 @@ kendo-chat .k-bubble {
     -moz-user-select: auto;
     -ms-user-select: auto;
     user-select: auto;
+}
+
+.icon-designtime-ion-list{
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    font-size: 32px;
+    right: 18px;
+}
+
+.selected-designtime-list .checkbox input:checked:before, 
+.selected-designtime-list input:checked + .selected-designtime-list .checkbox-icon:before{
+    background: #2B71E8;
+    border-color: #2B71E8;
 }

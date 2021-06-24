@@ -7,10 +7,29 @@
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/anchor.template.html",
   "properties": {
     "id": {
-      "order": 3
+      "order": 4
     },
     "class": {
       "order": 9999
+    },
+    "content": {
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "order": 2
+    },
+    "href": {
+      "removable": false,
+      "type": "projectResource",
+      "resourceType": "text/html",
+      "extraOptions": {
+        "underViewsFolder": true
+      },
+      "order": 1
+    },
+    "xattr-fullsize": {
+      "displayName_pt_BR": "Tamanho",
+      "displayName_en_US": "Size",
+      "order": 3
     },
     "ng-click": {
       "type": "event"
@@ -34,18 +53,6 @@
     "on-drag": {
       "removable": false,
       "type": "event"
-    },
-    "href": {
-      "removable": false,
-      "type": "projectResource",
-      "resourceType": "text/html",
-      "extraOptions": {
-        "underViewsFolder": true
-      },
-      "order": 1
-    },
-    "xattr-fullsize": {
-      "displayName": "Width"
     }
   },
   "attributesForPreview": [
@@ -56,11 +63,13 @@
       "values": [
         {
           "key": "display:block;",
-          "value": "Block"
+          "value_pt_BR": "Largura completa",
+          "value_en_US": "Full width"
         },
         {
           "key": "display:inline;",
-          "value": "Inline"
+          "value_pt_BR": "Compacto",
+          "value_en_US": "Compact"
         }
       ]
     }
@@ -70,6 +79,13 @@
       "name": "ng-mouseover",
       "selector": "a",
       "type": "event"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "a#{id}",
+      "text_pt_BR": "Link",
+      "text_en_US": "Link"
     }
   ]
 }
