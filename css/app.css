@@ -250,6 +250,6 @@ kendo-chat .k-bubble {
     border-color: #2B71E8;
 }
 
-.radio-group-designtime .item-radio input:checked + .radio-content .item-content{
+.radio-group-designtime .item-radio input:checked + .radio-group-designtime .radio-content .item-content{
     background: #f7f7f7;
 }

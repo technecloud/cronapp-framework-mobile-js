@@ -6,6 +6,8 @@
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/radiogroup.template.html",
   "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/radiogroup.designtime.html",
+  "designTimeDynamic": true,
+  "designTimeSelector": "div.radio-group",
   "properties": {
     "id": {
       "order": 2
