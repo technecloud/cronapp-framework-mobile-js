@@ -5,7 +5,7 @@
   "class": "adjust-icon mdi mdi-label-outline",
   "wrapper": false,
   "forcedGroup": true,
-  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textinputbutton.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/textinputbutton.template.html",
   "properties": {
     "id": {
       "order": 1
@@ -115,16 +115,14 @@
       "type": "event"
     }
   ],
-  "groupedChildren": [
-    {
-      "text_pt_BR": "Button",
-      "text_en_US": "Button",
-      "selector": "button"
-    }
-  ],
   "styles": [
     {
-      "selector": "div#{id} div#{id}-input input",
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "div#{id} .item-input-wrapper input",
       "text_pt_BR": "Entrada de Texto",
       "text_en_US": "Input"
     },

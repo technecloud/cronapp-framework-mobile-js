@@ -206,6 +206,11 @@
       "text_en_US": "Background"
     },
     {
+      "selector": "a#{id} img",
+      "text_pt_BR": "Imagem",
+      "text_en_US": "Image"
+    },
+    {
       "selector": "a#{id} h2",
       "text_pt_BR": "Título",
       "text_en_US": "Title"
