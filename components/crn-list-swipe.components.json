@@ -74,27 +74,5 @@
         "targetSelector": ".to-repeat"
       }
     ]
-  },
-  "styles": [
-    {
-      "selector": "div#{id} .item-content",
-      "text_pt_BR": "Plano de fundo",
-      "text_en_US": "Background"
-    },
-    {
-      "selector": "div#{id} h2",
-      "text_pt_BR": "Item",
-      "text_en_US": "Item"
-    },
-    {
-      "selector": "div#{id} .editButton",
-      "text_pt_BR": "Botão de Editar",
-      "text_en_US": "Edit Button"
-    },
-    {
-      "selector": "div#{id} .deleteButton",
-      "text_pt_BR": "Botão de Excluir",
-      "text_en_US": "Delete Button"
-    }
-  ]
+  }
 }
