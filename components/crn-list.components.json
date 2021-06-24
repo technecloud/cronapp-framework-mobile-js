@@ -1,7 +1,7 @@
 {
   "name": "crn-list",
-  "text_pt_BR": "Lista Simples",
-  "text_en_US": "Simple List",
+  "text_pt_BR": "Lista simples",
+  "text_en_US": "Simple list",
   "class": "adjust-icon mdi mdi-view-headline",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
   "forcedGroup": true,
@@ -62,7 +62,7 @@
     "canIncrement": true,
     "rules": [
       {
-        "sourceHTML": "<ion-item data-component=\"crn-list-item\" class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" data-replace=\"true\">Item 1</ion-item>",
+        "sourceHTML": "<ion-item data-component=\"crn-list-item\" class=\"item dark text-left\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" id=\"crn-list-item-${RANDOM}\" data-replace=\"true\">Item 1</ion-item>",
         "targetSelector": "div"
       }
     ]

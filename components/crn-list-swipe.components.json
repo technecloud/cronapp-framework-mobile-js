@@ -70,29 +70,29 @@
     "canIncrement": true,
     "rules": [
       {
-        "sourceHTML": "<ion-item class=\"item\" id=\"crn-list-item-swipe${RANDOM}\" data-component=\"crn-item-swipe\"><h2 style=\"display: inline;\">Item</h2><div id=\"crn-item-options${RANDOM}\" class=\"component-holder\" data-component=\"crn-item-options\"><div class=\"crn-item-options\" data-item=\"true\"><ion-option-button id=\"crn-button${RANDOM}\" data-component=\"crn-button\" class=\"button-positive button\"><i class=\"ion ion-edit\"></i><span>Edit</span></ion-option-button><ion-option-button id=\"crn-option-button${RANDOM}-2\" data-component=\"crn-button\" class=\"button-assertive button\"><i class=\"ion ion-trash-a\"></i><span>Delete</span></ion-option-button></div></div></ion-item>",
+        "sourceHTML": "<ion-item class=\"item\" id=\"crn-list-item-swipe-${RANDOM}\" data-component=\"crn-item-swipe\"><h2 style=\"display: inline;\">Item</h2><div id=\"crn-item-options${RANDOM}\" class=\"component-holder\" data-component=\"crn-item-options\"><div class=\"crn-item-options\" data-item=\"true\"><ion-option-button id=\"crn-button-${RANDOM}\" data-component=\"crn-button\" class=\"button-positive button\"><i class=\"ion ion-edit\"></i><span>Edit</span></ion-option-button><ion-option-button id=\"crn-option-button-${RANDOM}-2\" data-component=\"crn-button\" class=\"button-assertive button\"><i class=\"ion ion-trash-a\"></i><span>Delete</span></ion-option-button></div></div></ion-item>",
         "targetSelector": ".to-repeat"
       }
     ]
   },
   "styles": [
     {
-      "selector": "div#{id} .item",
+      "selector": "div#{id} .item-content",
       "text_pt_BR": "Plano de fundo",
       "text_en_US": "Background"
     },
     {
-      "selector": "div#{id} .col",
+      "selector": "div#{id} h2",
       "text_pt_BR": "Item",
       "text_en_US": "Item"
     },
     {
-      "selector": "div#{id} .button-positive",
+      "selector": "div#{id} .editButton",
       "text_pt_BR": "Botão de Editar",
       "text_en_US": "Edit Button"
     },
     {
-      "selector": "div#{id} .button-assertive",
+      "selector": "div#{id} .deleteButton",
       "text_pt_BR": "Botão de Excluir",
       "text_en_US": "Delete Button"
     }
