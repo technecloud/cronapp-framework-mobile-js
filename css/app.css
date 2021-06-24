@@ -249,7 +249,3 @@ kendo-chat .k-bubble {
     background: #2B71E8;
     border-color: #2B71E8;
 }
-
-.radio-group-designtime .item-radio input:checked + .radio-group-designtime .radio-content .item-content{
-    background: #f7f7f7;
-}
