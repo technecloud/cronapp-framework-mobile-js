@@ -1,6 +1,6 @@
 {
   "name": "crn-multiselect",
-  "text_pt_BR": "Seleção Multipla",
+  "text_pt_BR": "Seleção múltipla",
   "text_en_US": "Multiselect",
   "class": "adjust-icon mdi mdi-equal-box",
   "wrapper": false,
