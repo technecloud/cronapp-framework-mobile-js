@@ -7,14 +7,15 @@
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-footer-bar.template.html",
   "properties": {
     "id": {
-      "order": 9998
+      "order": 2
     },
     "class": {
       "order": 9999
     },
-    "align-title": {
-      "displayName_pt_BR": "Alinhamento do Título",
-      "displayName_en_US": "Title Align"
+    "xattr-theme": {
+      "displayName_pt_BR": "Tema do fundo",
+      "displayName_en_US": "Background theme",
+      "order": 2
     },
     "on-tap": {
       "removable": true,
@@ -43,7 +44,7 @@
     "additive": false,
     "duplicable": false,
     "pluggable": false,
-    "removable": false
+    "removable": true
   },
   "droppableArea": {
     "onmiddle": true,
@@ -60,67 +61,57 @@
       "values": [
         {
           "key": "bar-assertive",
-          "value": "Assertive",
+          "value_pt_BR": "Assertivo",
+          "value_en_US": "Assertive",
           "color": "#ef473a"
         },
         {
           "key": "bar-balanced",
-          "value": "Balanced",
+          "value_pt_BR": "Equilibrado",
+          "value_en_US": "Balanced",
           "color": "#33cd5f"
         },
         {
           "key": "bar-energized",
-          "value": "Energized",
+          "value_pt_BR": "Energizado",
+          "value_en_US": "Energized",
           "color": "#ffc900"
         },
         {
           "key": "bar-light",
-          "value": "Light",
+          "value_pt_BR": "Claro",
+          "value_en_US": "Light",
           "color": "#fff"
         },
         {
           "key": "bar-stable",
-          "value": "Stable",
+          "value_pt_BR": "Estável",
+          "value_en_US": "Stable",
           "color": "#f8f8f8"
         },
         {
           "key": "bar-calm",
-          "value": "Calm",
+          "value_pt_BR": "Calmo",
+          "value_en_US": "Calm",
           "color": "#11c1f3"
         },
         {
           "key": "bar-positive",
-          "value": "Positive",
+          "value_pt_BR": "Positivo",
+          "value_en_US": "Positive",
           "color": "#387ef5"
         },
         {
           "key": "bar-royal",
-          "value": "Royal",
+          "value_pt_BR": "Real",
+          "value_en_US": "Royal",
           "color": "#886aea"
         },
         {
           "key": "bar-dark",
-          "value": "Dark",
+          "value_pt_BR": "Escuro",
+          "value_en_US": "Dark",
           "color": "#444"
-        }
-      ]
-    },
-    {
-      "name": "align-title",
-      "type": "options",
-      "target": ":self[align-title]",
-      "values": [
-        {
-          "key": "left",
-          "value": "left"
-        },
-        {
-          "key": "center",
-          "value": "center"
-        },
-        {
-          "key": "right",
-          "value": "right"
         }
       ]
     }
@@ -128,25 +119,33 @@
   "childrenProperties": [
     {
       "name": "content",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
       "selector": "h1[class='title']",
-      "type": "content"
+      "type": "text",
+      "order": 1
     },
     {
       "name": "ng-click",
       "selector": "div .button-left",
       "type": "event",
-      "displayName_pt_BR": "Ao Clicar no Botão Esquerdo",
-      "displayName_en_US": "On Left Button Click"
+      "displayName_pt_BR": "Ao clicar no botão esquerdo",
+      "displayName_en_US": "On left button click"
     },
     {
       "name": "ng-click",
       "selector": "div .button-right",
       "type": "event",
-      "displayName_pt_BR": "Ao Clicar no Botão Direito",
-      "displayName_en_US": "On Right Button Click"
+      "displayName_pt_BR": "Ao clicar no botãodireito",
+      "displayName_en_US": "On right button lick"
     }
   ],
   "styles": [
+    {
+      "selector": "#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
     {
       "selector": "#{id} h1",
       "text_pt_BR": "Título",
@@ -154,13 +153,13 @@
     },
     {
       "selector": "#{id} .button-left",
-      "text_pt_BR": "Botão Esquerdo",
-      "text_en_US": "Left Button"
+      "text_pt_BR": "Botão esquerdo",
+      "text_en_US": "Left button"
     },
     {
       "selector": "#{id} .button-right",
-      "text_pt_BR": "Botão Direito",
-      "text_en_US": "Right Button"
+      "text_pt_BR": "Botão direito",
+      "text_en_US": "Right button"
     }
   ]
 }
