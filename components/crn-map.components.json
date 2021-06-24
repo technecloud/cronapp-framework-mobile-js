@@ -10,6 +10,38 @@
     },
     "class": {
       "order": 9999
+    },
+    "src": {
+      "displayName_pt_BR": "Link incorporado",
+      "displayName_en_US": "Embedded link",
+      "order": 1
+    },
+    "width": {
+      "displayName_pt_BR": "Largura do mapa",
+      "displayName_en_US": "Map width",
+      "order": 2
+    },
+    "height": {
+      "displayName_pt_BR": "Altura do mapa",
+      "displayName_en_US": "Map height",
+      "order": 3
     }
-  }
+  },
+  "childrenProperties": [
+    {
+      "name": "src",
+      "selector": "iframe",
+      "type": "text"
+    },
+    {
+      "name": "width",
+      "selector": "iframe",
+      "type": "text"
+    },
+    {
+      "name": "height",
+      "selector": "iframe",
+      "type": "text"
+    }
+  ]
 }
