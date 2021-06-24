@@ -41,6 +41,11 @@
       "text_en_US": "Option"
     },
     {
+      "selector": "div#{id} .item-radio input:checked",
+      "text_pt_BR": "Item selecionado",
+      "text_en_US": "Selected item"
+    },
+    {
       "selector": "div#{id} .ion-checkmark",
       "text_pt_BR": "Marcador",
       "text_en_US": "Checkmark"
