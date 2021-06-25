@@ -5,9 +5,6 @@
   "class": "adjust-icon mdi mdi-ray-end-arrow",
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
-  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.swipe.designtime.html",
-  "designTimeSelector": "ion-list",
-  "designTimeDynamic": true,
   "childrenProperties": [
     {
       "name": "crn-datasource",
