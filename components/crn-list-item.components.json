@@ -1,7 +1,7 @@
 {
   "name": "crn-list-item",
-  "text_pt_BR": "Item",
-  "text_en_US": "Item",
+  "text_pt_BR": "Item da lista simples",
+  "text_en_US": "Simple list item",
   "wrapper": false,
   "class": "adjust-icon mdi mdi-view-sequential",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.template.html",
