@@ -1,5 +1,7 @@
 {
   "name": "crn-radioOption",
+  "text_pt_BR": "Item da lista de opções",
+  "text_en_US": "Options list item",
   "pallete": false,
   "childrenProperties": [
     {

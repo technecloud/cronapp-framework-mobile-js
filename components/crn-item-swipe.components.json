@@ -1,23 +1,19 @@
 {
   "name": "crn-item-swipe",
-  "text_pt_BR": "Item com Swipe",
+  "text_pt_BR": "Item com deslizar",
   "text_en_US": "Swipe Item",
   "class": "adjust-icon mdi mdi-ray-end-arrow",
-  "wrapper": false,
+  "wrapper": true,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
   "properties": {
     "onclick": {
       "type": "event"
+    },
+    "id":{
+      "order": 1
     }
   },
-  "childrenProperties": [
-    {
-      "name": "content",
-      "selector": "h2",
-      "type": "content"
-    }
-  ],
   "handleRules": {
     "canIncrement": true,
     "rules": [
@@ -26,5 +22,36 @@
         "targetSelector": ".crn-item-options"
       }
     ]
-  }
+  },
+  "childrenProperties": [
+    {
+      "name": "content",
+      "selector": "h2",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text"
+    }
+  ],
+  "styles": [
+    {
+      "selector": "div#{id} .item-content",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
+    },
+    {
+      "selector": "div#{id} h2",
+      "text_pt_BR": "Título",
+      "text_en_US": "Title"
+    },
+    {
+      "selector": "div#{id} .editButton",
+      "text_pt_BR": "Botão de Editar",
+      "text_en_US": "Edit Button"
+    },
+    {
+      "selector": "div#{id} .deleteButton",
+      "text_pt_BR": "Botão de Excluir",
+      "text_en_US": "Delete Button"
+    }
+  ]
 }
