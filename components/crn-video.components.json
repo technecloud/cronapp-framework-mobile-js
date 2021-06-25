@@ -4,20 +4,55 @@
   "class": "adjust-icon mdi mdi-youtube",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/video.template.html",
   "forceGroup": true,
-  "wrapper": false,
+  "wrapper": true,
   "properties": {
     "id": {
       "order": 1
     },
     "class": {
       "order": 9999
+    },
+    "src": {
+      "displayName_pt_BR": "Link incorporado",
+      "displayName_en_US": "Embedded link",
+      "order": 1
+    },
+    "width": {
+      "displayName_pt_BR": "Largura do vídeo",
+      "displayName_en_US": "Video width",
+      "order": 2
+    },
+    "height": {
+      "displayName_pt_BR": "Altura do vídeo",
+      "displayName_en_US": "Video height",
+      "order": 3
+    },
+    "title": {
+      "displayName_pt_BR": "Título do vídeo",
+      "displayName_en_US": "Video title",
+      "order": 3
     }
   },
-  "groupedChildren": [
+  "childrenProperties": [
     {
-      "text_pt_BR": "Imagem",
-      "text_en_US": "Image",
-      "selector": "iframe"
+      "name": "src",
+      "selector": "iframe",
+      "type": "text"
+    },
+    {
+      "name": "width",
+      "selector": "iframe",
+      "type": "text"
+    },
+    {
+      "name": "height",
+      "selector": "iframe",
+      "type": "text"
+    },
+    {
+      "name": "title",
+      "selector": "iframe",
+      "type": "text"
     }
   ]
 }

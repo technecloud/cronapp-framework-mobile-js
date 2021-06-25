@@ -1,6 +1,6 @@
 {
   "name": "crn-multiselect",
-  "text_pt_BR": "Seleção Multipla",
+  "text_pt_BR": "Seleção múltipla",
   "text_en_US": "Multiselect",
   "class": "adjust-icon mdi mdi-equal-box",
   "wrapper": false,
@@ -64,7 +64,8 @@
       "displayName_pt_BR": "Campo Chave",
       "displayName_en_US": "Key Field",
       "type": "datasourceFieldList",
-      "mandatory": true
+      "mandatory": true,
+      "order": 2
     },
     {
       "name": "xdisplay-field",
@@ -72,26 +73,33 @@
       "displayName_pt_BR": "Campo Texto",
       "displayName_en_US": "Display Field",
       "type": "datasourceFieldList",
-      "mandatory": true
-    }
-  ],
-  "groupedChildren": [
+      "mandatory": true,
+      "order": 3
+    },
     {
-      "text_pt_BR": "Conteúdo",
-      "text_en_US": "Content",
-      "selector": "span"
+      "name": "content",
+      "selector": "span",
+      "displayName_pt_BR": "Título",
+      "displayName_en_US": "Title",
+      "type": "text",
+      "order": 4
     }
   ],
   "styles": [
     {
-      "selector": "label#{id} span",
-      "text_pt_BR": "Label",
-      "text_en_US": "Label"
+      "selector": "div#{id}",
+      "text_pt_BR": "Plano de fundo",
+      "text_en_US": "Background"
     },
     {
-      "selector": "label#{id} select",
-      "text_pt_BR": "Dropdown",
-      "text_en_US": "Dropdown"
+      "selector": "div#{id} span",
+      "text_pt_BR": "Título",
+      "text_en_US": "Título"
+    },
+    {
+      "selector": "div#{id} .form-control",
+      "text_pt_BR": "Item selecionado",
+      "text_en_US": "Selected item"
     }
   ]
 }
