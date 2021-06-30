@@ -15,7 +15,7 @@
     "class": {
       "order": 9999
     },
-    "ng-click": {
+    "onclick": {
       "removable": true,
       "type": "event"
     },
