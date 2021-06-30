@@ -2,7 +2,7 @@
   "name": "crn-textarea",
   "text_pt_BR": "Área de texto",
   "text_en_US": "Textarea",
-  "class": "adjust-icon mdi mdi-textbox",
+  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-textarea.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textarea.template.html",
   "properties": {

@@ -2,7 +2,7 @@
   "name": "crn-dynamic-image",
   "text_pt_BR": "Imagem dinâmica",
   "text_en_US": "Dynamic Image",
-  "class": "adjust-icon mdi mdi-image",
+  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-dynamic-image.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/dynamicimage.template.html",
   "properties": {

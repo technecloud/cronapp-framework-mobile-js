@@ -2,7 +2,7 @@
   "name": "crn-button",
   "text_pt_BR": "Botão",
   "text_en_US": "Button",
-  "class": "adjust-icon mdi mdi-stop",
+  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-button.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/button.template.html",
   "properties": {

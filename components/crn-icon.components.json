@@ -3,7 +3,7 @@
   "displayName": "icon",
   "text_pt_BR": "Ícone",
   "text_en_US": "Icon",
-  "class": "adjust-icon mdi mdi-star",
+  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-icon.svg",
   "template": "<i class=\"ion ion-star\" id=\"\" style=\"font-size:300%;\" xattr-size=\"font-size:300%;\"/>",
   "wrapper": false,
   "properties": {
