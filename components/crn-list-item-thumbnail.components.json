@@ -2,7 +2,7 @@
   "name": "crn-list-item-thumbnail",
   "text_pt_BR": "Item com miniatura",
   "text_en_US": "Thumbnail Item",
-  "class": "adjust-icon mdi mdi-view-list",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item-thumbnail.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.thumbnail.template.html",
   "forcedGroup": true,

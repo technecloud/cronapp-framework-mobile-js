@@ -3,7 +3,7 @@
   "text_pt_BR": "Item da lista simples",
   "text_en_US": "Simple list item",
   "wrapper": false,
-  "class": "adjust-icon mdi mdi-view-sequential",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item.svg",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.template.html",
   "properties": {
     "id": {

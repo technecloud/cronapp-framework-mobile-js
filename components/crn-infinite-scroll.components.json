@@ -2,7 +2,7 @@
   "name": "crn-infinite-scroll",
   "text_pt_BR": "Scroll infinito",
   "text_en_US": "Infinite Scroll",
-  "class": "adjust-icon mdi mdi-format-line-spacing",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-infinite-scroll.svg",
   "template": "<cron-infinite-scroll crn-datasource=\"\"></cron-infinite-scroll>",
   "designTimeHTML": "<img alt=\"chart\" style=\"height: 7%;width:10%;min-height:7%; min-width:7%;\"  src=\"node_modules/cronapp-framework-mobile-js/img/svg-charts.svg\"/>",
   "designTimeSelector": "cron-infinite-scroll",

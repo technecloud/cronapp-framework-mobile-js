@@ -2,7 +2,7 @@
   "name": "crn-evaluation",
   "text_pt_BR": "Avaliação",
   "text_en_US": "Evaluation",
-  "class": "adjust-icon mdi mdi-star-outline",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-evaluation.svg",
   "wrapper": false,
   "pallete": false,
   "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/evaluation.designtime.html",

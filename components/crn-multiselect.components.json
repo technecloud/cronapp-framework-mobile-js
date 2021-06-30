@@ -2,7 +2,7 @@
   "name": "crn-multiselect",
   "text_pt_BR": "Seleção múltipla",
   "text_en_US": "Multiselect",
-  "class": "adjust-icon mdi mdi-equal-box",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-multiselect.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
   "properties": {

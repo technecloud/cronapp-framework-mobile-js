@@ -2,7 +2,7 @@
   "name": "crn-ion-header-bar",
   "text_pt_BR": "Cabeçalho",
   "text_en_US": "Header",
-  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-header.svg",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-header.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
   "properties": {

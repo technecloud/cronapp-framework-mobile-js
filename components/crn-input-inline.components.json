@@ -2,7 +2,7 @@
   "name": "crn-input-inline",
   "text_pt_BR": "Entrada de texto em linha",
   "text_en_US": "Inline Input",
-  "class": "adjust-icon mdi mdi-label-outline",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-input-inline.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/inlinetextinput.template.html",
   "properties": {

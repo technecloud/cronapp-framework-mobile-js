@@ -2,7 +2,7 @@
   "name": "crn-list-item-icon",
   "text_pt_BR": "Item com Ícone",
   "text_en_US": "Icon Item",
-  "class": "adjust-icon mdi mdi-view-list",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item-icon.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.icon.template.html",
   "properties": {

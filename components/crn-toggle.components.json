@@ -2,7 +2,7 @@
   "name": "crn-toggle",
   "text_pt_BR": "Alternância",
   "text_en_US": "Toggle",
-  "class": "adjust-icon mdi mdi-toggle-switch-off",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-toggle.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
   "properties": {

@@ -2,7 +2,7 @@
   "name": "crn-paragraph",
   "text_pt_BR": "Parágrafo",
   "text_en_US": "Paragraph",
-  "class": "adjust-icon mdi  mdi-format-paragraph",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-paragraph.svg",
   "wrapper": false,
   "template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly Paragraph</p>",
   "properties": {

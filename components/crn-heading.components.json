@@ -2,7 +2,7 @@
   "name": "crn-heading",
   "text_pt_BR": "Título",
   "text_en_US": "Title",
-  "image": "/node_modules/cronapp-framework-js/img/cron-icon/crn-text-component.svg",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-text-component.svg",
   "wrapper": false,
   "template": "<h1 class=\"text-center\" xattr-position=\"text-center\">Title</h1>",
   "properties": {

@@ -2,7 +2,7 @@
   "name": "crn-label",
   "text_pt_BR": "Subtítulo",
   "text_en_US": "Subtitle",
-  "class": "adjust-icon mdi  mdi-format-header-2",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-label.svg",
   "wrapper": false,
   "template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",
   "properties": {

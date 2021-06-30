@@ -2,7 +2,7 @@
   "name": "crn-range",
   "text_pt_BR": "Alcance",
   "text_en_US": "Range",
-  "class": "adjust-icon mdi mdi-ray-vertex",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-range.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/range.template.html",
   "properties": {
