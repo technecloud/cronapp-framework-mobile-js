@@ -2,7 +2,7 @@
   "name": "crn-ion-tab",
   "text_pt_BR": "Abas",
   "text_en_US": "Tabs",
-  "class": "adjust-icon mdi mdi-window-maximize",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-tabs.svg",
   "designTimeClass": [
     {
       "selector": "ion-tabs",

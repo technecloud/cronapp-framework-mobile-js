@@ -2,7 +2,7 @@
   "name": "crn-dynamic-select",
   "text_pt_BR": "Caixa de seleção Dinâmica",
   "text_en_US": "Dynamic Combobox",
-  "class": "adjust-icon mdi mdi-equal-box",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-enterprise-dynamic-combobox.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/dynamic-combobox.template.html",
   "properties": {

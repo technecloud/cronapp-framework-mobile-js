@@ -2,7 +2,7 @@
   "name": "crn-input-floating",
   "text_pt_BR": "Entrada de texto flutuante",
   "text_en_US": "Float Input",
-  "class": "adjust-icon mdi mdi-label-outline",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-input-floating.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.template.html",
   "properties": {

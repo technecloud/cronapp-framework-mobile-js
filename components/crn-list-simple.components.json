@@ -5,7 +5,7 @@
   "wrapper": true,
   "forcedGroup": true,
   "pallete": false,
-  "class": "adjust-icon mdi mdi-view-sequential",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list.svg",
   "template": "<div class=\"\" crn-datasource=\"\" ng-repeat=\"rowData in datasource.data\" ><ion-item  class=\"item dark text-left\" data-component=\"crn-list-item\" xattr-theme=\"dark\" xattr-text-position=\"text-left\" >Item 1</ion-item></div>",
   "properties": {
     "id": {

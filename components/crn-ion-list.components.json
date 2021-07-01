@@ -2,7 +2,7 @@
   "name": "crn-ion-list",
   "text_pt_BR": "Lista Avançada",
   "text_en_US": "Advanced List",
-  "class": "adjust-icon mdi mdi-view-quilt",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-ion-list.svg",
   "onDrop": "openEditor",
   "wrapper": true,
   "onDoubleClick": "openEditor",

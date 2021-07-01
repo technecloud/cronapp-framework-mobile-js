@@ -2,7 +2,7 @@
   "name": "crn-image",
   "text_pt_BR": "Imagem",
   "text_en_US": "Image",
-  "class": " adjust-icon mdi mdi-image",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-image.svg",
   "wrapper": false,
   "template": "<img alt='Placehold' src=\"node_modules/cronapp-framework-mobile-js/img/placehold-900x500.png\" class=\"\" style=\"object-fit: cover;\"  xattr-position=\"\" width=\"100%\" height=\"\" object-fit=\"object-fit: cover;\" >",
   "properties": {

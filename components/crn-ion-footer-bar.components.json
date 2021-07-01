@@ -2,7 +2,7 @@
   "name": "crn-ion-footer-bar",
   "text_pt_BR": "Rodapé",
   "text_en_US": "Footer",
-  "class": "adjust-icon mdi mdi-page-layout-footer",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-ion-footer-bar.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-footer-bar.template.html",
   "properties": {

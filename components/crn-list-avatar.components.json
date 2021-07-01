@@ -2,7 +2,7 @@
   "name": "crn-list-avatar",
   "text_pt_BR": "Lista com avatar",
   "text_en_US": "Avatar list",
-  "class": "adjust-icon mdi mdi-view-list",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-avatar.svg",
   "wrapper": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
   "forcedGroup": true,

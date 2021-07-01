@@ -4,7 +4,7 @@
   "text_en_US": "Chat",
   "wrapper": false,
   "autoWrapper": true,
-  "class": "adjust-icon mdi mdi-wechat",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-kendo-chat.svg",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/kendo-chat.template.html",
   "properties": {
     "ng-on-post-message": {
