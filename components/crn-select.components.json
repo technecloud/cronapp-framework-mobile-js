@@ -44,7 +44,7 @@
   "childrenProperties": [
     {
       "name": "content",
-      "selector": "div",
+      "selector": "label",
       "displayName_pt_BR": "Título",
       "displayName_en_US": "Title",
       "type": "text"
