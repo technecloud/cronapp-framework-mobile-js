@@ -4,7 +4,7 @@
   "text_en_US": "Container",
   "class": "adjust-icon mdi mdi-select",
   "wrapper": false,
-  "template": "<div data-replace=\"true\">&nbsp;</div>",
+  "template": "<div data-component=\"crn-container\" data-replace=\"true\">Container</div>",
   "properties": {
     "id": {
       "order": 1

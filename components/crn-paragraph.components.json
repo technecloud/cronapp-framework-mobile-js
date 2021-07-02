@@ -4,13 +4,18 @@
   "text_en_US": "Paragraph",
   "class": "adjust-icon mdi  mdi-format-paragraph",
   "wrapper": false,
-  "template": "<p xattr-position=\"text-center\" class=\"text-center\">Some friendly Paragraph</p>",
+  "template": "<p xattr-position=\"text-center\" style=\"font-size: 14px;\" class=\"text-center\" xattr-type=\"font-size: 14px;\">Some friendly Paragraph</p>",
   "properties": {
     "id": {
       "order": 1
     },
     "class": {
       "order": 9999
+    },
+    "xattr-type": {
+      "displayName_pt_BR": "Tamanho da letra",
+      "displayName_en_US": "Lettering size",
+      "order": 3
     },
     "xattr-position": {
       "displayName_pt_BR": "Posição do texto",
@@ -66,6 +71,28 @@
           "icon": "mdi mdi-ray-end"
         }
       ]
+    },
+    {
+      "name": "xattr-type",
+      "type": "options",
+      "target": "style",
+      "values": [
+        {
+          "key": "font-size: 14px;",
+          "value_pt_BR": "Padrão",
+          "value_en_US": "Default"
+        },
+        {
+          "key": "font-size: 18px;",
+          "value_pt_BR": "Texto médio",
+          "value_en_US": "Medium text"
+        },
+        {
+          "key": "font-size: 25px;",
+          "value_pt_BR": "Texto grande",
+          "value_en_US": "Minor text"
+        }
+      ]
     }
   ],
   "childrenProperties": [
@@ -77,9 +104,9 @@
   ],
   "styles": [
     {
-        "selector": "p",
-        "text_pt_BR": "Conteúdo",
-        "text_en_US": "Content"
+      "selector": "p",
+      "text_pt_BR": "Conteúdo",
+      "text_en_US": "Content"
     }
-]
+  ]
 }
