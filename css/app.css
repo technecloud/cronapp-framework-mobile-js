@@ -262,3 +262,12 @@ kendo-chat .k-bubble {
 .bar-positive .button.button-clear i{
     font-size: 28px;
 }
+
+.button-bar > .button{
+    gap: 6px;
+    display: flex;
+}
+
+.button-bar > .button:last-child{
+    border-right-width: inherit;
+}
