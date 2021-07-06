@@ -4,10 +4,14 @@
   "text_en_US": "Header",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-header.svg",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/ion-header-bar.template.html",
   "properties": {
     "class": {
       "order": 9999
+    },
+    "xattr-theme": {
+      "displayName_pt_BR": "Cor do cabeçalho",
+      "displayName_en_US": "Header color"
     },
     "on-tap": {
       "removable": true,
@@ -161,6 +165,11 @@
       "displayName_en_US": "Right icon",
       "type": "icon",
       "order": 4
+    },
+    {
+      "name": "xattr-theme",
+      "selector": "ion-header-bar",      
+      "order": 5
     },
     {
       "name": "ng-click",

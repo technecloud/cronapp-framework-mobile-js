@@ -258,6 +258,7 @@ kendo-chat .k-bubble {
     align-content: center;
     display: grid;
 }
+
 .bar-positive .button.button-clear i{
     font-size: 28px;
 }
