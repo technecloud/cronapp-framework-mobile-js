@@ -249,3 +249,25 @@ kendo-chat .k-bubble {
     background: #2B71E8;
     border-color: #2B71E8;
 }
+
+.bar .title{
+    text-align: inherit;
+}
+
+.bar-positive .button.button-icon{
+    align-content: center;
+    display: grid;
+}
+
+.bar-positive .button.button-clear i{
+    font-size: 28px;
+}
+
+.button-bar > .button{
+    gap: 6px;
+    display: flex;
+}
+
+.button-bar > .button:last-child{
+    border-right-width: inherit;
+}

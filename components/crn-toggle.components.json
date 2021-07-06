@@ -2,7 +2,7 @@
   "name": "crn-toggle",
   "text_pt_BR": "Alternância",
   "text_en_US": "Toggle",
-  "class": "adjust-icon mdi mdi-toggle-switch-off",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-toggle.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
   "properties": {
@@ -11,6 +11,10 @@
     },
     "class": {
       "order": 9999
+    },
+    "ng-initial-value":{
+      "displayName_pt_BR": "Valor inicial",
+      "displayName_en_US": "Initial value"
     }
   },
   "childrenProperties": [
@@ -24,9 +28,6 @@
     {
       "name": "ng-initial-value",
       "selector": "input",
-      "displayName_pt_BR": "Valor inicial",
-      "displayName_en_US": "Initial value",
-      "type": "logic",
       "order": 3
     },
     {
@@ -61,6 +62,23 @@
     }
   ],
   "attributesForPreview": [
+    {
+      "name": "ng-initial-value",
+      "type": "options",
+      "target": "input",
+      "values": [
+        {
+          "key": "true",
+          "value_pt_BR": "Habilitado",
+          "value_en_US": "Abled"
+        },
+        {
+          "key": "false",
+          "value_pt_BR": "Desabilitado",
+          "value_en_US": "Disabled"
+        }
+      ]
+    },
     {
       "name": "xattr-theme",
       "type": "options",

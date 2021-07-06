@@ -2,16 +2,16 @@
   "name": "crn-ion-header-bar",
   "text_pt_BR": "Cabeçalho",
   "text_en_US": "Header",
-  "class": "adjust-icon mdi mdi-page-layout-header",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-header.svg",
   "wrapper": false,
-  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/ion-header-bar.template.html",
   "properties": {
     "class": {
       "order": 9999
     },
-    "align-title": {
-      "displayName_pt_BR": "Alinhamento do título",
-      "displayName_en_US": "Title align"
+    "xattr-theme": {
+      "displayName_pt_BR": "Cor do cabeçalho",
+      "displayName_en_US": "Header color"
     },
     "on-tap": {
       "removable": true,
@@ -114,20 +114,20 @@
     {
       "name": "align-title",
       "type": "options",
-      "target": ":self[align-title]",
+      "target": "style",
       "values": [
         {
-          "key": "left",
+          "key": "text-align: left;",
           "value_pt_BR": "Esquerda",
           "value_en_US": "Left"
         },
         {
-          "key": "center",
+          "key": "text-align: center;",
           "value_pt_BR": "Centro",
           "value_en_US": "Center"
         },
         {
-          "key": "right",
+          "key": "text-align: right;",
           "value_pt_BR": "Direita",
           "value_en_US": "Right"
         }
@@ -139,8 +139,37 @@
       "name": "content",
       "displayName_pt_BR": "Título",
       "displayName_en_US": "Title",
-      "selector": "h1[class='title']",
-      "type": "text"
+      "selector": "h1",
+      "type": "text",
+      "order": 1
+    },
+    {
+      "name": "align-title",
+      "displayName_pt_BR": "Alinhamento do título",
+      "displayName_en_US": "Title align",
+      "selector": "h1",
+      "order": 2
+    },
+    {
+      "name": "class",
+      "selector": "div.buttons-left button i",
+      "displayName_pt_BR": "Ícone esquerda",
+      "displayName_en_US": "Left icon",
+      "type": "icon",
+      "order": 3
+    },
+    {
+      "name": "class",
+      "selector": "div.buttons-right button i",
+      "displayName_pt_BR": "Ícone direita",
+      "displayName_en_US": "Right icon",
+      "type": "icon",
+      "order": 4
+    },
+    {
+      "name": "xattr-theme",
+      "selector": "ion-header-bar",      
+      "order": 5
     },
     {
       "name": "ng-click",
@@ -170,8 +199,8 @@
     },
     {
       "selector": "#{id} .header-item button",
-      "text_pt_BR": "Ícone do menu",
-      "text_en_US": "Menu icon"
+      "text_pt_BR": "Botão do cabeçalho",
+      "text_en_US": "Header button"
     }
   ]
 }
