@@ -1,0 +1,71 @@
+{
+    "name": "crn-header-button",
+    "text_pt_BR": "Botão do cabeçalho",
+    "text_en_US": "Header button",
+    "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-button.svg",
+    "wrapper": false,
+    "pallete": false,
+    "template": "<button class=\"button button-icon button-clear ion ion-android-menu component-holder\" menu-toggle=\"left\"></button>",
+    "properties": {
+        "id": {
+            "order": 7
+        },
+        "class": {
+            "order": 9999
+        },
+        "onclick": {
+            "removable": true,
+            "type": "event"
+        },
+        "on-tap": {
+            "removable": true,
+            "type": "event"
+        },
+        "on-double-tap": {
+            "removable": true,
+            "type": "event"
+        },
+        "on-hold": {
+            "removable": true,
+            "type": "event"
+        },
+        "on-drag": {
+            "removable": true,
+            "type": "event"
+        },
+        "on-swipe": {
+            "removable": true,
+            "type": "event"
+        }
+    },
+    "attributesForPreview": [],
+    "childrenProperties": [
+        {
+            "name": "class",
+            "selector": "button",
+            "displayName_pt_BR": "Ícone",
+            "displayName_en_US": "Icon",
+            "type": "icon",
+            "order": 1
+        },
+        {
+            "name": "content",
+            "selector": "button",
+            "displayName_pt_BR": "Título",
+            "displayName_en_US": "Title",
+            "type": "text"
+        }
+    ],
+    "styles": [
+        {
+            "selector": "button#{id}",
+            "text_pt_BR": "Botão",
+            "text_en_US": "Button"
+        },
+        {
+            "selector": "button#{id}",
+            "text_pt_BR": "Ícone",
+            "text_en_US": "Icon"
+        }
+    ]
+}

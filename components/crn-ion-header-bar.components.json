@@ -151,7 +151,7 @@
     },
     {
       "name": "class",
-      "selector": "div.buttons-left button i",
+      "selector": "div.buttons-left button",
       "displayName_pt_BR": "Ícone esquerda",
       "displayName_en_US": "Left icon",
       "type": "icon",
