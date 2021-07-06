@@ -5,13 +5,17 @@
     "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-button.svg",
     "wrapper": false,
     "pallete": false,
-    "template": "<button class=\"button button-icon button-clear ion ion-android-menu component-holder\" menu-toggle=\"left\"></button>",
+    "template": "<div class=\"buttons buttons-right header-item\"><button class=\"button button-icon button-clear ion ion-android-menu component-holder\" menu-toggle=\"left\"></button></div>",
     "properties": {
         "id": {
-            "order": 7
+            "order": 1
         },
         "class": {
             "order": 9999
+        },
+        "menu-toggle": {
+            "displayName_pt_BR": "Botão do cabeçalho",
+            "displayName_en_US": "Header button"
         },
         "onclick": {
             "removable": true,
@@ -47,13 +51,6 @@
             "displayName_en_US": "Icon",
             "type": "icon",
             "order": 1
-        },
-        {
-            "name": "content",
-            "selector": "button",
-            "displayName_pt_BR": "Título",
-            "displayName_en_US": "Title",
-            "type": "text"
         }
     ],
     "styles": [
