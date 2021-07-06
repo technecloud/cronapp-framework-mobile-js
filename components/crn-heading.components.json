@@ -14,7 +14,7 @@
     },
     "xattr-type": {
       "displayName_pt_BR": "Tamanho da letra",
-      "displayName_en_US": "Lettering size",
+      "displayName_en_US": "Font size",
       "order": 3
     },
     "xattr-position": {
