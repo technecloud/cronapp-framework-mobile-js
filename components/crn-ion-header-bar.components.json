@@ -5,9 +5,6 @@
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-header.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-header-bar.template.html",
-  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/ion-header-bar.designtime.html",
-  "designTimeSelector": "ion-header-bar",
-  "designTimeDynamic": true,
   "properties": {
     "class": {
       "order": 9999
@@ -151,7 +148,7 @@
     },
     {
       "name": "class",
-      "selector": "div.buttons-left button",
+      "selector": "div.buttons-left button i",
       "displayName_pt_BR": "Ícone esquerda",
       "displayName_en_US": "Left icon",
       "type": "icon",
@@ -159,7 +156,7 @@
     },
     {
       "name": "class",
-      "selector": "div.buttons-right button",
+      "selector": "div.buttons-right button i",
       "displayName_pt_BR": "Ícone direita",
       "displayName_en_US": "Right icon",
       "type": "icon",
@@ -193,8 +190,8 @@
     },
     {
       "selector": "#{id} .header-item button",
-      "text_pt_BR": "Ícone do menu",
-      "text_en_US": "Menu icon"
+      "text_pt_BR": "Botão do cabeçalho",
+      "text_en_US": "Header button"
     }
   ]
 }
