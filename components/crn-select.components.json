@@ -2,7 +2,7 @@
   "name": "crn-select",
   "text_pt_BR": "Caixa de seleção",
   "text_en_US": "Combobox",
-  "class": "adjust-icon mdi mdi-equal-box",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-select.svg",
   "wrapper": true,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/combobox.template.html",
@@ -70,12 +70,12 @@
   },
   "styles": [
     {
-      "selector": "div#{id} .item-select ",
+      "selector": "div#{id} .item-select",
       "text_pt_BR": "Plano de fundo do Título",
       "text_en_US": "Title background"
     },
     {
-      "selector": "div#{id} .item-select ",
+      "selector": "div#{id} label",
       "text_pt_BR": "Título",
       "text_en_US": "Title"
     },
