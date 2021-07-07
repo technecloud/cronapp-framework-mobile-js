@@ -3,6 +3,14 @@
   "text_pt_BR": "Item com Avatar",
   "text_en_US": "Avatar Item",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item-avatar.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "Itens"
+  ],
+  "category_en_US": [
+    "Items"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.avatar.template.html",
   "forcedGroup": true,
