@@ -3,8 +3,8 @@
   "text_pt_BR": "Entrada de texto com ícone",
   "text_en_US": "Icon Input",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-textinputicon.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Campo para inserir texto com ícone",
+  "description_en_US": "Field to enter text with icon",
   "category": [
     "INPUTS"
   ],

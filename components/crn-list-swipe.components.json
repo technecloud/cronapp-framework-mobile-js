@@ -3,8 +3,8 @@
   "text_pt_BR": "Lista com deslizar",
   "text_en_US": "Swipe list",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-swipe.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Lista de dados ",
+  "description_en_US": "Data list with avatar",
   "category": [
     "LISTS"
   ],
