@@ -2,7 +2,7 @@
   "name": "crn-list-item-thumbnail",
   "text_pt_BR": "Item com miniatura",
   "text_en_US": "Thumbnail Item",
-  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item-thumbnail.svg",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-card.svg",
   "description": "Botão",
   "description_en_US": "Button",
   "category": [

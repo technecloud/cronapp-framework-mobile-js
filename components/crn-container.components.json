@@ -3,6 +3,11 @@
   "text_pt_BR": "Recipiente",
   "text_en_US": "Container",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-container.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "LAYOUTS"
+  ],
   "wrapper": false,
   "template": "<div data-component=\"crn-container\" data-replace=\"true\">Container</div>",
   "properties": {

@@ -3,6 +3,11 @@
   "text_pt_BR": "Espaço",
   "text_en_US": "Spacer",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-spacer.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "LAYOUTS"
+  ],
   "wrapper": false,
   "template": "<div style= \"height: 100px;\">&nbsp;</div>",
   "properties": {
