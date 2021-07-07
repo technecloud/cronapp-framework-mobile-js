@@ -3,6 +3,11 @@
   "text_pt_BR": "Abas",
   "text_en_US": "Tabs",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-tabs.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "LAYOUTS"
+  ],
   "designTimeClass": [
     {
       "selector": "ion-tabs",

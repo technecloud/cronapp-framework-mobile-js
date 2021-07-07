@@ -3,6 +3,11 @@
   "text_pt_BR": "Área de texto",
   "text_en_US": "Textarea",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-textarea.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "INPUTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/components/templates/textarea.template.html",
   "properties": {

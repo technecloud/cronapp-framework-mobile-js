@@ -3,6 +3,11 @@
   "text_pt_BR": "Subtítulo",
   "text_en_US": "Subtitle",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-label.svg",
+  "description": "Botão",
+    "description_en_US": "Button",
+    "category": [
+        "TEXTS"
+    ],
   "wrapper": false,
   "template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",
   "properties": {

@@ -3,6 +3,11 @@
   "text_pt_BR": "Código QR",
   "text_en_US": "QR Code",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-QRCode.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "COMBOS"
+  ],
   "wrapper": true,
   "template": "<qr ng-model=\"vars.QR${RANDOM}\" ><div> </div> </qr>",
   "designTimeHTML": "<img alt=\"qr-code\" style=\"height: 100%;width:100%;min-height:100%; min-width:100%;\"  src=\"node_modules/cronapp-framework-mobile-js/img/qr-code.png\"/>",
