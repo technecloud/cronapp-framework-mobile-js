@@ -3,6 +3,11 @@
   "text_pt_BR": "Mapa",
   "text_en_US": "Map",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-map.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+      "LAYOUTS"
+  ],
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/maps.template.html",
   "properties": {
     "id": {
