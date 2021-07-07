@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista Avançada",
   "text_en_US": "Advanced List",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-ion-list.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "LISTS"
+  ],
   "onDrop": "openEditor",
   "wrapper": true,
   "onDoubleClick": "openEditor",

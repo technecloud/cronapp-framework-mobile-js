@@ -4,6 +4,11 @@
   "text_en_US": "Button Bar",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-button-bar.svg",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/button-bar.template.html",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "BUTTONS"
+  ],
   "forcedGroup": true,
   "properties": {
     "class": {

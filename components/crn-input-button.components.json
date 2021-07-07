@@ -3,6 +3,11 @@
   "text_pt_BR": "Entrada de texto com botão",
   "text_en_US": "Input Button",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-textinputbutton.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "INPUTS"
+  ],
   "wrapper": false,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/textinputbutton.template.html",

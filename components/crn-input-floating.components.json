@@ -3,6 +3,11 @@
   "text_pt_BR": "Entrada de texto flutuante",
   "text_en_US": "Float Input",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-input-floating.svg",
+  "description": "Botão",
+  "description_en_US": "Button",
+  "category": [
+    "INPUTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.template.html",
   "properties": {
