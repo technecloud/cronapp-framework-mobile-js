@@ -4,10 +4,10 @@
   "text_en_US": "Subtitle",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-label.svg",
   "description": "Texto com tamanho de letra padrão",
-    "description_en_US": "Text with standard font size",
-    "category": [
-        "TEXTS"
-    ],
+  "description_en_US": "Text with standard font size",
+  "category": [
+    "TEXTS"
+  ],
   "wrapper": false,
   "template": "<h2 xattr-position=\"text-center\" class=\"text-center\">Some label text</h2>",
   "properties": {
