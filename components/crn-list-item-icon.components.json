@@ -3,8 +3,8 @@
   "text_pt_BR": "Item com Ícone",
   "text_en_US": "Icon Item",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item-icon.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Cartão com ícone, título e subtítulo",
+  "description_en_US": "Card with icon, title and subtitle",
   "category": [
     "Itens"
   ],

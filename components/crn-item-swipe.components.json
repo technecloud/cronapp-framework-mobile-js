@@ -3,8 +3,8 @@
   "text_pt_BR": "Item com deslizar",
   "text_en_US": "Swipe Item",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-item-swipe.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Cartão com ação de deslizamento e exibição de botões",
+  "description_en_US": "Card with sliding action and display of buttons",
   "category": [
     "Itens"
   ],

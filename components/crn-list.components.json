@@ -3,8 +3,8 @@
   "text_pt_BR": "Lista simples",
   "text_en_US": "Simple list",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Cartão com texto",
+  "description_en_US": "Card with text",
   "category": [
     "LISTS"
   ],

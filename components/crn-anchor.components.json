@@ -3,10 +3,10 @@
   "text_pt_BR": "Link",
   "text_en_US": "Link",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-anchor.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Texto com vínculo a uma URL",
+  "description_en_US": "Text linked to a URL",
   "category": [
-      "LAYOUTS"
+    "LAYOUTS"
   ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/anchor.template.html",
