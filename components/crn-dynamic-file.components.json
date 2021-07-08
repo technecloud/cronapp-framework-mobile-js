@@ -3,8 +3,8 @@
   "text_pt_BR": "Envio de Arquivo Dinâmico",
   "text_en_US": "Dynamic File Upload",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-dynamic-file.svg",
-  "description": "Botão",
-  "description_en_US": "Button",
+  "description": "Estrutura para armazenar arquivos na fonte de dados",
+  "description_en_US": "Structure for storing file in data source",
   "category": [
       "INPUTS"
   ],

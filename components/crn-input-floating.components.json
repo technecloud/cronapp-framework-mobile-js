@@ -3,8 +3,8 @@
   "text_pt_BR": "Entrada de texto flutuante",
   "text_en_US": "Float Input",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-input-floating.svg",
-  "description": "Campo para inserir texto",
-  "description_en_US": "Field to enter text",
+  "description": "Campo para inserir texto com animação no título",
+  "description_en_US": "Field to insert text with animation in the title",
   "category": [
     "INPUTS"
   ],

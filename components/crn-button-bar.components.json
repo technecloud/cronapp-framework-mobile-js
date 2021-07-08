@@ -3,12 +3,12 @@
   "text_pt_BR": "Barra de botões",
   "text_en_US": "Button Bar",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-button-bar.svg",
-  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/button-bar.template.html",
   "description": "Botões alinhados na vertical",
   "description_en_US": "Botões alinhados na vertical",
   "category": [
     "BUTTONS"
   ],
+  "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/button-bar.template.html", 
   "forcedGroup": true,
   "properties": {
     "class": {

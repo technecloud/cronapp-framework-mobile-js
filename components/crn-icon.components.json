@@ -4,6 +4,8 @@
   "text_pt_BR": "Ícone",
   "text_en_US": "Icon",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-icon.svg",
+  "description": "Ícone",
+  "description_en_US": "Icon",
   "template": "<i class=\"ion ion-star\" id=\"\" style=\"font-size:300%;\" xattr-size=\"font-size:300%;\"/>",
   "wrapper": false,
   "properties": {
