@@ -3,6 +3,11 @@
   "text_pt_BR": "Seleção múltipla",
   "text_en_US": "Multiselect",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-multiselect.svg",
+  "description": "Caixa de seleção para selecionar mais de um item",
+  "description_en_US": "Checkbox to select more than one item",
+  "category": [
+    "INPUTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/multiselect.template.html",
   "properties": {

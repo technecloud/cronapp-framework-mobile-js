@@ -3,6 +3,11 @@
   "text_pt_BR": "Alternância",
   "text_en_US": "Toggle",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-toggle.svg",
+  "description": "Campo com texto e botão de verdadeiro ou falso",
+  "description_en_US": "Field with text and true or false button",
+  "category": [
+    "INPUTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/toggle.template.html",
   "properties": {

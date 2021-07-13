@@ -4,6 +4,8 @@
   "text_en_US": "Form",
   "order": 2,
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-form.svg",
+  "description": "Estrutura para adicionar componentes de entrada",
+  "description_en_US": "Structure for adding input components",
   "designTimeSelector": "form",
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/form.template.html"
 }

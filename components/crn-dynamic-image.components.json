@@ -3,6 +3,11 @@
   "text_pt_BR": "Imagem dinâmica",
   "text_en_US": "Dynamic Image",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-dynamic-image.svg",
+  "description": "Estrutura para armazenar imagem na fonte de dados",
+  "description_en_US": "Structure for storing image in data source",
+  "category": [
+      "INPUTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/dynamicimage.template.html",
   "properties": {

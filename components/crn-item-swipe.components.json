@@ -3,6 +3,14 @@
   "text_pt_BR": "Item com deslizar",
   "text_en_US": "Swipe Item",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-item-swipe.svg",
+  "description": "Cartão com ação de deslizamento e exibição de botões",
+  "description_en_US": "Card with sliding action and display of buttons",
+  "category": [
+    "Itens"
+  ],
+  "category_en_US": [
+    "Items"
+  ],
   "wrapper": true,
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/item.swipe.template.html",
@@ -10,7 +18,7 @@
     "onclick": {
       "type": "event"
     },
-    "id":{
+    "id": {
       "order": 1
     }
   },

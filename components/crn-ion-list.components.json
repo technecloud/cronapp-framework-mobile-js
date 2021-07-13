@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista Avançada",
   "text_en_US": "Advanced List",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-ion-list.svg",
+  "description": "Lista de dados com barra de pesquisa",
+  "description_en_US": "Data list with search bar",
+  "category": [
+    "LISTS"
+  ],
   "onDrop": "openEditor",
   "wrapper": true,
   "onDoubleClick": "openEditor",

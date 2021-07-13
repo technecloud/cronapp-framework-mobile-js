@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista com avatar",
   "text_en_US": "Avatar list",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-avatar.svg",
+  "description": "Lista de dados com avatar",
+  "description_en_US": "Data list with avatar",
+  "category": [
+    "LISTS"
+  ],
   "wrapper": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.avatar.template.html",
   "forcedGroup": true,

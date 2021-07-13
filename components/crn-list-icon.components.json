@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista com ícone",
   "text_en_US": "Icon List",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-icon.svg",
+  "description": "Lista de dados com ícone",
+  "description_en_US": "Data list with icon",
+  "category": [
+    "LISTS"
+  ],
   "wrapper": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.icon.template.html",
   "forcedGroup": true,

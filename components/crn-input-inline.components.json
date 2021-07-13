@@ -3,6 +3,11 @@
   "text_pt_BR": "Entrada de texto em linha",
   "text_en_US": "Inline Input",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-input-inline.svg",
+  "description": "Campo para inserir texto com título, alinhados verticalmente",
+  "description_en_US": "Field for entering text with title, vertically aligned",
+  "category": [
+    "INPUTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/inlinetextinput.template.html",
   "properties": {

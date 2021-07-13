@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista simples",
   "text_en_US": "Simple list",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list.svg",
+  "description": "Lista de cartão com texto",
+  "description_en_US": "Card list with text",
+  "category": [
+    "LISTS"
+  ],
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.template.html",
   "forcedGroup": true,
   "wrapper": false,

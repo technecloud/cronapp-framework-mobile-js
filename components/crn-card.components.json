@@ -2,7 +2,15 @@
   "name": "crn-card",
   "text_pt_BR": "Cartão",
   "text_en_US": "Card",
-  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-card.svg",
+  "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-item-thumbnail.svg",
+  "description": "Estrutura com avatar, título e subtítulo",
+  "description_en_US": "Structure with avatar, title and subtitle",
+  "category": [
+    "Itens"
+  ],
+  "category_en_US": [
+    "Items"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/card.template.html",
   "properties": {

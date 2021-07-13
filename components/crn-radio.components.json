@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista de Opção",
   "text_en_US": "Radio Group",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-radiogroup.svg",
+  "description": "Caixa de seleção redonda com texto",
+  "description_en_US": "Round selection box with text",
+  "category": [
+    "LISTS"
+  ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/radiogroup.template.html",
   "properties": {

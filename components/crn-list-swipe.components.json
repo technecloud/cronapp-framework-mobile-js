@@ -3,6 +3,11 @@
   "text_pt_BR": "Lista com deslizar",
   "text_en_US": "Swipe list",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-list-swipe.svg",
+  "description": "Lista de cartão com ação de deslizamento e exibição de botões",
+  "description_en_US": "Card list with swipe action and button displays",
+  "category": [
+    "LISTS"
+  ],
   "forcedGroup": true,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/list.swipe.template.html",
   "childrenProperties": [

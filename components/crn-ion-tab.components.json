@@ -3,6 +3,11 @@
   "text_pt_BR": "Abas",
   "text_en_US": "Tabs",
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-tabs.svg",
+  "description": "Diferentes painéis separados por abas",
+  "description_en_US": "Different panels separated by tabs",
+  "category": [
+    "LAYOUTS"
+  ],
   "designTimeClass": [
     {
       "selector": "ion-tabs",
