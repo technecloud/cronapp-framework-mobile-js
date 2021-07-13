@@ -6,7 +6,7 @@
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.template.html",
   "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.designtime.html",
-  "designTimeSelector": "div",
+  "designTimeSelector": ":self",
   "designTimeDynamic": true,
   "properties": {
     "id": {
