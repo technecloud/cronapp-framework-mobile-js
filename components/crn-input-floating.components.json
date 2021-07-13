@@ -5,6 +5,9 @@
   "image": "/node_modules/cronapp-framework-mobile-js/img/cron-icon/crn-input-floating.svg",
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.template.html",
+  "designTimeHTML": "<div class=\"item item-input item-floating-label\"><span class=\"input-label\">Input Label</span> <input type=\"text\" placeholder=\"Input Placeholder\"></div>",
+  "designTimeSelector": ":self",
+  "designTimeDynamic": true,
   "properties": {
     "id": {
       "order": 1
@@ -117,7 +120,7 @@
       "selector": "div#{id} input",
       "text_pt_BR": "Entrada de texto",
       "text_en_US": "Input"
-    }    
+    }
   ],
   "attributesForPreview": [
     {
