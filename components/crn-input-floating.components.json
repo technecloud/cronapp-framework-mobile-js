@@ -10,6 +10,9 @@
   ],
   "wrapper": false,
   "templateURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.template.html",
+  "designTimeHTMLURL": "src/main/mobileapp/www/node_modules/cronapp-framework-mobile-js/dist/components/templates/floattextinput.designtime.html",
+  "designTimeSelector": ":self",
+  "designTimeDynamic": true,
   "properties": {
     "id": {
       "order": 1
@@ -122,7 +125,7 @@
       "selector": "div#{id} input",
       "text_pt_BR": "Entrada de texto",
       "text_en_US": "Input"
-    }    
+    }
   ],
   "attributesForPreview": [
     {

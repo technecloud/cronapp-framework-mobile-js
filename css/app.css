@@ -275,3 +275,7 @@ ion-header-bar.bar h1.title {
 .button-bar > .button:last-child{
     border-right-width: inherit;
 }
+
+.item-floating-label .input-label{
+    display: table;
+}
