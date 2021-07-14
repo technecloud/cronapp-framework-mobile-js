@@ -254,6 +254,10 @@ kendo-chat .k-bubble {
     text-align: inherit;
 }
 
+ion-header-bar.bar h1.title {
+    text-align: center;
+}
+
 .bar-positive .button.button-icon{
     align-content: center;
     display: grid;
