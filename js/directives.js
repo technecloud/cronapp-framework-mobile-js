@@ -1737,6 +1737,7 @@ window.addEventListener('message', function(event) {
 
         if (loggedUserInfo && loggedUserInfo.user) {
           defaultUserName = loggedUserInfo.user.name;
+          defaultUserId = loggedUserInfo.user.id;
         }
 
         let chatElement = $("<div></div>");
@@ -1746,13 +1747,14 @@ window.addEventListener('message', function(event) {
             placeholder: chatPlaceholder,
           },
           user: {
-            id: chatUserId || defaultUserId,
             name: chatUsername || defaultUserName,
             iconUrl: chatUserImage,
           },
         });
 
-        chat = chatElement.data("kendoChat");
+        let chat = chatElement.data("kendoChat");
+
+        chat.options.user.id = chatUserId || defaultUserId;
 
         //Binding Chat Events
         chat.bind("post", (msg) => {
