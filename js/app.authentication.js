@@ -77,7 +77,7 @@ var app = (function() {
               }
             });
         })
-        .config(['$httpProvider', '$compileProvider', function ($httpProvider) {
+        .config(['$httpProvider', '$compileProvider', function ($httpProvider, $compileProvider) {
           $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|ionic):|data:image/);
           var interceptor = [
             '$q',
