@@ -77,44 +77,44 @@ var app = (function() {
               }
             });
         })
-        .config([
-            '$httpProvider',
-            function($httpProvider) {
-                var interceptor = [
-                    '$q',
-                    '$rootScope',
-                    '$injector',
-                    function($q, $rootScope, $injector) {
-                        var service = {
-                            request: function(config) {
-                                var _u = JSON.parse(localStorage.getItem('_u'));
-                                if (_u && _u.token) {
-                                    config.headers['X-AUTH-TOKEN'] = _u.token;
-                                    window.uToken = _u.token;
-                                }
-                                return config;
-                            },
-                            responseError: function(error) {
-                                if (error.status === 500) {
-                                    // Verify if token is still valid
-                                    let $state = $injector.get('$state');
-                                    let $http = $injector.get('$http');
-                                    let Notification = $injector.get('Notification');
-                                    window.refreshToken(Notification, $http, ()=>{}, (e)=>{
-                                      if (e.status !== 404) {
-                                        localStorage.removeItem("_u")
-                                        $state.go("login");
-                                      }
-                                    });
-                                }
-                                return $q.reject(error);
-                            }
-                        };
-                        return service;
-                    }
-                ];
-                $httpProvider.interceptors.push(interceptor);
+        .config(['$httpProvider', '$compileProvider', function ($httpProvider, $compileProvider) {
+          $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|ionic):|data:image/);
+          var interceptor = [
+            '$q',
+            '$rootScope',
+            '$injector',
+            function ($q, $rootScope, $injector) {
+              var service = {
+                request: function (config) {
+                  var _u = JSON.parse(localStorage.getItem('_u'));
+                  if (_u && _u.token) {
+                    config.headers['X-AUTH-TOKEN'] = _u.token;
+                    window.uToken = _u.token;
+                  }
+                  return config;
+                },
+                responseError: function (error) {
+                  if (error.status === 500) {
+                    // Verify if token is still valid
+                    let $state = $injector.get('$state');
+                    let $http = $injector.get('$http');
+                    let Notification = $injector.get('Notification');
+                    window.refreshToken(Notification, $http, () => {
+                    }, (e) => {
+                      if (e.status !== 404) {
+                        localStorage.removeItem("_u")
+                        $state.go("login");
+                      }
+                    });
+                  }
+                  return $q.reject(error);
+                }
+              };
+              return service;
             }
+          ];
+          $httpProvider.interceptors.push(interceptor);
+        }
         ])
         .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             $ionicConfigProvider.navBar.alignTitle('center');
